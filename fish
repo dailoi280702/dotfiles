@@ -1,1 +1,0 @@
-/home/lloyd/.config/fish/
