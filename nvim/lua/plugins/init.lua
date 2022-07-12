@@ -20,7 +20,6 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-path" })
 	use({ "hrsh7th/cmp-cmdline" })
 	use({ "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-vsnip" })
 	use({ "onsails/lspkind-nvim", config = "require('lspkind-config')" })
 	use({ "saadparwaiz1/cmp_luasnip" }) -- Snippets source for nvim-cmp
 	use({ "L3MON4D3/LuaSnip" }) -- Snippets plugin
@@ -30,17 +29,19 @@ return require("packer").startup(function(use)
 	use({ "williamboman/nvim-lsp-installer" }) --lsp installer
 	use({ "norcalli/nvim-colorizer.lua", config = "require('colorizer').setup()" }) -- colorizer
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- null-ls
-	use({ "p00f/nvim-ts-rainbow" })
 	use({ "shime/vim-livedown" })
 	use({ "MunifTanjim/prettier.nvim", config = "require('prettier-config')" })
+	-- use({ "MunifTanjim/eslint.nvim", config = "require('prettier-config')" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "kdheepak/tabline.nvim", config = "require('tabline-config')" })
 	use({ "Pocco81/AutoSave.nvim", config = "require('AutoSave-config')" })
-	use({ "Mofiqul/vscode.nvim" })
 	use({
 		"nathom/filetype.nvim",
 		config = function()
 			require("filetype").setup({})
 		end,
 	})
+	-- use({ "Mofiqul/vscode.nvim" })
+	-- use({ "bluz71/vim-moonfly-colors" })
+	use({ "rebelot/kanagawa.nvim" })
 end)

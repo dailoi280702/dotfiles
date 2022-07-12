@@ -4,11 +4,11 @@ if not status_ok then
 end
 
 prettier.setup({
-	bin = "prettierd", -- or `prettierd`
+	bin = "prettier", -- or `prettierd`
 	filetypes = {
 		"css",
 		"graphql",
-		"html",
+		-- "html",
 		"javascript",
 		"javascriptreact",
 		"json",

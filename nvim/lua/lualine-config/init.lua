@@ -5,7 +5,7 @@ end
 
 lualine.setup({
 	options = {
-		theme = "vscode",
+		-- theme = "",
 		globalstatus = true,
 	},
 	sections = {

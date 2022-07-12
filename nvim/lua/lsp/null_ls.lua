@@ -4,35 +4,12 @@ local diagnostics = null_ls.builtins.diagnostics
 local formatting_sources = {
 	formatting.stylua,
 	formatting.prettier.with({
-		extra_filetypes = { "toml", "solidity" },
-		extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+		-- extra_filetypes = { "toml", "solidity" },
+		-- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 	}),
 	formatting.fixjson,
 	diagnostics.selene,
-	-- formatting.black,
-	-- formatting.gofmt,
-	-- formatting.shfmt,
-	-- formatting.clang_format,
-	-- formatting.cmake_format,
-	-- formatting.dart_format,
-	-- formatting.lua_format.with({
-	--   extra_args = {
-	--     '--no-keep-simple-function-one-line', '--no-break-after-operator', '--column-limit=100',
-	--     '--break-after-table-lb', '--indent-width=2'
-	--   }
-	-- }),
-	-- formatting.isort,
-	-- formatting.codespell.with({ filetypes = { 'markdown' } })
 }
-
--- null_ls.setup({
--- 	sources = formatting_sources,
--- 	on_attach = function(client)
--- 		if client.resolved_capabilities.document_formatting then
--- 			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
--- 		end
--- 	end,
--- })
 
 local async_formatting = function(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
@@ -68,7 +45,6 @@ end
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
-	-- add your sources / config options here
 	sources = formatting_sources,
 	debug = false,
 	on_attach = function(client, bufnr)

@@ -100,11 +100,6 @@ _G.packer_plugins = {
     path = "/home/lloyd/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["cmp-vsnip"] = {
-    loaded = true,
-    path = "/home/lloyd/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
-    url = "https://github.com/hrsh7th/cmp-vsnip"
-  },
   cmp_luasnip = {
     loaded = true,
     path = "/home/lloyd/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -125,6 +120,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lloyd/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/lloyd/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lspkind-nvim"] = {
     config = { "require('lspkind-config')" },
@@ -194,11 +194,6 @@ _G.packer_plugins = {
     path = "/home/lloyd/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
-  ["nvim-ts-rainbow"] = {
-    loaded = true,
-    path = "/home/lloyd/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/lloyd/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -251,62 +246,62 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lspsaga.nvim
-time([[Config for lspsaga.nvim]], true)
-require('lspsaga-config')
-time([[Config for lspsaga.nvim]], false)
 -- Config for: lspkind-nvim
 time([[Config for lspkind-nvim]], true)
 require('lspkind-config')
 time([[Config for lspkind-nvim]], false)
--- Config for: nvim-comment
-time([[Config for nvim-comment]], true)
-require('nvim-comment-config')
-time([[Config for nvim-comment]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('lsp')
-time([[Config for nvim-lspconfig]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('lualine-config')
-time([[Config for lualine.nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-require('colorizer').setup()
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('telescope-config')
-time([[Config for telescope.nvim]], false)
--- Config for: AutoSave.nvim
-time([[Config for AutoSave.nvim]], true)
-require('AutoSave-config')
-time([[Config for AutoSave.nvim]], false)
--- Config for: prettier.nvim
-time([[Config for prettier.nvim]], true)
-require('prettier-config')
-time([[Config for prettier.nvim]], false)
 -- Config for: tabline.nvim
 time([[Config for tabline.nvim]], true)
 require('tabline-config')
 time([[Config for tabline.nvim]], false)
--- Config for: filetype.nvim
-time([[Config for filetype.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rfiletype\frequire\0", "config", "filetype.nvim")
-time([[Config for filetype.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('treesitter-config')
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require('nvim-autopairs').setup()
-time([[Config for nvim-autopairs]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 require('whichkey-config')
 time([[Config for which-key.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('lsp')
+time([[Config for nvim-lspconfig]], false)
+-- Config for: prettier.nvim
+time([[Config for prettier.nvim]], true)
+require('prettier-config')
+time([[Config for prettier.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('lualine-config')
+time([[Config for lualine.nvim]], false)
+-- Config for: AutoSave.nvim
+time([[Config for AutoSave.nvim]], true)
+require('AutoSave-config')
+time([[Config for AutoSave.nvim]], false)
+-- Config for: nvim-comment
+time([[Config for nvim-comment]], true)
+require('nvim-comment-config')
+time([[Config for nvim-comment]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require('nvim-autopairs').setup()
+time([[Config for nvim-autopairs]], false)
+-- Config for: filetype.nvim
+time([[Config for filetype.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rfiletype\frequire\0", "config", "filetype.nvim")
+time([[Config for filetype.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+require('colorizer').setup()
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+require('lspsaga-config')
+time([[Config for lspsaga.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('treesitter-config')
+time([[Config for nvim-treesitter]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('telescope-config')
+time([[Config for telescope.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
