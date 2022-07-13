@@ -1,6 +1,7 @@
 require("impatient")
 require("options")
+require("theme-config")
 require("keybindings")
 require("disable-builtin-plug")
 require("plugins")
-require("theme-config")
+require("lsp")

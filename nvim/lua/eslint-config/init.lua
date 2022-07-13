@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 eslint.setup({
-	bin = "eslint", -- or `eslint_d`
+	bin = "eslint_d", -- or `eslint_d`
 	code_actions = {
 		enable = true,
 		apply_on_save = {

@@ -3,8 +3,9 @@ return require("packer").startup(function(use)
 	use({ "lewis6991/impatient.nvim" })
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-		config = "require('treesitter-config')",
+		run = function()
+			require("nvim-treesitter.install").update({ with_sync = true })
+		end,
 	})
 	use({
 		"nvim-lualine/lualine.nvim",
@@ -14,7 +15,7 @@ return require("packer").startup(function(use)
 	use({ "windwp/nvim-autopairs", config = "require('nvim-autopairs').setup()" })
 	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim", config = "require('telescope-config')" })
 	use({ "folke/which-key.nvim", config = "require('whichkey-config')" }) -- which-key plug
-	use({ "neovim/nvim-lspconfig", config = "require('lsp')" })
+	use({ "neovim/nvim-lspconfig" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-buffer" })
 	use({ "hrsh7th/cmp-path" })
@@ -25,13 +26,13 @@ return require("packer").startup(function(use)
 	use({ "L3MON4D3/LuaSnip" }) -- Snippets plugin
 	use({ "rafamadriz/friendly-snippets" })
 	use({ "terrortylor/nvim-comment", config = "require('nvim-comment-config')" })
-	use({ "tami5/lspsaga.nvim", config = "require('lspsaga-config')" }) --lsp saga
+	use({ "kkharji/lspsaga.nvim", config = "require('lspsaga-config')" }) --lsp saga
 	use({ "williamboman/nvim-lsp-installer" }) --lsp installer
 	use({ "norcalli/nvim-colorizer.lua", config = "require('colorizer').setup()" }) -- colorizer
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- null-ls
 	use({ "shime/vim-livedown" })
-	use({ "MunifTanjim/prettier.nvim", config = "require('prettier-config')" })
-	-- use({ "MunifTanjim/eslint.nvim", config = "require('prettier-config')" })
+	use({ "MunifTanjim/prettier.nvim" })
+	use({ "MunifTanjim/eslint.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "kdheepak/tabline.nvim", config = "require('tabline-config')" })
 	use({ "Pocco81/AutoSave.nvim", config = "require('AutoSave-config')" })
@@ -41,11 +42,12 @@ return require("packer").startup(function(use)
 			require("filetype").setup({})
 		end,
 	})
+	use({ "dstein64/vim-startuptime" })
+	-- use({ "sheerun/vim-polyglot" })
 	-- use({ "Mofiqul/vscode.nvim" })
-	use({ "bluz71/vim-moonfly-colors" })
+	-- use({ "bluz71/vim-moonfly-colors" })
 	-- use({ "rebelot/kanagawa.nvim" })
 	-- use({ "tjdevries/colorbuddy.nvim" })
 	-- use({ "svrana/neosolarized.nvim" })
-	use({ "sheerun/vim-polyglot" })
 	use({ "pineapplegiant/spaceduck" })
 end)

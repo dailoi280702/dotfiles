@@ -4,11 +4,11 @@ if not status_ok then
 end
 
 prettier.setup({
-	bin = "prettier", -- or `prettierd`
+	bin = "prettierd", -- or `prettierd`
 	filetypes = {
 		"css",
 		"graphql",
-		-- "html",
+		"html",
 		"javascript",
 		"javascriptreact",
 		"json",
@@ -27,12 +27,12 @@ prettier.setup({
 	end_of_line = "lf",
 	html_whitespace_sensitivity = "css",
 	jsx_bracket_same_line = false,
-	jsx_single_quote = false,
+	jsx_single_quote = true,
 	print_width = 80,
 	prose_wrap = "preserve",
 	quote_props = "as-needed",
 	semi = true,
-	single_quote = false,
+	single_quote = true,
 	tab_width = 2,
 	trailing_comma = "es5",
 	use_tabs = false,

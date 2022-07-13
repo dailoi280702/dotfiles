@@ -10,7 +10,6 @@ local servers = {
 	"html",
 	"ltex",
 	"sumneko_lua",
-	-- "eslint",
 	-- "grammarly",
 }
 

@@ -52,8 +52,8 @@ local mappings = {
 		t = { ":LivedownToggle<cr>", "Toggle Livedown" },
 	},
 	w = { ":w<cr>", "Save" },
-	n = { ":TablineBufferNext<cr>", "Next Tab" },
-	N = { ":TablineBufferPrevious<cr>", "Prev Tab" },
+	t = { ":TablineBufferNext<cr>", "Next Tab" },
+	T = { ":TablineBufferPrevious<cr>", "Prev Tab" },
 }
 local opts = { prefix = "<leader>" }
 

@@ -1,12 +1,12 @@
 local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+local code_actions = null_ls.builtins.code_actions
 local formatting_sources = {
 	formatting.stylua,
-	formatting.prettier.with({
-		-- extra_filetypes = { "toml", "solidity" },
-		-- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-	}),
+	formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
+	diagnostics.eslint,
+	code_actions.eslint,
 	formatting.fixjson,
 	diagnostics.selene,
 }
@@ -45,6 +45,7 @@ end
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
+	-- add your sources / config options here
 	sources = formatting_sources,
 	debug = false,
 	on_attach = function(client, bufnr)
@@ -60,3 +61,6 @@ null_ls.setup({
 		end
 	end,
 })
+
+require("prettier-config")
+require("eslint-config")
