@@ -5,7 +5,6 @@ end
 
 lualine.setup({
 	options = {
-		-- theme = "",
 		globalstatus = true,
 	},
 	sections = {

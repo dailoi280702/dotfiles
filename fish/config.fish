@@ -18,5 +18,6 @@ if status is-interactive
 
 	# set --universal ayu_variant dark && ayu_load_theme
 	starship init fish | source
-	source ~/.config/fish/themes/kanagawa.fish
+	#source ~/.config/fish/themes/moonfly.fish
+	fish_config theme choose 'fish default'
 end
