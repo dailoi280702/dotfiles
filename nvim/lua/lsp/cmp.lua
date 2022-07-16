@@ -1,5 +1,10 @@
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 
+local cmp_status, cmp = pcall(require, "cmp")
+if not cmp_status then
+	return
+end
+
 local lspkind_status, lspkind = pcall(require, "lspkind")
 if not lspkind_status then
 	return
@@ -11,11 +16,6 @@ if not snip_status then
 end
 
 require("luasnip.loaders.from_vscode").lazy_load()
-
-local cmp_status, cmp = pcall(require, "cmp")
-if not cmp_status then
-	return
-end
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
@@ -61,7 +61,7 @@ cmp.setup({
 	}),
 	formatting = {
 		format = lspkind.cmp_format({
-			with_text = true,
+			with_text = false,
 			maxwidth = 50,
 		}),
 	},

@@ -11,6 +11,7 @@ if status is-interactive
 
 	set -gx PATH "$HOME/.cargo/bin" $PATH;
 	set -gx PATH "$HOME/.local/bin" $PATH;
+	set -gx PATH "$HOME/.bun/bin" $PATH;
 
 	function tre
 		command tre $argv -e; and source /tmp/tre_aliases_$USER ^/dev/null
@@ -21,3 +22,8 @@ if status is-interactive
 	#source ~/.config/fish/themes/moonfly.fish
 	fish_config theme choose 'fish default'
 end
+
+# bun
+set -Ux BUN_INSTALL "/home/lloyd/.bun"
+fish_add_path "/home/lloyd/.bun/bin"
+

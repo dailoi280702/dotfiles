@@ -5,6 +5,7 @@ end
 
 lualine.setup({
 	options = {
+		-- theme = "enfocado",
 		globalstatus = true,
 	},
 	sections = {

@@ -10,6 +10,20 @@ end
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
+M.setup = function()
+	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+		border = "rounded",
+		width = 60,
+		-- height = 30,
+	})
+
+	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+		border = "rounded",
+		width = 60,
+		-- height = 30,
+	})
+end
+
 M.on_attach = function(client)
 	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false

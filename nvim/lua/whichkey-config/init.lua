@@ -22,7 +22,11 @@ whichkey.setup({
 
 local mappings = {
 	q = { ":LspInfo<cr>", "Lsp show" },
-	f = { ":Telescope find_files<cr>", "Telesope Find Files" },
+	f = {
+		name = "Telescope",
+		f = { ":Telescope find_files<cr>", "Telesope Find Files" },
+		b = { ":Telescope file_browser<cr>", "Telesope Browse Files" },
+	},
 	l = {
 		name = "LSP",
 		i = { ":LspInfo<cr>", "Connected Language Servers" },
@@ -52,8 +56,8 @@ local mappings = {
 		t = { ":LivedownToggle<cr>", "Toggle Livedown" },
 	},
 	w = { ":w<cr>", "Save" },
-	t = { ":TablineBufferNext<cr>", "Next Tab" },
-	T = { ":TablineBufferPrevious<cr>", "Prev Tab" },
+	n = { ":TablineBufferNext<cr>", "Next Tab" },
+	N = { ":TablineBufferPrevious<cr>", "Prev Tab" },
 }
 local opts = { prefix = "<leader>" }
 
