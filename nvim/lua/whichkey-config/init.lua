@@ -25,7 +25,8 @@ local mappings = {
 	f = {
 		name = "Telescope",
 		f = { ":Telescope find_files<cr>", "Telesope Find Files" },
-		b = { ":Telescope file_browser<cr>", "Telesope Browse Files" },
+		B = { ":Telescope file_browser<cr>", "Telesope Browse Files" },
+		b = { ":Telescope buffers<cr>", "Telesope Browse Files" },
 	},
 	l = {
 		name = "LSP",
@@ -56,8 +57,6 @@ local mappings = {
 		t = { ":LivedownToggle<cr>", "Toggle Livedown" },
 	},
 	w = { ":w<cr>", "Save" },
-	n = { ":TablineBufferNext<cr>", "Next Tab" },
-	N = { ":TablineBufferPrevious<cr>", "Prev Tab" },
 }
 local opts = { prefix = "<leader>" }
 

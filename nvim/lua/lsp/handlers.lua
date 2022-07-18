@@ -10,33 +10,33 @@ end
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
-M.setup = function()
-	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "rounded",
-		width = 60,
-		-- height = 30,
-	})
+-- M.setup = function()
+-- 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+-- 		border = "rounded",
+-- 		width = 60,
+-- 		-- height = 30,
+-- 	})
 
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "rounded",
-		width = 60,
-		-- height = 30,
-	})
-end
+-- 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+-- 		border = "rounded",
+-- 		width = 60,
+-- 		-- height = 30,
+-- 	})
+-- end
 
 M.on_attach = function(client)
-	if client.name == "tsserver" then
+	if client.name == "tsserver" or client.name == "html" or client.name == "sumneko_lua" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
 
-	if client.name == "html" then
-		-- client.resolved_capabilities.document_formatting = false
-		client.server_capabilities.documentFormattingProvider = false
-	end
+	-- if client.name == "html" then
+	-- 	-- client.resolved_capabilities.document_formatting = false
+	-- 	client.server_capabilities.documentFormattingProvider = false
+	-- end
 
-	if client.name == "sumneko_lua" then
-		client.server_capabilities.documentFormattingProvider = false
-	end
+	-- if client.name == "sumneko_lua" then
+	-- 	client.server_capabilities.documentFormattingProvider = false
+	-- end
 end
 
 return M

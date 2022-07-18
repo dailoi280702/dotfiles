@@ -23,4 +23,8 @@ require("nvim-treesitter.configs").setup({
 	autopairs = {
 		enable = true,
 	},
+	rainbow = {
+		enable = true,
+		extended_mode = true,
+	},
 })
