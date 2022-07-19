@@ -1,24 +1,14 @@
-vim.g.completeopt = "menu,menuone,noselect,noinsert"
-
 local cmp_status, cmp = pcall(require, "cmp")
 if not cmp_status then
 	return
 end
 
 local lspkind_status, lspkind = pcall(require, "lspkind")
--- if not lspkind_status then
--- 	return
--- end
-
-local snip_status, luasnip = pcall(require, "luasnip")
-if not snip_status then
+if not lspkind_status then
 	return
 end
 
--- require("luasnip.loaders.from_vscode").lazy_load()
-
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+local luasnip = require("luasnip")
 
 cmp.setup({
 	snippet = {
@@ -55,7 +45,11 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" }, -- For luasnip users.
+		{ name = "nvim_lua" },
+		{ name = "luasnip" },
+		{ name = "path" },
+		{ name = "buffer" },
+		{ name = "cmdline" },
 		-- { name = "buffer" },
 	}),
 	formatting = {

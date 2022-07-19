@@ -1,9 +1,10 @@
--- vim.cmd([["filetype plugin indent on"]])
 -- vim.o.shortmess = vim.o.shortmess .. "c"
+vim.g.did_load_filetypes = 0
 vim.o.hidden = true
 vim.o.whichwrap = "b,s,<,>,[,],h,l"
 vim.o.pumheight = 10
-vim.o.pumblend = 10
+-- vim.o.pumblend = 10
+vim.o.pumblend = 0
 vim.o.fileencoding = "utf-8"
 vim.o.cmdheight = 1
 vim.o.splitbelow = true
@@ -13,8 +14,6 @@ vim.o.conceallevel = 0
 vim.o.showmode = false
 vim.o.backup = false
 vim.o.writebackup = false
--- vim.o.updatetime = 300
--- vim.o.timeoutlen = 100
 vim.o.updatetime = 0
 vim.o.timeoutlen = 0
 vim.o.clipboard = "unnamedplus"
@@ -37,3 +36,4 @@ vim.o.autoindent = true
 vim.o.wrap = false
 vim.o.lazyredraw = true
 vim.g.mapleader = " "
+vim.g.completeopt = "menu,menuone,noselect,noinsert"

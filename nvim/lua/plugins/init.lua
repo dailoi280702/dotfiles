@@ -1,11 +1,13 @@
 return require("packer").startup(function(use)
-	config = "require('telescope-config')", use({ "wbthomason/packer.nvim" }) -- Packer can manage itself
+	use({ "wbthomason/packer.nvim" }) -- Packer can manage itself
 
 	use({ "lewis6991/impatient.nvim" })
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
+		opt = true,
 		run = ":TSUpdate",
+		event = "BufReadPost",
 		config = function()
 			require("treesitter-config")
 		end,
@@ -16,18 +18,19 @@ return require("packer").startup(function(use)
 		opt = true,
 		config = "require('lsp')",
 		event = "BufReadPre",
+		-- after = "nvim-lsp-installer",
 	})
 
 	use({
 		opt = false,
 		"williamboman/nvim-lsp-installer",
-	}) --lsp installer
+	})
 
 	use({
 		"kkharji/lspsaga.nvim",
 		opt = true,
 		config = "require('lspsaga-config')",
-		after = "nvim-lspconfig",
+		-- after = "nvim-lspconfig",
 	}) --lsp saga
 
 	use({
@@ -58,13 +61,14 @@ return require("packer").startup(function(use)
 
 	use({
 		"windwp/nvim-autopairs",
+		after = "nvim-cmp",
 		config = "require('nvim-autopairs').setup()",
 	})
 
 	use({
 		"p00f/nvim-ts-rainbow",
 		opt = true,
-		after = "nvim-treesitter",
+		-- after = "nvim-treesitter",
 		event = "BufReadPost",
 	})
 
@@ -74,6 +78,9 @@ return require("packer").startup(function(use)
 			{ "nvim-lua/plenary.nvim", opt = false },
 			{ "nvim-lua/popup.nvim", opt = true },
 		},
+		config = function()
+			require("telescope").load_extension("file_browser")
+		end,
 	})
 
 	use({
@@ -104,13 +111,16 @@ return require("packer").startup(function(use)
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = "require('colorizer').setup()",
+		event = { "BufReadPost", "BufNewFile" },
 	}) -- colorizer
 
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- null-ls
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+	}) -- null-ls
 
-	-- use({ "p00f/nvim-ts-rainbow" })
-
-	use({ "shime/vim-livedown" })
+	use({
+		"shime/vim-livedown",
+	})
 
 	use({
 		"MunifTanjim/prettier.nvim",
@@ -126,7 +136,11 @@ return require("packer").startup(function(use)
 		-- end,
 	})
 
-	use({ "windwp/nvim-ts-autotag" })
+	use({
+		"windwp/nvim-ts-autotag",
+		opt = true,
+		after = "nvim-treesitter",
+	})
 
 	use({
 		"Pocco81/AutoSave.nvim",
@@ -152,15 +166,6 @@ return require("packer").startup(function(use)
 		event = "BufReadPost",
 	})
 
-	-- use({
-	-- 	"akinsho/bufferline.nvim",
-	-- 	requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	-- 	config = function()
-	-- 		require("bufferline-config")
-	-- 	end,
-	-- 	event = "BufReadPost",
-	-- })
-
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -171,12 +176,24 @@ return require("packer").startup(function(use)
 	})
 
 	-- themes
+	-- use({
+	-- 	"sainnhe/gruvbox-material",
+	-- 	config = function()
+	-- 		require("theme-config")
+	-- 	end,
+	-- })
+
+	-- use({
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		require("theme-config")
+	-- 	end,
+	-- })
+
 	use({
-		"sainnhe/gruvbox-material",
+		"projekt0n/github-nvim-theme",
 		config = function()
 			require("theme-config")
 		end,
 	})
-
-	use({ "NvChad/base46" })
 end)

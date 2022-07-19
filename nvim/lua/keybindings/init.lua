@@ -1,6 +1,5 @@
 local map = vim.api.nvim_set_keymap
 
--- vim.api.nvim_set_keymap("n", " ", "<leader>", { noremap = false, silent = true })
 map(
 	"n",
 	"<C-u>",

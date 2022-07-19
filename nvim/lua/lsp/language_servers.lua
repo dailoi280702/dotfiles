@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-vim.cmd([[packadd cmp-nvim-lsp]])
+-- vim.cmd([[packadd cmp-nvim-lsp]])
 
 local servers = {
 	"tsserver",
@@ -16,7 +16,7 @@ local servers = {
 }
 
 local settings = {
-	ensure_installed = "all",
+	ensure_installed = servers,
 	automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
 	ui = {
 		icons = {
@@ -27,10 +27,8 @@ local settings = {
 	},
 }
 
--- setup lsp_installer
 lsp_installer.setup(settings)
 
--- check for lsp-config
 local lsp_config_status_ok, nvim_lsp = pcall(require, "lspconfig")
 if not lsp_config_status_ok then
 	return

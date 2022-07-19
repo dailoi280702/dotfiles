@@ -5,7 +5,7 @@ end
 
 lualine.setup({
 	options = {
-		-- theme = "enfocado",
+		-- theme = "dracula-nvim",
 		globalstatus = true,
 	},
 	sections = {

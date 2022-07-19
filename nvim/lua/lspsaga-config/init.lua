@@ -1,3 +1,3 @@
-local lspsaga = require("lspsaga")
+local saga = require("lspsaga")
 
-lspsaga.setup({})
+saga.setup({})
