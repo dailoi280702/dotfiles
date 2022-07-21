@@ -30,7 +30,7 @@ return require("packer").startup(function(use)
 		"kkharji/lspsaga.nvim",
 		opt = true,
 		config = "require('lspsaga-config')",
-		-- after = "nvim-lspconfig",
+		after = "nvim-lspconfig",
 	}) --lsp saga
 
 	use({
@@ -65,12 +65,12 @@ return require("packer").startup(function(use)
 		config = "require('nvim-autopairs').setup()",
 	})
 
-	use({
-		"p00f/nvim-ts-rainbow",
-		opt = true,
-		-- after = "nvim-treesitter",
-		event = "BufReadPost",
-	})
+	-- use({
+	-- 	"p00f/nvim-ts-rainbow",
+	-- 	opt = true,
+	-- 	-- after = "nvim-treesitter",
+	-- 	event = "BufReadPost",
+	-- })
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -94,6 +94,7 @@ return require("packer").startup(function(use)
 	use({
 		"folke/which-key.nvim",
 		config = "require('whichkey-config')",
+		event = { "BufRead", "BufWinEnter", "BufNewFile" },
 	}) -- which-key plug
 
 	use({
@@ -147,6 +148,15 @@ return require("packer").startup(function(use)
 		config = function()
 			require("AutoSave-config")
 		end,
+		event = "BufReadPost",
+		after = "null-ls.nvim",
+	})
+
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
 	})
 
 	use({
@@ -172,16 +182,29 @@ return require("packer").startup(function(use)
 		config = function()
 			require("lualine-config")
 		end,
-		event = "BufReadPost",
+		event = "bufreadpost",
+		after = "tabline.nvim",
+	})
+
+	use({
+		opt = true,
+		"SmiteshP/nvim-gps",
+		config = function()
+			require("nvim-gps").setup({})
+		end,
+		event = "bufreadpost",
+		after = "lualine.nvim",
+	})
+
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+		after = "nvim-gps",
 	})
 
 	-- themes
-	-- use({
-	-- 	"sainnhe/gruvbox-material",
-	-- 	config = function()
-	-- 		require("theme-config")
-	-- 	end,
-	-- })
 
 	-- use({
 	-- 	"rebelot/kanagawa.nvim",
@@ -191,9 +214,14 @@ return require("packer").startup(function(use)
 	-- })
 
 	use({
-		"projekt0n/github-nvim-theme",
+		"svrana/neosolarized.nvim",
 		config = function()
 			require("theme-config")
 		end,
+		after = "colorbuddy.nvim",
+	})
+
+	use({
+		"tjdevries/colorbuddy.nvim",
 	})
 end)

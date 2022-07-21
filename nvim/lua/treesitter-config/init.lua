@@ -21,18 +21,17 @@ require("nvim-treesitter.configs").setup({
 	autopairs = {
 		enable = true,
 	},
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-		disable = { "html" },
-		colors = {
-			"#A3D4D5",
-			"#E46876",
-			"#D27E99",
-			"#FF9E3B",
-			"#76946A",
-			"#957FB8",
-			"#7E9CD8",
-		},
-	},
+	-- rainbow = {
+	-- 	enable = true,
+	-- 	extended_mode = true,
+	-- 	disable = { "html" },
+	-- 	-- colors = {
+	-- 	-- 	"#fa7970",
+	-- 	-- 	"#FF9E3B",
+	-- 	-- 	"#7ce38b",
+	-- 	-- 	"#a2d2fb",
+	-- 	-- 	"#77bdfb",
+	-- 	-- 	"#cea5fb",
+	-- 	-- },
+	-- },
 })

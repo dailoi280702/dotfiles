@@ -1,16 +1,19 @@
--- vim.g.gruvbox_material_background = "hard"
--- vim.g.gruvbox_material_better_performance = 1
--- vim.g.gruvbox_material_transparent_background = 2
--- vim.g.gruvbox_material_ui_contrast = 1
-
 -- require("kanagawa").setup({
 -- 	transparent = true,
 -- })
-
-require("github-theme").setup({
-	theme_style = "dark_default",
+require("neosolarized").setup({
+	comment_italics = true,
 })
 
+local colorbuddy = require("colorbuddy.init")
+local colors = colorbuddy.colors
+local Group = colorbuddy.Group
+local styles = colorbuddy.styles
+
 vim.cmd([[
-	colorscheme github_dark_default
+	hi PmenuSel blend=0
+	colorscheme neosolarized
 ]])
+
+Group.new("CursorLineNr", colors.yellow, colors.base02, styles.NONE)
+Group.new("LineNr", colors.cyan, colors.none, styles.NONE)

@@ -1,4 +1,4 @@
-require('nvim-tree').setup {}
+require("nvim-tree").setup({})
 
 vim.g.nvim_tree_auto_close = 1
 vim.g.nvim_tree_gitignore = 1
@@ -9,4 +9,3 @@ vim.cmd([[
   nnoremap <leader>r :NvimTreeRefresh<CR>
   nnoremap <leader>n :NvimTreeFindFile<CR>
 ]])
-
