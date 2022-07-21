@@ -1,9 +1,27 @@
-require("kanagawa").setup({
-	-- transparent = true,
+require("onedarkpro").setup({
+	theme = "onedark_dark",
 	colors = {
-		bg = "#16161d",
+		bg = "#181818",
+		black = "#181818",
+	},
+	plugins = {
+		all = false,
+		gitsigns_nvim = true,
+		lsp_saga = true,
+		native_lsp = true,
+		nvim_cmp = true,
+		nvim_ts_rainbow = true,
+		treesitter = true,
+		which_key_nvim = true,
 	},
 })
+-- require("kanagawa").setup({
+-- 	-- transparent = true,
+-- 	colors = {
+-- 		bg = "#16161d",
+-- 	},
+-- })
+
 -- require("neosolarized").setup({
 -- 	comment_italics = true,
 -- })
@@ -15,7 +33,7 @@ require("kanagawa").setup({
 
 vim.cmd([[
 	hi PmenuSel blend=0
-	colorscheme kanagawa
+	colorscheme onedarkpro
 ]])
 
 -- Group.new("CursorLineNr", colors.yellow, colors.base02, styles.NONE)

@@ -3,15 +3,24 @@ if not status_ok then
 	return
 end
 
-local custom_kanagawa = require("lualine.themes.kanagawa")
-custom_kanagawa.normal.c.bg = "#1f1f28"
-custom_kanagawa.normal.c.bg = "16161d"
-custom_kanagawa.visual.b.bg = "#252535"
-custom_kanagawa.insert.b.bg = "#252535"
-custom_kanagawa.inactive.b.bg = "#252535"
-custom_kanagawa.command.b.bg = "#252535"
-custom_kanagawa.replace.b.bg = "#252535"
-custom_kanagawa.visual.b.bg = "#252535"
+-- local custom_kanagawa = require("lualine.themes.kanagawa")
+-- custom_kanagawa.normal.c.bg = "16161d"
+-- custom_kanagawa.visual.b.bg = "#252535"
+-- custom_kanagawa.insert.b.bg = "#252535"
+-- custom_kanagawa.inactive.b.bg = "#252535"
+-- custom_kanagawa.command.b.bg = "#252535"
+-- custom_kanagawa.replace.b.bg = "#252535"
+-- custom_kanagawa.visual.b.bg = "#252535"
+
+local custom_ondarkpro = require("lualine.themes.onedarkpro")
+custom_ondarkpro.normal.c.bg = "#181818"
+custom_ondarkpro.normal.b.bg = "#252525"
+custom_ondarkpro.visual.b.bg = "#252525"
+custom_ondarkpro.insert.b.bg = "#252525"
+custom_ondarkpro.inactive.b.bg = "#252525"
+custom_ondarkpro.command.b.bg = "#252525"
+custom_ondarkpro.replace.b.bg = "#252525"
+custom_ondarkpro.visual.b.bg = "#252525"
 
 -- local neosolarized = {}
 -- local colors = {}
@@ -58,17 +67,12 @@ local gps = require("nvim-gps")
 
 lualine.setup({
 	options = {
-		theme = custom_kanagawa,
+		theme = custom_ondarkpro,
 		globalstatus = true,
 	},
 
 	sections = {
 		lualine_c = {
-			-- {
-			-- 	"filename",
-			-- 	file_status = true, -- displays file status (readonly status, modified status)
-			-- 	path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-			-- },
 			{ gps.get_location, cond = gps.is_available },
 		},
 	},
