@@ -206,22 +206,22 @@ return require("packer").startup(function(use)
 
 	-- themes
 
-	-- use({
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	config = function()
-	-- 		require("theme-config")
-	-- 	end,
-	-- })
-
 	use({
-		"svrana/neosolarized.nvim",
+		"rebelot/kanagawa.nvim",
 		config = function()
 			require("theme-config")
 		end,
-		after = "colorbuddy.nvim",
 	})
 
-	use({
-		"tjdevries/colorbuddy.nvim",
-	})
+	-- use({
+	-- 	"svrana/neosolarized.nvim",
+	-- 	config = function()
+	-- 		require("theme-config")
+	-- 	end,
+	-- 	after = "colorbuddy.nvim",
+	-- })
+
+	-- use({
+	-- 	"tjdevries/colorbuddy.nvim",
+	-- })
 end)
