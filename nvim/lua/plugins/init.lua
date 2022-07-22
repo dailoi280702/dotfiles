@@ -209,7 +209,7 @@ return require("packer").startup(function(use)
 	use({
 		"rebelot/kanagawa.nvim",
 		config = function()
-			require("theme-config")
+			require("theme-config.kanagawa")
 		end,
 	})
 
