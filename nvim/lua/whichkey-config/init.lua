@@ -57,6 +57,25 @@ local mappings = {
 		t = { ":LivedownToggle<cr>", "Toggle Livedown" },
 	},
 	w = { ":w<cr>", "Save" },
+	["<leader>"] = {
+		name = "Jumping",
+		a = { ":HopWord<cr>", "words" },
+		s = { ":HopWordAC<cr>", "words after" },
+		d = { ":HopWordBC<cr>", "words before" },
+		f = { ":HopWordMW<cr>", "all words" },
+		l = { ":HopLine<cr>", "lines" },
+		j = { ":HopLineAC<cr>", "lines after" },
+		k = { ":HopLineBC<cr>", "line before" },
+		o = { ":HopVertical<cr>", "vertical" },
+		u = { ":HopVerticalAC<cr>", "vertical after" },
+		i = { ":HopVerticalBC<cr>", "vertical before" },
+		p = { ":HopPatternMW<cr>", "pattern" },
+		q = { ":HopWordCurrentLine<cr>", "word current line" },
+		w = { ":HopWordCurrentLineBC<cr>", "left" },
+		e = { ":HopWordCurrentLineAC<cr>", "right" },
+		n = { ":HopChar1<cr>", "char 1" },
+		m = { ":HopChar2<cr>", "char 2" },
+	},
 }
 local opts = { prefix = "<leader>" }
 

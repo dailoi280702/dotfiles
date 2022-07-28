@@ -110,6 +110,14 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		"phaazon/hop.nvim",
+		-- branch = "v2",
+		config = function()
+			require("hop").setup({})
+		end,
+	})
+
+	use({
 		"norcalli/nvim-colorizer.lua",
 		config = "require('colorizer').setup()",
 		event = { "BufReadPost", "BufNewFile" },
@@ -148,7 +156,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("AutoSave-config")
 		end,
-		event = "BufReadPost",
+		-- event = "BufReadPost",
 		after = "null-ls.nvim",
 	})
 
@@ -168,12 +176,28 @@ return require("packer").startup(function(use)
 
 	use({ "dstein64/vim-startuptime" })
 
+	-- use({
+	-- 	"akinsho/bufferline.nvim",
+	-- 	config = function()
+	-- 		require("bufferline-config")
+	-- 	end,
+	-- 	-- event = "BufReadPost",
+	-- })
+
 	use({
 		"kdheepak/tabline.nvim",
 		config = function()
 			require("tabline-config")
 		end,
 		event = "BufReadPost",
+	})
+
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("indent-blankline-config")
+		end,
+		event = "bufreadpost",
 	})
 
 	use({
@@ -214,14 +238,49 @@ return require("packer").startup(function(use)
 	})
 
 	-- use({
+	-- 	"bluz71/vim-moonfly-colors",
+	-- 	config = function()
+	-- 		require("theme-config.moonfly")
+	-- 	end,
+	-- })
+
+	-- use({
+	-- 	"olimorris/onedarkpro.nvim",
+	-- 	config = function()
+	-- 		require("theme-config.onedarkpro")
+	-- 	end,
+	-- })
+
+	-- use({
 	-- 	"svrana/neosolarized.nvim",
 	-- 	config = function()
-	-- 		require("theme-config")
+	-- 		require("theme-config.neosolarized")
 	-- 	end,
-	-- 	after = "colorbuddy.nvim",
+	-- 	requires = "tjdevries/colorbuddy.nvim",
+	-- 	-- after = "colorbuddy.nvim",
 	-- })
 
 	-- use({
 	-- 	"tjdevries/colorbuddy.nvim",
+	-- })
+
+	-- use({
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	run = ":NightfoxCompile",
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme nightfox")
+	-- 	end,
+	-- })
+
+	-- It's recommended to add `:CatppuccinCompile` to post-install/update hooks
+	-- use({
+	-- 	"catppuccin/nvim",
+	-- 	as = "catppuccin",
+	-- 	run = ":CatppuccinCompile",
+	-- 	config = function()
+	-- 		vim.g.catppuccin_flavour = "mocha"
+	-- 		require("catppuccin").setup({ term_colors = true })
+	-- 		vim.cmd("colorscheme catppuccin")
+	-- 	end,
 	-- })
 end)

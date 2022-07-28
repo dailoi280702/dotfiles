@@ -15,3 +15,4 @@ map(
 
 map("n", "<C-j>", "<cmd>TablineBufferNext<CR>", { noremap = true, silent = true })
 map("n", "<C-k>", "<cmd>TablineBufferPrevious<CR>", { noremap = true, silent = true })
+-- map("n", "<leader><leader>", ":HopWordMW<CR>", { noremap = true, silent = true })

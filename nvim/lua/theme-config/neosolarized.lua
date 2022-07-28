@@ -17,3 +17,6 @@ local styles = colorbuddy.styles
 Group.new("CursorLineNr", colors.yellow, colors.base02, styles.NONE)
 Group.new("LineNr", colors.cyan, colors.none, styles.NONE)
 Group.new("StatusLine", colors.base1, colors.none, styles.NONE)
+Group.new("HopNextKey", colors.red, colors.none, styles.NONE)
+Group.new("HopNextKey1", colors.red, colors.none, styles.NONE)
+Group.new("HopNextKey2", colors.yellow, colors.none, styles.NONE)
