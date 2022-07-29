@@ -9,7 +9,6 @@ local gps = require("nvim-gps")
 lualine.setup({
 	options = {
 		theme = require("lualine-config.kanagawa"),
-		-- theme = "nightfox",
 		globalstatus = true,
 	},
 	sections = {
