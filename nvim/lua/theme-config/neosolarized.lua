@@ -1,6 +1,8 @@
 local ok, neosolarized = pcall(require, "neosolarized")
 if not ok then
 	return
+else
+	return
 end
 
 neosolarized.setup({

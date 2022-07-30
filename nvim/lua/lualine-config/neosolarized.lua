@@ -22,7 +22,7 @@ neosolarized = {
 	normal = {
 		a = { fg = colors.base03, bg = colors.blue, gui = "bold" },
 		b = { fg = colors.base1, bg = colors.base02 },
-		c = { fg = colors.base1, bg = "#001b26" },
+		c = { fg = colors.base1, bg = "#00161c" },
 	},
 	insert = {
 		a = { fg = colors.base03, bg = colors.green, gui = "bold" },

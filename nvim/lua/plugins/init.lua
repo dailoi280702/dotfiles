@@ -250,10 +250,19 @@ return require("packer").startup(function(use)
 	-- 		require("theme-config.neosolarized")
 	-- 	end,
 	-- 	requires = "tjdevries/colorbuddy.nvim",
-	-- 	-- after = "colorbuddy.nvim",
 	-- })
 
 	-- use({
-	-- 	"tjdevries/colorbuddy.nvim",
+	-- 	"bluz71/vim-moonfly-colors",
+	-- 	config = function()
+	-- 		require("theme-config.moonfly")
+	-- 	end,
+	-- })
+
+	-- use({
+	-- 	"LunarVim/horizon.nvim",
+	-- 	config = function()
+	-- 		require("theme-config")
+	-- 	end,
 	-- })
 end)
