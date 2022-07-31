@@ -65,12 +65,12 @@ return require("packer").startup(function(use)
 		config = "require('nvim-autopairs').setup()",
 	})
 
-	-- use({
-	-- 	"p00f/nvim-ts-rainbow",
-	-- 	opt = true,
-	-- 	-- after = "nvim-treesitter",
-	-- 	event = "BufReadPost",
-	-- })
+	use({
+		"p00f/nvim-ts-rainbow",
+		opt = true,
+		-- after = "nvim-treesitter",
+		event = "BufReadPost",
+	})
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -230,12 +230,12 @@ return require("packer").startup(function(use)
 
 	-- themes
 
-	use({
-		"rebelot/kanagawa.nvim",
-		config = function()
-			require("theme-config.kanagawa")
-		end,
-	})
+	-- use({
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		require("theme-config.kanagawa")
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"olimorris/onedarkpro.nvim",
@@ -265,4 +265,11 @@ return require("packer").startup(function(use)
 	-- 		require("theme-config")
 	-- 	end,
 	-- })
+
+	use({
+		"lunarvim/synthwave84.nvim",
+		config = function()
+			require("theme-config")
+		end,
+	})
 end)

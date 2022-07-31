@@ -27,3 +27,6 @@ end
 set -Ux BUN_INSTALL "/home/lloyd/.bun"
 fish_add_path "/home/lloyd/.bun/bin"
 
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
