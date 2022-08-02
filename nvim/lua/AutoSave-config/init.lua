@@ -1,18 +1,24 @@
-local autosave = require("autosave")
+local autosave = require("auto-save")
 
 autosave.setup({
-	enabled = true,
-	execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
-	events = { "InsertLeave" },
-	conditions = {
-		exists = true,
-		filename_is_not = {},
-		filetype_is_not = {},
-		modifiable = true,
+	enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
+	execution_message = {
+		message = function() -- message to print on save
+			return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
+		end,
+		dim = 0.18, -- dim the color of `message`
+		cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
 	},
-	write_all_buffers = true,
-	on_off_commands = true,
-	clean_command_line_interval = 0,
-	-- debounce_delay = 135,
-	debounce_delay = 0,
+	trigger_events = { "InsertLeave" }, -- vim events that trigger auto-save. See :h events
+	condition = function(buf)
+		local fn = vim.fn
+		local utils = require("auto-save.utils.data")
+
+		if fn.getbufvar(buf, "&modifiable") == 1 or utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
+			return true -- met condition(s), can save
+		end
+		return false -- can't save
+	end,
+	write_all_buffers = false, -- write all buffers when the current one meets `condition`
+	debounce_delay = 0, -- saves the file at most every `debounce_delay` milliseconds
 })

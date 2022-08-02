@@ -151,14 +151,14 @@ return require("packer").startup(function(use)
 		after = "nvim-treesitter",
 	})
 
-	use({
-		"Pocco81/AutoSave.nvim",
-		config = function()
-			require("AutoSave-config")
-		end,
-		-- event = "BufReadPost",
-		after = "null-ls.nvim",
-	})
+	-- use({
+	-- 	"Pocco81/auto-save.nvim",
+	-- 	config = function()
+	-- 		require("AutoSave-config")
+	-- 	end,
+	-- 	-- event = "BufReadPost",
+	-- 	after = "null-ls.nvim",
+	-- })
 
 	use({
 		"kylechui/nvim-surround",
@@ -228,6 +228,13 @@ return require("packer").startup(function(use)
 		after = "nvim-gps",
 	})
 
+	-- use({
+	-- 	"Pocco81/true-zen.nvim",
+	-- 	config = function()
+	-- 		require("true-zen-config")
+	-- 	end,
+	-- })
+
 	-- themes
 
 	-- use({
@@ -266,10 +273,36 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
+	-- use({
+	-- 	"lunarvim/synthwave84.nvim",
+	-- 	config = function()
+	-- 		require("theme-config")
+	-- 	end,
+	-- })
+
+	-- use({
+	-- 	"wuelnerdotexe/vim-enfocado",
+	-- 	config = function()
+	-- 		require("theme-config")
+	-- 	end,
+	-- })
+
+	-- use({
+	-- 	"catppuccin/nvim",
+	-- 	config = function()
+	-- 		require("theme-config")
+	-- 		-- vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+	-- 		-- require("catppuccin").setup()
+	-- 		-- vim.cmd([[colorscheme catppuccin]])
+	-- 	end,
+	-- 	run = ":CatppuccinCompile",
+	-- })
+
 	use({
-		"lunarvim/synthwave84.nvim",
+		"shaunsingh/oxocarbon.nvim",
+		run = "./install.sh",
 		config = function()
-			require("theme-config")
+			vim.cmd("colorscheme oxocarbon")
 		end,
 	})
 end)

@@ -25,8 +25,9 @@ local mappings = {
 	f = {
 		name = "Telescope",
 		f = { ":Telescope find_files<cr>", "Telesope Find Files" },
-		B = { ":Telescope file_browser<cr>", "Telesope Browse Files" },
-		b = { ":Telescope buffers<cr>", "Telesope Browse Files" },
+		a = { ":Telescope file_browser<cr>", "Telesope Browse Files" },
+		j = { ":Telescope buffers<cr>", "Telesope Buffers" },
+		k = { ":Telescope live_grep<cr>", "Telesope Live Grep" },
 	},
 	l = {
 		name = "LSP",

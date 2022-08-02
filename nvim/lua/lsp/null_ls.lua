@@ -58,13 +58,6 @@ null_ls.setup({
 					async_formatting(bufnr)
 				end,
 			})
-			-- vim.api.nvim_create_autocmd("InsertLeave", {
-			-- 	group = augroup,
-			-- 	buffer = bufnr,
-			-- 	callback = function()
-			-- 		async_formatting(bufnr)
-			-- 	end,
-			-- })
 		end
 	end,
 })

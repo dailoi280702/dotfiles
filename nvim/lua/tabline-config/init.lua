@@ -5,8 +5,9 @@ end
 
 tabline.setup({
 	options = {
-		max_bufferline_percent = 100, -- set to nil by default, and it uses vim.o.columns * 2/3
+		max_bufferline_percent = 80, -- set to nil by default, and it uses vim.o.columns * 2/3
 		modified_icon = "+ ", -- change the default modified icon
+		show_bufnr = true,
 	},
 })
 

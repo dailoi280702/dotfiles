@@ -18,6 +18,7 @@ onedarkpro.setup({
 		nvim_ts_rainbow = true,
 		treesitter = true,
 		which_key_nvim = true,
+		-- hop = true,
 	},
 })
 

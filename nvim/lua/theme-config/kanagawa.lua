@@ -1,6 +1,8 @@
 local ok, kanagawa = pcall(require, "kanagawa")
 if not ok then
 	return
+else
+	return
 end
 
 kanagawa.setup({
