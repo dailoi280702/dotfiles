@@ -26,7 +26,7 @@ local mappings = {
 		name = "Telescope",
 		f = { ":Telescope find_files<cr>", "Telesope Find Files" },
 		a = { ":Telescope file_browser<cr>", "Telesope Browse Files" },
-		j = { ":Telescope buffers<cr>", "Telesope Buffers" },
+		j = { ":Telescope buffers initial_mode=normal<cr>", "Telesope Buffers" },
 		k = { ":Telescope live_grep<cr>", "Telesope Live Grep" },
 	},
 	l = {
@@ -57,7 +57,7 @@ local mappings = {
 		k = { ":LivedownKill<cr>", "Kill Livedown" },
 		t = { ":LivedownToggle<cr>", "Toggle Livedown" },
 	},
-	w = { ":w<cr>", "Save" },
+	w = { ":wa<cr>", "Save" },
 	h = {
 		name = "Jumping",
 		a = { ":HopWord<cr>", "words" },
@@ -67,6 +67,7 @@ local mappings = {
 		j = { ":HopChar1<cr>", "char 1" },
 		k = { ":HopChar1MW<cr>", "all char 1" },
 	},
+	s = { "vi{:sort<cr>", "sort" },
 }
 local opts = { prefix = "<leader>" }
 

@@ -79,7 +79,8 @@ return require("packer").startup(function(use)
 			{ "nvim-lua/popup.nvim", opt = true },
 		},
 		config = function()
-			require("telescope").load_extension("file_browser")
+			-- require("telescope").load_extension("file_browser")
+			require("telescope-config")
 		end,
 	})
 
@@ -184,13 +185,13 @@ return require("packer").startup(function(use)
 	-- 	-- event = "BufReadPost",
 	-- })
 
-	use({
-		"kdheepak/tabline.nvim",
-		config = function()
-			require("tabline-config")
-		end,
-		event = "BufReadPost",
-	})
+	-- use({
+	-- 	"kdheepak/tabline.nvim",
+	-- 	config = function()
+	-- 		require("tabline-config")
+	-- 	end,
+	-- 	event = "BufReadPost",
+	-- })
 
 	use({
 		"lukas-reineke/indent-blankline.nvim",
@@ -202,12 +203,13 @@ return require("packer").startup(function(use)
 
 	use({
 		"nvim-lualine/lualine.nvim",
+		opt = true,
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("lualine-config")
 		end,
 		event = "bufreadpost",
-		after = "tabline.nvim",
+		-- after = "tabline.nvim",
 	})
 
 	use({
@@ -246,63 +248,15 @@ return require("packer").startup(function(use)
 
 	-- use({
 	-- 	"olimorris/onedarkpro.nvim",
-	-- 	config = function()
+	-- 	onfig = function()
 	-- 		require("theme-config.onedarkpro")
 	-- 	end,
 	-- })
 
-	-- use({
-	-- 	"svrana/neosolarized.nvim",
-	-- 	config = function()
-	-- 		require("theme-config.neosolarized")
-	-- 	end,
-	-- 	requires = "tjdevries/colorbuddy.nvim",
-	-- })
-
-	-- use({
-	-- 	"bluz71/vim-moonfly-colors",
-	-- 	config = function()
-	-- 		require("theme-config.moonfly")
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"LunarVim/horizon.nvim",
-	-- 	config = function()
-	-- 		require("theme-config")
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"lunarvim/synthwave84.nvim",
-	-- 	config = function()
-	-- 		require("theme-config")
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"wuelnerdotexe/vim-enfocado",
-	-- 	config = function()
-	-- 		require("theme-config")
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"catppuccin/nvim",
-	-- 	config = function()
-	-- 		require("theme-config")
-	-- 		-- vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-	-- 		-- require("catppuccin").setup()
-	-- 		-- vim.cmd([[colorscheme catppuccin]])
-	-- 	end,
-	-- 	run = ":CatppuccinCompile",
-	-- })
-
 	use({
-		"shaunsingh/oxocarbon.nvim",
-		run = "./install.sh",
+		"sainnhe/gruvbox-material",
 		config = function()
-			vim.cmd("colorscheme oxocarbon")
+			require("theme-config")
 		end,
 	})
 end)

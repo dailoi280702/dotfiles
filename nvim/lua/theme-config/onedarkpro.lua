@@ -20,6 +20,12 @@ onedarkpro.setup({
 		which_key_nvim = true,
 		-- hop = true,
 	},
+	options = {
+		bold = true,
+		italic = true,
+		underline = true,
+		undercurl = true,
+	},
 })
 
 vim.cmd([[
