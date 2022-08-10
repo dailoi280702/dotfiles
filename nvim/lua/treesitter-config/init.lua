@@ -27,13 +27,13 @@ require("nvim-treesitter.configs").setup({
 		extended_mode = true,
 		-- disable = { "html" },
 		-- colors = {
-		-- 	"#fc514e",
-		-- 	"#a1cd5e",
-		-- 	"#e3d18a",
-		-- 	"#82aaff",
-		-- 	"#c792ea",
-		-- 	"#7fdbca",
-		-- 	"#a1aab8",
+		-- 	"#C34043", -- autumn red
+		-- 	"#76946A", -- autumn green
+		-- 	"#DCA561", -- autumn yellow
+		-- 	"#7E9CD8",
+		-- 	"#957FB8",
+		-- 	"#A3D4D5",
+		-- 	"#DCD7BA",
 		-- },
 	},
 })

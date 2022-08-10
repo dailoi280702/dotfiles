@@ -121,7 +121,7 @@ return require("packer").startup(function(use)
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = "require('colorizer').setup()",
-		event = { "BufReadPost", "BufNewFile" },
+		-- event = { "BufReadPost", "BufNewFile" },
 	}) -- colorizer
 
 	use({
@@ -202,9 +202,23 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		"kyazdani42/nvim-web-devicons",
+		opt = true,
+	})
+
+	-- use({
+	-- 	"rebelot/heirline.nvim",
+	-- 	opt = true,
+	-- 	config = function()
+	-- 		require("heirline-config")
+	-- 	end,
+	-- 	event = "bufreadpost",
+	-- 	-- after = "tabline.nvim",
+	-- })
+
+	use({
 		"nvim-lualine/lualine.nvim",
 		opt = true,
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("lualine-config")
 		end,
@@ -248,7 +262,7 @@ return require("packer").startup(function(use)
 
 	-- use({
 	-- 	"olimorris/onedarkpro.nvim",
-	-- 	onfig = function()
+	-- 	config = function()
 	-- 		require("theme-config.onedarkpro")
 	-- 	end,
 	-- })
@@ -259,4 +273,21 @@ return require("packer").startup(function(use)
 			require("theme-config")
 		end,
 	})
+
+	-- use({
+	-- 	"catppuccin/nvim",
+	-- 	as = "catppuccin",
+	-- 	run = ":CatppuccinCompile",
+	-- 	config = function()
+	-- 		require("theme-config.cattpuccin")
+	-- 	end,
+	-- })
+
+	-- use({
+	-- 	"shaunsingh/oxocarbon.nvim",
+	-- 	run = "./install.sh",
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme oxocarbon")
+	-- 	end,
+	-- })
 end)
