@@ -4,7 +4,6 @@ if not ok then
 end
 
 kanagawa.setup({
-	-- transparent = true,
 	colors = {
 		bg = "#16161d",
 	},
@@ -12,7 +11,7 @@ kanagawa.setup({
 
 vim.cmd([[
 	colorscheme kanagawa
-	highlight VertSplit guibg=NONE
+	"highlight VertSplit guibg=NONE
 	highlight HopNextKey guifg=#c34043
 	highlight HopNextKey1 guifg=#c34043
 	highlight HopNextKey2 guifg=#dca561

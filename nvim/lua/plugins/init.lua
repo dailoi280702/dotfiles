@@ -27,7 +27,7 @@ return require("packer").startup(function(use)
 	})
 
 	use({
-		"kkharji/lspsaga.nvim",
+		"glepnir/lspsaga.nvim",
 		opt = true,
 		config = "require('lspsaga-config')",
 		after = "nvim-lspconfig",
@@ -44,6 +44,7 @@ return require("packer").startup(function(use)
 			{ "hrsh7th/cmp-cmdline", after = "cmp-buffer" },
 		},
 		event = "InsertEnter",
+		-- event = "VimEnter",
 		config = function()
 			require("lsp.cmp")
 		end,
@@ -134,16 +135,16 @@ return require("packer").startup(function(use)
 
 	use({
 		"MunifTanjim/prettier.nvim",
-		-- config = function()
-		-- 	require("prettier-config")
-		-- end,
+		config = function()
+			require("prettier-config")
+		end,
 	})
 
 	use({
 		"MunifTanjim/eslint.nvim",
-		-- config = function()
-		-- 	require("eslint-config")
-		-- end,
+		config = function()
+			require("eslint-config")
+		end,
 	})
 
 	use({
@@ -177,13 +178,13 @@ return require("packer").startup(function(use)
 
 	use({ "dstein64/vim-startuptime" })
 
-	-- use({
-	-- 	"akinsho/bufferline.nvim",
-	-- 	config = function()
-	-- 		require("bufferline-config")
-	-- 	end,
-	-- 	-- event = "BufReadPost",
-	-- })
+	use({
+		"romgrk/barbar.nvim",
+		config = function()
+			require("bufferline-config")
+		end,
+		-- event = "BufReadPost",
+	})
 
 	-- use({
 	-- 	"kdheepak/tabline.nvim",
@@ -244,50 +245,10 @@ return require("packer").startup(function(use)
 		after = "nvim-gps",
 	})
 
-	-- use({
-	-- 	"Pocco81/true-zen.nvim",
-	-- 	config = function()
-	-- 		require("true-zen-config")
-	-- 	end,
-	-- })
-
-	-- themes
-
-	-- use({
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	config = function()
-	-- 		require("theme-config.kanagawa")
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"olimorris/onedarkpro.nvim",
-	-- 	config = function()
-	-- 		require("theme-config.onedarkpro")
-	-- 	end,
-	-- })
-
 	use({
 		"sainnhe/gruvbox-material",
 		config = function()
 			require("theme-config")
 		end,
 	})
-
-	-- use({
-	-- 	"catppuccin/nvim",
-	-- 	as = "catppuccin",
-	-- 	run = ":CatppuccinCompile",
-	-- 	config = function()
-	-- 		require("theme-config.cattpuccin")
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"shaunsingh/oxocarbon.nvim",
-	-- 	run = "./install.sh",
-	-- 	config = function()
-	-- 		vim.cmd("colorscheme oxocarbon")
-	-- 	end,
-	-- })
 end)

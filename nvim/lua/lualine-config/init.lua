@@ -8,7 +8,7 @@ local gps = require("nvim-gps")
 
 lualine.setup({
 	options = {
-		-- theme = require("lualine-config.onedarkpro"),
+		-- theme = require("lualine-config.kanagawa"),
 		globalstatus = true,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },

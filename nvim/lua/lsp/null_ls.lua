@@ -9,6 +9,9 @@ local formatting_sources = {
 	}),
 	formatting.fixjson,
 	diagnostics.selene,
+	diagnostics.eslint_d.with({
+		diagnostics_format = "[eslint] #{m}\n(#{c})",
+	}),
 }
 
 local async_formatting = function(bufnr)
