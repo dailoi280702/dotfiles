@@ -80,14 +80,15 @@ return require("packer").startup(function(use)
 			{ "nvim-lua/popup.nvim", opt = true },
 		},
 		config = function()
-			-- require("telescope").load_extension("file_browser")
+			require("telescope").load_extension("file_browser")
 			require("telescope-config")
 		end,
+		after = "telescope-file-browser.nvim",
 	})
 
 	use({
 		"nvim-telescope/telescope-file-browser.nvim",
-		after = "telescope.nvim",
+		-- after = "telescope.nvim",
 		configs = function()
 			require("telescope").load_extension("file_browser")
 		end,
@@ -183,6 +184,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("bufferline-config")
 		end,
+		after = "nvim-web-devicons",
 		-- event = "BufReadPost",
 	})
 
@@ -204,7 +206,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"kyazdani42/nvim-web-devicons",
-		opt = true,
+		-- opt = true,
 	})
 
 	-- use({
@@ -245,10 +247,19 @@ return require("packer").startup(function(use)
 		after = "nvim-gps",
 	})
 
+	-- use({
+	-- 	"sainnhe/gruvbox-material",
+	-- 	config = function()
+	-- 		require("theme-config")
+	-- 	end,
+	-- })
+
 	use({
-		"sainnhe/gruvbox-material",
+		"catppuccin/nvim",
+		as = "catppuccin",
+		run = ":CatppuccinCompile",
 		config = function()
-			require("theme-config")
+			require("theme-config.catppuccin")
 		end,
 	})
 end)

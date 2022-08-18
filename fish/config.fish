@@ -1,5 +1,5 @@
 if status is-interactive
-  thefuck --alias | source
+  # thefuck --alias | source
 
 	alias g="git"
 	alias v="nvim"
@@ -20,7 +20,7 @@ if status is-interactive
 	# set --universal ayu_variant dark && ayu_load_theme
 	starship init fish | source
 	#source ~/.config/fish/themes/moonfly.fish
-	fish_config theme choose 'fish default'
+	#fish_config theme choose 'fish default'
 end
 
 # bun
@@ -30,3 +30,7 @@ fish_add_path "/home/lloyd/.bun/bin"
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end

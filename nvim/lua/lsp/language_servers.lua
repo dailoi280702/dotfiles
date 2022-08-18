@@ -7,11 +7,12 @@ end
 
 local servers = {
 	"tsserver",
-	"pyright",
+	-- "pyright",
 	"html",
 	"ltex",
 	"sumneko_lua",
 	"cssls",
+	"cssmodules_ls"
 	-- "grammarly",
 }
 
