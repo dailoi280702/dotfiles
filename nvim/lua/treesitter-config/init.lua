@@ -12,6 +12,7 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 		-- use_languagetree = true,
+		additional_vim_regex_highlighting = true,
 	},
 	indent = {
 		enable = true,
@@ -23,7 +24,7 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 	},
 	rainbow = {
-		enable = false,
+		enable = true,
 		extended_mode = true,
 		-- disable = { "html" },
 		-- colors = {
