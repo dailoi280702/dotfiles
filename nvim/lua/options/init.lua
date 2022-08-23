@@ -1,5 +1,5 @@
 -- vim.o.shortmess = vim.o.shortmess .. "c"
-vim.g.did_load_filetypes = 0
+-- vim.g.did_load_filetypes = 0
 vim.o.hidden = true
 vim.o.whichwrap = "b,s,<,>,[,],h,l"
 vim.o.pumheight = 10

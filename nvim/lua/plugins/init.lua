@@ -7,7 +7,7 @@ return require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		opt = true,
 		run = ":TSUpdate",
-		event = "BufReadPost",
+		event = "BufRead",
 		config = function()
 			require("treesitter-config")
 		end,
@@ -179,14 +179,14 @@ return require("packer").startup(function(use)
 
 	use({ "dstein64/vim-startuptime" })
 
-	use({
-		"romgrk/barbar.nvim",
-		config = function()
-			require("bufferline-config")
-		end,
-		after = "nvim-web-devicons",
-		-- event = "BufReadPost",
-	})
+	-- use({
+	-- 	"romgrk/barbar.nvim",
+	-- 	config = function()
+	-- 		require("bufferline-config")
+	-- 	end,
+	-- 	after = "nvim-web-devicons",
+	-- 	-- event = "BufReadPost",
+	-- })
 
 	-- use({
 	-- 	"kdheepak/tabline.nvim",
@@ -247,21 +247,21 @@ return require("packer").startup(function(use)
 		after = "nvim-gps",
 	})
 
-	use({
-		"sainnhe/gruvbox-material",
-		config = function()
-			-- require("theme-config")
-			vim.g.gruvbox_material_better_performance = 1
-			vim.g.gruvbox_material_background = "hard"
-			vim.g.gruvbox_material_ui_contrast = "high"
-			vim.cmd([[
-				colorscheme gruvbox-material
-				hi BufferTabpageFill guibg=#3c3836
-				hi BufferTabpages guibg=#3c3836
-				hi BufferTabpageFill guifg=#7c6f64
-			]])
-		end,
-	})
+	-- use({
+	-- 	"sainnhe/gruvbox-material",
+	-- 	config = function()
+	-- 		-- require("theme-config")
+	-- 		vim.g.gruvbox_material_better_performance = 1
+	-- 		vim.g.gruvbox_material_background = "hard"
+	-- 		vim.g.gruvbox_material_ui_contrast = "high"
+	-- 		vim.cmd([[
+	-- 			colorscheme gruvbox-material
+	-- 			hi BufferTabpageFill guibg=#3c3836
+	-- 			hi BufferTabpages guibg=#3c3836
+	-- 			hi BufferTabpageFill guifg=#7c6f64
+	-- 		]])
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"catppuccin/nvim",
@@ -271,4 +271,25 @@ return require("packer").startup(function(use)
 	-- 		require("theme-config.catppuccin")
 	-- 	end,
 	-- })
+
+	-- use({
+	-- 	"bluz71/vim-moonfly-colors",
+	-- 	config = function()
+	-- 		vim.g.moonflyWinSeparator = 2
+	-- 		vim.cmd.colorscheme("moonfly")
+	-- 	end,
+	-- })
+
+	use({
+		"EdenEast/nightfox.nvim",
+		run = ":NightfoxCompile",
+		config = function()
+			require("nightfox").setup({
+				options = {
+					transparent = true,
+				},
+			})
+			vim.cmd.colorscheme("nightfox")
+		end,
+	})
 end)

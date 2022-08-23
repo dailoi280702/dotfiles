@@ -9,6 +9,8 @@ if not lspkind_status then
 end
 
 local luasnip = require("luasnip")
+luasnip.filetype_extend("javascript", { "javascriptreact" })
+luasnip.filetype_extend("javascript", { "html" })
 
 cmp.setup({
 	snippet = {
