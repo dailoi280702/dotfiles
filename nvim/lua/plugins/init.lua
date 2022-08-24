@@ -284,12 +284,7 @@ return require("packer").startup(function(use)
 		"EdenEast/nightfox.nvim",
 		run = ":NightfoxCompile",
 		config = function()
-			require("nightfox").setup({
-				options = {
-					transparent = true,
-				},
-			})
-			vim.cmd.colorscheme("nightfox")
+			require("theme-config.nightfox")
 		end,
 	})
 end)

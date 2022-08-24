@@ -1,5 +1,5 @@
 if status is-interactive
-  # thefuck --alias | source
+  thefuck --alias | source
 
 	alias g="git"
 	alias v="nvim"
