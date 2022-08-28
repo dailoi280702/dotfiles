@@ -12,7 +12,8 @@ local servers = {
 	"ltex",
 	"sumneko_lua",
 	"cssls",
-	"cssmodules_ls"
+	"cssmodules_ls",
+	"tailwindcss",
 	-- "grammarly",
 }
 

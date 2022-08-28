@@ -1,6 +1,7 @@
 local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+local code_actions = null_ls.builtins.code_actions
 local formatting_sources = {
 	formatting.stylua,
 	formatting.prettier.with({
@@ -9,9 +10,11 @@ local formatting_sources = {
 	}),
 	formatting.fixjson,
 	diagnostics.selene,
-	diagnostics.eslint_d.with({
-		diagnostics_format = "[eslint] #{m}\n(#{c})",
-	}),
+	-- diagnostics.eslint_d.with({
+	-- 	diagnostics_format = "[eslint] #{m}\n(#{c})",
+	-- }),
+	diagnostics.eslint,
+	code_actions.eslint,
 }
 
 local async_formatting = function(bufnr)
