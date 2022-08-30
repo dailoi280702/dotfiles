@@ -3,4 +3,4 @@ require("nightfox").setup({
 		transparent = true,
 	},
 })
-vim.cmd.colorscheme("carbonfox")
+vim.cmd.colorscheme("terafox")

@@ -26,7 +26,7 @@ require("nvim-treesitter.configs").setup({
 	},
 	rainbow = {
 		enable = true,
-		extended_mode = false,
+		extended_mode = true,
 		-- disable = { "html" },
 		-- colors = {
 		-- 	"#C34043", -- autumn red
