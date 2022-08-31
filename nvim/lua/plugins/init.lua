@@ -141,12 +141,12 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use({
-		"MunifTanjim/eslint.nvim",
-		config = function()
-			require("eslint-config")
-		end,
-	})
+	-- use({
+	-- 	"MunifTanjim/eslint.nvim",
+	-- 	config = function()
+	-- 		require("eslint-config")
+	-- 	end,
+	-- })
 
 	use({
 		"windwp/nvim-ts-autotag",
@@ -247,21 +247,16 @@ return require("packer").startup(function(use)
 		after = "nvim-gps",
 	})
 
-	use({
-		"sainnhe/gruvbox-material",
-		config = function()
-			-- require("theme-config")
-			vim.g.gruvbox_material_better_performance = 1
-			vim.g.gruvbox_material_background = "hard"
-			vim.g.gruvbox_material_ui_contrast = "high"
-			vim.cmd([[
-				colorscheme gruvbox-material
-				hi BufferTabpageFill guibg=#3c3836
-				hi BufferTabpages guibg=#3c3836
-				hi BufferTabpageFill guifg=#7c6f64
-			]])
-		end,
-	})
+	-- use({
+	-- 	"sainnhe/gruvbox-material",
+	-- 	config = function()
+	-- 		-- require("theme-config")
+	-- 		vim.g.gruvbox_material_better_performance = 1
+	-- 		vim.g.gruvbox_material_background = "hard"
+	-- 		vim.g.gruvbox_material_ui_contrast = "high"
+	-- 		vim.cmd.colorscheme("gruvbox-material")
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"catppuccin/nvim",
@@ -280,11 +275,11 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	-- use({
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	run = ":NightfoxCompile",
-	-- 	config = function()
-	-- 		require("theme-config.nightfox")
-	-- 	end,
-	-- })
+	use({
+		"EdenEast/nightfox.nvim",
+		run = ":NightfoxCompile",
+		config = function()
+			require("theme-config.nightfox")
+		end,
+	})
 end)
