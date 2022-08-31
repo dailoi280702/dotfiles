@@ -271,6 +271,7 @@ return require("packer").startup(function(use)
 	-- 	"bluz71/vim-moonfly-colors",
 	-- 	config = function()
 	-- 		vim.g.moonflyWinSeparator = 2
+	-- 		vim.g.moonflyTransparent = true
 	-- 		vim.cmd.colorscheme("moonfly")
 	-- 	end,
 	-- })

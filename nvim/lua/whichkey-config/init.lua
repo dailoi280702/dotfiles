@@ -23,8 +23,8 @@ whichkey.setup({
 local mappings = {
 	f = {
 		name = "Telescope",
-		f = { "<cmd>Telescope find_files<cr>", "Telesope Find Files" },
-		a = { "<cmd>Telescope file_browser<cr>", "Telesope Browse Files" },
+		f = { "<cmd>Telescope find_files hidden=true<cr>", "Telesope Find Files" },
+		a = { "<cmd>Telescope file_browser hidden=true<cr>", "Telesope Browse Files" },
 		j = { "<cmd>Telescope buffers initial_mode=normal<cr>", "Telesope Buffers" },
 		k = { "<cmd>Telescope live_grep<cr>", "Telesope Live Grep" },
 	},
