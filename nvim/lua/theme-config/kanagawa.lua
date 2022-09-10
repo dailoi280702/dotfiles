@@ -5,8 +5,10 @@ end
 
 kanagawa.setup({
 	colors = {
-		bg = "#16161d",
+		bg = "#181818",
+		-- bg = "#16161d",
 	},
+	-- transparent = true,
 })
 
 vim.cmd([[
