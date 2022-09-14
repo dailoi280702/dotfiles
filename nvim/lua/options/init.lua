@@ -38,3 +38,4 @@ vim.o.lazyredraw = true
 vim.g.mapleader = " "
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 vim.cmd([[hi PmenuSel blend=0]])
+vim.g.ts_highlight_lua = true
