@@ -267,20 +267,29 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
+	use({
+		"bluz71/vim-moonfly-colors",
+		config = function()
+			vim.g.moonflyWinSeparator = 2
+			vim.g.moonflyTransparent = true
+			vim.cmd.colorscheme("moonfly")
+		end,
+	})
+
 	-- use({
-	-- 	"bluz71/vim-moonfly-colors",
+	-- 	"bluz71/vim-nightfly-guicolors",
 	-- 	config = function()
-	-- 		vim.g.moonflyWinSeparator = 2
-	-- 		vim.g.moonflyTransparent = true
-	-- 		vim.cmd.colorscheme("moonfly")
+	-- 		-- vim.g.nightflyTransparent = true
+	-- 		vim.g.nightflyWinSeparator = 2
+	-- 		vim.cmd.colorscheme("nightfly")
 	-- 	end,
 	-- })
 
-	use({
-		"EdenEast/nightfox.nvim",
-		run = ":NightfoxCompile",
-		config = function()
-			require("theme-config.nightfox")
-		end,
-	})
+	-- use({
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	run = ":NightfoxCompile",
+	-- 	config = function()
+	-- 		require("theme-config.nightfox")
+	-- 	end,
+	-- })
 end)
