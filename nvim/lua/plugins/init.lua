@@ -247,16 +247,16 @@ return require("packer").startup(function(use)
 		after = "nvim-gps",
 	})
 
-	-- use({
-	-- 	"sainnhe/gruvbox-material",
-	-- 	config = function()
-	-- 		-- require("theme-config")
-	-- 		vim.g.gruvbox_material_better_performance = 1
-	-- 		vim.g.gruvbox_material_background = "hard"
-	-- 		vim.g.gruvbox_material_ui_contrast = "high"
-	-- 		vim.cmd.colorscheme("gruvbox-material")
-	-- 	end,
-	-- })
+	use({
+		"sainnhe/gruvbox-material",
+		config = function()
+			-- require("theme-config")
+			vim.g.gruvbox_material_better_performance = 1
+			vim.g.gruvbox_material_background = "hard"
+			vim.g.gruvbox_material_ui_contrast = "high"
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	})
 
 	-- use({
 	-- 	"catppuccin/nvim",
@@ -267,14 +267,14 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	use({
-		"bluz71/vim-moonfly-colors",
-		config = function()
-			vim.g.moonflyWinSeparator = 2
-			vim.g.moonflyTransparent = true
-			vim.cmd.colorscheme("moonfly")
-		end,
-	})
+	-- use({
+	-- 	"bluz71/vim-moonfly-colors",
+	-- 	config = function()
+	-- 		vim.g.moonflyWinSeparator = 2
+	-- 		vim.g.moonflyTransparent = true
+	-- 		vim.cmd.colorscheme("moonfly")
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"bluz71/vim-nightfly-guicolors",
@@ -290,6 +290,16 @@ return require("packer").startup(function(use)
 	-- 	run = ":NightfoxCompile",
 	-- 	config = function()
 	-- 		require("theme-config.nightfox")
+	-- 	end,
+	-- })
+
+	-- use({
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		require("kanagawa").setup({
+	-- 			transparent = true,
+	-- 		})
+	-- 		vim.cmd.colorscheme("kanagawa")
 	-- 	end,
 	-- })
 end)

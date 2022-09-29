@@ -16,7 +16,7 @@ catppuccin.setup({
 		lsp_saga = true,
 		which_key = true,
 		hop = true,
-		-- ts_rainbow = true,
+		ts_rainbow = true,
 		indent_blankline = {
 			colored_indent_levels = true,
 		},
