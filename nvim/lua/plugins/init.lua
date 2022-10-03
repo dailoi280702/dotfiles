@@ -285,13 +285,13 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	use({
-		"EdenEast/nightfox.nvim",
-		run = ":NightfoxCompile",
-		config = function()
-			require("theme-config.nightfox")
-		end,
-	})
+	-- use({
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	run = ":NightfoxCompile",
+	-- 	config = function()
+	-- 		require("theme-config.nightfox")
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"rebelot/kanagawa.nvim",
@@ -302,4 +302,11 @@ return require("packer").startup(function(use)
 	-- 		vim.cmd.colorscheme("kanagawa")
 	-- 	end,
 	-- })
+	use({
+		"kartikp10/noctis.nvim",
+		requires = { "rktjmp/lush.nvim" },
+		config = function()
+			vim.cmd.colorscheme("noctis")
+		end,
+	})
 end)
