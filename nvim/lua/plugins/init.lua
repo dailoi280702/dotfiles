@@ -258,14 +258,14 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	-- use({
-	-- 	"catppuccin/nvim",
-	-- 	as = "catppuccin",
-	-- 	run = ":CatppuccinCompile",
-	-- 	config = function()
-	-- 		require("theme-config.catppuccin")
-	-- 	end,
-	-- })
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+		run = ":CatppuccinCompile",
+		config = function()
+			require("theme-config.catppuccin")
+		end,
+	})
 
 	-- use({
 	-- 	"bluz71/vim-moonfly-colors",
@@ -302,11 +302,11 @@ return require("packer").startup(function(use)
 	-- 		vim.cmd.colorscheme("kanagawa")
 	-- 	end,
 	-- })
-	use({
-		"kartikp10/noctis.nvim",
-		requires = { "rktjmp/lush.nvim" },
-		config = function()
-			vim.cmd.colorscheme("noctis")
-		end,
-	})
+	-- use({
+	-- 	"kartikp10/noctis.nvim",
+	-- 	requires = { "rktjmp/lush.nvim" },
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("noctis")
+	-- 	end,
+	-- })
 end)
