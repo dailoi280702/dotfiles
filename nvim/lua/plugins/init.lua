@@ -229,34 +229,34 @@ return require("packer").startup(function(use)
 		-- after = "tabline.nvim",
 	})
 
-	use({
-		opt = true,
-		"SmiteshP/nvim-gps",
-		config = function()
-			require("nvim-gps").setup({})
-		end,
-		event = "bufreadpost",
-		after = "lualine.nvim",
-	})
+	-- use({
+	-- 	opt = true,
+	-- 	"SmiteshP/nvim-gps",
+	-- 	config = function()
+	-- 		require("nvim-gps").setup({})
+	-- 	end,
+	-- 	event = "bufreadpost",
+	-- 	after = "lualine.nvim",
+	-- })
 
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
 		end,
-		after = "nvim-gps",
+		-- after = "nvim-gps",
 	})
 
-	use({
-		"sainnhe/gruvbox-material",
-		config = function()
-			-- require("theme-config")
-			vim.g.gruvbox_material_better_performance = 1
-			vim.g.gruvbox_material_background = "hard"
-			vim.g.gruvbox_material_ui_contrast = "high"
-			vim.cmd.colorscheme("gruvbox-material")
-		end,
-	})
+	-- use({
+	-- 	"sainnhe/gruvbox-material",
+	-- 	config = function()
+	-- 		-- require("theme-config")
+	-- 		vim.g.gruvbox_material_better_performance = 1
+	-- 		vim.g.gruvbox_material_background = "hard"
+	-- 		vim.g.gruvbox_material_ui_contrast = "high"
+	-- 		vim.cmd.colorscheme("gruvbox-material")
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"catppuccin/nvim",
@@ -285,13 +285,13 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	-- use({
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	run = ":NightfoxCompile",
-	-- 	config = function()
-	-- 		require("theme-config.nightfox")
-	-- 	end,
-	-- })
+	use({
+		"EdenEast/nightfox.nvim",
+		run = ":NightfoxCompile",
+		config = function()
+			require("theme-config.nightfox")
+		end,
+	})
 
 	-- use({
 	-- 	"rebelot/kanagawa.nvim",
