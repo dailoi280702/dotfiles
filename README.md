@@ -8,6 +8,24 @@
 ![nvim on kitty](art/vim.png)
 ![btop on blackbox](art/btop.png)
 
+## Showcase
+
+<details>
+	<summary>catppuccin</summary>
+
+![kitty terminal + fira code + catppuccin](art/catppuccin.png)
+
+</details>
+
+<br>
+
+<details>
+	<summary>terafox</summary>
+
+![kitty terminal + victor mono + terafox](art/terafox.png)
+
+</details>
+
 ## Tools
 
 - [neovim nightly](https://github.com/neovim/neovim) - the best code editor
