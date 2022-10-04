@@ -5,9 +5,19 @@ if not ok then
 end
 
 bufferline.setup({
-	animation = false,
-	auto_hide = true,
-	maximum_padding = 10000,
-	tabpages = false,
-	closable = false,
+	options = {
+		show_close_icon = false,
+		show_buffer_close_icons = false,
+		separator_style = "slant",
+		diagnostics = "nvim_lsp",
+		always_show_bufferline = false,
+		offsets = {
+			{
+				filetype = "NvimTree",
+				-- text = "File Explorer",
+				text_align = "left",
+				separator = true,
+			},
+		},
+	},
 })

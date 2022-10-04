@@ -10,6 +10,8 @@ local opts = { noremap = true, silent = true }
 -- map("n", "<space>bp", "<cmd>BufferPin<cr>", opts)
 -- map("n", "<space>bc", "<cmd>BufferClose<cr>", opts)
 
-map("n", "<tab>", "<cmd>bnext<cr><cmd>redraw<cr>", opts)
-map("n", "<s-tab>", "<cmd>bprevious<cr><cmd>redraw<cr>", opts)
+-- map("n", "<tab>", "<cmd>bnext<cr><cmd>redraw<cr>", opts)
+-- map("n", "<s-tab>", "<cmd>bprevious<cr><cmd>redraw<cr>", opts)
 map("n", "<leader>bc", "<cmd>bdelete<cr>", opts)
+map("n", "<tab>", "<cmd>BufferLineCycleNext<cr><cmd>redraw<cr>", opts)
+map("n", "<s-tab>", "<cmd>BufferLineCyclePrev<cr><cmd>redraw<cr>", opts)

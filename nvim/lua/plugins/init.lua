@@ -309,4 +309,12 @@ return require("packer").startup(function(use)
 	-- 		vim.cmd.colorscheme("noctis")
 	-- 	end,
 	-- })
+
+	use({
+		"akinsho/bufferline.nvim",
+		config = function()
+			require("bufferline-config")
+		end,
+		after = "lualine.nvim",
+	})
 end)
