@@ -4,10 +4,10 @@ if not status then
 end
 
 saga.init_lsp_saga({
-	symbol_in_winbar = {
-		-- in_custom = true,
-		enable = false,
-	},
+	-- symbol_in_winbar = {
+	-- 	-- in_custom = true,
+	-- 	enable = false,
+	-- },
 })
 
 local config = {
