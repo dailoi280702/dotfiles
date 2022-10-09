@@ -13,7 +13,8 @@ saga.init_lsp_saga({
 local config = {
 	virtual_text = {
 		-- prefix = "",
-		prefix = "",
+		-- prefix = "",
+		prefix = "💩",
 	},
 }
 

@@ -1,45 +1,37 @@
-# Catppuccin color palette
+#!/usr/bin/fish
 
-# --> special
-set -l foreground cdd6f4
-set -l selection 313244
+# Kanagawa Fish shell theme
+# A template was taken and modified from Tokyonight:
+# https://github.com/folke/tokyonight.nvim/blob/main/extras/fish_tokyonight_night.fish
+set -l foreground DCD7BA
+set -l selection 2D4F67
+set -l comment 727169
+set -l red C34043
+set -l orange FF9E64
+set -l yellow C0A36E
+set -l green 76946A
+set -l purple 957FB8
+set -l cyan 7AA89F
+set -l pink D27E99
 
-# --> palette
-set -l teal 94e2d5
-set -l flamingo f2cdcd
-set -l mauve cba6f7
-set -l pink f5c2e7
-set -l red f38ba8
-set -l peach fab387
-set -l green a6e3a1
-set -l yellow f9e2af
-set -l blue 89b4fa
-set -l gray 6c7086
-
-# Syntax Highlighting
+# Syntax Highlighting Colors
 set -g fish_color_normal $foreground
-set -g fish_color_command $blue
-set -g fish_color_param $flamingo
-set -g fish_color_keyword $red
-set -g fish_color_quote $green
-set -g fish_color_redirection $pink
-set -g fish_color_end $peach
+set -g fish_color_command $cyan
+set -g fish_color_keyword $pink
+set -g fish_color_quote $yellow
+set -g fish_color_redirection $foreground
+set -g fish_color_end $orange
 set -g fish_color_error $red
-set -g fish_color_gray $gray
+set -g fish_color_param $purple
+set -g fish_color_comment $comment
 set -g fish_color_selection --background=$selection
 set -g fish_color_search_match --background=$selection
-set -g fish_color_operator $pink
-set -g fish_color_escape $flamingo
-set -g fish_color_autosuggestion $gray
-set -g fish_color_cancel $red
+set -g fish_color_operator $green
+set -g fish_color_escape $pink
+set -g fish_color_autosuggestion $comment
 
-# Prompt
-set -g fish_color_cwd $yellow
-set -g fish_color_user $teal
-set -g fish_color_host $blue
-
-# Completion Pager
-set -g fish_pager_color_progress $gray
-set -g fish_pager_color_prefix $pink
+# Completion Pager Colors
+set -g fish_pager_color_progress $comment
+set -g fish_pager_color_prefix $cyan
 set -g fish_pager_color_completion $foreground
-set -g fish_pager_color_description $gray
+set -g fish_pager_color_description $comment

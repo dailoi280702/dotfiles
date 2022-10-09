@@ -276,14 +276,15 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	-- use({
-	-- 	"bluz71/vim-nightfly-guicolors",
-	-- 	config = function()
-	-- 		-- vim.g.nightflyTransparent = true
-	-- 		vim.g.nightflyWinSeparator = 2
-	-- 		vim.cmd.colorscheme("nightfly")
-	-- 	end,
-	-- })
+	use({
+		"bluz71/vim-nightfly-guicolors",
+		config = function()
+			-- vim.g.nightflyTransparent = true
+			vim.g.nightflyCursorColor = true
+			vim.g.nightflyWinSeparator = 2
+			-- vim.cmd.colorscheme("nightfly")
+		end,
+	})
 
 	-- use({
 	-- 	"EdenEast/nightfox.nvim",
@@ -293,15 +294,16 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	-- use({
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	config = function()
-	-- 		require("kanagawa").setup({
-	-- 			transparent = true,
-	-- 		})
-	-- 		vim.cmd.colorscheme("kanagawa")
-	-- 	end,
-	-- })
+	use({
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require("kanagawa").setup({
+				-- transparent = true,
+				theme = "light",
+			})
+			vim.cmd.colorscheme("kanagawa")
+		end,
+	})
 	-- use({
 	-- 	"kartikp10/noctis.nvim",
 	-- 	requires = { "rktjmp/lush.nvim" },
