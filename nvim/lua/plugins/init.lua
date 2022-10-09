@@ -297,11 +297,7 @@ return require("packer").startup(function(use)
 	use({
 		"rebelot/kanagawa.nvim",
 		config = function()
-			require("kanagawa").setup({
-				-- transparent = true,
-				theme = "light",
-			})
-			vim.cmd.colorscheme("kanagawa")
+			require("theme-config.kanagawa")
 		end,
 	})
 	-- use({
