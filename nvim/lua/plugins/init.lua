@@ -258,14 +258,14 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-		run = ":CatppuccinCompile",
-		config = function()
-			require("theme-config.catppuccin")
-		end,
-	})
+	-- use({
+	-- 	"catppuccin/nvim",
+	-- 	as = "catppuccin",
+	-- 	run = ":CatppuccinCompile",
+	-- 	config = function()
+	-- 		require("theme-config.catppuccin")
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"bluz71/vim-moonfly-colors",
@@ -276,15 +276,15 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	use({
-		"bluz71/vim-nightfly-guicolors",
-		config = function()
-			-- vim.g.nightflyTransparent = true
-			vim.g.nightflyCursorColor = true
-			vim.g.nightflyWinSeparator = 2
-			-- vim.cmd.colorscheme("nightfly")
-		end,
-	})
+	-- use({
+	-- 	"bluz71/vim-nightfly-guicolors",
+	-- 	config = function()
+	-- 		-- vim.g.nightflyTransparent = true
+	-- 		vim.g.nightflyCursorColor = true
+	-- 		vim.g.nightflyWinSeparator = 2
+	-- 		-- vim.cmd.colorscheme("nightfly")
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"EdenEast/nightfox.nvim",
@@ -294,12 +294,13 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	use({
-		"rebelot/kanagawa.nvim",
-		config = function()
-			require("theme-config.kanagawa")
-		end,
-	})
+	-- use({
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		require("theme-config.kanagawa")
+	-- 	end,
+	-- })
+
 	-- use({
 	-- 	"kartikp10/noctis.nvim",
 	-- 	requires = { "rktjmp/lush.nvim" },
@@ -314,5 +315,14 @@ return require("packer").startup(function(use)
 			require("bufferline-config")
 		end,
 		after = "lualine.nvim",
+	})
+
+	use({
+		"katawful/kat.nvim",
+		tag = "2.0",
+		config = function()
+			vim.g.kat_nvim_stupidFeatures = true
+			vim.cmd.colorscheme("kat.nvim")
+		end,
 	})
 end)
