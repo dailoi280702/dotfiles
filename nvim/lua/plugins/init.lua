@@ -286,13 +286,13 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	-- use({
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	run = ":NightfoxCompile",
-	-- 	config = function()
-	-- 		require("theme-config.nightfox")
-	-- 	end,
-	-- })
+	use({
+		"EdenEast/nightfox.nvim",
+		run = ":NightfoxCompile",
+		config = function()
+			require("theme-config.nightfox")
+		end,
+	})
 
 	-- use({
 	-- 	"rebelot/kanagawa.nvim",
@@ -317,12 +317,12 @@ return require("packer").startup(function(use)
 		after = "lualine.nvim",
 	})
 
-	use({
-		"katawful/kat.nvim",
-		tag = "2.0",
-		config = function()
-			vim.g.kat_nvim_stupidFeatures = true
-			vim.cmd.colorscheme("kat.nvim")
-		end,
-	})
+	-- use({
+	-- 	"katawful/kat.nvim",
+	-- 	tag = "2.0",
+	-- 	config = function()
+	-- 		vim.g.kat_nvim_stupidFeatures = true
+	-- 		vim.cmd.colorscheme("kat.nvim")
+	-- 	end,
+	-- })
 end)
