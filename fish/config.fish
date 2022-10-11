@@ -13,6 +13,7 @@ if status is-interactive
 	set -gx PATH "$HOME/.cargo/bin" $PATH;
 	set -gx PATH "$HOME/.local/bin" $PATH;
 	set -gx PATH "$HOME/.bun/bin" $PATH;
+	set -gx PATH "$HOME/go/bin/" $PATH;
 
 	function tre
 		command tre $argv -e; and source /tmp/tre_aliases_$USER ^/dev/null

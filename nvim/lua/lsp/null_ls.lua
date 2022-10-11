@@ -15,6 +15,7 @@ local formatting_sources = {
 	}),
 	-- diagnostics.eslint,
 	code_actions.eslint_d,
+	-- diagnostics.golangci_lint,
 }
 
 local async_formatting = function(bufnr)
