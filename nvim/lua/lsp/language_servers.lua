@@ -14,7 +14,8 @@ local servers = {
 	"cssls",
 	"cssmodules_ls",
 	"tailwindcss",
-	"golangci_lint_ls",
+	-- "golangci_lint_ls",
+	"gopls",
 	-- "grammarly",
 }
 
