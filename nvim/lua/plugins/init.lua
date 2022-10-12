@@ -258,14 +258,14 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	-- use({
-	-- 	"catppuccin/nvim",
-	-- 	as = "catppuccin",
-	-- 	run = ":CatppuccinCompile",
-	-- 	config = function()
-	-- 		require("theme-config.catppuccin")
-	-- 	end,
-	-- })
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+		run = ":CatppuccinCompile",
+		config = function()
+			require("theme-config.catppuccin")
+		end,
+	})
 
 	-- use({
 	-- 	"bluz71/vim-moonfly-colors",
@@ -286,13 +286,13 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
-	use({
-		"EdenEast/nightfox.nvim",
-		run = ":NightfoxCompile",
-		config = function()
-			require("theme-config.nightfox")
-		end,
-	})
+	-- use({
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	run = ":NightfoxCompile",
+	-- 	config = function()
+	-- 		require("theme-config.nightfox")
+	-- 	end,
+	-- })
 
 	-- use({
 	-- 	"rebelot/kanagawa.nvim",
