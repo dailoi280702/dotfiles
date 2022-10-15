@@ -6,7 +6,9 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		opt = true,
-		run = ":TSUpdate",
+		run = function()
+			require("nvim-treesitter.install").update({ with_sync = true })
+		end,
 		event = "BufRead",
 		config = function()
 			require("treesitter-config")
