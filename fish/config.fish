@@ -33,12 +33,13 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
-function nvm
-    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-end
+#function nvm
+#bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+#end
 
 function quickgit # This is the function name and command we call
  	git --git-dir=$PWD/.git add . # Stage all unstaged files
 	git --git-dir=$PWD/.git commit -a -m $argv # Commit files with the given argument as the commit message
 	git --git-dir=$PWD/.git push # Push to remote
 end
+fish_add_path /home/lloyd/.spicetify

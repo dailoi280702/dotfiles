@@ -270,46 +270,10 @@ return require("packer").startup(function(use)
 	})
 
 	-- use({
-	-- 	"bluz71/vim-moonfly-colors",
-	-- 	config = function()
-	-- 		vim.g.moonflyWinSeparator = 2
-	-- 		vim.g.moonflyTransparent = true
-	-- 		vim.cmd.colorscheme("moonfly")
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"bluz71/vim-nightfly-guicolors",
-	-- 	config = function()
-	-- 		-- vim.g.nightflyTransparent = true
-	-- 		vim.g.nightflyCursorColor = true
-	-- 		vim.g.nightflyWinSeparator = 2
-	-- 		-- vim.cmd.colorscheme("nightfly")
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	run = ":NightfoxCompile",
-	-- 	config = function()
-	-- 		require("theme-config.nightfox")
-	-- 	end,
-	-- })
-
-	-- use({
 	-- 	"rebelot/kanagawa.nvim",
 	-- 	config = function()
 	-- 		require("theme-config.kanagawa")
 	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"kartikp10/noctis.nvim",
-	-- 	requires = { "rktjmp/lush.nvim" },
-	-- 	config = function()
-	-- 		vim.cmd.colorscheme("noctis")
-	-- 	end,
-	-- })
 
 	use({
 		"akinsho/bufferline.nvim",
@@ -318,13 +282,4 @@ return require("packer").startup(function(use)
 		end,
 		after = "lualine.nvim",
 	})
-
-	-- use({
-	-- 	"katawful/kat.nvim",
-	-- 	tag = "2.0",
-	-- 	config = function()
-	-- 		vim.g.kat_nvim_stupidFeatures = true
-	-- 		vim.cmd.colorscheme("kat.nvim")
-	-- 	end,
-	-- })
 end)
