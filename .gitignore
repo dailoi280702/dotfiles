@@ -2,4 +2,4 @@
 *.log
 *.git
 
-./nvim/plugin
+./nvim/plugin/
