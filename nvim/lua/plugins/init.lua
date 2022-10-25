@@ -123,8 +123,11 @@ return require("packer").startup(function(use)
 	})
 
 	use({
-		"norcalli/nvim-colorizer.lua",
-		config = "require('colorizer').setup()",
+		-- "norcalli/nvim-colorizer.lua",
+		"NvChad/nvim-colorizer.lua",
+		config = function()
+			require("colorizer-config")
+		end,
 		-- event = { "BufReadPost", "BufNewFile" },
 	}) -- colorizer
 
@@ -143,27 +146,11 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- use({
-	-- 	"MunifTanjim/eslint.nvim",
-	-- 	config = function()
-	-- 		require("eslint-config")
-	-- 	end,
-	-- })
-
 	use({
 		"windwp/nvim-ts-autotag",
 		opt = true,
 		after = "nvim-treesitter",
 	})
-
-	-- use({
-	-- 	"Pocco81/auto-save.nvim",
-	-- 	config = function()
-	-- 		require("AutoSave-config")
-	-- 	end,
-	-- 	-- event = "BufReadPost",
-	-- 	after = "null-ls.nvim",
-	-- })
 
 	use({
 		"kylechui/nvim-surround",
@@ -179,25 +166,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use({ "dstein64/vim-startuptime" })
-
-	-- use({
-	-- 	"romgrk/barbar.nvim",
-	-- 	config = function()
-	-- 		require("bufferline-config")
-	-- 	end,
-	-- 	after = "nvim-web-devicons",
-	-- 	-- event = "BufReadPost",
-	-- })
-
-	-- use({
-	-- 	"kdheepak/tabline.nvim",
-	-- 	config = function()
-	-- 		require("tabline-config")
-	-- 	end,
-	-- 	event = "BufReadPost",
-	-- })
-
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
@@ -211,16 +179,6 @@ return require("packer").startup(function(use)
 		-- opt = true,
 	})
 
-	-- use({
-	-- 	"rebelot/heirline.nvim",
-	-- 	opt = true,
-	-- 	config = function()
-	-- 		require("heirline-config")
-	-- 	end,
-	-- 	event = "bufreadpost",
-	-- 	-- after = "tabline.nvim",
-	-- })
-
 	use({
 		"nvim-lualine/lualine.nvim",
 		opt = true,
@@ -228,52 +186,43 @@ return require("packer").startup(function(use)
 			require("lualine-config")
 		end,
 		event = "bufreadpost",
-		-- after = "tabline.nvim",
 	})
-
-	-- use({
-	-- 	opt = true,
-	-- 	"SmiteshP/nvim-gps",
-	-- 	config = function()
-	-- 		require("nvim-gps").setup({})
-	-- 	end,
-	-- 	event = "bufreadpost",
-	-- 	after = "lualine.nvim",
-	-- })
 
 	use({
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
 		end,
-		-- after = "nvim-gps",
+		after = "lualine.nvim",
 	})
 
 	-- use({
-	-- 	"sainnhe/gruvbox-material",
+	-- 	"rose-pine/neovim",
+	-- 	as = "rose-pine",
 	-- 	config = function()
-	-- 		-- require("theme-config")
-	-- 		vim.g.gruvbox_material_better_performance = 1
-	-- 		vim.g.gruvbox_material_background = "hard"
-	-- 		vim.g.gruvbox_material_ui_contrast = "high"
-	-- 		vim.cmd.colorscheme("gruvbox-material")
+	-- 		-- require("rose-pine").setup({
+	-- 		-- 	disable_background = true,
+	-- 		-- 	disable_float_background = true,
+	-- 		-- })
+	-- 		vim.cmd.colorscheme("rose-pine")
+	-- 	end,
+	-- })
+
+	-- use({
+	-- 	"catppuccin/nvim",
+	-- 	as = "catppuccin",
+	-- 	config = function()
+	-- 		require("theme-config.catppuccin")
 	-- 	end,
 	-- })
 
 	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-		run = ":CatppuccinCompile",
+		"EdenEast/nightfox.nvim",
 		config = function()
-			require("theme-config.catppuccin")
+			require("nightfox").init({ transparent = true })
+			vim.cmd.colorscheme("carbonfox")
 		end,
 	})
-
-	-- use({
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	config = function()
-	-- 		require("theme-config.kanagawa")
-	-- 	end,
 
 	use({
 		"akinsho/bufferline.nvim",

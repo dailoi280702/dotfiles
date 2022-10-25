@@ -5,10 +5,8 @@ end
 
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 catppuccin.setup({
-	compile = {
-		enabled = true,
-		path = vim.fn.stdpath("cache") .. "/catppuccin",
-	},
+	compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
+	-- transparent_background = true,
 	integrations = {
 		lsp_saga = true,
 		which_key = true,
