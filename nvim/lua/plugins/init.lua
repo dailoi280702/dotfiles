@@ -208,21 +208,32 @@ return require("packer").startup(function(use)
 	-- 	end,
 	-- })
 
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+		config = function()
+			require("theme-config.catppuccin")
+		end,
+	})
+
 	-- use({
-	-- 	"catppuccin/nvim",
-	-- 	as = "catppuccin",
+	-- 	"EdenEast/nightfox.nvim",
 	-- 	config = function()
-	-- 		require("theme-config.catppuccin")
+	-- 		require("nightfox").init({ transparent = true })
+	-- 		vim.cmd.colorscheme("terafox")
 	-- 	end,
 	-- })
 
-	use({
-		"EdenEast/nightfox.nvim",
-		config = function()
-			require("nightfox").init({ transparent = true })
-			vim.cmd.colorscheme("carbonfox")
-		end,
-	})
+	-- use({
+	-- 	"sainnhe/gruvbox-material",
+	-- 	config = function()
+	-- 		vim.g.gruvbox_material_better_performance = 1
+	-- 		vim.g.gruvbox_material_enable_italic = 1
+	-- 		vim.g.gruvbox_material_ui_contrast = "high"
+	-- 		-- vim.g.gruvbox_material_background = "hard"
+	-- 		vim.cmd.colorscheme("gruvbox-material")
+	-- 	end,
+	-- })
 
 	use({
 		"akinsho/bufferline.nvim",

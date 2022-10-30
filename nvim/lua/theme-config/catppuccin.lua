@@ -3,10 +3,10 @@ if not ok then
 	return
 end
 
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 catppuccin.setup({
+	flavour = "mocha",
 	compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
-	-- transparent_background = true,
+	transparent_background = true,
 	integrations = {
 		lsp_saga = true,
 		which_key = true,
@@ -18,4 +18,4 @@ catppuccin.setup({
 	},
 })
 
-vim.cmd.colorscheme("catppuccin")
+vim.api.nvim_command("colorscheme catppuccin")
