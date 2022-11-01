@@ -109,9 +109,16 @@ return require("packer").startup(function(use)
 
 	-- use({ "saadparwaiz1/cmp_luasnip" }) -- Snippets source for nvim-cmp
 
+	-- use({
+	-- 	"terrortylor/nvim-comment",
+	-- 	config = "require('nvim-comment-config')",
+	-- })
+
 	use({
-		"terrortylor/nvim-comment",
-		config = "require('nvim-comment-config')",
+		"echasnovski/mini.comment",
+		config = function()
+			require("mini.comment").setup()
+		end,
 	})
 
 	use({
@@ -196,18 +203,6 @@ return require("packer").startup(function(use)
 		after = "lualine.nvim",
 	})
 
-	-- use({
-	-- 	"rose-pine/neovim",
-	-- 	as = "rose-pine",
-	-- 	config = function()
-	-- 		-- require("rose-pine").setup({
-	-- 		-- 	disable_background = true,
-	-- 		-- 	disable_float_background = true,
-	-- 		-- })
-	-- 		vim.cmd.colorscheme("rose-pine")
-	-- 	end,
-	-- })
-
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
@@ -215,25 +210,6 @@ return require("packer").startup(function(use)
 			require("theme-config.catppuccin")
 		end,
 	})
-
-	-- use({
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	config = function()
-	-- 		require("nightfox").init({ transparent = true })
-	-- 		vim.cmd.colorscheme("terafox")
-	-- 	end,
-	-- })
-
-	-- use({
-	-- 	"sainnhe/gruvbox-material",
-	-- 	config = function()
-	-- 		vim.g.gruvbox_material_better_performance = 1
-	-- 		vim.g.gruvbox_material_enable_italic = 1
-	-- 		vim.g.gruvbox_material_ui_contrast = "high"
-	-- 		-- vim.g.gruvbox_material_background = "hard"
-	-- 		vim.cmd.colorscheme("gruvbox-material")
-	-- 	end,
-	-- })
 
 	use({
 		"akinsho/bufferline.nvim",
