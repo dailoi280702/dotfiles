@@ -203,11 +203,18 @@ return require("packer").startup(function(use)
 		after = "lualine.nvim",
 	})
 
+	-- use({
+	-- 	"catppuccin/nvim",
+	-- 	as = "catppuccin",
+	-- 	config = function()
+	-- 		require("theme-config.catppuccin")
+	-- 	end,
+	-- })
+
 	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
+		"rebelot/kanagawa.nvim",
 		config = function()
-			require("theme-config.catppuccin")
+			require("theme-config.kanagawa")
 		end,
 	})
 
