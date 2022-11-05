@@ -12,5 +12,5 @@ bufferline.setup({
 		-- diagnostics = "nvim_lsp",
 		always_show_bufferline = false,
 	},
-	highlights = require("bufferline-config.kanagawa"),
+	-- highlights = require("bufferline-config.kanagawa"),
 })
