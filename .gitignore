@@ -1,5 +1,6 @@
 *.backup
 *.log
 *.git
+*.DS_Store
 
 /nvim/plugin

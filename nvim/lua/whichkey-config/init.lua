@@ -57,14 +57,14 @@ local mappings = {
 		t = { "<cmd>LivedownToggle<cr>", "Toggle Livedown" },
 	},
 	w = { "<cmd>wa<cr>", "Save" },
-	h = {
+	j = {
 		name = "Jumping",
-		a = { "<cmd>HopWord<cr>", "words" },
-		s = { "<cmd>HopLine<cr>", "lines" },
-		d = { "<cmd>HopWordMW<cr>", "all words" },
-		f = { "<cmd>HopLineMW<cr>", "all lines" },
-		j = { "<cmd>HopChar1<cr>", "char 1" },
-		k = { "<cmd>HopChar1MW<cr>", "all char 1" },
+		j = { "<cmd>HopWord<cr>", "words" },
+		l = { "<cmd>HopLine<cr>", "lines" },
+		a = { "<cmd>HopWordMW<cr>", "all words" },
+		L = { "<cmd>HopLineMW<cr>", "all lines" },
+		c = { "<cmd>HopChar1<cr>", "char 1" },
+		C = { "<cmd>HopChar1MW<cr>", "all char 1" },
 	},
 	s = { "vi{:sort<cr>", "sort" },
 }

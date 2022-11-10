@@ -203,20 +203,17 @@ return require("packer").startup(function(use)
 		after = "lualine.nvim",
 	})
 
-	-- use({
-	-- 	"catppuccin/nvim",
-	-- 	as = "catppuccin",
-	-- 	config = function()
-	-- 		require("theme-config.catppuccin")
-	-- 	end,
-	-- })
+	use("sainnhe/gruvbox-material")
 
-	use({
-		"rebelot/kanagawa.nvim",
-		config = function()
-			require("theme-config.kanagawa")
-		end,
-	})
+	use("olimorris/onedarkpro.nvim")
+
+	use("daschw/leaf.nvim")
+
+	use("EdenEast/nightfox.nvim")
+
+	use("rebelot/kanagawa.nvim")
+
+	use("bluz71/vim-moonfly-colors")
 
 	use({
 		"akinsho/bufferline.nvim",
