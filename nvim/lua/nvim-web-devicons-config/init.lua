@@ -4,10 +4,10 @@ if not web_devicons_ok then
 end
 
 local material_icon_ok, material_icon = pcall(require, "nvim-material-icon")
-if not material_icon then
+if not material_icon_ok then
 	return
 end
 
 require("nvim-web-devicons").setup({
-	override = require("nvim-material-icon").get_icons(),
+	override = material_icon.get_icons(),
 })
