@@ -183,6 +183,10 @@ return require("packer").startup(function(use)
 
 	use({
 		"kyazdani42/nvim-web-devicons",
+		config = function()
+			require("nvim-web-devicons-config")
+		end,
+		requires = "DaikyXendo/nvim-material-icon",
 		-- opt = true,
 	})
 
