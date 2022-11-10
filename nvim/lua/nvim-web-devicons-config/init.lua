@@ -8,6 +8,6 @@ if not material_icon_ok then
 	return
 end
 
-require("nvim-web-devicons").setup({
+web_devicons.setup({
 	override = material_icon.get_icons(),
 })
