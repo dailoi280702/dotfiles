@@ -11,5 +11,5 @@ bufferline.setup({
 		separator_style = "slant",
 		always_show_bufferline = false,
 	},
-	-- highlights = require("bufferline-config.kanagawa"),
+	highlights = require("bufferline-config.neosolaried"),
 })

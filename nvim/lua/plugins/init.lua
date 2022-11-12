@@ -219,6 +219,8 @@ return require("packer").startup(function(use)
 
 	use("bluz71/vim-moonfly-colors")
 
+	use({ "svrana/neosolarized.nvim", requires = "tjdevries/colorbuddy.nvim" })
+
 	use({
 		"akinsho/bufferline.nvim",
 		config = function()

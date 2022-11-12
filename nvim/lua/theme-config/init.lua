@@ -1,1 +1,1 @@
-require("theme-config.moonfly")
+require("theme-config.neosolarized")
