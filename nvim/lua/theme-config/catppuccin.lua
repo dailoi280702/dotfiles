@@ -5,8 +5,6 @@ end
 
 catppuccin.setup({
 	flavour = "mocha",
-	compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
-	transparent_background = true,
 	integrations = {
 		lsp_saga = true,
 		which_key = true,
@@ -14,6 +12,11 @@ catppuccin.setup({
 		ts_rainbow = true,
 		indent_blankline = {
 			colored_indent_levels = true,
+		},
+	},
+	color_overrides = {
+		all = {
+			base = "#0f0f17",
 		},
 	},
 })

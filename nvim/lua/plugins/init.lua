@@ -221,6 +221,8 @@ return require("packer").startup(function(use)
 
 	use({ "svrana/neosolarized.nvim", requires = "tjdevries/colorbuddy.nvim" })
 
+	use("catppuccin/nvim")
+
 	use({
 		"akinsho/bufferline.nvim",
 		config = function()

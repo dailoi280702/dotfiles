@@ -5,8 +5,6 @@ end
 
 lualine.setup({
 	options = {
-		-- theme = require("lualine-config.kanagawa"),
-		theme = "solarized",
 		globalstatus = false,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
