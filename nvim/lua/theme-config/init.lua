@@ -1,1 +1,1 @@
-require("theme-config.catppuccin")
+require("theme-config.nightfly")

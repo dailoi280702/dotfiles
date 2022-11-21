@@ -1,8 +1,8 @@
-vim.g.nightflyTransparent = true
+-- vim.g.nightflyTransparent = true
 vim.g.nightflyWinSeparator = 2
 vim.cmd([[
 	colorscheme nightfly
-	hi StatusLine guibg = none
+	hi Normal guibg=#000b14
 ]])
 -- vim.cmd([[
 -- 	colorscheme nightfly

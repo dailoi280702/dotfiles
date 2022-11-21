@@ -25,7 +25,7 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 	},
 	rainbow = {
-		enable = false,
+		enable = true,
 		extended_mode = false,
 	},
 })
