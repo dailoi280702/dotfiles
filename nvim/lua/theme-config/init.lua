@@ -1,1 +1,1 @@
-require("theme-config.nightfly")
+require("theme-config.nightfox")
