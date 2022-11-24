@@ -1,1 +1,1 @@
-require("theme-config.nightfox")
+require("theme-config.neosolarized")
