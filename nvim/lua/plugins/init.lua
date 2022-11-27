@@ -225,6 +225,10 @@ return require("packer").startup(function(use)
 
 	use("catppuccin/nvim")
 
+	use({ "Everblush/everblush.nvim", as = "everblush" })
+
+	use("sainnhe/everforest")
+
 	use({
 		"akinsho/bufferline.nvim",
 		config = function()

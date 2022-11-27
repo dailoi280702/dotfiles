@@ -1,1 +1,1 @@
-require("theme-config.neosolarized")
+require("theme-config.gruvbox-material")
