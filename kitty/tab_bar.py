@@ -23,6 +23,7 @@ SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
 RIGHT_MARGIN = 1
 REFRESH_TIME = 1
 ICON = " 🚀 "
+ICON = "  "
 UNPLUGGED_ICONS = {
     10: "",
     20: "",

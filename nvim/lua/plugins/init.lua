@@ -229,6 +229,8 @@ return require("packer").startup(function(use)
 
 	use("sainnhe/everforest")
 
+	use("rose-pine/neovim")
+
 	use({
 		"akinsho/bufferline.nvim",
 		config = function()
