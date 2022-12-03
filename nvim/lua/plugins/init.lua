@@ -207,29 +207,38 @@ return require("packer").startup(function(use)
 		after = "lualine.nvim",
 	})
 
-	use("sainnhe/gruvbox-material")
+	-- use("sainnhe/gruvbox-material")
 
-	use("olimorris/onedarkpro.nvim")
-
-	use("daschw/leaf.nvim")
-
+	-- use("olimorris/onedarkpro.nvim")
+	--
+	-- use("daschw/leaf.nvim")
+	--
 	use("EdenEast/nightfox.nvim")
+	--
+	-- use("rebelot/kanagawa.nvim")
+	--
+	-- use("bluz71/vim-moonfly-colors")
+	-- --
+	-- use("bluz71/vim-nightfly-colors")
+	--
+	-- use({ "svrana/neosolarized.nvim", requires = "tjdevries/colorbuddy.nvim" })
+	--
+	-- use("catppuccin/nvim")
+	--
+	-- use({ "Everblush/everblush.nvim", as = "everblush" })
+	--
+	-- use("sainnhe/everforest")
+	--
+	-- use("rose-pine/neovim")
 
-	use("rebelot/kanagawa.nvim")
+	-- use("sainnhe/sonokai")
 
-	use("bluz71/vim-moonfly-colors")
-
-	use("bluz71/vim-nightfly-colors")
-
-	use({ "svrana/neosolarized.nvim", requires = "tjdevries/colorbuddy.nvim" })
-
-	use("catppuccin/nvim")
-
-	use({ "Everblush/everblush.nvim", as = "everblush" })
-
-	use("sainnhe/everforest")
-
-	use("rose-pine/neovim")
+	-- use({
+	-- 	"loctvl842/monokai-pro.nvim",
+	-- 	config = function()
+	-- 		require("monokai-pro").setup({ theme = "spectrum" })
+	-- 	end,
+	-- })
 
 	use({
 		"akinsho/bufferline.nvim",

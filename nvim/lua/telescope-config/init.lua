@@ -18,6 +18,13 @@ telescope.setup({
 	extensions = {
 		file_browser = custom,
 	},
+	mappings = {
+		i = {
+			["<cr>"] = function(bufnr)
+				require("telescope.actions.set").edit(bufnr, "tab drop")
+			end,
+		},
+	},
 })
 
 require("telescope").load_extension("file_browser")

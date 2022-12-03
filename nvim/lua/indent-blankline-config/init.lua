@@ -9,6 +9,7 @@ local options = {
 	show_first_indent_level = false,
 	show_current_context = true,
 	show_current_context_start = true,
+	colored_indent_levels = false,
 }
 
 blankline.setup(options)

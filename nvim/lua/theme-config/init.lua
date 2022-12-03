@@ -1,1 +1,1 @@
-require("theme-config.gruvbox-material")
+require("theme-config.nightfox")
