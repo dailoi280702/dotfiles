@@ -146,12 +146,12 @@ return require("packer").startup(function(use)
 		"shime/vim-livedown",
 	})
 
-	use({
-		"MunifTanjim/prettier.nvim",
-		config = function()
-			require("prettier-config")
-		end,
-	})
+	-- use({
+	-- 	"MunifTanjim/prettier.nvim",
+	-- 	config = function()
+	-- 		require("prettier-config")
+	-- 	end,
+	-- })
 
 	use({
 		"windwp/nvim-ts-autotag",
@@ -239,6 +239,18 @@ return require("packer").startup(function(use)
 	-- 		require("monokai-pro").setup({ theme = "spectrum" })
 	-- 	end,
 	-- })
+
+	use({
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({
+				window = {
+					backdrop = 1,
+					width = 81,
+				},
+			})
+		end,
+	})
 
 	use({
 		"akinsho/bufferline.nvim",

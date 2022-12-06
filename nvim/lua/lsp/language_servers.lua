@@ -12,7 +12,7 @@ local servers = {
 	"ltex",
 	"sumneko_lua",
 	"cssls",
-	"cssmodules_ls",
+	-- "cssmodules_ls",
 	"tailwindcss",
 	-- "golangci_lint_ls",
 	-- "gopls",
@@ -48,6 +48,7 @@ for _, server in ipairs(servers) do
 	}
 
 	if server == "sumneko_lua" then
+		print("lkadfj")
 		local sumneko_opts = require("lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end

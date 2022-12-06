@@ -47,11 +47,11 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
-		{ name = "luasnip" },
-		{ name = "path" },
+		-- { name = "nvim_lua" },
+		-- { name = "luasnip" },
+		-- { name = "path" },
 		{ name = "buffer" },
-		{ name = "cmdline" },
+		-- { name = "cmdline" },
 		-- { name = "buffer" },
 	}),
 	formatting = {

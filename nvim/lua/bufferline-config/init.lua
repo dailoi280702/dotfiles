@@ -10,7 +10,7 @@ bufferline.setup({
 		show_buffer_close_icons = false,
 		separator_style = "slant",
 		always_show_bufferline = false,
-		mode = "tabs",
+		-- mode = "tabs",
 	},
 	-- highlights = require("bufferline-config.catppuccin"),
 	-- highlights = require("catppuccin.groups.integrations.bufferline").get(),
