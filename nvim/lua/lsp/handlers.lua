@@ -26,7 +26,6 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.on_attach = function(client)
 	if client.name == "cssls" or client.name == "tsserver" or client.name == "html" or client.name == "sumneko_lua" then
-		print("fuck")
 		client.server_capabilities.documentFormattingProvider = false
 	end
 end

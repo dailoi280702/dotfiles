@@ -223,7 +223,7 @@ return require("packer").startup(function(use)
 	--
 	-- use({ "svrana/neosolarized.nvim", requires = "tjdevries/colorbuddy.nvim" })
 	--
-	-- use("catppuccin/nvim")
+	use("catppuccin/nvim")
 	--
 	-- use({ "Everblush/everblush.nvim", as = "everblush" })
 	--
@@ -246,7 +246,7 @@ return require("packer").startup(function(use)
 			require("zen-mode").setup({
 				window = {
 					backdrop = 1,
-					width = 81,
+					width = 91,
 				},
 			})
 		end,

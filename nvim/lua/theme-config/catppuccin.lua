@@ -17,7 +17,7 @@ catppuccin.setup({
 	},
 	-- color_overrides = {
 	-- 	all = {
-	-- base = "#0f0f17",
+	-- 		base = "#181a24",
 	-- 	},
 	-- },
 })
