@@ -4,7 +4,7 @@ if not ok then
 end
 
 catppuccin.setup({
-	flavour = "macchiato",
+	-- flavour = "macchiato",
 	-- transparent_background = true,
 	integrations = {
 		lsp_saga = true,
@@ -15,11 +15,11 @@ catppuccin.setup({
 			colored_indent_levels = true,
 		},
 	},
-	-- color_overrides = {
-	-- 	all = {
-	-- 		base = "#181a24",
-	-- 	},
-	-- },
+	color_overrides = {
+		all = {
+			base = "#181a24",
+		},
+	},
 })
 
 vim.api.nvim_command("colorscheme catppuccin")

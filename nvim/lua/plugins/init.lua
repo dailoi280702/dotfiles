@@ -239,6 +239,7 @@ return require("packer").startup(function(use)
 	-- 		require("monokai-pro").setup({ theme = "spectrum" })
 	-- 	end,
 	-- })
+	use("Mofiqul/vscode.nvim")
 
 	use({
 		"folke/zen-mode.nvim",
@@ -251,6 +252,8 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+
+	use({ "nyoom-engineering/oxocarbon.nvim" })
 
 	use({
 		"akinsho/bufferline.nvim",

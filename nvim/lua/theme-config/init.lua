@@ -1,1 +1,3 @@
-require("theme-config.nightfox")
+-- require("theme-config.catppuccin")
+
+vim.cmd.colorscheme("oxocarbon")
