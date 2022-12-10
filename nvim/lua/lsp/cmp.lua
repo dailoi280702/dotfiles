@@ -54,11 +54,27 @@ cmp.setup({
 		-- { name = "cmdline" },
 		-- { name = "buffer" },
 	}),
+	-- formatting = {
+	-- 	format = lspkind.cmp_format({
+	-- 		with_text = false,
+	-- 		maxwidth = 50,
+	-- 	}),
+	-- },
+	window = {
+		completion = {
+			-- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+			col_offset = 1,
+			side_padding = 0,
+		},
+	},
 	formatting = {
-		format = lspkind.cmp_format({
-			with_text = false,
-			maxwidth = 50,
-		}),
+		fields = { "kind", "abbr" },
+		format = function(entry, vim_item)
+			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = " " .. strings[1] .. " "
+			return kind
+		end,
 	},
 	experimental = {
 		ghost_text = true,

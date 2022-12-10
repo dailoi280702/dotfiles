@@ -1,3 +1,4 @@
 -- require("theme-config.catppuccin")
 
-vim.cmd.colorscheme("oxocarbon")
+-- vim.cmd.colorscheme("oxocarbon")
+require("oxocarbon")
