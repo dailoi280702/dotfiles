@@ -4,7 +4,7 @@ if not ok then
 end
 
 catppuccin.setup({
-	-- flavour = "macchiato",
+	flavour = "macchiato",
 	-- transparent_background = true,
 	integrations = {
 		lsp_saga = true,
