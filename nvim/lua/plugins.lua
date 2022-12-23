@@ -23,4 +23,12 @@ return {
 		end,
 		event = "VeryLazy",
 	},
+
+	{
+		"glepnir/lspsaga.nvim",
+		event = "BufReadPre",
+		config = function()
+			require("lspsaga").init_lsp_saga({})
+		end,
+	},
 }

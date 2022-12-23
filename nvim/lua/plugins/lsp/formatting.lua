@@ -2,14 +2,14 @@ local M = {}
 
 M.autoformat = true
 
-function M.format()
-    if M.autoformat then
-        if vim.lsp.buf.format then
-            vim.lsp.buf.format()
-        else
-            vim.lsp.buf.formatting_sync()
-        end
-    end
+function M.format(bufnr)
+	if M.autoformat then
+		if vim.lsp.buf.format then
+			vim.lsp.buf.format({ bufnr = bufnr })
+		else
+			vim.lsp.buf.formatting_sync()
+		end
+	end
 end
 
 -- function M.async_formatting(bufnr)
@@ -44,32 +44,30 @@ end
 -- end
 
 function M.setup(client, buf)
-    local ft = vim.api.nvim_buf_get_option(buf, "filetype")
-    local nls = require("plugins.null-ls")
+	local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+	local nls = require("plugins.null-ls")
 
-    local enable = false
-    if nls.has_formatter(ft) then
-        enable = client.name == "null-ls"
-    else
-        enable = not (client.name == "null-ls")
-    end
+	local enable = false
+	if nls.has_formatter(ft) then
+		enable = client.name == "null-ls"
+	else
+		enable = not (client.name == "null-ls")
+	end
 
-    if client.name == "tsserver" then
-        enable = false
-    end
+	if client.name == "tsserver" then
+		enable = false
+	end
 
-    -- util.info(client.name .. " " .. (enable and "yes" or "no"), "format")
-
-    client.server_capabilities.documentFormattingProvider = enable
-    -- format on save
-    if client.server_capabilities.documentFormattingProvider then
-        vim.cmd([[
-      augroup LspFormat
-        autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua require("plugins.lsp.formatting").format()
-      augroup END
-    ]]   )
-    end
+	client.server_capabilities.documentFormattingProvider = enable
+	-- format on save
+	if client.server_capabilities.documentFormattingProvider then
+		vim.cmd([[
+				augroup LspFormat
+					autocmd! * <buffer>
+					autocmd BufWritePre <buffer> lua require("plugins.lsp.formatting").format(buf)
+				augroup END
+			]])
+	end
 end
 
 return M

@@ -46,7 +46,6 @@ local mappings = {
 		n = { "<cmd>Lspsaga diagnostic_jump_next<cr>", "Go To Next Diagnostic" },
 		N = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Go To Previous Diagnostic" },
 	},
-	p = { "<cmd>PackerSync<cr>", "PackerSync" },
 	m = {
 		name = "Livedown",
 		p = { "<cmd>LivedownPreview<cr>", "Preview Markdown" },
@@ -65,6 +64,7 @@ local mappings = {
 	},
 	s = { "vi{:sort<cr>", "sort" },
 }
+
 local opts = { prefix = "<leader>" }
 
 wk.register(mappings, opts)
