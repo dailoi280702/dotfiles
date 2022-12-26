@@ -1,6 +1,7 @@
 local M = {
 	"shaunsingh/oxocarbon.nvim",
-	lazy = false
+	lazy = false,
+	enabled = false,
 }
 
 function M.config()

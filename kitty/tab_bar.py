@@ -25,6 +25,7 @@ REFRESH_TIME = 1
 # ICON = " 🚀 "
 # ICON = "  "
 ICON = "  "
+ICON = " 嗀 "
 UNPLUGGED_ICONS = {
     10: "",
     20: "",
