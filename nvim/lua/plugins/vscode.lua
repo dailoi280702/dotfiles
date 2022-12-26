@@ -1,6 +1,7 @@
 local M = {
 	"Mofiqul/vscode.nvim",
 	lazy = false,
+	enabled = false,
 }
 
 function M.config()

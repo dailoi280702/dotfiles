@@ -31,4 +31,15 @@ return {
 			require("lspsaga").init_lsp_saga({})
 		end,
 	},
+
+	{
+		"briones-gabriel/darcula-solid.nvim",
+		lazy = false,
+		dependencies = "rktjmp/lush.nvim",
+	},
+
+	{
+		"NTBBloodbath/doom-one.nvim",
+		lazy = false,
+	},
 }
