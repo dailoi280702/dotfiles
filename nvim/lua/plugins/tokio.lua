@@ -9,20 +9,20 @@ function M.config()
 	-- vim.o.background = "dark"
 	local tokyonight = require("tokyonight")
 	tokyonight.setup({
-		style = "moon",
+		style = "night",
 		-- transparent = true,
 		-- hide_inactive_statusline = false,
-		sidebars = {
-			"qf",
-			"vista_kind",
-			"terminal",
-			-- "packer",
-			"spectre_panel",
-			"NeogitStatus",
-			-- "help",
-			"startuptime",
-			"Outline",
-		},
+		-- sidebars = {
+		-- 	"qf",
+		-- 	"vista_kind",
+		-- 	"terminal",
+		-- 	-- "packer",
+		-- 	"spectre_panel",
+		-- 	"NeogitStatus",
+		-- 	-- "help",
+		-- 	"startuptime",
+		-- 	"Outline",
+		-- },
 		transparent = false,
 		styles = {},
 		on_colors = function(c) end,

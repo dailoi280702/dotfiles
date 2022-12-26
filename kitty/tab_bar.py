@@ -24,8 +24,8 @@ RIGHT_MARGIN = 1
 REFRESH_TIME = 1
 # ICON = " 🚀 "
 # ICON = "  "
-ICON = "  "
 ICON = " 嗀 "
+ICON = "  "
 UNPLUGGED_ICONS = {
     10: "",
     20: "",

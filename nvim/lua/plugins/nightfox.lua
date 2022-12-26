@@ -8,6 +8,12 @@ function M.config()
 		palettes = {
 			nordfox = {
 				bg1 = "#1b1f26",
+				sel0 = "#242c36",
+			},
+		},
+		groups = {
+			nordfox = {
+				CursorLine = { bg = "#232831" },
 			},
 		},
 	})
