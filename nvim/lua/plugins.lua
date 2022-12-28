@@ -31,4 +31,18 @@ return {
 			require("lspsaga").init_lsp_saga({})
 		end,
 	},
+
+	{
+		"folke/zen-mode.nvim",
+		cmd = "ZenMode",
+		config = {
+			window = {
+				backdrop = 1,
+				width = 81,
+			},
+			plugins = {
+				gitsigns = true,
+			},
+		},
+	},
 }
