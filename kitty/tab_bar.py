@@ -16,6 +16,9 @@ from kitty.tab_bar import (
 opts = get_options()
 icon_fg = as_rgb(color_as_int(opts.color7))
 icon_bg = as_rgb(color_as_int(opts.color0))
+# for kanagawa
+# icon_fg = as_rgb(color_as_int(opts.color15))
+# icon_bg = as_rgb(color_as_int(opts.color6))
 bat_text_color = as_rgb(color_as_int(opts.color15))
 clock_color = as_rgb(color_as_int(opts.color15))
 date_color = as_rgb(color_as_int(opts.color8))
@@ -24,7 +27,10 @@ RIGHT_MARGIN = 1
 REFRESH_TIME = 1
 # ICON = " 🚀 "
 # ICON = "  "
-ICON = " 嗀 "
+#ICON = " 嗀 "
+#for kanagawa
+# ICON = "  "
+#for nored
 ICON = "  "
 UNPLUGGED_ICONS = {
     10: "",

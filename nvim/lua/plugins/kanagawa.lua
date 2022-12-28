@@ -7,10 +7,10 @@ local M = {
 
 function M.config()
 	require("kanagawa").setup({
-		commentStyle = { italic = false },
-		functionStyle = { bold = true },
-		keywordStyle = { italic = false },
-		statementStyle = { bold = true },
+		-- commentStyle = { italic = false },
+		-- functionStyle = { bold = true },
+		-- keywordStyle = { italic = false },
+		-- statementStyle = { bold = true },
 	})
 	vim.cmd.colorscheme("kanagawa")
 end
