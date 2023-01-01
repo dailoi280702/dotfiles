@@ -28,7 +28,9 @@ return {
 		"glepnir/lspsaga.nvim",
 		event = "BufReadPre",
 		config = function()
-			require("lspsaga").init_lsp_saga({})
+			require("lspsaga").init_lsp_saga({
+				custom_kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+			})
 		end,
 	},
 
@@ -44,5 +46,10 @@ return {
 				gitsigns = true,
 			},
 		},
+	},
+
+	{
+		"p00f/nvim-ts-rainbow",
+		event = "BufReadPost",
 	},
 }
