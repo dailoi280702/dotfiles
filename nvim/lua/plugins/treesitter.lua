@@ -21,7 +21,7 @@ function M.config()
 			enable = true,
 		},
 		rainbow = {
-			enable = true,
+			enable = false,
 		},
 	})
 end

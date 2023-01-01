@@ -1,12 +1,12 @@
 local M = {
 	"catppuccin/nvim",
 	lazy = false,
+	enabled = false,
 }
 
 function M.config()
 	require("catppuccin").setup({
 		-- flavor = "macchiato",
-		transparent_background = true,
 		integrations = {
 			hop = true,
 			lsp_saga = true,

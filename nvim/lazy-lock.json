@@ -19,7 +19,6 @@
   "mason.nvim": { "branch": "main", "commit": "8fd6559eecbabb39c68d147f1b2cccb8d2d2d2a1" },
   "mini.nvim": { "branch": "main", "commit": "06eddfd8d6341e6c4f53ec9ae109a376a566329d" },
   "null-ls.nvim": { "branch": "main", "commit": "647a1eeeefc43ce15d941972642210637c370471" },
-  "nvim": { "branch": "main", "commit": "3020af75aae098a77737d91ee37c7147c8450d99" },
   "nvim-cmp": { "branch": "main", "commit": "c49ad26e894e137e401b1d294948c46327877eaf" },
   "nvim-treesitter": { "branch": "master", "commit": "b019eb30323635d680aa2f32e498a1831676ebb1" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "4a42b30376c1bd625ab5016c2079631d531d797a" },
@@ -29,6 +28,7 @@
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "304508fb7bea78e3c0eeddd88c4837501e403ae8" },
   "telescope.nvim": { "branch": "master", "commit": "a606bd10c79ec5989c76c49cc6f736e88b63f0da" },
+  "tokyonight.nvim": { "branch": "main", "commit": "42cccfe663f36b91792a350164f0695b44a031d9" },
   "which-key.nvim": { "branch": "main", "commit": "8682d3003595017cd8ffb4c860a07576647cc6f8" },
   "zen-mode.nvim": { "branch": "main", "commit": "6f5702db4fd4a4c9a212f8de3b7b982f3d93b03c" }
 }

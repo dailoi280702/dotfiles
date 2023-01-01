@@ -29,7 +29,7 @@ return {
 		event = "BufReadPre",
 		config = function()
 			require("lspsaga").init_lsp_saga({
-				custom_kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+				-- custom_kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
 			})
 		end,
 	},
