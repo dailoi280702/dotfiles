@@ -2,7 +2,6 @@ local M = {
 	"rebelot/kanagawa.nvim",
 
 	lazy = false,
-	enabled = false,
 }
 
 function M.config()

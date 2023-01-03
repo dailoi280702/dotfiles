@@ -1,3 +1,3 @@
-local tokio = require("plugins.themes.tokio")
+local theme = require("plugins.themes.kanagawa")
 
-return tokio
+return theme
