@@ -1,7 +1,6 @@
 local M = {
 	"sainnhe/sonokai",
 	lazy = false,
-	enabled = false,
 }
 
 function M.config()

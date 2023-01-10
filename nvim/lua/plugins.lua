@@ -40,7 +40,7 @@ return {
 		config = {
 			window = {
 				backdrop = 1,
-				width = 81,
+				width = 91,
 			},
 			plugins = {
 				gitsigns = true,

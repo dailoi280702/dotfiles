@@ -1,11 +1,13 @@
 local M = {
 	"EdenEast/nightfox.nvim",
 	lazy = false,
-	enabled = false,
 }
 
 function M.config()
 	require("nightfox").setup({
+		options = {
+			transparent = true,
+		},
 		palettes = {
 			nordfox = {
 				bg1 = "#1b1f26",

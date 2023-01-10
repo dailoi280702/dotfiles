@@ -13,6 +13,7 @@ M.tools = {
 	"gofumpt",
 	"eslint_d",
 	"fixjson",
+	"rust-analyzer",
 }
 
 function M.check()

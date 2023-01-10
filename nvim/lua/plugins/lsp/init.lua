@@ -22,6 +22,7 @@ function M.config()
 		tailwindcss = {},
 		gopls = {},
 		sumneko_lua = {},
+		rust_analyzer = {},
 	}
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()

@@ -6,6 +6,7 @@ local M = {
 
 function M.config()
 	require("nvim-treesitter.configs").setup({
+		transparent = true,
 		ensure_installed = "all",
 		highlight = {
 			enable = true,
