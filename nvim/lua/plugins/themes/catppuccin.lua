@@ -5,9 +5,14 @@ local M = {
 }
 
 function M.config()
+	vim.g.background = "light"
 	require("catppuccin").setup({
-		-- flavor = "macchiato",
+		-- flavor = "latte",
 		-- transparent_background = true,
+		no_italic = true,
+		styles = {
+			functions = { "bold" },
+		},
 		integrations = {
 			hop = true,
 			lsp_saga = true,

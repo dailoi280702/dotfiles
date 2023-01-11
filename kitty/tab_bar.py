@@ -38,7 +38,8 @@ REFRESH_TIME = 1
 # ICON = "  "
 #for moonfly
 #ICON = "  "
-ICON = "  "
+#ICON = "  "
+ICON = " "
 UNPLUGGED_ICONS = {
     10: "",
     20: "",

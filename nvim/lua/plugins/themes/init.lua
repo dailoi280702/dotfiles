@@ -1,3 +1,3 @@
-local theme = require("plugins.themes.catppuccin")
+local theme = require("plugins.themes.nightfox")
 
 return theme

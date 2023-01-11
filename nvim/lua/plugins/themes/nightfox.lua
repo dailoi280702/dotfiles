@@ -5,9 +5,9 @@ local M = {
 
 function M.config()
 	require("nightfox").setup({
-		options = {
-			transparent = true,
-		},
+		-- options = {
+		-- 	transparent = true,
+		-- },
 		palettes = {
 			nordfox = {
 				bg1 = "#1b1f26",
@@ -20,7 +20,7 @@ function M.config()
 			},
 		},
 	})
-	vim.cmd.colorscheme("nordfox")
+	vim.cmd.colorscheme("dawnfox")
 end
 
 return M

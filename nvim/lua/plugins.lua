@@ -48,8 +48,8 @@ return {
 		},
 	},
 
-	{
-		"p00f/nvim-ts-rainbow",
-		event = "BufReadPost",
-	},
+	-- {
+	-- 	"mrjones2014/nvim-ts-rainbow",
+	-- 	event = "BufReadPost",
+	-- },
 }
