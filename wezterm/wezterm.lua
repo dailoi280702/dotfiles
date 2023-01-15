@@ -1,9 +1,9 @@
 local wezterm = require("wezterm")
+
 return {
 	default_cursor_style = "SteadyBar",
-	font = wezterm.font("Liga Sfmono Nerd Font"),
+	font = wezterm.font("Liga SFmono Nerd Font"),
 	font_size = 26.0,
-	-- enable_tab_bar = false,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1,
 	window_close_confirmation = "NeverPrompt",

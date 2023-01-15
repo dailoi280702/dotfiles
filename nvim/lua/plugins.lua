@@ -25,20 +25,6 @@ return {
 	},
 
 	{
-		"glepnir/lspsaga.nvim",
-		event = "BufReadPre",
-		branch = "main",
-		config = function()
-			require("lspsaga").setup({
-				-- custom_kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-				symbol_in_winbar = {
-					enable = false,
-				},
-			})
-		end,
-	},
-
-	{
 		"folke/zen-mode.nvim",
 		cmd = "ZenMode",
 		opts = {
