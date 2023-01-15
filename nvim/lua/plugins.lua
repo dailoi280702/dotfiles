@@ -27,9 +27,13 @@ return {
 	{
 		"glepnir/lspsaga.nvim",
 		event = "BufReadPre",
+		branch = "main",
 		config = function()
-			require("lspsaga").init_lsp_saga({
+			require("lspsaga").setup({
 				-- custom_kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+				symbol_in_winbar = {
+					enable = false,
+				},
 			})
 		end,
 	},
@@ -37,7 +41,7 @@ return {
 	{
 		"folke/zen-mode.nvim",
 		cmd = "ZenMode",
-		config = {
+		opts = {
 			window = {
 				backdrop = 1,
 				width = 91,
@@ -46,6 +50,16 @@ return {
 				gitsigns = true,
 			},
 		},
+	},
+
+	{
+		"windwp/nvim-ts-autotag",
+		event = "BufReadPost",
+	},
+
+	{
+		"shaunsingh/nord.nvim",
+		lazy = false,
 	},
 
 	-- {

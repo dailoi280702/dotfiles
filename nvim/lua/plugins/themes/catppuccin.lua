@@ -7,12 +7,12 @@ local M = {
 function M.config()
 	vim.g.background = "light"
 	require("catppuccin").setup({
-		-- flavor = "latte",
+		-- flavour = "frappe",
 		-- transparent_background = true,
-		no_italic = true,
-		styles = {
-			functions = { "bold" },
-		},
+		-- no_italic = true,
+		-- styles = {
+		-- 	functions = { "bold" },
+		-- },
 		integrations = {
 			hop = true,
 			lsp_saga = true,
@@ -49,12 +49,15 @@ function M.config()
 					CmpItemKindOperator = { bg = colors.blue, fg = colors.surface0 },
 					CmpItemKindTypeParameter = { bg = colors.blue, fg = colors.surface0 },
 					CmpItemKindCopilot = { bg = colors.teal, fg = colors.surface0 },
+					-- ["@function"] = { style = { "bold" }, fg = colors.sapphire },
+					-- ["@method"] = { fg = colors.sapphire },
 				}
 			end,
 		},
 	})
 
 	vim.cmd.colorscheme("catppuccin")
+	-- vim.api.nvim_set_hl(0, "@function", { bold = true })
 end
 
 return M

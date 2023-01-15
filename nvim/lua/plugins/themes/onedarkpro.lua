@@ -22,6 +22,9 @@ function M.config()
 			functions = "bold",
 			virtual_text = "italic",
 		},
+		options = {
+			transparency = true,
+		},
 	})
 	vim.cmd.colorscheme("onedark_dark")
 end

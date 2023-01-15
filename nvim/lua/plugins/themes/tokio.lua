@@ -23,9 +23,9 @@ function M.config()
 		-- 	"startuptime",
 		-- 	"Outline",
 		-- },
-		transparent = false,
-		styles = {},
-		on_colors = function(c) end,
+		transparent = true,
+		-- styles = {},
+		-- on_colors = function(c) end,
 		on_highlights = function(hl, c)
 			-- make the current line cursor orange
 			hl.CursorLineNr = { fg = c.orange, bold = true }

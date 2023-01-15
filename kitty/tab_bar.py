@@ -29,17 +29,7 @@ date_color = as_rgb(color_as_int(opts.color8))
 SEPARATOR_SYMBOL, SOFT_SEPARATOR_SYMBOL = ("", "")
 RIGHT_MARGIN = 1
 REFRESH_TIME = 1
-# ICON = " 🚀 "
-# ICON = "  "
-#ICON = " 嗀 "
-#for kanagawa
-# ICON = "  "
-#for nord
-# ICON = "  "
-#for moonfly
-#ICON = "  "
-#ICON = "  "
-ICON = " "
+ICON = "  "
 UNPLUGGED_ICONS = {
     10: "",
     20: "",

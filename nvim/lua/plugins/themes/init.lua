@@ -1,3 +1,10 @@
-local theme = require("plugins.themes.nightfox")
-
-return theme
+return {
+	{
+		"shaunsingh/oxocarbon.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("oxocarbon")
+		end,
+	},
+}

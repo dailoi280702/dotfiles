@@ -6,7 +6,7 @@ local M = {
 }
 
 function M.config()
-	vim.cmd.colorscheme("bluloco-light")
+	vim.cmd.colorscheme("bluloco-dark")
 end
 
 return M
