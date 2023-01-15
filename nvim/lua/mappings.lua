@@ -64,8 +64,9 @@ local mappings = {
 		c = { "<cmd>HopChar1<cr>", "char 1" },
 		C = { "<cmd>HopChar1MW<cr>", "all char 1" },
 	},
-	s = { "vi{:sort<cr>", "sort" },
+	s = { "vi{:sort<cr>", "Sort" },
 	z = { [[<cmd>ZenMode<cr>]], "Zen Mode" },
+	b = { name = "Buffers" },
 }
 
 local opts = { prefix = "<leader>" }

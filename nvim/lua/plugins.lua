@@ -42,14 +42,4 @@ return {
 		"windwp/nvim-ts-autotag",
 		event = "BufReadPost",
 	},
-
-	{
-		"shaunsingh/nord.nvim",
-		lazy = false,
-	},
-
-	-- {
-	-- 	"mrjones2014/nvim-ts-rainbow",
-	-- 	event = "BufReadPost",
-	-- },
 }

@@ -1,57 +1,57 @@
 local M = {
-  "echasnovski/mini.nvim",
-  event = "VeryLazy",
-  dependencies = {
-    { "JoosepAlviste/nvim-ts-context-commentstring" },
-  },
+	"echasnovski/mini.nvim",
+	event = "VeryLazy",
+	dependencies = {
+		{ "JoosepAlviste/nvim-ts-context-commentstring" },
+	},
 }
 
 function M.surround()
-  require("mini.surround").setup({
-    mappings = {
-      add = "gza", -- Add surrounding in Normal and Visual modes
-      delete = "gzd", -- Delete surrounding
-      find = "gzf", -- Find surrounding (to the right)
-      find_left = "gzF", -- Find surrounding (to the left)
-      highlight = "gzh", -- Highlight surrounding
-      replace = "gzr", -- Replace surrounding
-      update_n_lines = "gzn", -- Update `n_lines`
-    },
-  })
+	require("mini.surround").setup({
+		mappings = {
+			add = "gza", -- Add surrounding in Normal and Visual modes
+			delete = "gzd", -- Delete surrounding
+			find = "gzf", -- Find surrounding (to the right)
+			find_left = "gzF", -- Find surrounding (to the left)
+			highlight = "gzh", -- Highlight surrounding
+			replace = "gzr", -- Replace surrounding
+			update_n_lines = "gzn", -- Update `n_lines`
+		},
+	})
 end
 
 function M.jump()
-  require("mini.jump").setup({})
+	require("mini.jump").setup({})
 end
 
 function M.pairs()
-  require("mini.pairs").setup({})
+	require("mini.pairs").setup({})
 end
 
 function M.comment()
-  require("mini.comment").setup({
-    hooks = {
-      pre = function()
-        require("ts_context_commentstring.internal").update_commentstring({})
-      end,
-    },
-  })
+	require("mini.comment").setup({
+		hooks = {
+			pre = function()
+				require("ts_context_commentstring.internal").update_commentstring({})
+			end,
+		},
+	})
 end
 
 function M.config()
-  -- M.jump()
-  M.surround()
-  M.pairs()
-  M.comment()
+	-- M.jump()
+	M.surround()
+	M.pairs()
+	M.comment()
 end
 
 function M.init()
-  vim.keymap.set("n", "<leader>bd", function()
-    require("mini.bufremove").delete(0, false)
-  end)
-  vim.keymap.set("n", "<leader>bD", function()
-    require("mini.bufremove").delete(0, true)
-  end)
+	vim.keymap.set("n", "<leader>bd", function()
+		require("mini.bufremove").delete(0, false)
+	end, { desc = "bufremove(fasle)" })
+	vim.keymap.set("n", "<leader>bD", function()
+		require("mini.bufremove").delete(0, true)
+	end, { desc = "bufremove(true)" })
 end
 
 return M

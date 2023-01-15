@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 return {
 	default_cursor_style = "SteadyBar",
 	font = wezterm.font("Liga SFmono Nerd Font"),
-	font_size = 26.0,
+	font_size = 28.0,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1,
 	window_close_confirmation = "NeverPrompt",
@@ -16,6 +16,6 @@ return {
 		right = 0,
 	},
 	initial_cols = 80,
-	initial_rows = 32,
+	initial_rows = 31,
 	use_resize_increments = true,
 }
