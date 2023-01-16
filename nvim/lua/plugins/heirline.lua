@@ -99,7 +99,8 @@ function M.config()
 			self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
 		end,
 
-		hl = { fg = "orange" },
+		-- hl = { fg = "orange" },
+		hl = { fg = "purple" },
 
 		{ -- git branch name
 			provider = function(self)
@@ -107,7 +108,6 @@ function M.config()
 			end,
 			hl = { bold = true },
 		},
-		-- You could handle delimiters, icons and counts similar to Diagnostics
 		{
 			condition = function(self)
 				return self.has_changes
@@ -280,12 +280,12 @@ function M.config()
 				v = "cyan",
 				V = "cyan",
 				["\22"] = "cyan",
-				c = "orange",
-				s = "purple",
-				S = "purple",
-				["\19"] = "purple",
-				R = "orange",
-				r = "orange",
+				c = "purple",
+				s = "orange",
+				S = "orange",
+				["\19"] = "orange",
+				R = "purple",
+				r = "purple",
 				["!"] = "red",
 				t = "red",
 			},

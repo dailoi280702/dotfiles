@@ -1,12 +1,12 @@
 local M = {
-  "nvim-telescope/telescope.nvim",
-  cmd = { "Telescope" },
+	"nvim-telescope/telescope.nvim",
+	cmd = { "Telescope" },
 
-  dependencies = {
-			{ "nvim-lua/plenary.nvim"},
-			{ "nvim-lua/popup.nvim"},
-			{"nvim-telescope/telescope-file-browser.nvim"},
-  },
+	dependencies = {
+		{ "nvim-lua/plenary.nvim" },
+		{ "nvim-lua/popup.nvim" },
+		{ "nvim-telescope/telescope-file-browser.nvim" },
+	},
 }
 
 function M.config()

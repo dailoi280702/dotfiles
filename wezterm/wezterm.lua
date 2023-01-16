@@ -2,9 +2,9 @@ local wezterm = require("wezterm")
 
 return {
 	default_cursor_style = "SteadyBar",
-	font = wezterm.font("ubuntumono nerd font"),
-	-- font = wezterm.font("cozettevector"),
-	font_size = 30,
+	font = wezterm.font("victor mono", { weight = "Medium" }),
+	font_size = 26,
+	line_height = 0.8,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1,
 	window_close_confirmation = "NeverPrompt",
@@ -12,9 +12,9 @@ return {
 	window_decorations = "RESIZE",
 	window_padding = {
 		top = 0,
-		bottom = 0,
-		left = 0,
-		right = 0,
+		bottom = 20,
+		left = 10,
+		right = 10,
 	},
 	initial_cols = 95,
 	initial_rows = 31,
