@@ -1,10 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	-- event = "BufReadPost",
-	---@type TSConfig
-	-- opts = {
-	-- },
+	event = "BufReadPost",
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = "all",

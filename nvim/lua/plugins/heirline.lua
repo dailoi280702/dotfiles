@@ -7,6 +7,22 @@ function M.config()
 	local conditions = require("heirline.conditions")
 	local utils = require("heirline.utils")
 
+	local SearchCount = {
+		condition = function()
+			return vim.v.hlsearch ~= 0 and vim.o.cmdheight == 0
+		end,
+		init = function(self)
+			local ok, search = pcall(vim.fn.searchcount)
+			if ok and search.total then
+				self.search = search
+			end
+		end,
+		provider = function(self)
+			local search = self.search
+			return string.format("[%d/%d]", search.current, math.min(search.total, search.maxcount))
+		end,
+	}
+
 	local FileNameBlock = {
 		init = function(self)
 			self.filename = vim.api.nvim_buf_get_name(0)
@@ -275,7 +291,7 @@ function M.config()
 			},
 
 			mode_icons = {
-				n = " ",
+				n = "履",
 				i = "פֿ ",
 				v = " ",
 				V = " ",
@@ -330,6 +346,7 @@ function M.config()
 
 	local Space = { provider = " " }
 	local Align = { provider = "%=" }
+	local Break = { provider = "%<" }
 
 	local StatusLine = {
 		ViMode,
@@ -337,8 +354,9 @@ function M.config()
 		Space,
 		Diagnostics,
 		FileNameBlock,
-		{ provider = "%<" },
+		Break,
 		Align,
+		SearchCount,
 		Ruler,
 		Space,
 		ScrollBar,
