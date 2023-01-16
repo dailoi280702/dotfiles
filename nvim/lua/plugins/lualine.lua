@@ -1,6 +1,7 @@
 local M = {
 	"nvim-lualine/lualine.nvim",
-	event = "VeryLazy"
+	event = "VeryLazy",
+	enabled = false,
 }
 
 function M.config()

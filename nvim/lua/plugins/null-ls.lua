@@ -11,16 +11,8 @@ function M.setup(options)
 
 	local formatting_sources = {
 		formatting.stylua,
-		-- formatting.prettierd.with({
-		-- 	extra_filetypes = { "toml", "solidity" },
-		-- 	-- extra_args = { "--single-quote", "--jsx-single-quote" },
-		-- }),
 		formatting.fixjson,
 		diagnostics.selene,
-		-- diagnostics.eslint_d.with({
-		-- 	diagnostics_format = "[eslint] #{m}\n(#{c})",
-		-- }),
-		-- diagnostics.eslint,
 		formatting.prettierd,
 		diagnostics.eslint_d,
 		code_actions.eslint_d,

@@ -21,7 +21,18 @@ function M.config()
 		ltex = {},
 		tailwindcss = {},
 		gopls = {},
-		sumneko_lua = {},
+		sumneko_lua = {
+			settings = {
+				Lua = {
+					workspace = {
+						checkThirdParty = false,
+					},
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
+			},
+		},
 		rust_analyzer = {},
 	}
 
@@ -42,11 +53,7 @@ function M.config()
 
 	for server, opts in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", {}, options, opts or {})
-		-- if server == "tsserver" then
-		-- require("typescript").setup({ server = opts })
-		-- else
 		require("lspconfig")[server].setup(opts)
-		-- end
 	end
 
 	require("plugins.null-ls").setup(options)

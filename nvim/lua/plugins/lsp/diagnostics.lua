@@ -3,12 +3,10 @@ local M = {}
 M.signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 function M.setup()
-	-- Automatically update diagnostics
 	vim.diagnostic.config({
 		underline = true,
 		update_in_insert = false,
-		-- virtual_text = { spacing = 4, prefix = "●" },
-		virtual_text = { spacing = 4, prefix = "" },
+		virtual_text = { spacing = 4, prefix = " " },
 		severity_sort = true,
 	})
 
