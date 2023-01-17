@@ -2,9 +2,8 @@ local wezterm = require("wezterm")
 
 return {
 	default_cursor_style = "SteadyBar",
-	font = wezterm.font("victor mono", { weight = "Medium" }),
+	font = wezterm.font("liga sfmono nerd font", { weight = "Medium" }),
 	font_size = 26,
-	line_height = 0.8,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1,
 	window_close_confirmation = "NeverPrompt",
@@ -12,7 +11,7 @@ return {
 	window_decorations = "RESIZE",
 	window_padding = {
 		top = 0,
-		bottom = 20,
+		bottom = 10,
 		left = 10,
 		right = 10,
 	},

@@ -341,7 +341,6 @@ function M.config()
 		git_add = "#08bdba",
 		git_change = "#78a9ff",
 	}
-
 	require("heirline").load_colors(colors)
 
 	local Space = { provider = " " }
