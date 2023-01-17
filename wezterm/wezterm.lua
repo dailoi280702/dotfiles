@@ -2,10 +2,10 @@ local wezterm = require("wezterm")
 
 return {
 	default_cursor_style = "SteadyBar",
-	font = wezterm.font("liga sfmono nerd font", { weight = "Medium" }),
-	cell_width = 0.95,
-	line_height = 0.95,
-	font_size = 26,
+	font = wezterm.font("liga sfmono nerd font"),
+	cell_width = 0.9,
+	line_height = 0.9,
+	font_size = 24,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1,
 	window_close_confirmation = "NeverPrompt",
@@ -17,8 +17,8 @@ return {
 		left = 10,
 		right = 10,
 	},
-	initial_cols = 95,
-	initial_rows = 31,
+	initial_cols = 100,
+	initial_rows = 41,
 	use_resize_increments = true,
 	tab_max_width = 30,
 }
