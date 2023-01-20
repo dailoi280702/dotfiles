@@ -7,6 +7,32 @@ function M.config()
 	local conditions = require("heirline.conditions")
 	local utils = require("heirline.utils")
 
+	local TerminalName = {
+		provider = function()
+			local tname, _ = vim.api.nvim_buf_get_name(0):gsub(".*:", "")
+			return " " .. tname
+		end,
+		hl = { fg = "blue", bold = true },
+	}
+
+	local HelpFileName = {
+		condition = function()
+			return vim.bo.filetype == "help"
+		end,
+		provider = function()
+			local filename = vim.api.nvim_buf_get_name(0)
+			return vim.fn.fnamemodify(filename, ":t")
+		end,
+		hl = { fg = "blue" },
+	}
+
+	local FileType = {
+		provider = function()
+			return string.upper(vim.bo.filetype)
+		end,
+		hl = { fg = utils.get_highlight("Type").fg, bold = true },
+	}
+
 	local SearchCount = {
 		condition = function()
 			return vim.v.hlsearch ~= 0 and vim.o.cmdheight == 0
@@ -323,8 +349,8 @@ function M.config()
 	}
 
 	local colors = {
-		bright_bg = "#393939",
-		bright_fg = "#161616",
+		bright_bg = "#262626",
+		bright_fg = "#525252",
 		red = "#ff7eb6",
 		dark_red = "#ee5396",
 		green = "#42be65",
@@ -368,6 +394,41 @@ function M.config()
 		FileNameBlock,
 		Align,
 		Ruler,
+		Space,
+	}
+
+	local TerminalStatusline = {
+
+		condition = function()
+			return conditions.buffer_matches({ buftype = { "terminal" } })
+		end,
+
+		{ condition = conditions.is_active, ViMode, Space },
+		FileType,
+		Space,
+		TerminalName,
+		Align,
+	}
+
+	local SpecialStatusline = {
+		condition = function()
+			return conditions.buffer_matches({
+				buftype = { "nofile", "prompt", "help", "quickfix" },
+				filetype = { "^git.*", "fugitive" },
+			})
+		end,
+
+		hl = { bg = "bright_bg" },
+
+		Space,
+		FileType,
+		Space,
+		HelpFileName,
+		Align,
+		SearchCount,
+		Ruler,
+		Space,
+		ScrollBar,
 	}
 
 	local StatusLines = {
@@ -381,6 +442,8 @@ function M.config()
 
 		fallthrough = false,
 
+		SpecialStatusline,
+		TerminalStatusline,
 		InactiveStatusline,
 		DefaultStatusline,
 	}

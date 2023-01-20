@@ -3,6 +3,15 @@ local wezterm = require("wezterm")
 return {
 	default_cursor_style = "SteadyBar",
 	font = wezterm.font("liga sfmono nerd font"),
+	font_rules = {
+		{
+			intensity = "Bold",
+			font = wezterm.font({
+				family = "liga sfmono nerd font",
+				weight = "Bold",
+			}),
+		},
+	},
 	cell_width = 0.9,
 	line_height = 0.9,
 	font_size = 27,
