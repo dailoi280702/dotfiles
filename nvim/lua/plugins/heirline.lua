@@ -340,6 +340,7 @@ function M.config()
 		git_del = "#ee5396",
 		git_add = "#08bdba",
 		git_change = "#78a9ff",
+		comment = "#525252",
 	}
 	require("heirline").load_colors(colors)
 
@@ -347,7 +348,7 @@ function M.config()
 	local Align = { provider = "%=" }
 	local Break = { provider = "%<" }
 
-	local StatusLine = {
+	local DefaultStatusline = {
 		ViMode,
 		Git,
 		Space,
@@ -361,8 +362,31 @@ function M.config()
 		ScrollBar,
 	}
 
+	local InactiveStatusline = {
+		hl = { fg = "comment", force = true },
+		condition = conditions.is_not_active,
+		FileNameBlock,
+		Align,
+		Ruler,
+	}
+
+	local StatusLines = {
+		hl = function()
+			if conditions.is_active() then
+				return "StatusLine"
+			else
+				return "StatusLineNC"
+			end
+		end,
+
+		fallthrough = false,
+
+		InactiveStatusline,
+		DefaultStatusline,
+	}
+
 	require("heirline").setup({
-		statusline = StatusLine,
+		statusline = StatusLines,
 	})
 end
 

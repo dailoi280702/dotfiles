@@ -6,8 +6,11 @@ end
 
 function M:oxocarbon()
 	require("oxocarbon")
-	vim.api.nvim_set_hl(0, "StatusLine", { bg = "#161616" })
-	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#161616" })
+	vim.api.nvim_set_hl(0, "StatusLine", { bg = "#161616", fg = "#161616" })
+	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#161616", fg = "#161616" })
+	vim.api.nvim_set_hl(0, "HopNextKey", { fg = "#be95ff", bold = true })
+	vim.api.nvim_set_hl(0, "HopNextKey1", { fg = "#ff7eb6", bold = true })
+	vim.api.nvim_set_hl(0, "HopNextKey2", { fg = "#ee5396" })
 end
 
 function M:catppuccin()

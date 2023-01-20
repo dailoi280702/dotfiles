@@ -14,7 +14,7 @@ vim.opt.runtimepath:prepend(lazypath)
 -- load lazy
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
-	install = { colorscheme = { "oxocarbon", "habamax" } },
+	install = { colorscheme = { "oxocarbon", "habamax" }, missing = true },
 	performance = {
 		rtp = {
 			disabled_plugins = {
