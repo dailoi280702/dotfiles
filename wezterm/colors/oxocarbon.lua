@@ -45,13 +45,13 @@ return {
 			italic = true,
 		},
 		new_tab = {
-			bg_color = "#393939",
+			bg_color = "#262626",
 			fg_color = "#8d8d8d",
 		},
 		new_tab_hover = {
 			bg_color = "#525252",
 			fg_color = "#a8a8a8",
-			italic = true,
+			intensity = "Bold",
 		},
 	},
 }
