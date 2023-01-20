@@ -33,7 +33,7 @@ return {
 		active_tab = {
 			bg_color = "#78a9ff",
 			fg_color = "#161616",
-			intensity = "Bold",
+			intensity = "Half",
 		},
 		inactive_tab = {
 			bg_color = "#393939",
