@@ -318,7 +318,7 @@ function M.config()
 
 			mode_icons = {
 				n = "履",
-				i = "פֿ ",
+				i = "󰙏 ",
 				v = " ",
 				V = " ",
 				["\22"] = " ",
