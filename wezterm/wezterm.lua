@@ -46,7 +46,7 @@ local wezterm = require("wezterm")
 -- 	return " " .. tab.tab_index + 1 .. " "
 -- end)
 
-local font_name = "hack nerd font"
+local font_name = "Jetbrainsmono nerd font"
 
 return {
 	default_cursor_style = "SteadyBar",
@@ -67,9 +67,10 @@ return {
 			}),
 		},
 	},
-	cell_width = 0.9,
-	line_height = 0.9,
-	font_size = 30,
+	enable_tab_bar = false,
+	-- cell_width = 0.9,
+	-- line_height = (5 / 6),
+	font_size = 26,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1,
 	window_close_confirmation = "NeverPrompt",
@@ -78,8 +79,8 @@ return {
 	window_padding = {
 		top = 0,
 		bottom = 10,
-		left = 10,
-		right = 10,
+		left = 0,
+		right = 0,
 	},
 	initial_cols = 90,
 	initial_rows = 31,
