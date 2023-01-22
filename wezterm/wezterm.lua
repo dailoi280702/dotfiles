@@ -46,7 +46,7 @@ local wezterm = require("wezterm")
 -- 	return " " .. tab.tab_index + 1 .. " "
 -- end)
 
-local font_name = "Jetbrainsmono nerd font"
+local font_name = "Blexmono nerd font"
 
 return {
 	default_cursor_style = "SteadyBar",
