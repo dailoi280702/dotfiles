@@ -42,4 +42,9 @@ return {
 		"windwp/nvim-ts-autotag",
 		event = "BufReadPost",
 	},
+
+	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+	},
 }
