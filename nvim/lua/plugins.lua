@@ -47,4 +47,9 @@ return {
 		"AlexvZyl/nordic.nvim",
 		lazy = false,
 	},
+
+	{
+		"catppuccin/nvim",
+		lazy = false,
+	},
 }
