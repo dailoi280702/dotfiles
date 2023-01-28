@@ -1,5 +1,6 @@
 local M = {
 	"rebelot/heirline.nvim",
+	enabled = false,
 	event = "VeryLazy",
 }
 

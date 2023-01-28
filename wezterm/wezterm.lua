@@ -52,13 +52,13 @@ return {
 	default_cursor_style = "SteadyBar",
 	font = wezterm.font(font_name),
 	font_rules = {
-		-- {
-		-- 	intensity = "Bold",
-		-- 	font = wezterm.font({
-		-- 		family = font_name,
-		-- 		weight = "Bold",
-		-- 	}),
-		-- },
+		{
+			intensity = "Bold",
+			font = wezterm.font({
+				family = font_name,
+				weight = "Bold",
+			}),
+		},
 		{
 			intensity = "Half",
 			font = wezterm.font({
@@ -68,8 +68,8 @@ return {
 		},
 	},
 	enable_tab_bar = false,
-	-- cell_width = 0.9,
-	-- line_height = (5 / 6),
+	cell_width = 0.95,
+	line_height = 0.85,
 	font_size = 26,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1,

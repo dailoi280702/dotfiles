@@ -43,13 +43,6 @@ return {
 		event = "BufReadPost",
 	},
 
-	{
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
-	},
-
-	{
-		"catppuccin/nvim",
-		lazy = false,
-	},
+	{ "savq/melange-nvim", lazy = false },
+	{ "bluz71/vim-moonfly-colors", lazy = false },
 }

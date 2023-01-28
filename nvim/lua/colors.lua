@@ -16,12 +16,10 @@ end
 function M:catppuccin()
 	vim.g.background = "light"
 	require("catppuccin").setup({
-		flavour = "macchiato",
+		-- flavour = "macchiato",
 		integrations = {
 			hop = true,
-			lsp_saga = true,
 			mini = true,
-			ts_rainbow = true,
 			which_key = true,
 		},
 		highlight_overrides = {
