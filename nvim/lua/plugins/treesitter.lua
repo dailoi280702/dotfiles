@@ -2,22 +2,14 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	event = "BufReadPost",
-	config = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = "all",
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
-			indent = {
-				enable = true,
-			},
-			autotag = {
-				enable = true,
-			},
-			autopairs = {
-				enable = true,
-			},
-		})
+	opts = {
+		ensure_installed = "all",
+		highlight = { enable = true },
+		indent = { enable = true },
+		autotag = { enable = true },
+		autopairs = { enable = true },
+	},
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
 	end,
 }
