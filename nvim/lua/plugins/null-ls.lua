@@ -12,7 +12,7 @@ function M.setup(options)
 	local formatting_sources = {
 		formatting.stylua,
 		formatting.fixjson,
-		diagnostics.selene,
+		-- diagnostics.selene,
 		formatting.prettierd,
 		diagnostics.eslint_d,
 		code_actions.eslint_d,

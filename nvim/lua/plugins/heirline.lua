@@ -1,6 +1,5 @@
 local M = {
 	"rebelot/heirline.nvim",
-	enabled = false,
 	event = "VeryLazy",
 }
 
@@ -131,7 +130,7 @@ function M.config()
 
 		{ -- git branch name
 			provider = function(self)
-				return "  " .. self.status_dict.head
+				return "  " .. self.status_dict.head
 			end,
 			hl = { bold = true },
 		},
@@ -227,28 +226,28 @@ function M.config()
 	local ScrollBar = {
 		static = {
 			sbar = {
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
-				" ",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
 			},
 		},
 		provider = function(self)
 			local curr_line = vim.api.nvim_win_get_cursor(0)[1]
 			local lines = vim.api.nvim_buf_line_count(0)
 			local i = math.floor((curr_line - 1) / lines * #self.sbar) + 1
-			return string.rep(self.sbar[i], 1)
+			return string.rep(self.sbar[i] .. " ", 1)
 		end,
 		hl = { fg = "blue" },
 	}
@@ -317,8 +316,26 @@ function M.config()
 				t = "red",
 			},
 
+			-- catppuccin colors
+			-- mode_colors = {
+			-- 	n = "blue",
+			-- 	i = "green",
+			-- 	v = "purple",
+			-- 	V = "purple",
+			-- 	["\22"] = "purple",
+			-- 	c = "green",
+			-- 	s = "orange",
+			-- 	S = "orange",
+			-- 	["\19"] = "orange",
+			-- 	R = "red",
+			-- 	r = "red",
+			-- 	["!"] = "red",
+			-- 	t = "red",
+			-- },
+
 			mode_icons = {
-				n = "履",
+				-- n = "履",
+				n = "󰘧 ",
 				i = "󰙏 ",
 				v = " ",
 				V = " ",
@@ -367,8 +384,29 @@ function M.config()
 		git_del = "#ee5396",
 		git_add = "#08bdba",
 		git_change = "#78a9ff",
-		comment = "#525252",
+		subtext1 = "#525252",
 	}
+	-- local mocha = require("catppuccin.palettes").get_palette("mocha")
+	-- local colors = {
+	-- 	bright_bg = mocha.bright_bg,
+	-- 	bright_fg = mocha.bright_fg,
+	-- 	red = mocha.red,
+	-- 	dark_red = mocha.red,
+	-- 	green = mocha.green,
+	-- 	blue = mocha.blue,
+	-- 	gray = mocha.gray,
+	-- 	orange = mocha.peach,
+	-- 	purple = mocha.mauve,
+	-- 	cyan = mocha.sky,
+	-- 	diag_warn = mocha.yellow,
+	-- 	diag_error = mocha.red,
+	-- 	diag_hint = mocha.sky,
+	-- 	diag_info = mocha.mauve,
+	-- 	git_del = mocha.red,
+	-- 	git_add = mocha.green,
+	-- 	git_change = mocha.blue,
+	-- 	subtext1 = mocha.overlay0,
+	-- }
 	require("heirline").load_colors(colors)
 
 	local Space = { provider = " " }
@@ -390,7 +428,7 @@ function M.config()
 	}
 
 	local InactiveStatusline = {
-		hl = { fg = "comment", force = true },
+		hl = { fg = "subtext1", force = true },
 		condition = conditions.is_not_active,
 		FileNameBlock,
 		Align,

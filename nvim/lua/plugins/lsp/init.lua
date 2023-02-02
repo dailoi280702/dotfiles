@@ -1,62 +1,62 @@
-local M = {
+return {
 	"neovim/nvim-lspconfig",
 	name = "lsp",
 	event = "BufReadPre",
 	dependencies = { "hrsh7th/cmp-nvim-lsp" },
-}
-
-function M.config()
-	require("mason")
-	require("plugins.lsp.diagnostics").setup()
-
-	local function on_attach(client, bufnr)
-		require("plugins.lsp.formatting").setup(client, bufnr)
-	end
-
-	local servers = {
-		tsserver = {},
-		cssls = {},
-		html = {},
-		eslint = {},
-		ltex = {},
-		tailwindcss = {},
-		gopls = {},
-		sumneko_lua = {
-			settings = {
-				Lua = {
-					workspace = {
-						checkThirdParty = false,
-					},
-					diagnostics = {
-						globals = { "vim" },
+	opts = {
+		servers = {
+			tsserver = {},
+			cssls = {},
+			html = {},
+			eslint = {},
+			ltex = {},
+			tailwindcss = {},
+			gopls = {},
+			sumneko_lua = {
+				settings = {
+					Lua = {
+						workspace = {
+							checkThirdParty = false,
+						},
+						diagnostics = {
+							globals = { "vim" },
+						},
 					},
 				},
 			},
+			rust_analyzer = {},
 		},
-		rust_analyzer = {},
-	}
+	},
+	config = function(_, opts)
+		require("mason")
+		require("plugins.lsp.diagnostics").setup()
 
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-	capabilities.textDocument.foldingRange = {
-		dynamicRegistration = false,
-		lineFoldingOnly = true,
-	}
+		local function on_attach(client, bufnr)
+			require("plugins.lsp.formatting").setup(client, bufnr)
+		end
 
-	local options = {
-		on_attach = on_attach,
-		capabilities = capabilities,
-		flags = {
-			debounce_text_changes = 150,
-		},
-	}
+		local servers = opts.servers
 
-	for server, opts in pairs(servers) do
-		opts = vim.tbl_deep_extend("force", {}, options, opts or {})
-		require("lspconfig")[server].setup(opts)
-	end
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+		capabilities.textDocument.foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true,
+		}
 
-	require("plugins.null-ls").setup(options)
-end
+		local options = {
+			on_attach = on_attach,
+			capabilities = capabilities,
+			flags = {
+				debounce_text_changes = 150,
+			},
+		}
 
-return M
+		for server, server_opts in pairs(servers) do
+			server_opts = vim.tbl_deep_extend("force", {}, options, server_opts or {})
+			require("lspconfig")[server].setup(server_opts)
+		end
+
+		require("plugins.null-ls").setup(options)
+	end,
+}

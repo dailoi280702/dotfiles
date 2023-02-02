@@ -19,10 +19,6 @@ function M.setup(client, buf)
 		enable = not (client.name == "null-ls")
 	end
 
-	-- if client.name == "tsserver" then
-	-- 	enable = false
-	-- end
-
 	client.server_capabilities.documentFormattingProvider = enable
 	-- format on save
 	if client.server_capabilities.documentFormattingProvider then
