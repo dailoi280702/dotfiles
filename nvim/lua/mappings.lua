@@ -54,7 +54,7 @@ local mappings = {
 		k = { "<cmd>LivedownKill<cr>", "Kill Livedown" },
 		t = { "<cmd>LivedownToggle<cr>", "Toggle Livedown" },
 	},
-	w = { ":wa<cr>", "Save" },
+	s = { ":wa<cr>", "Save" },
 	j = {
 		name = "Jumping",
 		j = { "<cmd>HopWord<cr>", "words" },
@@ -64,7 +64,7 @@ local mappings = {
 		c = { "<cmd>HopChar1<cr>", "char 1" },
 		C = { "<cmd>HopChar1MW<cr>", "all char 1" },
 	},
-	s = { "vi{:sort<cr>", "Sort" },
+	-- s = { "vi{:sort<cr>", "Sort" },
 	z = { [[<cmd>ZenMode<cr>]], "Zen Mode" },
 	b = { name = "Buffers" },
 }

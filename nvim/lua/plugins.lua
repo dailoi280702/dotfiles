@@ -44,4 +44,12 @@ return {
 	},
 
 	{ "savq/melange-nvim", lazy = false },
+
+	{
+		"Mofiqul/vscode.nvim",
+		lazy = false,
+		config = function()
+			require("vscode")
+		end,
+	},
 }

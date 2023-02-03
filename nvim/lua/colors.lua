@@ -6,6 +6,7 @@ end
 
 function M:oxocarbon()
 	require("oxocarbon")
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#262626" })
 	vim.api.nvim_set_hl(0, "StatusLine", { bg = "#161616" })
 	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#161616", fg = "#161616" })
 	vim.api.nvim_set_hl(0, "HopNextKey", { fg = "#be95ff", bold = true })
@@ -16,6 +17,7 @@ end
 function M:catppuccin()
 	vim.g.background = "light"
 	require("catppuccin").setup({
+		transparent_background = true,
 		-- flavour = "macchiato",
 		integrations = {
 			hop = true,
