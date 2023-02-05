@@ -114,7 +114,7 @@ function M:tokio()
 	local tokyonight = require("tokyonight")
 	tokyonight.setup({
 		style = "night",
-		transparent = true,
+		-- transparent = true,
 		on_highlights = function(hl, c)
 			hl.CursorLineNr = { fg = c.orange, bold = true }
 
