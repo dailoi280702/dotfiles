@@ -52,4 +52,9 @@ return {
 			require("vscode")
 		end,
 	},
+
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+	},
 }

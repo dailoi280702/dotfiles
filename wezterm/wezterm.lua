@@ -50,7 +50,7 @@ local font_name = "liga sfmono nerd font"
 
 return {
 	default_cursor_style = "SteadyBar",
-	font = wezterm.font(font_name, { weight = "Medium" }),
+	font = wezterm.font(font_name, { weight = "Regular" }),
 	-- dpi = 74.0,
 	font_rules = {
 		{
