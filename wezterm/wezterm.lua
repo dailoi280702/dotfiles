@@ -46,11 +46,11 @@ local wezterm = require("wezterm")
 -- 	return " " .. tab.tab_index + 1 .. " "
 -- end)
 
-local font_name = "liga sfmono nerd font"
+local font_name = "victormono nerd font"
 
 return {
 	default_cursor_style = "SteadyBar",
-	font = wezterm.font(font_name, { weight = "Regular" }),
+	font = wezterm.font(font_name, { weight = "Medium" }),
 	-- dpi = 74.0,
 	font_rules = {
 		{
@@ -69,8 +69,8 @@ return {
 		},
 	},
 	enable_tab_bar = false,
-	cell_width = 0.90,
-	line_height = 0.95,
+	-- cell_width = 0.9,
+	-- line_height = 0.95,
 	font_size = 26,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1,
@@ -78,10 +78,10 @@ return {
 	colors = require("colors.oxocarbon"),
 	window_decorations = "RESIZE",
 	window_padding = {
-		top = 0,
-		bottom = 0,
-		left = 0,
-		right = 0,
+		top = 10,
+		bottom = 10,
+		left = 10,
+		right = 10,
 	},
 	initial_cols = 100,
 	initial_rows = 30,

@@ -17,7 +17,7 @@ end
 function M:catppuccin()
 	vim.g.background = "light"
 	require("catppuccin").setup({
-		transparent_background = true,
+		-- transparent_background = true,
 		-- flavour = "macchiato",
 		integrations = {
 			hop = true,
