@@ -1,0 +1,17 @@
+{
+    "workspace.library": [
+        "/Users/loi/.config/nvim",
+        "/Users/loi/.local/share/nvim/site",
+        "/Users/loi/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+        "/Users/loi/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+        "/Users/loi/.local/share/nvim/site/pack/packer/start/hotpot.nvim",
+        "/Users/loi/.local/share/nvim/site/pack/packer/start/leap.nvim",
+        "/Users/loi/.local/share/nvim/site/pack/packer/start/vim-repeat",
+        "/Users/loi/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig",
+        "/Users/loi/.local/share/nvim/site/pack/packer/opt/packer.nvim",
+        "/usr/local/Cellar/neovim/0.8.3/share/nvim/runtime",
+        "/usr/local/Cellar/neovim/0.8.3/lib/nvim",
+        "/Users/loi/.config/nvim/after",
+        "${3rd}/luv/library"
+    ]
+}

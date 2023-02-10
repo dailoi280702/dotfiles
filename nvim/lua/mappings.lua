@@ -15,6 +15,8 @@ wk.setup({
 			g = false,
 		},
 	},
+	icons = { breadcrumb = "»", separator = "->", group = "+" },
+	layout = { align = "center", spacing = 3, height = { min = 1, max = 6 } },
 })
 
 local mappings = {
