@@ -73,3 +73,4 @@
 (map! [n] :<leader>tn "<cmd>set nu!<CR>" {:desc "Toogle linenumber"})
 (map! [n] :<leader>tr "<cmd>set rnu!<CR>" {:desc "Toogle relative linenumber"})
 (map! [n] :<leader>rw "<cmd>set wrap!<CR>" {:desc "Toogle wrap"})
+(map! [n] :<leader>rc "<cmd>set cursorline!<CR>" {:desc "Toogle cursorline"})

@@ -26,7 +26,7 @@
 (set! sidescrolloff 10)
 (set! mouse :n)
 (set! mousemodel :extend)
-(set! cursorline)
+;(set! cursorline)
 (set! bri)
 (let! mapleader " ")
 
