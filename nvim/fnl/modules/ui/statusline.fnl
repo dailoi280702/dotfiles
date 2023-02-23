@@ -266,27 +266,34 @@
           5 Align
           :condition (fn []
                        (conditions.buffer_matches {:buftype [:terminal]}))})
-  (local Special-statusline {1 Space
-                             2 File-type
-                             3 Space
-                             4 Help-file-name
-                             5 Align
-                             6 Search-count
-                             7 Ruler
-                             8 Space
-                             9 Scroll-bar
-                             :condition (fn []
-                                          (conditions.buffer_matches {:buftype [:nofile
-                                                                                :prompt
-                                                                                :help
-                                                                                :quickfix]
-                                                                      :filetype [:^git.*
-                                                                                 :fugitive]}))
-                             :hl {:bg :bright_bg}})
-  (local Status-lines {1 Special-statusline
-                       2 Terminal-statusline
-                       3 Inactive-statusline
-                       4 Default-statusline
+  (local Special-statusline
+         {1 Space
+          2 File-type
+          3 Space
+          4 Help-file-name
+          5 Align
+          6 Search-count
+          7 Ruler
+          8 Space
+          9 Scroll-bar
+          :condition (fn []
+                       (conditions.buffer_matches {:buftype [:nofile
+                                                             :prompt
+                                                             :help
+                                                             :quickfix]
+                                                   :filetype [:^git.*
+                                                              :fugitive]}))})
+  (local Dashboard-statusline {:condition (fn []
+                                            (= vim.bo.filetype :alpha))
+                               1 Align
+                               2 {:provider "fuck you, keep going"
+                                  :h {:fg :subtext1}}
+                               3 Align})
+  (local Status-lines {1 Dashboard-statusline
+                       2 Special-statusline
+                       3 Terminal-statusline
+                       4 Inactive-statusline
+                       5 Default-statusline
                        :fallthrough false
                        :hl (fn []
                              (if (conditions.is_active) :StatusLine

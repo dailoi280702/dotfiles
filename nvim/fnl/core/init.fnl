@@ -1,7 +1,7 @@
 (import-macros {: set! : let! : map! : set-mdls!} :macros)
 
 (set-mdls! :tools treesitter lsp null-ls :completion cmp telescope :ui gitsigns
-           statusline noice colorscheme icons :config
+           dashboard statusline noice colorscheme icons :config
            (default +smartparens +whichkey +motions))
 
 (set! number)

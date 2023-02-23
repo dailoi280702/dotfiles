@@ -6,6 +6,7 @@
              :highlight {:enable true :use_languagetree true}
              :indent {:enable true}
              :context_commentstring {:enable true}
+             :autotags {:enable true}
              :rainbow {:enable true
                        :extended_mode true
                        :colors ["#878d96"

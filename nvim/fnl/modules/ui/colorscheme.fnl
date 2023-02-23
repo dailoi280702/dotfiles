@@ -5,9 +5,6 @@
        :priority 1000
        :config (fn []
                  (vim.cmd.colorscheme :oxocarbon)
-                 (set-hl! 0 :NoicePopup {:bg ""})
-                 (set-hl! 0 :NoiceCmdlinePopup {:bg ""})
-                 (set-hl! 0 :NoiceCmdline {:bg ""})
                  (set-hl! 0 :StatusLine {:bg "#161616"})
                  (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
