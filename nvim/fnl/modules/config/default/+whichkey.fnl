@@ -10,13 +10,14 @@
           :triggers_blacklist {:i [:j :k] :v [:j :k]}})
   (register {:<leader>b {:name :+buffer}})
   (register {:<leader>c {:name :+code}})
-  (register {:<leader>cl {:name :+LSP}})
-  (register {:<leader>f {:name :+file}})
   (register {:<leader>g {:name :+git}})
   (register {:<leader>h {:name :+help}})
+  (register {:<leader>o {:name :+open}})
+  (register {:<leader>t {:name :+toogle}})
   (register {:<leader>j {:name :+jump}}))
 
-; (register {:<leader>o {:name :+open}}) 
-; (register {:<leader>w {:name :+window}})
+;   (register {:<leader>cl {:name :+LSP}})
+;   (register {:<leader>f {:name :+file}})
+;   (register {:<leader>w {:name :+window}})
 
 (pack :folke/which-key.nvim {:keys [:<leader> "\"" "'" "`"] : config})

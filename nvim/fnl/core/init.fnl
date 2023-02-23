@@ -4,7 +4,7 @@
            dashboard statusline noice colorscheme icons :config
            (default +smartparens +whichkey +motions))
 
-(set! number)
+;(set! number)
 (set! updatetime 250)
 (set! timeoutlen 400)
 (set! conceallevel 2)

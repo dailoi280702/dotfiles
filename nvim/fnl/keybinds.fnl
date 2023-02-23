@@ -17,8 +17,8 @@
 ;; buffers
 (map! [n] :<leader>bd :<cmd>bw<CR> {:desc "Delete buffer"})
 (map! [n] :<leader>bD :<cmd>bw<CR> {:desc "Delete all buffers"})
-(map! [n] :<leader>bs :<cmd>w<CR> {:desc "Save buffer"})
-(map! [n] :<leader>bS :<cmd>wa<CR> {:desc "Save all buffers"})
+(map! [n] :<leader>bs "<cmd>silent w<CR>" {:desc "Save buffer"})
+(map! [n] :<leader>bS "<cmd>silent wa<CR>" {:desc "Save all buffers"})
 (map! [n] :<leader>bb "<cmd>Telescope buffers<CR>" {:desc "Switch buffer"})
 
 ;; code
@@ -56,9 +56,20 @@
 (map! [n] :<leader>he :<cmd>messages<CR> {:desc "View message history"})
 (map! [n] :<leader>hl :<cmd>messages<CR> {:desc "List command history"})
 (map! [n] :<leader>hl "<cmd>Telescope notify<CR>" {:desc "Notify history"})
+(map! [n] :<leader>hc :<cmd>checkhealth<CR> {:desc "Check Heath"})
 
 ;;jump
-(map! [n] :<leader>jj :<cmd>HopWord<CR> {:desc "jump to word"})
-(map! [n] :<leader>jk :<cmd>HopWordMW<CR> {:desc "jump to word in all panes"})
+(map! [n] :<leader>jj :<cmd>HopWord<CR> {:desc "Jump to word"})
+(map! [n] :<leader>jk :<cmd>HopWordMW<CR> {:desc "Jump to word in all panes"})
 (map! [n] :<leader>jl :<cmd>HopLine<CR> {:desc "jump to line"})
-(map! [n] :<leader>jk :<cmd>HopLineMW<CR> {:desc "jump to line in all panes"})
+(map! [n] :<leader>jk :<cmd>HopLineMW<CR> {:desc "Jump to line in all panes"})
+
+;; open
+(map! [n] :<leader>i :<cmd>LspInfo<CR> {:desc "Lsp info"})
+(map! [n] :<leader>l :<cmd>Lazy<CR> {:desc :Lazy})
+(map! [n] :<leader>m :<cmd>Mason<CR> {:desc :Mason})
+
+;; toggle
+(map! [n] :<leader>tn "<cmd>set nu!<CR>" {:desc "Toogle linenumber"})
+(map! [n] :<leader>tr "<cmd>set rnu!<CR>" {:desc "Toogle relative linenumber"})
+(map! [n] :<leader>rw "<cmd>set wrap!<CR>" {:desc "Toogle wrap"})
