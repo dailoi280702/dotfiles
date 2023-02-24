@@ -6,9 +6,11 @@
   (set! foldlevel 99)
   (set! foldlevelstart 99)
   (set! foldenable)
-  (map! [n] "z," "<cmd>%foldclose<CR>" {:desc "Close first level folds"})
-  (map! [n] :z. "<cmd>normal mazMzOzv`a<CR>"
+  (map! [n] :z/ "<cmd>%foldclose<CR>" {:desc "Close first level folds"})
+  (map! [n] :z. "<cmd>normal mazMzv`azO<CR>"
         {:desc "Close all folds except current"})
+  (map! [n] "z," "<cmd>normal maz,zv/azO<CR>"
+        {:desc "Close all first level folds except current"})
   (map! [n] :zR `(openAllFolds) {:desc "Open all folds"})
   (map! [n] :zM `(closeAllFolds) {:desc "Close all folds"})
   ((. (require :ufo) :setup) {:provider_selector (fn [_ _ _]
