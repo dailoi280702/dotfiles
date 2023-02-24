@@ -289,11 +289,15 @@
                                2 {:provider "fuck you, keep going"
                                   :h {:fg :subtext1}}
                                3 Align})
+  (local Noneckpain-statusline
+         {:condition (fn []
+                       (= vim.bo.filetype :no-neck-pain))})
   (local Status-lines {1 Dashboard-statusline
-                       2 Special-statusline
-                       3 Terminal-statusline
-                       4 Inactive-statusline
-                       5 Default-statusline
+                       2 Noneckpain-statusline
+                       3 Special-statusline
+                       4 Terminal-statusline
+                       5 Inactive-statusline
+                       6 Default-statusline
                        :fallthrough false
                        :hl (fn []
                              (if (conditions.is_active) :StatusLine

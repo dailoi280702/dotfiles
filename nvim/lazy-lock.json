@@ -18,6 +18,7 @@
   "mini.ai": { "branch": "main", "commit": "d50b4d87e38d21ca2c5facee9f8a205ddb768358" },
   "mini.comment": { "branch": "main", "commit": "9fc3fe43129e8c2611bd21b8f50af8c0d0742533" },
   "mini.surround": { "branch": "main", "commit": "6a4f31e2a380439315729f561d7e7898bde1fd52" },
+  "no-neck-pain.nvim": { "branch": "main", "commit": "719b3211f3e4002461546b5e3e5c9ebcc541ffc2" },
   "noice.nvim": { "branch": "main", "commit": "d8a1f3056ad713b5d471048f8d029264828e22c0" },
   "nui.nvim": { "branch": "main", "commit": "d147222a1300901656f3ebd5b95f91732785a329" },
   "null-ls.nvim": { "branch": "main", "commit": "689cdd78f70af20a37b5309ebc287ac645ae4f76" },

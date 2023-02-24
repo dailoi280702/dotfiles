@@ -74,3 +74,4 @@
 (map! [n] :<leader>tr "<cmd>set rnu!<CR>" {:desc "Toogle relative linenumber"})
 (map! [n] :<leader>tw "<cmd>set wrap!<CR>" {:desc "Toogle wrap"})
 (map! [n] :<leader>tc "<cmd>set cursorline!<CR>" {:desc "Toogle cursorline"})
+(map! [n] :<leader>tz :<cmd>NoNeckPain<CR> {:desc "Neck pain? press z"})

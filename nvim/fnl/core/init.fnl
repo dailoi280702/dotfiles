@@ -2,7 +2,7 @@
 
 (set-mdls! :tools treesitter lsp null-ls :completion cmp telescope :ui gitsigns
            dashboard statusline noice colorscheme icons :config
-           (default +smartparens +whichkey +motions))
+           (default +smartparens +whichkey +motions) :editor zen)
 
 ;(set! number)
 (set! updatetime 250)
