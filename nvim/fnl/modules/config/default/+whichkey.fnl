@@ -14,10 +14,10 @@
   (register {:<leader>h {:name :+help}})
   (register {:<leader>o {:name :+open}})
   (register {:<leader>t {:name :+toogle}})
+  (register {:<leader>f {:name :+fold}})
   (register {:<leader>j {:name :+jump}}))
 
 ;   (register {:<leader>cl {:name :+LSP}})
-;   (register {:<leader>f {:name :+file}})
 ;   (register {:<leader>w {:name :+window}})
 
-(pack :folke/which-key.nvim {:keys [:<leader> "\"" "'" "`"] : config})
+(pack :folke/which-key.nvim {:keys [:<leader> "\"" "'" "`" :z] : config})

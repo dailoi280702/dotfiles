@@ -20,6 +20,7 @@
 (map! [n] :<leader>bs "<cmd>silent w<CR>" {:desc "Save buffer"})
 (map! [n] :<leader>bS "<cmd>silent wa<CR>" {:desc "Save all buffers"})
 (map! [n] :<leader>bb "<cmd>Telescope buffers<CR>" {:desc "Switch buffer"})
+(map! [n] :<leader>by "<cmd>%y+<CR>" {:desc "Switch buffer"})
 
 ;; code
 (map! [n] :<leader>ca `(vim.lsp.buf.code_action) {:desc "LSP code actions"})
@@ -65,9 +66,9 @@
 (map! [n] :<leader>jk :<cmd>HopLineMW<CR> {:desc "Jump to line in all panes"})
 
 ;; open
-(map! [n] :<leader>i :<cmd>LspInfo<CR> {:desc "Lsp info"})
-(map! [n] :<leader>l :<cmd>Lazy<CR> {:desc :Lazy})
-(map! [n] :<leader>m :<cmd>Mason<CR> {:desc :Mason})
+(map! [n] :<leader>oi :<cmd>LspInfo<CR> {:desc "Lsp info"})
+(map! [n] :<leader>ol :<cmd>Lazy<CR> {:desc :Lazy})
+(map! [n] :<leader>om :<cmd>Mason<CR> {:desc :Mason})
 
 ;; toggle
 (map! [n] :<leader>tn "<cmd>set nu!<CR>" {:desc "Toogle linenumber"})

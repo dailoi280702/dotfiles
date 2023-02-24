@@ -6,7 +6,6 @@
   (local servers [:tsserver
                   :cssls
                   :html
-                  :eslint
                   :ltex
                   :tailwindcss
                   :gopls
@@ -41,6 +40,8 @@
   (mason-lspconfig.setup {:ensure_installed servers})
   ;; setup lsp servers
   (local capabilities ((. (require :cmp_nvim_lsp) :default_capabilities)))
+  (set capabilities.textDocument.foldingRange
+       {:dynamicRegistration false :lineFoldingOnly true})
   (mason-lspconfig.setup_handlers {1 (fn [server_name]
                                        ((. (. (require :lspconfig) server_name)
                                            :setup) {: capabilities}))

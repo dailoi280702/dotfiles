@@ -1,8 +1,8 @@
 (import-macros {: set! : let! : map! : set-mdls!} :macros)
 
 (set-mdls! :tools treesitter lsp null-ls :completion cmp telescope :ui gitsigns
-           dashboard statusline noice colorscheme icons :config
-           (default +smartparens +whichkey +motions) :editor zen)
+           indent dashboard statusline noice colorscheme icons :config
+           (default +smartparens +whichkey +motions) :editor zen fold)
 
 ;(set! number)
 (set! updatetime 250)
@@ -15,6 +15,7 @@
 (set! softtabstop 2)
 (set! cmdheight 0)
 (set! expandtab)
+(set! noswapfile)
 (set! nobackup)
 (set! nowb)
 (set! noshowmode)
@@ -26,6 +27,15 @@
 (set! sidescrolloff 10)
 (set! mouse :n)
 (set! mousemodel :extend)
+(set! fillchars {:eob " "
+                 :vert " "
+                 :horiz " "
+                 :diff "╱"
+                 :foldclose ""
+                 :foldopen ""
+                 :fold " "
+                 :msgsep "─"})
+
 ;(set! cursorline)
 (set! bri)
 (let! mapleader " ")
