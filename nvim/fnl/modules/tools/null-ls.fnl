@@ -19,6 +19,7 @@
   (setup {:sources [formatting.stylua
                     formatting.prettierd
                     formatting.gofumpt
+                    formatting.black
                     formatting.fnlfmt
                     code_actions.eslint_d
                     diagnostics.eslint_d

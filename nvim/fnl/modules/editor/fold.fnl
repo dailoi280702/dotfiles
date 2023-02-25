@@ -15,6 +15,6 @@
                                                    [:treesitter :indent])}))
 
 (pack :kevinhwang91/nvim-ufo {:event [:BufReadPost :BufNewFile]
-                              :after :nvim-treesitter
-                              :dependencies [:kevinhwang91/promise-async]
+                              :dependencies [:kevinhwang91/promise-async
+                                             :nvim-treesitter]
                               : config})

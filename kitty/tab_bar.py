@@ -19,7 +19,7 @@ icon_bg = as_rgb(color_as_int(opts.color0))
 # for kanagawa
 # icon_fg = as_rgb(color_as_int(opts.color15))
 # icon_bg = as_rgb(color_as_int(opts.color6))
-# for sonokai atlantis 
+# for sonokai atlantis
 icon_fg = as_rgb(color_as_int(opts.color15))
 icon_bg = as_rgb(color_as_int(opts.color8))
 
@@ -118,6 +118,7 @@ def _draw_icon(screen: Screen, index: int) -> int:
 #     end = screen.cursor.x
 #     return end
 
+
 def _draw_left_status(
     draw_data: DrawData,
     screen: Screen,
@@ -130,7 +131,7 @@ def _draw_left_status(
 ) -> int:
     orig_fg = screen.cursor.fg
     orig_bg = screen.cursor.bg
-    left_sep, right_sep = ('', '')
+    left_sep, right_sep = ("", "")
 
     def draw_sep(which: str) -> None:
         screen.cursor.bg = draw_data.default_bg
@@ -140,28 +141,32 @@ def _draw_left_status(
         screen.cursor.fg = orig_fg
 
     if max_title_length <= 1:
-        screen.draw('…')
+        screen.draw("…")
     elif max_title_length == 2:
-        screen.draw('…|')
+        screen.draw("…|")
     elif max_title_length < 6:
         draw_sep(left_sep)
-        screen.draw((' ' if max_title_length == 5 else '') + '…' + (' ' if max_title_length >= 4 else ''))
+        screen.draw(
+            (" " if max_title_length == 5 else "")
+            + "…"
+            + (" " if max_title_length >= 4 else "")
+        )
         draw_sep(right_sep)
     else:
         draw_sep(left_sep)
-        screen.draw(' ')
+        screen.draw(" ")
         draw_title(draw_data, screen, tab, index)
         extra = screen.cursor.x - before - max_title_length
-        print("extra:%d" %(extra))
+        print("extra:%d" % (extra))
         if extra >= 0:
             screen.cursor.x -= extra + 3
-            screen.draw('…')
+            screen.draw("…")
         elif extra == -1:
             screen.cursor.x -= 2
-            screen.draw('…')
-        screen.draw(' ')
+            screen.draw("…")
+        screen.draw(" ")
         draw_sep(right_sep)
-        draw_sep(' ')
+        draw_sep(" ")
 
     return screen.cursor.x
 
@@ -222,6 +227,7 @@ def get_battery_cells() -> list:
 
 timer_id = None
 right_status_length = -1
+
 
 def draw_tab(
     draw_data: DrawData,

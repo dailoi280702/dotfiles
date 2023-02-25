@@ -11,7 +11,7 @@
 (map! [n] "<leader>:" "<cmd>Telescope find_files<CR>" {:desc "Search commad"})
 (map! [n] :<leader><tab> "<cmd>Telescope buffers initial_mode=normal<CR>"
       {:desc "Switch buffer"})
-
+(map! [n] :<leader>! "<cmd>Telescope diagnostics<CR>" {:desc "Diagnostics picker"})
 (map! [n] :<leader>< "<cmd>Telescope buffers<CR>" {:desc "Switch buffer"})
 
 ;; buffers

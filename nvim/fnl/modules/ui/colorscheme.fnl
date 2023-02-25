@@ -1,6 +1,6 @@
 (import-macros {: pack : set-hl!} :macros)
 
-(pack :nyoom-engineering/oxocarbon.nvim
+[(pack :nyoom-engineering/oxocarbon.nvim
       {:lazy false
        :priority 1000
        :config (fn []
@@ -11,3 +11,5 @@
                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
                  (set-hl! 0 :HopNextKey2 {:fg "#ee5396"}))})
+ (pack :shaunsingh/solarized.nvim {:lazy false})
+ ]

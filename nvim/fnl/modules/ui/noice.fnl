@@ -1,10 +1,16 @@
 (import-macros {: pack} :macros)
 
 (fn config []
-  ((. (require :notify) :setup) {:level 3
+  (local stage ((require :notify.stages.fade_in_slide_out) :bottom_up))
+  ((. (require :notify) :setup) {:level 2
                                  :top_down false
                                  :render :compact
-                                 :stages :static})
+                                 ; :stages :static
+                                 :stages [(fn [...]
+                                            (local opts ((. stage 1) ...))
+                                            (when opts (set opts.border :none))
+                                            opts)
+                                          (unpack stage 2)]})
   ((. (require :noice) :setup) {:health {:checker false}
                                 :cmdline {:format {:cmdline {:pattern "^:"
                                                              :icon " "

@@ -13,7 +13,7 @@
   (?. xs (length xs)))
 
 (lambda any? [pred xs]
-  (accumulate [any? false _ v (ipairs xs) :until any?]
+  (accumulate [any? false _ v (ipairs xs) &until any?]
     (pred v)))
 
 (lambda all? [pred xs]
@@ -32,7 +32,7 @@
             (icollect [_ v (ipairs (flatten v
                                             (if (nil? ?levels) nil
                                                 (- ?levels 1))))
-                       :into output]
+                       &into output]
               v)
             (doto output (table.insert v))))
       x))

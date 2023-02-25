@@ -9,7 +9,8 @@
                   :ltex
                   :tailwindcss
                   :gopls
-                  :ruff_lsp
+                  ;; :ruff_lsp
+                  :pyright
                   :lua_ls
                   :fennel_language_server
                   :rust_analyzer])
@@ -19,7 +20,8 @@
                 :gofumpt
                 :eslint_d
                 :fixjson
-                :ruff
+                :black
+                ;; :ruff
                 :rust-analyzer])
   ;; custom diagnostic signs
   (local signs {:Error " " :Warn " " :Hint " " :Info " "})
@@ -27,8 +29,8 @@
     (let [hl (.. :DiagnosticSign dtype)]
       (vim.fn.sign_define hl {:text icon :texthl hl :numhl ""})))
   (vim.diagnostic.config {:underline true
-                          ;; :virtual_text {:spacing 4 :prefix " "}})
-                          :virtual_lines {:only_current_line true}
+                          ; :virtual_text {:spacing 4 :prefix " "}})
+                          ; :virtual_lines {:only_current_line true}
                           :virtual_text false})
   (local lspconfig (require :lspconfig))
   (mason.setup)
