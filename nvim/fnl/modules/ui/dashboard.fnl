@@ -1,13 +1,7 @@
 (import-macros {: pack} :macros)
 
 (fn config []
-  (local dashboard (require :alpha.themes.dashboard)) ; (set dashboard.section.header.val ;      ["                                                     " ;       " ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ "
-  ;       " ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ "
-  ;       " ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ "
-  ;       " ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ "
-  ;       " ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ "
-  ;       " ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ "
-  ;       "                                                     "])
+  (local dashboard (require :alpha.themes.dashboard))
   (set dashboard.section.header.val
        ["  _.--'\"'.    "
         "  (  ( (   )  "
