@@ -8,7 +8,7 @@
              :context_commentstring {:enable true}
              :autotags {:enable true}
              :rainbow {:enable true
-                       :extended_mode true
+                       :extended_mode false
                        :colors ["#878d96"
                                 "#a8a8a8"
                                 "#8d8d8d"

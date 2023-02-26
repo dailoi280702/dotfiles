@@ -266,8 +266,7 @@
         "  (o)_    ) ) "
         "      (o)_.'  "
         "        )/    "
-        "              "]) ; (set dashboard.section.buttons.val ;      [(dashboard.button "." "  Find file" ":Telescope find_files <CR>") ;       (dashboard.button "," "  Browse file" ":Telescope file_browser <CR>")
-  ;       (dashboard.button "/" "  Find words" ":Telescope live_grep <CR>") ;       (dashboard.button ">" "勒 Recent files" ":Telescope oldfiles <CR>") ;       (dashboard.button :q "  Quit" ":qa <CR>")])
+        "              "])
   (set dashboard.section.buttons.val [])
   ((. (require :alpha) :setup) dashboard.opts))
 

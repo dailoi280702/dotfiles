@@ -1,7 +1,7 @@
 (local {: ->str : nil? : str? : num?} (require :core.lib.types))
 
 (local {: begins-with?} (require :core.lib.string))
-(local {: first} (require :core.lib.seq))
+(local {: first : all?} (require :core.lib.seq))
 (local {: quoted?
         : fn?
         : quoted->fn
@@ -99,6 +99,72 @@
         rhs (if (quoted? rhs) (quoted->fn rhs) rhs)]
     `(vim.keymap.set ,modes ,lhs ,rhs ,options)))
 
+(lambda autocmd! [event pattern command ?options]
+  (assert-compile (or (sym? event) (and (table? event) (all? #(sym? $) event)))
+                  "expected symbol or list of symbols for event" event)
+  (assert-compile (or (sym? pattern)
+                      (and (table? pattern) (all? #(sym? $) pattern)))
+                  "expected symbol or list of symbols for pattern" pattern)
+  (assert-compile (or (str? command) (fn? command) (sym? command)
+                      (quoted? command))
+                  "expected string, function, symnbol or quoted expresstion for command"
+                  command)
+  (assert-compile (or (nil? ?options) (table? ?options))
+                  "expected table for options" ?options)
+  (let [event (if (table? event) (icollect [_ v (ipairs event)] (->str v))
+                  (->str event))
+        pattern (if (table? pattern)
+                    (icollect [_ v (ipairs pattern)] (->str v))
+                    (->str pattern))
+        options (or ?options {})
+        options (if (nil? options.buffer)
+                    (if (= pattern :<buffer>)
+                        (doto options (tset :buffer 0))
+                        (doto options (tset :pattern pattern)))
+                    options)
+        options (if (str? command)
+                    (doto options (tset :command command))
+                    (doto options
+                      (tset :callback
+                            (if (quoted? command) (quoted->fn command) command))))
+        options (if (nil? options.desc)
+                    (doto options
+                      (tset :desc
+                            (if (quoted? command) (quoted->str command)
+                                (str? command) command
+                                (view command))))
+                    options)]
+    `(vim.api.nvim_create_autocmd ,event ,options)))
+
+(lambda augroup! [name ...]
+  (assert-compile (or (str? name) (sym? name))
+                  "expected string or symbol for name" name)
+  (assert-compile (all? #(and (list? $)
+                              (or (= `clear! (first $)) (= `autocmd! (first $))))
+                        [...])
+                  "expected autocmd exprs for body" ...)
+  (expand-exprs (let [name (->str name)]
+                  (icollect [_ expr (ipairs [...])
+                             &into [`(vim.api.nvim_create_augroup ,name
+                                                                  {:clear false})]]
+                    (if (= `autocmd! (first expr))
+                        (let [[_ event pattern command ?options] expr
+                              options (or ?options {})
+                              options (doto options (tset :group name))]
+                          `(autocmd! ,event ,pattern ,command ,options))
+                        (let [[_ ?options] expr]
+                          `(clear! ,name ,?options)))))))
+
+(lambda clear! [name ?options]
+  (assert-compile (or (str? name) (sym? name))
+                  "expected string or symbol for name" name)
+  (assert-compile (or (nil? ?options) (table? ?options))
+                  "expected table for options" ?options)
+  (let [name (->str name)
+        options (or ?options {})
+        options (doto options (tset :group name))]
+    `(vim.api.nvim_clear_autocmds ,options)))
+
 (lambda pack [identifier ?options]
   (assert-compile (str? identifier) "expected string for identifier" identifier)
   (assert-compile (or (nil? ?options) (table? ?options))
@@ -139,4 +205,13 @@
   (icollect [_ mod (ipairs _G.custom/modules)]
     `(require ,mod)))
 
-{: set! : let! : map! : set-hl! : pack : get-mdls! : set-mdls!}
+{: set!
+ : let!
+ : map!
+ : set-hl!
+ : autocmd!
+ : augroup!
+ : clear!
+ : pack
+ : get-mdls!
+ : set-mdls!}
