@@ -235,7 +235,8 @@
                  :orange ""
                  :purple "#be95ff"
                  :red "#ff7eb6"
-                 :subtext1 "#525252"})
+                 ; :subtext1 "#525252"
+                 })
   ((. (require :heirline) :load_colors) colors)
   (local Space {:provider " "})
   (local Align {:provider "%="})
@@ -257,7 +258,7 @@
           3 Ruler
           4 Space
           :condition conditions.is_not_active
-          :hl {:fg :subtext1 :force true}})
+          :hl {:fg :bright_fg :force true}})
   (local Terminal-statusline
          {1 {1 Vi-mode 2 Space :condition conditions.is_active}
           2 File-type
@@ -287,7 +288,7 @@
                                             (= vim.bo.filetype :alpha))
                                1 Align
                                2 {:provider "fuck you, keep going"
-                                  :h {:fg :subtext1}}
+                                  :h {:fg :bright_fg}}
                                3 Align})
   (local Noneckpain-statusline
          {:condition (fn []

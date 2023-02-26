@@ -1,4 +1,4 @@
-(import-macros {: pack : map!} :macros)
+(import-macros {: pack} :macros)
 
 (pack :NvChad/nvim-colorizer.lua
       {:cmd [:ColorizerToggle]
