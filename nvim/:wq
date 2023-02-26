@@ -17,8 +17,7 @@
   ;;     (print (vim.inspect opts))
   ;;     (heirline.load_colors opts)))
   (when (vim.fn.executable :kitty)
-    (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
-                    name :.conf))))
+    (vim.fn.system (.. "kitty @ set_colors ~/.config/kitty/themes/" name :.conf))))
 
 (augroup! :SetupColorscheme (autocmd! ColorScheme * `(setup vim.g.colors_name)))
 
@@ -52,5 +51,5 @@
                                                            :visual "#2e2b38"
                                                            ; :gutter_fg "#?"
                                                            :nontext "#424450"
-                                                           :white "#FFFFFF"
+                                                           :white "#393649"
                                                            :black "#0B0B0F"}}))})]
