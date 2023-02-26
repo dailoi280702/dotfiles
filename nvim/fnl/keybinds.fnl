@@ -6,12 +6,17 @@
 
 (map! [n] "<leader>'" "<cmd>Telescope resume<CR>" {:desc "Resume last search"})
 (map! [n] :<leader>. "<cmd>Telescope find_files<CR>" {:desc "Find file"})
-(map! [n] "<leader>," "<cmd>Telescope file_browser<CR>" {:desc "Browse file"})
+(map! [n] "<leader>," "<cmd>Telescope file_browser initial_mode=normal<CR>"
+      {:desc "Browse file"})
+
 (map! [n] :<leader>/ "<cmd>Telescope live_grep<CR>" {:desc "Search in project"})
 (map! [n] "<leader>:" "<cmd>Telescope find_files<CR>" {:desc "Search commad"})
 (map! [n] :<leader><tab> "<cmd>Telescope buffers initial_mode=normal<CR>"
       {:desc "Switch buffer"})
-(map! [n] :<leader>! "<cmd>Telescope diagnostics<CR>" {:desc "Diagnostics picker"})
+
+(map! [n] :<leader>! "<cmd>Telescope diagnostics<CR>"
+      {:desc "Diagnostics picker"})
+
 (map! [n] :<leader>< "<cmd>Telescope buffers<CR>" {:desc "Switch buffer"})
 
 ;; buffers
@@ -74,5 +79,8 @@
 (map! [n] :<leader>tn "<cmd>set nu!<CR>" {:desc "Toogle linenumber"})
 (map! [n] :<leader>tr "<cmd>set rnu!<CR>" {:desc "Toogle relative linenumber"})
 (map! [n] :<leader>tw "<cmd>set wrap!<CR>" {:desc "Toogle wrap"})
-(map! [n] :<leader>tc "<cmd>set cursorline!<CR>" {:desc "Toogle cursorline"})
+(map! [n] :<leader>tC "<cmd>set cursorline!<CR>" {:desc "Toogle cursorline"})
+(map! [n] :<leader>tc :<cmd>ColorizerToggle<CR>
+      {:desc "Toogle color hilighter"})
+
 (map! [n] :<leader>tz :<cmd>NoNeckPain<CR> {:desc "Neck pain? press z"})

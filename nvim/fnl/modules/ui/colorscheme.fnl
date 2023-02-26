@@ -11,4 +11,6 @@
                   (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
                   (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
                   (set-hl! 0 :HopNextKey2 {:fg "#ee5396"}))})
- (pack :Mofiqul/vscode.nvim {:lazy false})]
+ (pack :Mofiqul/vscode.nvim {:lazy false})
+ (pack :Mofiqul/dracula.nvim {:lazy false})
+ (pack :jerryaugusto/dracula_pro.nvim {:lazy false})]
