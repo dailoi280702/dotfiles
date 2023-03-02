@@ -15,6 +15,6 @@
         :config (fn []
                   ((. (require :mini.surround) :setup)))})
  (pack :phaazon/hop.nvim
-       {:event :VeryLazy
+       {:cmd [:HopWord :HopWordMW :HopLine :HopLineMW]
         :config (fn []
                   ((. (require :hop) :setup)))})]

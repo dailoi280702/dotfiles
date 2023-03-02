@@ -26,7 +26,7 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	cell_width = 0.90,
 	line_height = 0.95,
-	font_size = 25,
+	font_size = 24,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1.0,
 	window_close_confirmation = "NeverPrompt",
