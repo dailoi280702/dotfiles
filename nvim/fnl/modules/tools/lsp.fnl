@@ -29,9 +29,9 @@
     (let [hl (.. :DiagnosticSign dtype)]
       (vim.fn.sign_define hl {:text icon :texthl hl :numhl ""})))
   (vim.diagnostic.config {:underline true
-                          ; :virtual_text {:spacing 4 :prefix " "}})
-                          ; :virtual_lines {:only_current_line true}
-                          :virtual_text false})
+                          :virtual_text {:spacing 4 :prefix " "}})
+  ;; :virtual_lines {:only_current_line true}
+  ;; :virtual_text false})
   (local lspconfig (require :lspconfig))
   (mason.setup)
   ;; automatic insatll tools

@@ -40,7 +40,7 @@
 
 ; (map! [n] :<leader>cD `(vim.lsp.buf.references)
 ;       {:desc "LSP jump to references"})
-(map! [n] :<leader>cd "<cmd>Telescope lsp_references<CR>"
+(map! [n] :<leader>cD "<cmd>Telescope lsp_references<CR>"
       {:desc "LSP jump to references"})
 
 (map! [n] :<leader>cf `(vim.lsp.buf.format {:async true})

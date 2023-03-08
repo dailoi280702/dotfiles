@@ -7,4 +7,5 @@
 
 (pack :Maan2003/lsp_lines.nvim {:dependencies :nvim-lspconfig
                                 :event [:BufNewFile :BufReadPost]
+                                :enabled false
                                 : config})

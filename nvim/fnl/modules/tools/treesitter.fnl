@@ -28,5 +28,6 @@
              :TSDisable
              :TSModuleInfo]
        :dependencies [:p00f/nvim-ts-rainbow
+                      ;:/HiPhish/nvim-ts-rainbow2
                       :JoosepAlviste/nvim-ts-context-commentstring]
        : config})
