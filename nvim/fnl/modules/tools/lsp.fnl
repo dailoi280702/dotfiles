@@ -12,6 +12,7 @@
                   ;; :ruff_lsp
                   :pyright
                   :lua_ls
+                  :bufls
                   :fennel_language_server
                   :rust_analyzer])
   (local tools [:prettierd

@@ -27,8 +27,6 @@
         :priority 1000
         :config (fn []
                   (vim.cmd.colorscheme :oxocarbon))})
- (pack :projekt0n/github-nvim-theme {:lazy false})
- (pack :Zorbn/rider-dark.nvim {:lazy false})
  (pack :Mofiqul/dracula.nvim
        {:lazy false
         :config (fn []
