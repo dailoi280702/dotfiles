@@ -305,4 +305,11 @@
                                  :StatusLineNC))})
   ((. (require :heirline) :setup) {:statusline Status-lines}))
 
-(pack :rebelot/heirline.nvim {:event [:VeryLazy] : config})
+[(pack :rebelot/heirline.nvim {:event :VeryLazy :enabled false : config})
+ (pack :nvim-lualine/lualine.nvim
+       {:event :VeryLazy
+        :config (fn []
+                  ((. (require :lualine) :setup) {:options {:component_separators {:left ""
+                                                                                   :right ""}
+                                                            :section_separators {:left ""
+                                                                                 :right ""}}}))})]

@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local font_name = "jetbrainsmono nerd font"
+local font_name = "liga sfmono nerd font"
 
 return {
 	default_cursor_style = "SteadyBar",
@@ -24,8 +24,8 @@ return {
 	},
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
-	-- cell_width = 0.90,
-	line_height = (5 / 6),
+	cell_width = 0.90,
+	line_height = 0.90,
 	font_size = 25,
 	use_fancy_tab_bar = false,
 	window_background_opacity = 1.0,
