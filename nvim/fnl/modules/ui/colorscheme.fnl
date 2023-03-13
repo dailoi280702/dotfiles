@@ -1,8 +1,9 @@
 (import-macros {: pack : set-hl! : autocmd! : augroup! : let!} :macros)
 
 ; (local {: nil?} (require :core.lib.types))
-(local kitty-themes
-       {:oxocarbon :oxocarbon :gruvbox-material :gruvbox-material-dark-hard})
+(local kitty-themes {:oxocarbon :oxocarbon
+                     :gruvbox-material :gruvbox-material-dark-hard
+                     :kanagawa :kanagawa-dragon})
 
 (fn setup [name]
   (match name
@@ -54,9 +55,22 @@
  (pack :rebelot/kanagawa.nvim
        {:lazy false
         :config (fn []
-                  ((. (require :kanagawa) :setup) {:theme :dragon
-                                                   :compile true})
-                  ((. (require :kanagawa) :load) :dragon))})
+                  (local {: setup : load} (require :kanagawa))
+                  (setup {:theme :dragon
+                          :colors {:theme {:all {:ui {:bg_gutter :none}}}}
+                          ; :overrides (fn [_]
+                          ;              {:FoldColumn {:bg :NONE}
+                          ;               :SignColumn {:bg :NONE}
+                          ;               :ColorColumn {:bg :NONE}
+                          ;               :GitSignsAdd {:bg :NONE}
+                          ;               :GitSignsChange {:bg :NONE}
+                          ;               :GitSignsDelete {:bg :NONE}
+                          ;               :DiagnosticError {:bg :NONE}
+                          ;               :DiagnosticWarn {:bg :NONE}
+                          ;               :DiagnosticInfo {:bg :NONE}
+                          ;               :DiagnosticHint {:bg :NONE}})
+                          :compile true})
+                  (load :dragon))})
  ; (pack :Mofiqul/dracula.nvim
  ;       {:lazy false
  ;        :config (fn []
