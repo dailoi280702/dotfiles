@@ -307,9 +307,10 @@
 
 [(pack :rebelot/heirline.nvim {:event :VeryLazy :enabled false : config})
  (pack :nvim-lualine/lualine.nvim
-       {:event :VeryLazy
+       {:event :VimEnter
         :config (fn []
                   ((. (require :lualine) :setup) {:options {:component_separators {:left ""
                                                                                    :right ""}
                                                             :section_separators {:left ""
-                                                                                 :right ""}}}))})]
+                                                                                 :right ""}
+                                                            :disabled_filetypes [:alpha]}}))})]
