@@ -3,7 +3,9 @@
 (fn config []
   (local ts (require :nvim-treesitter.configs))
   (ts.setup {:ensure_installed :all
-             :highlight {:enable true :use_languagetree true}
+             :highlight {:enable true
+                         ; :use_languagetree true
+                         }
              :indent {:enable true}
              :context_commentstring {:enable true}
              :autotags {:enable true}

@@ -44,33 +44,34 @@
 [(pack :nyoom-engineering/oxocarbon.nvim
        {:lazy false
         :priority 1000
-        :config (fn [] ; (vim.cmd.colorscheme :oxocarbon)
-                  )})
+        :config (fn []
+                  (vim.cmd.colorscheme :oxocarbon))})
  (pack :sainnhe/gruvbox-material
        {:lazy false
         :config (fn []
                   (let! :gruvbox_material_background :hard)
                   (let! :gruvbox_material_better_performance 1)
                   (let! :gruvbox_material_enable_bold 1))})
- (pack :rebelot/kanagawa.nvim
-       {:lazy false
-        :config (fn []
-                  (local {: setup : load} (require :kanagawa))
-                  (setup {:theme :dragon
-                          :colors {:theme {:all {:ui {:bg_gutter :none}}}}
-                          ; :overrides (fn [_]
-                          ;              {:FoldColumn {:bg :NONE}
-                          ;               :SignColumn {:bg :NONE}
-                          ;               :ColorColumn {:bg :NONE}
-                          ;               :GitSignsAdd {:bg :NONE}
-                          ;               :GitSignsChange {:bg :NONE}
-                          ;               :GitSignsDelete {:bg :NONE}
-                          ;               :DiagnosticError {:bg :NONE}
-                          ;               :DiagnosticWarn {:bg :NONE}
-                          ;               :DiagnosticInfo {:bg :NONE}
-                          ;               :DiagnosticHint {:bg :NONE}})
-                          :compile true})
-                  (load :dragon))})
+ (pack :rebelot/kanagawa.nvim {:lazy false
+                               :config (fn []
+                                         (local {: setup : load}
+                                                (require :kanagawa))
+                                         (setup {:theme :dragon
+                                                 :colors {:theme {:all {:ui {:bg_gutter :none}}}}
+                                                 ; :overrides (fn [_]
+                                                 ;              {:FoldColumn {:bg :NONE}
+                                                 ;               :SignColumn {:bg :NONE}
+                                                 ;               :ColorColumn {:bg :NONE}
+                                                 ;               :GitSignsAdd {:bg :NONE}
+                                                 ;               :GitSignsChange {:bg :NONE}
+                                                 ;               :GitSignsDelete {:bg :NONE}
+                                                 ;               :DiagnosticError {:bg :NONE}
+                                                 ;               :DiagnosticWarn {:bg :NONE}
+                                                 ;               :DiagnosticInfo {:bg :NONE}
+                                                 ;               :DiagnosticHint {:bg :NONE}})
+                                                 :compile true})
+                                         ; (load :dragon)
+                                         )})
  ; (pack :Mofiqul/dracula.nvim
  ;       {:lazy false
  ;        :config (fn []
