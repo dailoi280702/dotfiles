@@ -4,6 +4,7 @@ local font_name = "liga sfmono nerd font"
 
 return {
 	default_cursor_style = "SteadyBar",
+
 	font = wezterm.font(font_name, { weight = "Medium" }),
 	font_rules = {
 		{
@@ -21,12 +22,15 @@ return {
 			}),
 		},
 	},
-	enable_tab_bar = true,
-	hide_tab_bar_if_only_one_tab = true,
 	cell_width = 0.90,
 	line_height = 0.90,
-	font_size = 24,
+	adjust_window_size_when_changing_font_size = false,
+	font_size = 23,
+
+	enable_tab_bar = true,
+	hide_tab_bar_if_only_one_tab = true,
 	use_fancy_tab_bar = false,
+
 	window_background_opacity = 1.0,
 	window_close_confirmation = "NeverPrompt",
 	color_scheme = "Oxocarbon Dark",
@@ -48,32 +52,52 @@ return {
 
 	keys = {
 		{
-			key = "h",
+			key = "LeftArrow",
 			mods = "CTRL|SHIFT",
 			action = wezterm.action.SplitPane({
 				direction = "Left",
 			}),
 		},
 		{
-			key = "l",
+			key = "RightArrow",
 			mods = "CTRL|SHIFT",
 			action = wezterm.action.SplitPane({
 				direction = "Right",
 			}),
 		},
 		{
-			key = "j",
+			key = "DownArrow",
 			mods = "CTRL|SHIFT",
 			action = wezterm.action.SplitPane({
 				direction = "Down",
 			}),
 		},
 		{
-			key = "k",
+			key = "UpArrow",
 			mods = "CTRL|SHIFT",
 			action = wezterm.action.SplitPane({
 				direction = "Up",
 			}),
+		},
+		{
+			key = "h",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.ActivatePaneDirection("Left"),
+		},
+		{
+			key = "l",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.ActivatePaneDirection("Right"),
+		},
+		{
+			key = "j",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.ActivatePaneDirection("Down"),
+		},
+		{
+			key = "k",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.ActivatePaneDirection("Up"),
 		},
 	},
 }
