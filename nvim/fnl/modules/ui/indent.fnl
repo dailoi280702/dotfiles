@@ -18,4 +18,4 @@
                                            :show_trailing_blankline_indent false}))
 
 (pack :lukas-reineke/indent-blankline.nvim
-      {:enabled false :event [:BufNewFile :BufReadPost] : config})
+      {:enabled true :event [:BufNewFile :BufReadPost] : config})

@@ -1,4 +1,4 @@
-(import-macros {: pack : set-hl! : autocmd! : augroup! : let!} :macros)
+(import-macros {: pack : set-hl! : autocmd! : augroup!} :macros)
 
 ; (local {: nil?} (require :core.lib.types))
 (local kitty-themes {:oxocarbon :oxocarbon
@@ -8,8 +8,8 @@
 (fn setup [name]
   (match name
     :oxocarbon (do
-                 (set-hl! 0 :StatusLine {:bg "#161616"})
-                 (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
+                 ;; (set-hl! 0 :StatusLine {:bg "#161616"})
+                 ;; (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
                  (set-hl! 0 :Folded {:bg "#161616"})
                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
@@ -46,16 +46,9 @@
         :priority 1000
         :config (fn []
                   (vim.cmd.colorscheme :oxocarbon))})
- (pack :sainnhe/gruvbox-material
-       {:lazy false
-        :config (fn []
-                  (let! :gruvbox_material_background :hard)
-                  (let! :gruvbox_material_better_performance 1)
-                  (let! :gruvbox_material_enable_bold 1))})
  (pack :rebelot/kanagawa.nvim {:lazy false
                                :config (fn []
-                                         (local {: setup : load}
-                                                (require :kanagawa))
+                                         (local {: setup} (require :kanagawa))
                                          (setup {:theme :dragon
                                                  :colors {:theme {:all {:ui {:bg_gutter :none}}}}
                                                  ; :overrides (fn [_]
