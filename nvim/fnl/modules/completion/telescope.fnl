@@ -17,12 +17,14 @@
                                :set_env {:COLORTERM :truecolor}
                                :dynamic_preview_title true}})
   (telescope.load_extension :file_browser)
-  (telescope.load_extension :fzf))
+  ;; (telescope.load_extension :fzf)
+  )
 
 (pack :nvim-telescope/telescope.nvim
       {:cmd :Telescope
        :dependencies [:nvim-telescope/telescope-file-browser.nvim
                       :nvim-lua/plenary.nvim
-                      (pack :nvim-telescope/telescope-fzf-native.nvim
-                            {:build :make})]
+                      ; (pack :nvim-telescope/telescope-fzf-native.nvim
+                      ;       {:build :make})
+                      ]
        : config})

@@ -1,95 +1,57 @@
 (import-macros {: pack : set-hl! : autocmd! : augroup!} :macros)
 
-; (local {: nil?} (require :core.lib.types))
-(local kitty-themes {:oxocarbon :oxocarbon
-                     :gruvbox-material :gruvbox-material-dark-hard
-                     :kanagawa :kanagawa-dragon})
-
-(fn setup [name]
-  (match name
-    :oxocarbon (do
-                 ;; (set-hl! 0 :StatusLine {:bg "#161616"})
-                 ;; (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
-                 (set-hl! 0 :Folded {:bg "#161616"})
-                 (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
-                 (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
-                 (set-hl! 0 :HopNextKey2 {:fg "#ee5396"})))
-  ;; todo: fix heirline after change colors
-  ;; (let [(has_heirline heirline) (pcall require :heirline)]
-  ;;   (when has_heirline
-  ;;     (local {: on_colorscheme : get_highlight} (require :heirline.utils))
-  ;;     (on_colorscheme {:bright_bg (. (get_highlight :Folded) :bg)
-  ;;                      :bright_fg (. (get_highlight :Folded) :fg)
-  ;;                      :red (. (get_highlight :Folded) :fg)
-  ;;                      :dark_red (. (get_highlight :Folded) :bg)
-  ;;                      :green (. (get_highlight :Folded) :fg)
-  ;;                      :blue (. (get_highlight :Folded) :fg)
-  ;;                      :gray (. (get_highlight :Folded) :fg)
-  ;;                      :orange (. (get_highlight :Folded) :fg)
-  ;;                      :purple (. (get_highlight :Folded) :fg)
-  ;;                      :cyan (. (get_highlight :Folded) :fg)
-  ;;                      :diag_warn (. (get_highlight :Folded) :fg)
-  ;;                      :diag_error (. (get_highlight :Folded) :fg)
-  ;;                      :diag_hint (. (get_highlight :Folded) :fg)
-  ;;                      :diag_info (. (get_highlight :Folded) :fg)
-  ;;                      :git_del (. (get_highlight :Folded) :fg)
-  ;;                      :git_add (. (get_highlight :Folded) :fg)
-  ;;                      :git_change (. (get_highlight :Folded) :fg)})))
-  (when (and (. kitty-themes name) (vim.fn.executable :kitty))
-    (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
-                    (. kitty-themes name) :.conf))))
-
-(augroup! :SetupColorscheme (autocmd! ColorScheme * `(setup vim.g.colors_name)))
+; (local kitty-themes {:oxocarbon :oxocarbon
+;                      :gruvbox-material :gruvbox-material-dark-hard
+;                      :kanagawa :kanagawa-dragon})
+;
+; (fn setup [name]
+;   (match name
+;     :oxocarbon (do
+;                  ;; (set-hl! 0 :StatusLine {:bg "#161616"})
+;                  ;; (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
+;                  (set-hl! 0 :Folded {:bg "#161616"})
+;                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
+;                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
+;                  (set-hl! 0 :HopNextKey2 {:fg "#ee5396"})))
+;   (when (and (. kitty-themes name) (vim.fn.executable :kitty))
+;     (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
+;                     (. kitty-themes name) :.conf))))
+;
+; (augroup! :SetupColorscheme (autocmd! ColorScheme * `(setup vim.g.colors_name)))
 
 [(pack :nyoom-engineering/oxocarbon.nvim
        {:lazy false
         :priority 1000
         :config (fn []
                   (vim.cmd.colorscheme :oxocarbon))})
- (pack :rebelot/kanagawa.nvim {:lazy false
-                               :config (fn []
-                                         (local {: setup} (require :kanagawa))
-                                         (setup {:theme :dragon
-                                                 :colors {:theme {:all {:ui {:bg_gutter :none}}}}
-                                                 ; :overrides (fn [_]
-                                                 ;              {:FoldColumn {:bg :NONE}
-                                                 ;               :SignColumn {:bg :NONE}
-                                                 ;               :ColorColumn {:bg :NONE}
-                                                 ;               :GitSignsAdd {:bg :NONE}
-                                                 ;               :GitSignsChange {:bg :NONE}
-                                                 ;               :GitSignsDelete {:bg :NONE}
-                                                 ;               :DiagnosticError {:bg :NONE}
-                                                 ;               :DiagnosticWarn {:bg :NONE}
-                                                 ;               :DiagnosticInfo {:bg :NONE}
-                                                 ;               :DiagnosticHint {:bg :NONE}})
-                                                 :compile true})
-                                         ; (load :dragon)
-                                         )})
- ; (pack :Mofiqul/dracula.nvim
+ (pack :projekt0n/github-nvim-theme {:lazy false})
+ ; (pack :catppuccin/nvim
  ;       {:lazy false
  ;        :config (fn []
- ;                  ((. (require :dracula) :setup) {:colors {:bg "#22212C"
- ;                                                           :fg "#F8F8F2"
- ;                                                           :selection "#454158"
- ;                                                           :comment "#7970A9"
- ;                                                           :red "#FF9580"
- ;                                                           :orange "#FFCA80"
- ;                                                           :yellow "#FFFF80"
- ;                                                           :green "#8AFF80"
- ;                                                           :purple "#9580FF"
- ;                                                           :cyan "#80FFEA"
- ;                                                           :pink "#FF80BF"
- ;                                                           :bright_red "#FFAA99"
- ;                                                           :bright_green "#A2FF99"
- ;                                                           :bright_yellow "#FFFF99"
- ;                                                           :bright_blue "#AA99FF"
- ;                                                           :bright_magenta "#FF99CC"
- ;                                                           :bright_cyan "#99FFEE"
- ;                                                           :bright_white "#FFFFFF"
- ;                                                           :menu "#17161D"
- ;                                                           :visual "#2e2b38"
- ;                                                           ; :gutter_fg "#?"
- ;                                                           :nontext "#424450"
- ;                                                           :white "#FFFFFF"
- ;                                                           :black "#0B0B0F"}}))})
+ ;                  ((. (require :catppuccin) :setup) {:color_overrides {:all {:base "#1e2b2e"
+ ;                                                                             :mantle "#182225"
+ ;                                                                             :crust "#121a1c"
+ ;                                                                             :overlay0 "#6b7f85"
+ ;                                                                             :overlay1 "#7d959b"
+ ;                                                                             :overlay2 "#94adb3"
+ ;                                                                             :surface0 "#314044"
+ ;                                                                             :surface1 "#455559"
+ ;                                                                             :surface2 "#586b6f"
+ ;                                                                             :text "#cdf0f4"
+ ;                                                                             :subtext1 "#badade"
+ ;                                                                             :subtext0 "#a6c5c9"
+ ;                                                                             :lavender "#b4b6fe"
+ ;                                                                             :blue "#89cbfa"
+ ;                                                                             :sapphire "#74deec"
+ ;                                                                             :sky "#89ebe6"
+ ;                                                                             :teal "#93e1da"
+ ;                                                                             :green "#dae3a1"
+ ;                                                                             :yellow "#f9e6ae"
+ ;                                                                             :red "#f38e8c"
+ ;                                                                             :marroon "#ea9f9e"
+ ;                                                                             :mauve "#d1a6f7"
+ ;                                                                             :pink "#f5c2da"
+ ;                                                                             :flamingo "#f2d7ce"
+ ;                                                                             :rosewater "#f5e6db"}}})
+ ;                  (vim.cmd.colorscheme :catppuccin))})]
  ]
