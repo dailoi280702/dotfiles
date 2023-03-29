@@ -1,4 +1,4 @@
-(import-macros {: set! : let! : map! : set-mdls!} :macros)
+(import-macros {: set! : let! : map! : set-mdls! : augroup! : autocmd!} :macros)
 
 (set-mdls! :tools treesitter ; 
            lsp null-ls ; 
@@ -26,9 +26,9 @@
 (set! conceallevel 2)
 (set! signcolumn "yes:1")
 (set! nowrap)
-(set! tabstop 2)
-(set! shiftwidth 2)
-(set! softtabstop 2)
+(set! tabstop 4)
+(set! shiftwidth 4)
+(set! softtabstop 4)
 (set! cmdheight 0)
 (set! expandtab)
 (set! noswapfile)
@@ -57,3 +57,11 @@
 (let! mapleader " ")
 
 (map! [n] :<esc> :<esc><cmd>noh<cr>)
+
+(augroup! :IndentOnFileType
+          (autocmd! FileType [html
+                              javascript
+                              javascriptreact
+                              typescript
+                              typescriptreact]
+                    "setlocal shiftwidth=2 tabstop=2 softtabstop"))

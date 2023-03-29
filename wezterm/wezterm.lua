@@ -1,11 +1,11 @@
 local wezterm = require("wezterm")
 
-local font_name = "liga sfmono nerd font"
+local font_name = "cartograph cf"
 
 return {
 	default_cursor_style = "SteadyBar",
 
-	font = wezterm.font(font_name, { weight = "Medium" }),
+	font = wezterm.font(font_name, { weight = "Regular" }),
 	font_rules = {
 		{
 			intensity = "Bold",
@@ -22,8 +22,8 @@ return {
 			}),
 		},
 	},
-	cell_width = 0.90,
-	line_height = 0.90,
+	-- cell_width = 0.90,
+	-- line_height = 0.90,
 	adjust_window_size_when_changing_font_size = false,
 	font_size = 23,
 

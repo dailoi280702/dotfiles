@@ -11,6 +11,7 @@
                   :gopls
                   ;; :ruff_lsp
                   :pyright
+                  :zls
                   :lua_ls
                   :bufls
                   :fennel_language_server
