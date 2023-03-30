@@ -64,4 +64,4 @@
                               javascriptreact
                               typescript
                               typescriptreact]
-                    "setlocal shiftwidth=2 tabstop=2 softtabstop"))
+                    "setlocal shiftwidth=2 tabstop=2 softtabstop=2"))
