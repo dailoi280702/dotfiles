@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local font_name = "cartograph cf"
+local font_name = "iosevka mayukai codepro"
 
 return {
 	default_cursor_style = "SteadyBar",
@@ -22,19 +22,24 @@ return {
 			}),
 		},
 	},
-	-- cell_width = 0.90,
-	-- line_height = 0.90,
+	cell_width = 0.90,
+	line_height = 0.90,
 	adjust_window_size_when_changing_font_size = false,
-	font_size = 23,
+	font_size = 28,
 
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
 	use_fancy_tab_bar = false,
 
-	window_background_opacity = 1.0,
+	-- macos_window_background_blur = 20,
+	-- window_background_opacity = 0.8,
 	window_close_confirmation = "NeverPrompt",
 	color_scheme = "Oxocarbon Dark",
-	window_decorations = "RESIZE",
+	-- color_scheme = "Builtin Solarized Dark",
+	-- colors = {
+	-- 	background = "#001217",
+	-- },
+	-- window_decorations = "RESIZE",
 	window_padding = {
 		top = 0,
 		bottom = 0,
