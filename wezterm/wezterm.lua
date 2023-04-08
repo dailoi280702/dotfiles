@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local font_name = "iosevka mayukai codepro"
+local font_name = "jetbrains mono"
 
 return {
 	default_cursor_style = "SteadyBar",
