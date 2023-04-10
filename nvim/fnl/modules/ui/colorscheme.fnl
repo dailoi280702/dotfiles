@@ -5,6 +5,26 @@
                      :solarized :solarzied-dark
                      :kanagawa :kanagawa-dragon})
 
+;; fnlfmt: skip
+(fn migrate-to-lsp-sematic []
+  (local links {"@lsp.type.class" "@type"
+                "@lsp.type.decorator" "@function"
+                "@lsp.type.enum" "@type"
+                "@lsp.type.enumMember" "@constant"
+                "@lsp.type.function" "@function"
+                "@lsp.type.interface" "@type"
+                "@lsp.type.macro" "@macro"
+                "@lsp.type.method" "@method"
+                "@lsp.type.namespace" "@namespace"
+                "@lsp.type.parameter" "@parameter"
+                "@lsp.type.property" "@property"
+                "@lsp.type.struct" "@structure"
+                "@lsp.type.type" "@type"
+                "@lsp.type.variable" "@variable"})
+  (each [newgroup oldgroup (pairs links)]
+    (vim.api.nvim_set_hl 0 newgroup {:default true :link oldgroup}))
+  )
+
 (fn setup [name]
   (match name
     :oxocarbon (do
@@ -15,8 +35,9 @@
                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
                  (set-hl! 0 :HopNextKey2 {:fg "#ee5396"})))
   ;; disable lsp sematic highlighting
-  (each [_ group (ipairs (vim.fn.getcompletion "@lsp" :highlight))]
-    (vim.api.nvim_set_hl 0 group {}))
+  (migrate-to-lsp-sematic)
+  ;; (each [_ group (ipairs (vim.fn.getcompletion "@lsp" :highlight))]
+  ;;   (vim.api.nvim_set_hl 0 group {}))
   ;; kitty colorshcheme migration
   (when (and (. kitty-themes name) (vim.fn.executable :kitty))
     (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
@@ -29,6 +50,12 @@
         :priority 1000
         :config (fn []
                   (vim.cmd.colorscheme :oxocarbon))})
+ (pack :savq/melange-nvim {:lazy false})
+ ; (pack :kaiuri/nvim-juliana
+ ;       {:lazy false
+ ;        :config (fn []
+ ;                  ((. (require :nvim-juliana) :setup) {})
+ ;                  (vim.cmd.colorscheme :juliana))})
  ; (pack :rebelot/kanagawa.nvim
  ;       {:lazy false
  ;        :config (fn []
