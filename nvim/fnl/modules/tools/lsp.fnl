@@ -9,6 +9,7 @@
                   :ltex
                   :tailwindcss
                   :gopls
+                  :sqlls
                   ;; :ruff_lsp
                   :pyright
                   :zls

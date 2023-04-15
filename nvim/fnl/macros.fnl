@@ -73,7 +73,7 @@
 
 (lambda set-hl! [ns_id name ?val]
   (assert-compile (num? ns_id) "expected number for ns_id" ns_id)
-  (assert-compile (str? name) "expected number for name" name)
+  (assert-compile (str? name) "expected string for name" name)
   (assert-compile (or (nil? ?val) (table? ?val)) "expected table for val" ?val)
   (let [val (or ?val {})]
     `(vim.api.nvim_set_hl ,ns_id ,name ,val)))

@@ -59,7 +59,9 @@
  ; (pack :rebelot/kanagawa.nvim
  ;       {:lazy false
  ;        :config (fn []
- ;                  ((. (require :kanagawa) :setup) {:colors {:theme {:all {:ui {:bg_gutter :none}}}}})
+ ;                  ((. (require :kanagawa) :setup) {:commentStyle {:italic false}
+ ;                                                   :keywordStyle {:italic false}
+ ;                                                   :colors {:theme {:all {:ui {:bg_gutter :none}}}}})
  ;                  (vim.cmd.colorscheme :kanagawa-dragon))})
  ; (pack :maxmx03/solarized.nvim {:lazy false
  ;                                :config (fn []
