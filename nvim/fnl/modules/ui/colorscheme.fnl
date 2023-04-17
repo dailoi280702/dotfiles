@@ -1,7 +1,7 @@
-(import-macros {: pack : set-hl! : autocmd! : augroup!} :macros)
+(import-macros {: pack : set-hl! : autocmd! : augroup! : let!} :macros)
 
-(local kitty-themes {:oxocarbon :oxocarbon
-                     :gruvbox-material :gruvbox-material-dark-hard
+(local kitty-themes {:oxocarbon :gruvbox
+                     :gruvbox-material :gruvbox
                      :solarized :solarzied-dark
                      :kanagawa :kanagawa-dragon})
 
@@ -33,7 +33,8 @@
                  (set-hl! 0 :Folded {:bg "#161616"})
                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
-                 (set-hl! 0 :HopNextKey2 {:fg "#ee5396"})))
+                 (set-hl! 0 :HopNextKey2 {:fg "#ee5396"}))
+    :gruvbox-material (set-hl! 0 "@punctuation.bracket" {:fg "#928374"}))
   ;; disable lsp sematic highlighting
   (migrate-to-lsp-sematic)
   ;; (each [_ group (ipairs (vim.fn.getcompletion "@lsp" :highlight))]
@@ -50,7 +51,18 @@
         :priority 1000
         :config (fn []
                   (vim.cmd.colorscheme :oxocarbon))})
- (pack :savq/melange-nvim {:lazy false})
+ ; (pack :savq/melange-nvim {:lazy false})
+ (pack :sainnhe/gruvbox-material
+       {:lazy false
+        :config (fn []
+                  (let! :gruvbox_material_disable_italic_comment 1)
+                  (let! :gruvbox_material_enable_bold 1)
+                  (let! :gruvbox_material_spell_foreground :colored)
+                  (let! :gruvbox_material_better_performance 1)
+                  ;; (let! gruvbox_material_colors_override {})
+                  (let! :gruvbox_material_foreground :original)
+                  (let! :gruvbox_material_background :hard)
+                  (vim.cmd.colorscheme :gruvbox-material))})
  ; (pack :kaiuri/nvim-juliana
  ;       {:lazy false
  ;        :config (fn []

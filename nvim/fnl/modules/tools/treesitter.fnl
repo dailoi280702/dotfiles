@@ -9,7 +9,7 @@
              :indent {:enable true}
              :context_commentstring {:enable true}
              :autotag {:enable true}
-             :rainbow {:enable true
+             :rainbow {:enable false
                        :extended_mode true
                        :colors ["#878d96"
                                 "#a8a8a8"
