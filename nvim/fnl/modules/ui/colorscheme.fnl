@@ -30,13 +30,13 @@
     :oxocarbon (do
                  ;; (set-hl! 0 :StatusLine {:bg "#161616"})
                  ;; (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
+                 (migrate-to-lsp-sematic)
                  (set-hl! 0 :Folded {:bg "#161616"})
                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
                  (set-hl! 0 :HopNextKey2 {:fg "#ee5396"}))
     :gruvbox-material (set-hl! 0 "@punctuation.bracket" {:fg "#928374"}))
   ;; disable lsp sematic highlighting
-  (migrate-to-lsp-sematic)
   ;; (each [_ group (ipairs (vim.fn.getcompletion "@lsp" :highlight))]
   ;;   (vim.api.nvim_set_hl 0 group {}))
   ;; kitty colorshcheme migration
@@ -56,12 +56,13 @@
        {:lazy false
         :config (fn []
                   (let! :gruvbox_material_disable_italic_comment 1)
-                  (let! :gruvbox_material_enable_bold 1)
+                  ;; (let! :gruvbox_material_enable_bold 1)
                   (let! :gruvbox_material_spell_foreground :colored)
                   (let! :gruvbox_material_better_performance 1)
                   ;; (let! gruvbox_material_colors_override {})
                   (let! :gruvbox_material_foreground :original)
-                  (let! :gruvbox_material_background :hard)
+                  (let! :gruvbox_material_transparent_background 1)
+                  ;;(let! :gruvbox_material_background :medium)
                   (vim.cmd.colorscheme :gruvbox-material))})
  ; (pack :kaiuri/nvim-juliana
  ;       {:lazy false
