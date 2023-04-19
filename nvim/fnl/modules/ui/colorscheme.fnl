@@ -1,9 +1,15 @@
 (import-macros {: pack : set-hl! : autocmd! : augroup! : let!} :macros)
 
-(local kitty-themes {:oxocarbon :gruvbox
-                     :gruvbox-material :gruvbox
-                     :solarized :solarzied-dark
-                     :kanagawa :kanagawa-dragon})
+(fn migrate-to-kitty [name]
+  (local kitty-themes {:oxocarbon :oxocarbon
+                       :gruvbox-material :gruvbox
+                       :tokyonight :tokyonight_night
+                       :solarized :solarzied-dark
+                       :catppuccin :catppuccin-mocha
+                       :kanagawa :kanagawa-dragon})
+  (when (and (. kitty-themes name) (vim.fn.executable :kitty))
+    (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
+                    (. kitty-themes name) :.conf))))
 
 ;; fnlfmt: skip
 (fn migrate-to-lsp-sematic []
@@ -35,68 +41,130 @@
                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
                  (set-hl! 0 :HopNextKey2 {:fg "#ee5396"}))
-    :gruvbox-material (set-hl! 0 "@punctuation.bracket" {:fg "#928374"}))
+    :gruvbox-material (do
+                        (vim.cmd "TSDisable rainbow")
+                        (set-hl! 0 "@punctuation.bracket" {:fg "#928374"}))
+    :catppuccin (do
+                  (vim.cmd "TSDisable rainbow")
+                  (local colors
+                         ((. (require :catppuccin.palettes) :get_palette)))
+                  (set-hl! 0 :Folded {:bg colors.none})
+                  (set-hl! 0 "@punctuation.bracket" {:fg colors.overlay1}))
+    _ (vim.cmd "TSEnable rainbow"))
   ;; disable lsp sematic highlighting
   ;; (each [_ group (ipairs (vim.fn.getcompletion "@lsp" :highlight))]
   ;;   (vim.api.nvim_set_hl 0 group {}))
   ;; kitty colorshcheme migration
-  (when (and (. kitty-themes name) (vim.fn.executable :kitty))
-    (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
-                    (. kitty-themes name) :.conf))))
+  ;(migrate-to-kitty name)
+  )
 
 (augroup! :SetupColorscheme (autocmd! ColorScheme * `(setup vim.g.colors_name)))
 
-[(pack :nyoom-engineering/oxocarbon.nvim
+; (pack :nyoom-engineering/oxocarbon.nvim
+;       {:lazy false
+;        :priority 1000
+;        :config (fn []
+;                  (vim.cmd.colorscheme :oxocarbon))})
+; ; (pack :savq/melange-nvim {:lazy false})
+; (pack :sainnhe/gruvbox-material
+;       {:lazy false
+;        :config (fn []
+;                  (let! :gruvbox_material_disable_italic_comment 1)
+;                  ;; (let! :gruvbox_material_enable_bold 1)
+;                  (let! :gruvbox_material_spell_foreground :colored)
+;                  (let! :gruvbox_material_better_performance 1)
+;                  ;; (let! gruvbox_material_colors_override {})
+;                  (let! :gruvbox_material_foreground :original)
+;                  (let! :gruvbox_material_transparent_background 1)
+;                  ;;(let! :gruvbox_material_background :medium)
+;                  (vim.cmd.colorscheme :gruvbox-material))})
+; (pack :kaiuri/nvim-juliana
+;       {:lazy false
+;        :config (fn []
+;                  ((. (require :nvim-juliana) :setup) {})
+;                  (vim.cmd.colorscheme :juliana))})
+; (pack :rebelot/kanagawa.nvim
+;       {:lazy false
+;        :config (fn []
+;                  ((. (require :kanagawa) :setup) {:commentStyle {:italic false}
+;                                                   :keywordStyle {:italic false}
+;                                                   :colors {:theme {:all {:ui {:bg_gutter :none}}}}})
+;                  (vim.cmd.colorscheme :kanagawa-dragon))})
+; (pack :maxmx03/solarized.nvim {:lazy false
+;                                :config (fn []
+;                                          (local solarized (require :solarized))
+;                                          (set vim.o.background :dark)
+;                                          (solarized:setup {:config {:theme :neovim
+;                                                                     :transparent true}
+;                                                            :colors {:bg "#001217"
+;                                                                     :bg_alt "#002b36"}
+;                                                            :highlights (fn [colors
+;                                                                             _
+;                                                                             _
+;                                                                             _]
+;                                                                          {:FoldColumn {:fg colors.bg_alt}
+;                                                                           :Folded {:bg nil}})})
+;                                          (vim.cmd "colorscheme solarized")
+;                                          )})
+; (pack :/folke/tokyonight.nvim
+;       {:lazy false :config (fn [] (vim.cmd.colorscheme :tokyonight-night))})
+
+;; fnlfmt: skip
+
+[(pack :catppuccin/nvim
        {:lazy false
-        :priority 1000
         :config (fn []
-                  (vim.cmd.colorscheme :oxocarbon))})
- ; (pack :savq/melange-nvim {:lazy false})
- (pack :sainnhe/gruvbox-material
-       {:lazy false
-        :config (fn []
-                  (let! :gruvbox_material_disable_italic_comment 1)
-                  ;; (let! :gruvbox_material_enable_bold 1)
-                  (let! :gruvbox_material_spell_foreground :colored)
-                  (let! :gruvbox_material_better_performance 1)
-                  ;; (let! gruvbox_material_colors_override {})
-                  (let! :gruvbox_material_foreground :original)
-                  (let! :gruvbox_material_transparent_background 1)
-                  ;;(let! :gruvbox_material_background :medium)
-                  (vim.cmd.colorscheme :gruvbox-material))})
- ; (pack :kaiuri/nvim-juliana
- ;       {:lazy false
- ;        :config (fn []
- ;                  ((. (require :nvim-juliana) :setup) {})
- ;                  (vim.cmd.colorscheme :juliana))})
- ; (pack :rebelot/kanagawa.nvim
- ;       {:lazy false
- ;        :config (fn []
- ;                  ((. (require :kanagawa) :setup) {:commentStyle {:italic false}
- ;                                                   :keywordStyle {:italic false}
- ;                                                   :colors {:theme {:all {:ui {:bg_gutter :none}}}}})
- ;                  (vim.cmd.colorscheme :kanagawa-dragon))})
- ; (pack :maxmx03/solarized.nvim {:lazy false
- ;                                :config (fn []
- ;                                          (local solarized (require :solarized))
- ;                                          (set vim.o.background :dark)
- ;                                          (solarized:setup {:config {:theme :neovim
- ;                                                                     :transparent true}
- ;                                                            :colors {:bg "#001217"
- ;                                                                     :bg_alt "#002b36"}
- ;                                                            :highlights (fn [colors
- ;                                                                             _
- ;                                                                             _
- ;                                                                             _]
- ;                                                                          {:FoldColumn {:fg colors.bg_alt}
- ;                                                                           :Folded {:bg nil}})})
- ;                                          (vim.cmd "colorscheme solarized")
- ;                                          )})
- ; (pack :/folke/tokyonight.nvim
- ;       {:lazy false :config (fn [] (vim.cmd.colorscheme :tokyonight-night))})
- ; (pack :catppuccin/nvim
- ;       {:lazy false
- ;        :config (fn []
- ;                  ((. (require :catppuccin) :setup) {})
- ;                  (vim.cmd.colorscheme :catppuccin))})
- ]
+                  ((. (require :catppuccin) :setup) {:custom_highlights (fn [C]
+                                                                          {:CmpItemKindClass {:bg C.yellow
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindColor {:bg C.red
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindConstant {:bg C.peach
+                                                                                                 :fg C.base}
+                                                                           :CmpItemKindConstructor {:bg C.blue
+                                                                                                    :fg C.base}
+                                                                           :CmpItemKindCopilot {:bg C.teal
+                                                                                                :fg C.base}
+                                                                           :CmpItemKindEnum {:bg C.green
+                                                                                             :fg C.base}
+                                                                           :CmpItemKindEnumMember {:bg C.red
+                                                                                                   :fg C.base}
+                                                                           :CmpItemKindEvent {:bg C.blue
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindField {:bg C.green
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindFile {:bg C.blue
+                                                                                             :fg C.base}
+                                                                           :CmpItemKindFolder {:bg C.blue
+                                                                                               :fg C.base}
+                                                                           :CmpItemKindFunction {:bg C.blue
+                                                                                                 :fg C.base}
+                                                                           :CmpItemKindInterface {:bg C.yellow
+                                                                                                  :fg C.base}
+                                                                           :CmpItemKindKeyword {:bg C.red
+                                                                                                :fg C.base}
+                                                                           :CmpItemKindMethod {:bg C.blue
+                                                                                               :fg C.base}
+                                                                           :CmpItemKindModule {:bg C.blue
+                                                                                               :fg C.base}
+                                                                           :CmpItemKindOperator {:bg C.blue
+                                                                                                 :fg C.base}
+                                                                           :CmpItemKindProperty {:bg C.green
+                                                                                                 :fg C.base}
+                                                                           :CmpItemKindReference {:bg C.red
+                                                                                                  :fg C.base}
+                                                                           :CmpItemKindSnippet {:bg C.mauve
+                                                                                                :fg C.base}
+                                                                           :CmpItemKindStruct {:bg C.blue
+                                                                                               :fg C.base}
+                                                                           :CmpItemKindText {:bg C.teal
+                                                                                             :fg C.base}
+                                                                           :CmpItemKindTypeParameter {:bg C.blue
+                                                                                                      :fg C.base}
+                                                                           :CmpItemKindUnit {:bg C.green
+                                                                                             :fg C.base}
+                                                                           :CmpItemKindValue {:bg C.peach
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindVariable {:bg C.flamingo
+                                                                                                 :fg C.base}})})
+                  (vim.cmd.colorscheme :catppuccin))})]
