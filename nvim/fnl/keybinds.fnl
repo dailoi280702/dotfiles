@@ -10,6 +10,9 @@
       {:desc "Browse file"})
 
 (map! [n] :<leader>/ "<cmd>Telescope live_grep<CR>" {:desc "Search in project"})
+(map! [n] :<leader>> "<cmd>Telescope marks initial_mode=normal<CR>"
+      {:desc "Show marks"})
+
 (map! [n] "<leader>:" "<cmd>Telescope find_files<CR>" {:desc "Search commad"})
 (map! [n] :<leader><tab> "<cmd>Telescope buffers initial_mode=normal<CR>"
       {:desc "Switch buffer"})
