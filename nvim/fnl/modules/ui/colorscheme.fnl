@@ -13,6 +13,7 @@
 
 ;; fnlfmt: skip
 (fn migrate-to-lsp-sematic []
+
   (local links {"@lsp.type.class" "@type"
                 "@lsp.type.decorator" "@function"
                 "@lsp.type.enum" "@type"
@@ -31,12 +32,18 @@
     (vim.api.nvim_set_hl 0 newgroup {:default true :link oldgroup}))
   )
 
+; (pack :nyoom-engineering/oxocarbon.nvim
+;       {:lazy false
+;        :priority 1000
+;        :config (fn []
+;                  (vim.cmd.colorscheme :oxocarbon))})
 (fn setup [name]
   (match name
     :oxocarbon (do
                  ;; (set-hl! 0 :StatusLine {:bg "#161616"})
                  ;; (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
                  (migrate-to-lsp-sematic)
+                 (vim.cmd "TSEnable rainbow")
                  (set-hl! 0 :Folded {:bg "#161616"})
                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
@@ -49,14 +56,14 @@
                   (local colors
                          ((. (require :catppuccin.palettes) :get_palette)))
                   (set-hl! 0 :Folded {:bg colors.none})
-                  (set-hl! 0 "@punctuation.bracket" {:fg colors.overlay1}))
+                  (set-hl! 0 "@punctuation.bracket"
+                           {:fg colors.overlay1 :bold true}))
     _ (vim.cmd "TSEnable rainbow"))
   ;; disable lsp sematic highlighting
   ;; (each [_ group (ipairs (vim.fn.getcompletion "@lsp" :highlight))]
   ;;   (vim.api.nvim_set_hl 0 group {}))
   ;; kitty colorshcheme migration
-  ;(migrate-to-kitty name)
-  )
+  (migrate-to-kitty name))
 
 (augroup! :SetupColorscheme (autocmd! ColorScheme * `(setup vim.g.colors_name)))
 
@@ -111,60 +118,70 @@
 
 ;; fnlfmt: skip
 
-[(pack :catppuccin/nvim
+[(pack :nyoom-engineering/oxocarbon.nvim
        {:lazy false
+        :priority 1000
         :config (fn []
-                  ((. (require :catppuccin) :setup) {:custom_highlights (fn [C]
-                                                                          {:CmpItemKindClass {:bg C.yellow
-                                                                                              :fg C.base}
-                                                                           :CmpItemKindColor {:bg C.red
-                                                                                              :fg C.base}
-                                                                           :CmpItemKindConstant {:bg C.peach
-                                                                                                 :fg C.base}
-                                                                           :CmpItemKindConstructor {:bg C.blue
-                                                                                                    :fg C.base}
-                                                                           :CmpItemKindCopilot {:bg C.teal
-                                                                                                :fg C.base}
-                                                                           :CmpItemKindEnum {:bg C.green
-                                                                                             :fg C.base}
-                                                                           :CmpItemKindEnumMember {:bg C.red
-                                                                                                   :fg C.base}
-                                                                           :CmpItemKindEvent {:bg C.blue
-                                                                                              :fg C.base}
-                                                                           :CmpItemKindField {:bg C.green
-                                                                                              :fg C.base}
-                                                                           :CmpItemKindFile {:bg C.blue
-                                                                                             :fg C.base}
-                                                                           :CmpItemKindFolder {:bg C.blue
-                                                                                               :fg C.base}
-                                                                           :CmpItemKindFunction {:bg C.blue
-                                                                                                 :fg C.base}
-                                                                           :CmpItemKindInterface {:bg C.yellow
-                                                                                                  :fg C.base}
-                                                                           :CmpItemKindKeyword {:bg C.red
-                                                                                                :fg C.base}
-                                                                           :CmpItemKindMethod {:bg C.blue
-                                                                                               :fg C.base}
-                                                                           :CmpItemKindModule {:bg C.blue
-                                                                                               :fg C.base}
-                                                                           :CmpItemKindOperator {:bg C.blue
-                                                                                                 :fg C.base}
-                                                                           :CmpItemKindProperty {:bg C.green
-                                                                                                 :fg C.base}
-                                                                           :CmpItemKindReference {:bg C.red
-                                                                                                  :fg C.base}
-                                                                           :CmpItemKindSnippet {:bg C.mauve
-                                                                                                :fg C.base}
-                                                                           :CmpItemKindStruct {:bg C.blue
-                                                                                               :fg C.base}
-                                                                           :CmpItemKindText {:bg C.teal
-                                                                                             :fg C.base}
-                                                                           :CmpItemKindTypeParameter {:bg C.blue
-                                                                                                      :fg C.base}
-                                                                           :CmpItemKindUnit {:bg C.green
-                                                                                             :fg C.base}
-                                                                           :CmpItemKindValue {:bg C.peach
-                                                                                              :fg C.base}
-                                                                           :CmpItemKindVariable {:bg C.flamingo
-                                                                                                 :fg C.base}})})
-                  (vim.cmd.colorscheme :catppuccin))})]
+                  (vim.cmd.colorscheme :oxocarbon))})
+ ; (pack :catppuccin/nvim
+ ;       {:lazy false
+ ;        :config (fn []
+ ;                  ((. (require :catppuccin) :setup) {:no_italic true
+ ;                                                     :integrations {:noice true
+ ;                                                                    :hop true
+ ;                                                                    :notify true}
+ ;                                                     :custom_highlights (fn [C]
+ ;                                                                          {:CmpItemKindClass {:bg C.yellow
+ ;                                                                                              :fg C.base}
+ ;                                                                           :CmpItemKindColor {:bg C.red
+ ;                                                                                              :fg C.base}
+ ;                                                                           :CmpItemKindConstant {:bg C.peach
+ ;                                                                                                 :fg C.base}
+ ;                                                                           :CmpItemKindConstructor {:bg C.blue
+ ;                                                                                                    :fg C.base}
+ ;                                                                           :CmpItemKindCopilot {:bg C.teal
+ ;                                                                                                :fg C.base}
+ ;                                                                           :CmpItemKindEnum {:bg C.green
+ ;                                                                                             :fg C.base}
+ ;                                                                           :CmpItemKindEnumMember {:bg C.red
+ ;                                                                                                   :fg C.base}
+ ;                                                                           :CmpItemKindEvent {:bg C.blue
+ ;                                                                                              :fg C.base}
+ ;                                                                           :CmpItemKindField {:bg C.green
+ ;                                                                                              :fg C.base}
+ ;                                                                           :CmpItemKindFile {:bg C.blue
+ ;                                                                                             :fg C.base}
+ ;                                                                           :CmpItemKindFolder {:bg C.blue
+ ;                                                                                               :fg C.base}
+ ;                                                                           :CmpItemKindFunction {:bg C.blue
+ ;                                                                                                 :fg C.base}
+ ;                                                                           :CmpItemKindInterface {:bg C.yellow
+ ;                                                                                                  :fg C.base}
+ ;                                                                           :CmpItemKindKeyword {:bg C.red
+ ;                                                                                                :fg C.base}
+ ;                                                                           :CmpItemKindMethod {:bg C.blue
+ ;                                                                                               :fg C.base}
+ ;                                                                           :CmpItemKindModule {:bg C.blue
+ ;                                                                                               :fg C.base}
+ ;                                                                           :CmpItemKindOperator {:bg C.blue
+ ;                                                                                                 :fg C.base}
+ ;                                                                           :CmpItemKindProperty {:bg C.green
+ ;                                                                                                 :fg C.base}
+ ;                                                                           :CmpItemKindReference {:bg C.red
+ ;                                                                                                  :fg C.base}
+ ;                                                                           :CmpItemKindSnippet {:bg C.mauve
+ ;                                                                                                :fg C.base}
+ ;                                                                           :CmpItemKindStruct {:bg C.blue
+ ;                                                                                               :fg C.base}
+ ;                                                                           :CmpItemKindText {:bg C.teal
+ ;                                                                                             :fg C.base}
+ ;                                                                           :CmpItemKindTypeParameter {:bg C.blue
+ ;                                                                                                      :fg C.base}
+ ;                                                                           :CmpItemKindUnit {:bg C.green
+ ;                                                                                             :fg C.base}
+ ;                                                                           :CmpItemKindValue {:bg C.peach
+ ;                                                                                              :fg C.base}
+ ;                                                                           :CmpItemKindVariable {:bg C.flamingo
+ ;                                                                                                 :fg C.base}})})
+ ;                  (vim.cmd.colorscheme :catppuccin))})
+ ]
