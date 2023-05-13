@@ -85,6 +85,63 @@
        {:lazy false
         :config (fn []
                   ((. (require :catppuccin) :setup) {:transparent_background false
+                                                     :integrations {:hop true
+                                                                    :noice true
+                                                                    :notify true
+                                                                    :treesitter_context true}
+                                                     :custom_highlights (fn [C]
+                                                                          {:CmpItemKindClass {:bg C.yellow
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindColor {:bg C.red
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindConstant {:bg C.peach
+                                                                                                 :fg C.base}
+                                                                           :CmpItemKindConstructor {:bg C.blue
+                                                                                                    :fg C.base}
+                                                                           :CmpItemKindCopilot {:bg C.teal
+                                                                                                :fg C.base}
+                                                                           :CmpItemKindEnum {:bg C.green
+                                                                                             :fg C.base}
+                                                                           :CmpItemKindEnumMember {:bg C.red
+                                                                                                   :fg C.base}
+                                                                           :CmpItemKindEvent {:bg C.blue
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindField {:bg C.green
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindFile {:bg C.blue
+                                                                                             :fg C.base}
+                                                                           :CmpItemKindFolder {:bg C.blue
+                                                                                               :fg C.base}
+                                                                           :CmpItemKindFunction {:bg C.blue
+                                                                                                 :fg C.base}
+                                                                           :CmpItemKindInterface {:bg C.yellow
+                                                                                                  :fg C.base}
+                                                                           :CmpItemKindKeyword {:bg C.red
+                                                                                                :fg C.base}
+                                                                           :CmpItemKindMethod {:bg C.blue
+                                                                                               :fg C.base}
+                                                                           :CmpItemKindModule {:bg C.blue
+                                                                                               :fg C.base}
+                                                                           :CmpItemKindOperator {:bg C.blue
+                                                                                                 :fg C.base}
+                                                                           :CmpItemKindProperty {:bg C.green
+                                                                                                 :fg C.base}
+                                                                           :CmpItemKindReference {:bg C.red
+                                                                                                  :fg C.base}
+                                                                           :CmpItemKindSnippet {:bg C.mauve
+                                                                                                :fg C.base}
+                                                                           :CmpItemKindStruct {:bg C.blue
+                                                                                               :fg C.base}
+                                                                           :CmpItemKindText {:bg C.teal
+                                                                                             :fg C.base}
+                                                                           :CmpItemKindTypeParameter {:bg C.blue
+                                                                                                      :fg C.base}
+                                                                           :CmpItemKindUnit {:bg C.green
+                                                                                             :fg C.base}
+                                                                           :CmpItemKindValue {:bg C.peach
+                                                                                              :fg C.base}
+                                                                           :CmpItemKindVariable {:bg C.flamingo
+                                                                                                 :fg C.base}})
                                                      :color_overrides {:all {:base "#11111B"}}})
                   (vim.cmd.colorscheme :catppuccin))})
  (pack :rebelot/kanagawa.nvim {:lazy false
