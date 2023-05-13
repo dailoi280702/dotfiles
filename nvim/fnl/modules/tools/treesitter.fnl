@@ -17,7 +17,8 @@
                                 "#a2a9b0"
                                 "#8f8b8b"
                                 "#ada8a8"
-                                "#878d96"]}}))
+                                "#878d96"]}})
+  ((. (require :treesitter-context) :setup) {}))
 
 (pack :nvim-treesitter/nvim-treesitter
       {:build ":TSUpdate"
@@ -31,5 +32,6 @@
              :TSModuleInfo]
        :dependencies [:p00f/nvim-ts-rainbow
                       ;:/HiPhish/nvim-ts-rainbow2
+                      :nvim-treesitter/nvim-treesitter-context
                       :JoosepAlviste/nvim-ts-context-commentstring]
        : config})
