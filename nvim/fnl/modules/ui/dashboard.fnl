@@ -270,4 +270,4 @@
   (set dashboard.section.buttons.val [])
   ((. (require :alpha) :setup) dashboard.opts))
 
-(pack :goolord/alpha-nvim {:event :VimEnter : config})
+(pack :goolord/alpha-nvim {:event :VimEnter : config :enabled false})

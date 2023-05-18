@@ -1,4 +1,7 @@
-(import-macros {: pack} :macros)
+(import-macros {: pack : autocmd! : augroup!} :macros)
+
+(augroup! :OpenTelescopeOnSTartup
+          (autocmd! VimEnter * "Telescope find_files previewer=false"))
 
 (fn config []
   (local telescope (require :telescope))
