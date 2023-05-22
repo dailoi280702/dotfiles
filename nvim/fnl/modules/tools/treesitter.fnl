@@ -11,14 +11,13 @@
              :autotag {:enable true}
              :rainbow {:enable false
                        :extended_mode true
-                       ; :colors ["#878d96"
-                       ;          "#a8a8a8"
-                       ;          "#8d8d8d"
-                       ;          "#a2a9b0"
-                       ;          "#8f8b8b"
-                       ;          "#ada8a8"
-                       ;          "#878d96"]
-                       }})
+                       :colors ["#878d96"
+                                "#a8a8a8"
+                                "#8d8d8d"
+                                "#a2a9b0"
+                                "#8f8b8b"
+                                "#ada8a8"
+                                "#878d96"]}})
   ((. (require :treesitter-context) :setup) {}))
 
 (pack :nvim-treesitter/nvim-treesitter

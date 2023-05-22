@@ -52,10 +52,11 @@
                                ((. (require :catppuccin.palettes) :get_palette)))
                         (set-hl! 0 :Folded {:bg colors.none})
                         (set-hl! 0 "@punctuation.bracket" {:fg colors.overlay1}))
+    :terafox (set-hl! 0 "@punctuation.bracket" {:fg "#6d7f8b"})
     :rose-pine (do
                  (set! cursorline)
                  (vim.cmd "TSDisable rainbow"))
-    _ (vim.cmd "TSEnable rainbow"))
+    _ (vim.cmd "TSDisable rainbow"))
   ;; disable lsp sematic highlighting
   ;; (each [_ group (ipairs (vim.fn.getcompletion "@lsp" :highlight))]
   ;;   (vim.api.nvim_set_hl 0 group {}))
@@ -82,10 +83,14 @@
 [(pack :nyoom-engineering/oxocarbon.nvim
        {:lazy false
         :priority 1000
-        :config (fn []
-                  (vim.cmd.colorscheme :oxocarbon))})
- (pack :rose-pine/neovim
-       {:lazy false :config (fn [] (vim.cmd.colorscheme :rose-pine-dawn))})
+        ; :config (fn []
+        ;           (vim.cmd.colorscheme :oxocarbon))
+        })
+ (pack :rose-pine/neovim {:lazy false
+                          :config (fn []
+                                    ((. (require :rose-pine) :setup) {:disable_italics true})
+                                    ; (vim.cmd.colorscheme :rose-pine-dawn)
+                                    )})
  (pack :catppuccin/nvim {:lazy false
                          :config (fn []
                                    ((. (require :catppuccin) :setup) {:transparent_background false
@@ -149,6 +154,11 @@
                                                                       :color_overrides {:all {:base "#11111B"}}})
                                    ; (vim.cmd.colorscheme :catppuccin)
                                    )})
+ (pack :edeneast/nightfox.nvim
+       {:lazy false
+        :config (fn []
+                  ((. (require :nightfox) :setup) {:palettes {:terafox {:bg1 "#0b1314"}}})
+                  (vim.cmd.colorscheme :terafox))})
  (pack :rebelot/kanagawa.nvim {:lazy false
                                :config (fn []
                                          ((. (require :kanagawa) :setup) {:commentStyle {:italic false}
