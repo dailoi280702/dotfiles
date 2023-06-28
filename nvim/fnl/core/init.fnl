@@ -52,7 +52,8 @@
                  :fold " "
                  :msgsep "─"})
 
-;(set! cursorline)
+;; (set! cursorline)
+;; (set! nu)
 (set! bri)
 (let! mapleader " ")
 

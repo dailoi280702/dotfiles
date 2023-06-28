@@ -4,13 +4,13 @@
   (local ts (require :nvim-treesitter.configs))
   (ts.setup {:ensure_installed :all
              :highlight {:enable true
-                         :use_languagetree true
+                         :use_languagetree false
                          :additional_vim_regex_highlighting false}
              :indent {:enable true}
              :context_commentstring {:enable true}
              :autotag {:enable true}
              :rainbow {:enable false
-                       :extended_mode true
+                       :extended_mode false
                        :colors ["#878d96"
                                 "#a8a8a8"
                                 "#8d8d8d"
