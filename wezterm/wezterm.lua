@@ -1,11 +1,11 @@
 local wezterm = require("wezterm")
 
-local font_name = "liga sfmono nerd font"
+local font_name = "victormono nerd font"
 
 return {
 	default_cursor_style = "SteadyBar",
 
-	font = wezterm.font(font_name, { weight = "Regular" }),
+	font = wezterm.font(font_name, { weight = "Medium" }),
 	font_rules = {
 		{
 			intensity = "Bold",
@@ -23,23 +23,23 @@ return {
 		},
 	},
 	-- cell_width = 0.85,
-	-- line_height = 0.85,
+	line_height = (5 / 6),
 	adjust_window_size_when_changing_font_size = false,
-	font_size = 24,
+	font_size = 19,
 
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
 	use_fancy_tab_bar = false,
 
 	macos_window_background_blur = 10,
-	window_background_opacity = 0.9,
+	window_background_opacity = 0.9666,
 	window_close_confirmation = "NeverPrompt",
 	color_scheme = "Oxocarbon Dark",
 	-- color_scheme = "Builtin Solarized Dark",
 	-- colors = {
 	-- 	background = "#001217",
 	-- },
-	window_decorations = "RESIZE",
+	-- window_decorations = "RESIZE",
 	window_padding = {
 		top = 0,
 		bottom = 0,

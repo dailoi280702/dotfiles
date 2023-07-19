@@ -43,7 +43,7 @@
                  ;; (set-hl! 0 :Normal {:bg ""})
                  ;; (set-hl! 0 :NormalNC {:bg ""})
                  ;; (set-hl! 0 :SignColumn {:bg ""})
-                 (set-hl! 0 :FoldColumn {:bg "" :fg "#262626"})
+                 ;; (set-hl! 0 :FoldColumn {:bg "" :fg "#262626"})
                  (set-hl! 0 :LineNr {:bg "" :fg "#393939"})
                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
@@ -51,6 +51,8 @@
     :melange (do
                (vim.cmd "TSDisable rainbow")
                (set-hl! 0 :Normal {:bg ""}))
+    :catppuccin (do
+                  (vim.cmd "TSDisable rainbow"))
     _ (vim.cmd "TSDisable rainbow"))
   ;; kitty colorshcheme migration
   ;; (migrate-to-kitty name)
@@ -61,8 +63,49 @@
 [(pack :nyoom-engineering/oxocarbon.nvim
        {:lazy false
         :priority 1000
-        :config (fn [] (vim.cmd.colorscheme :oxocarbon))})
- (pack :nvimdev/oceanic-material {:lazy false})
+        ;; :config (fn [] (vim.cmd.colorscheme :oxocarbon))
+        })
+ (pack :savq/melange-nvim {:lazy false
+                           :priority 999
+                           ;; :config (fn [] (vim.cmd.colorscheme :melange))
+                           })
+ (pack :catppuccin/nvim
+       {:lazy false
+        :config (fn []
+                  ((. (require :catppuccin) :setup) {:no_italic true
+                                                     :integrations {:hop true
+                                                                    :notify true
+                                                                    :treesitter_context true
+                                                                    :which_key true}
+                                                     :color_overrides {:macchiato {:base "#1b1b29"}
+                                                                       :mocha {:rosewater "#efc9c2"
+                                                                               :flamingo "#ebb2b2"
+                                                                               :pink "#F2A7DE"
+                                                                               :mauve "#b889f4"
+                                                                               :red "#EA7183"
+                                                                               :maroon "#EA838C"
+                                                                               :peach "#F39967"
+                                                                               :yellow "#EACA89"
+                                                                               :green "#96d382"
+                                                                               :teal "#78cec1"
+                                                                               :sky "#91d7e3"
+                                                                               :sapphire "#68bae0"
+                                                                               :blue "#739df2"
+                                                                               :lavender "#a0a8f6"
+                                                                               :text "#b5c1f1"
+                                                                               :subtext1 "#a6b0d8"
+                                                                               :subtext0 "#959ec2"
+                                                                               :overlay2 "#848cad"
+                                                                               :overlay1 "#717997"
+                                                                               :overlay0 "#63677f"
+                                                                               :surface2 "#505469"
+                                                                               :surface1 "#3e4255"
+                                                                               :surface0 "#2c2f40"
+                                                                               :base "#1a1c2a"
+                                                                               :mantle "#141620"
+                                                                               :crust "#0e0f16"}}})
+                  (vim.cmd.colorscheme :catppuccin-mocha))})
+ (pack :folke/tokyonight.nvim {:lazy false})
  ; (pack :savq/melange-nvim
  ;       {:lazy false :config (fn [] (vim.cmd.colorscheme :melange))})
  ]
