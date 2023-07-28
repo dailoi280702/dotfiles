@@ -52,6 +52,7 @@
                (vim.cmd "TSDisable rainbow")
                (set-hl! 0 :Normal {:bg ""}))
     :catppuccin (do
+                  (set-hl! 0 :Folded {:bg ""})
                   (vim.cmd "TSDisable rainbow"))
     _ (vim.cmd "TSDisable rainbow"))
   ;; kitty colorshcheme migration
@@ -77,6 +78,8 @@
                                                                     :notify true
                                                                     :treesitter_context true
                                                                     :which_key true}
+                                                     :custom_highlights (fn [C]
+                                                                          {:Folded {:bg C.base}})
                                                      :color_overrides {:macchiato {:base "#1b1b29"}
                                                                        :mocha {:rosewater "#efc9c2"
                                                                                :flamingo "#ebb2b2"

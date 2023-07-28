@@ -7,7 +7,7 @@
   (set! foldlevelstart 99)
   (set! foldenable)
   (map! [n] "z," "<cmd>%foldclose<CR>" {:desc "Close first level folds"})
-  (map! [n] :z. "<cmd>normal mzzM`zzO<CR>"
+  (map! [n] :z. "<cmd>sil! normal mzzM`zzO<CR>"
         {:desc "Close all folds except current"})
   (map! [n] :zR `(openAllFolds) {:desc "Open all folds"})
   (map! [n] :zM `(closeAllFolds) {:desc "Close all folds"})
