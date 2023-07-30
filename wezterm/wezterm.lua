@@ -5,7 +5,7 @@ local font_name = "twilio sans mono"
 return {
 	default_cursor_style = "SteadyBar",
 
-	font = wezterm.font(font_name, { weight = "Regular" }),
+	font = wezterm.font(font_name, { weight = "Medium" }),
 	font_rules = {
 		{
 			intensity = "Bold",
@@ -25,7 +25,7 @@ return {
 	-- cell_width = 0.85,
 	-- line_height = (5 / 6),
 	adjust_window_size_when_changing_font_size = false,
-	font_size = 20,
+	font_size = 16,
 
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,

@@ -53,7 +53,7 @@
                  :msgsep "─"})
 
 ;; (set! cursorline)
-;; (set! nu)
+(set! nu)
 (set! bri)
 (let! mapleader " ")
 
