@@ -1,12 +1,13 @@
-(import-macros {: pack : set! : set-hl! : autocmd! : augroup! : let!} :macros)
+(import-macros {: pack : set-hl! : autocmd! : augroup!} :macros)
 
 (fn migrate-to-kitty [name]
   (local kitty-themes {:oxocarbon :oxocarbon
                        :gruvbox-material :gruvbox
-                       :tokyonight :tokyonight_moon
+                       :tokyonight :tokyonight_night
+                       :rose-pine :rose-pine
                        :solarized :solarzied-dark
+                       :embark :embark
                        :catppuccin-mocha :catppuccin-mocha
-                       :tokyonight :tokyonight_moon
                        :kanagawa :kanagawa-dragon})
   (when (and (. kitty-themes name) (vim.fn.executable :kitty))
     (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
@@ -56,8 +57,7 @@
                   (vim.cmd "TSDisable rainbow"))
     _ (vim.cmd "TSDisable rainbow"))
   ;; kitty colorshcheme migration
-  ;; (migrate-to-kitty name)
-  )
+  (migrate-to-kitty name))
 
 (augroup! :SetupColorscheme (autocmd! ColorScheme * `(setup vim.g.colors_name)))
 
@@ -70,45 +70,56 @@
                            :priority 999
                            ;; :config (fn [] (vim.cmd.colorscheme :melange))
                            })
- (pack :catppuccin/nvim
+ (pack :catppuccin/nvim {:lazy false
+                         :config (fn []
+                                   ((. (require :catppuccin) :setup) {:no_italic true
+                                                                      :integrations {:hop true
+                                                                                     :notify true
+                                                                                     :treesitter_context true
+                                                                                     :which_key true}
+                                                                      :custom_highlights (fn [C]
+                                                                                           {:Folded {:bg C.base}})
+                                                                      :color_overrides {:macchiato {:base "#1b1b29"}
+                                                                                        :mocha {:rosewater "#efc9c2"
+                                                                                                :flamingo "#ebb2b2"
+                                                                                                :pink "#F2A7DE"
+                                                                                                :mauve "#b889f4"
+                                                                                                :red "#EA7183"
+                                                                                                :maroon "#EA838C"
+                                                                                                :peach "#F39967"
+                                                                                                :yellow "#EACA89"
+                                                                                                :green "#96d382"
+                                                                                                :teal "#78cec1"
+                                                                                                :sky "#91d7e3"
+                                                                                                :sapphire "#68bae0"
+                                                                                                :blue "#739df2"
+                                                                                                :lavender "#a0a8f6"
+                                                                                                :text "#b5c1f1"
+                                                                                                :subtext1 "#a6b0d8"
+                                                                                                :subtext0 "#959ec2"
+                                                                                                :overlay2 "#848cad"
+                                                                                                :overlay1 "#717997"
+                                                                                                :overlay0 "#63677f"
+                                                                                                :surface2 "#505469"
+                                                                                                :surface1 "#3e4255"
+                                                                                                :surface0 "#2c2f40"
+                                                                                                :base "#1a1c2a"
+                                                                                                :mantle "#141620"
+                                                                                                :crust "#0e0f16"}}})
+                                   ;(vim.cmd.colorscheme :catppuccin-mocha)
+                                   )})
+ (pack :folke/tokyonight.nvim {:lazy false} :config
+       (fn []
+         ((. (require :tokyonight) :setup) {:style :night})))
+ (pack :rebelot/kanagawa.nvim {:lazy false})
+ (pack :rose-pine/neovim {:lazy false}
+       (fn []
+         ((. (require :rose-pine) :setup) {:disable_italics true})))
+ (pack :embark-theme/vim
        {:lazy false
         :config (fn []
-                  ((. (require :catppuccin) :setup) {:no_italic true
-                                                     :integrations {:hop true
-                                                                    :notify true
-                                                                    :treesitter_context true
-                                                                    :which_key true}
-                                                     :custom_highlights (fn [C]
-                                                                          {:Folded {:bg C.base}})
-                                                     :color_overrides {:macchiato {:base "#1b1b29"}
-                                                                       :mocha {:rosewater "#efc9c2"
-                                                                               :flamingo "#ebb2b2"
-                                                                               :pink "#F2A7DE"
-                                                                               :mauve "#b889f4"
-                                                                               :red "#EA7183"
-                                                                               :maroon "#EA838C"
-                                                                               :peach "#F39967"
-                                                                               :yellow "#EACA89"
-                                                                               :green "#96d382"
-                                                                               :teal "#78cec1"
-                                                                               :sky "#91d7e3"
-                                                                               :sapphire "#68bae0"
-                                                                               :blue "#739df2"
-                                                                               :lavender "#a0a8f6"
-                                                                               :text "#b5c1f1"
-                                                                               :subtext1 "#a6b0d8"
-                                                                               :subtext0 "#959ec2"
-                                                                               :overlay2 "#848cad"
-                                                                               :overlay1 "#717997"
-                                                                               :overlay0 "#63677f"
-                                                                               :surface2 "#505469"
-                                                                               :surface1 "#3e4255"
-                                                                               :surface0 "#2c2f40"
-                                                                               :base "#1a1c2a"
-                                                                               :mantle "#141620"
-                                                                               :crust "#0e0f16"}}})
-                  (vim.cmd.colorscheme :catppuccin-mocha))})
- (pack :folke/tokyonight.nvim {:lazy false})
+                  ((. (require :kanagawa) :setup) {:colors {:theme {:all {:ui {:bg_gutter :none}}}}})
+                  (vim.cmd.colorscheme :kanagawa-dragon))})
  ; (pack :savq/melange-nvim
  ;       {:lazy false :config (fn [] (vim.cmd.colorscheme :melange))})
  ]

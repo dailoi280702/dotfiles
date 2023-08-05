@@ -1,11 +1,11 @@
 local wezterm = require("wezterm")
 
-local font_name = "twilio sans mono"
+local font_name = "Input Mono"
 
 return {
 	default_cursor_style = "SteadyBar",
 
-	font = wezterm.font(font_name, { weight = "Medium" }),
+	font = wezterm.font(font_name, { weight = "Regular" }),
 	font_rules = {
 		{
 			intensity = "Bold",
@@ -23,9 +23,9 @@ return {
 		},
 	},
 	-- cell_width = 0.85,
-	-- line_height = (5 / 6),
+	line_height = 1.1,
 	adjust_window_size_when_changing_font_size = false,
-	font_size = 16,
+	font_size = 20,
 
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,
