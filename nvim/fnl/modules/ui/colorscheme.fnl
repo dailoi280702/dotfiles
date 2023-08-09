@@ -13,38 +13,18 @@
     (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
                     (. kitty-themes name) :.conf))))
 
-;; fnlfmt: skip
-; (fn migrate-to-lsp-sematic []
-;   (local links {"@lsp.type.class" "@type"
-;                 "@lsp.type.decorator" "@function"
-;                 "@lsp.type.enum" "@type"
-;                 "@lsp.type.enumMember" "@constant"
-;                 "@lsp.type.function" "@function"
-;                 "@lsp.type.interface" "@type"
-;                 "@lsp.type.macro" "@macro"
-;                 "@lsp.type.method" "@method"
-;                 "@lsp.type.namespace" "@namespace"
-;                 "@lsp.type.parameter" "@parameter"
-;                 "@lsp.type.property" "@property"
-;                 "@lsp.type.struct" "@structure"
-;                 "@lsp.type.type" "@type"
-;                 "@lsp.type.variable" "@variable"})
-;   (each [newgroup oldgroup (pairs links)]
-;     (vim.api.nvim_set_hl 0 newgroup {:default true :link oldgroup}))
-;   )
-
 (fn setup [name]
   (match name
     :oxocarbon (do
                  ;; (set-hl! 0 :StatusLine {:bg "#161616"})
                  ;; (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
                  ;; (migrate-to-lsp-sematic)
-                 (vim.cmd "TSEnable rainbow")
                  (set-hl! 0 :Folded {:bg "#161616"})
                  ;; (set-hl! 0 :Normal {:bg ""})
                  ;; (set-hl! 0 :NormalNC {:bg ""})
                  ;; (set-hl! 0 :SignColumn {:bg ""})
                  ;; (set-hl! 0 :FoldColumn {:bg "" :fg "#262626"})
+                 (set-hl! 0 "@punctuation.bracket" {:fg "#6f6f6f"})
                  (set-hl! 0 :LineNr {:bg "" :fg "#393939"})
                  (set-hl! 0 :HopNextKey {:fg "#be95ff" :bold true})
                  (set-hl! 0 :HopNextKey1 {:fg "#ff7eb6" :bold true})
@@ -54,8 +34,7 @@
                (set-hl! 0 :Normal {:bg ""}))
     :catppuccin (do
                   (set-hl! 0 :Folded {:bg ""})
-                  (vim.cmd "TSDisable rainbow"))
-    _ (vim.cmd "TSDisable rainbow"))
+                  (vim.cmd "TSDisable rainbow")))
   ;; kitty colorshcheme migration
   (migrate-to-kitty name))
 
@@ -64,8 +43,7 @@
 [(pack :nyoom-engineering/oxocarbon.nvim
        {:lazy false
         :priority 1000
-        ;; :config (fn [] (vim.cmd.colorscheme :oxocarbon))
-        })
+        :config (fn [] (vim.cmd.colorscheme :oxocarbon))})
  (pack :savq/melange-nvim {:lazy false
                            :priority 999
                            ;; :config (fn [] (vim.cmd.colorscheme :melange))
@@ -115,11 +93,11 @@
  (pack :rose-pine/neovim {:lazy false}
        (fn []
          ((. (require :rose-pine) :setup) {:disable_italics true})))
- (pack :embark-theme/vim
-       {:lazy false
-        :config (fn []
-                  ((. (require :kanagawa) :setup) {:colors {:theme {:all {:ui {:bg_gutter :none}}}}})
-                  (vim.cmd.colorscheme :kanagawa-dragon))})
- ; (pack :savq/melange-nvim
- ;       {:lazy false :config (fn [] (vim.cmd.colorscheme :melange))})
- ]
+ (pack :nvimdev/paradox.vim {:lazy false})
+ (pack :embark-theme/vim {:lazy false
+                          :config (fn []
+                                    ((. (require :kanagawa) :setup) {:colors {:theme {:all {:ui {:bg_gutter :none}}}}})
+                                    ; (vim.cmd.colorscheme :kanagawa-dragon)
+                                    )})]
+
+

@@ -16,6 +16,8 @@
                   :lua_ls
                   :bufls
                   :fennel_language_server
+                  :golangci_lint_ls
+                  :eslint
                   :rust_analyzer])
   (local tools [:prettierd
                 :stylua
@@ -70,3 +72,5 @@
                                              :hrsh7th/cmp-nvim-lsp
                                              :williamboman/mason-lspconfig.nvim]
                               : config})
+
+

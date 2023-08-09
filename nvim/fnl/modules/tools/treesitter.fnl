@@ -9,15 +9,16 @@
              :indent {:enable true}
              :context_commentstring {:enable true}
              :autotag {:enable true}
-             :rainbow {:enable false
-                       :extended_mode false
-                       :colors ["#878d96"
-                                "#a8a8a8"
-                                "#8d8d8d"
-                                "#a2a9b0"
-                                "#8f8b8b"
-                                "#ada8a8"
-                                "#878d96"]}})
+             ; :rainbow {:enable false
+             ;           :extended_mode false
+             ;           :colors ["#878d96"
+             ;                    "#a8a8a8"
+             ;                    "#8d8d8d"
+             ;                    "#a2a9b0"
+             ;                    "#8f8b8b"
+             ;                    "#ada8a8"
+             ;                    "#878d96"]}
+             })
   ((. (require :treesitter-context) :setup) {}))
 
 (pack :nvim-treesitter/nvim-treesitter
@@ -30,8 +31,8 @@
              :TSEnable
              :TSDisable
              :TSModuleInfo]
-       :dependencies [:p00f/nvim-ts-rainbow
-                      ;:/HiPhish/nvim-ts-rainbow2
-                      :nvim-treesitter/nvim-treesitter-context
+       :dependencies [:nvim-treesitter/nvim-treesitter-context
                       :JoosepAlviste/nvim-ts-context-commentstring]
        : config})
+
+

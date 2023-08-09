@@ -303,12 +303,12 @@
                        :hl (fn []
                              (if (conditions.is_active) :StatusLine
                                  :StatusLineNC))})
-  ((. (require :heirline) :setup) {:enabled false :statusline Status-lines}))
+  ((. (require :heirline) :setup) {:enabled true :statusline Status-lines}))
 
 [(pack :rebelot/heirline.nvim {:event :VeryLazy :enabled true : config})
  (pack :nvim-lualine/lualine.nvim
        {:event :VimEnter
-        :enabled true
+        :enabled false
         :config (fn []
                   ((. (require :lualine) :setup) {:options {:component_separators {:left ""
                                                                                    :right ""}

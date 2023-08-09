@@ -1,23 +1,27 @@
 (import-macros {: set! : let! : map! : set-mdls! : augroup! : autocmd!} :macros)
 
-(set-mdls! :tools treesitter ; 
-           lsp null-ls ; 
-           :completion ; 
-           cmp telescope ; 
-           :ui ;
-           dashboard ; 
-           gitsigns ;
-           ;lsp-lines ;
-           ;indent ;
-           statusline ; 
-           noice ;
-           colorscheme ;
-           icons ;
-           :config ;
-           (default +smartparens +whichkey +motions) ;
-           :editor ;
-           color-hilighter ;
-           zen ;
+;; fnlfmt: skip
+(set-mdls! :tools 
+           treesitter 
+           lsp 
+           guard
+           :completion 
+           cmp 
+           telescope 
+           :ui 
+           dashboard  
+           gitsigns 
+           ;lsp-lines
+           ;indent
+           statusline 
+           noice
+           colorscheme
+           icons
+           :config
+           (default +smartparens +whichkey +motions)
+           :editor
+           color-hilighter
+           zen
            fold)
 
 ;(set! number)
@@ -67,3 +71,5 @@
                               typescriptreact
                               yml]
                     "setlocal shiftwidth=2 tabstop=2 softtabstop=2"))
+
+
