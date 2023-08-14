@@ -1,32 +1,35 @@
-local plugins_path = vim.fn.stdpath("data") .. "/lazy"
-local lazy_path = plugins_path .. "/lazy.nvim"
-local hotpot_path = plugins_path .. "/hotpot.nvim"
+vim.loader.enable()
 
--- bootstrap lazy.nvim
-if not vim.loop.fs_stat(lazy_path) then
-	vim.notify("Could not find lazy.nvim, cloning new copy to " .. lazy_path, vim.log.levels.INFO)
+-- As per lazy's install instructions
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazy_path,
+		"--branch=stable", -- latest stable release
+		lazypath,
 	})
 end
 
--- bootstrap hotpot.nvim
-if not vim.loop.fs_stat(hotpot_path) then
-	vim.notify("Could not find hotpot.nvim, cloning new copy to " .. hotpot_path, vim.log.levels.INFO)
+-- Bootstap hotpot into lazy plugin dir if it does not exist yet.
+local hotpotpath = vim.fn.stdpath("data") .. "/lazy/hotpot.nvim"
+if not vim.loop.fs_stat(hotpotpath) then
+	vim.notify("Bootstrapping hotpot.nvim...", vim.log.levels.INFO)
 	vim.fn.system({
 		"git",
 		"clone",
 		"--filter=blob:none",
 		"--single-branch",
+		-- You may with to pin a known version tag with `--branch vX.Y.Z`
 		"https://github.com/rktjmp/hotpot.nvim.git",
-		hotpot_path,
+		hotpotpath,
 	})
 end
+
+-- As per lazy's install instructions, but insert hotpots path at the front
+vim.opt.runtimepath:prepend({ hotpotpath, lazypath })
 
 local default_providers = {
 	"node",
@@ -37,9 +40,6 @@ local default_providers = {
 for _, provider in ipairs(default_providers) do
 	vim.g["loaded_" .. provider .. "_provider"] = 0
 end
-
-vim.opt.rtp:prepend(lazy_path)
-vim.opt.rtp:prepend(hotpot_path)
 
 -- load hotpot
 require("hotpot").setup({

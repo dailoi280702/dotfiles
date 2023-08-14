@@ -1,28 +1,28 @@
 (import-macros {: set! : let! : map! : set-mdls! : augroup! : autocmd!} :macros)
 
 ;; fnlfmt: skip
-(set-mdls! :tools 
-           treesitter 
-           lsp 
-           guard
-           :completion 
-           cmp 
-           telescope 
-           :ui 
-           dashboard  
-           gitsigns 
-           ;lsp-lines
-           ;indent
-           statusline 
-           noice
-           colorscheme
-           icons
-           :config
-           (default +smartparens +whichkey +motions)
-           :editor
-           color-hilighter
-           zen
-           fold)
+; (set-mdls! :tools
+;            treesitter
+;            lsp
+;            guard
+;            :completion
+;            cmp
+;            telescope
+;            :ui
+;            dashboard
+;            gitsigns
+;            ;lsp-lines
+;            ;indent
+;            statusline
+;            noice
+;            colorscheme
+;            icons
+;            :config
+;            (default +smartparens +whichkey +motions)
+;            :editor
+;            color-hilighter
+;            zen
+;            fold)
 
 ;(set! number)
 (set! updatetime 250)

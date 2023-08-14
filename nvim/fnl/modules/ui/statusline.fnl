@@ -305,7 +305,7 @@
                                  :StatusLineNC))})
   ((. (require :heirline) :setup) {:enabled true :statusline Status-lines}))
 
-[(pack :rebelot/heirline.nvim {:event :VeryLazy :enabled true : config})
+[(pack :rebelot/heirline.nvim {:event :VimEnter :enabled true : config})
  (pack :nvim-lualine/lualine.nvim
        {:event :VimEnter
         :enabled false
