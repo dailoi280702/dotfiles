@@ -17,8 +17,7 @@
   (match name
     :oxocarbon (do
                  ;; (set-hl! 0 :StatusLine {:bg "#161616"})
-                 ;; (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
-                 ;; (migrate-to-lsp-sematic)
+                 (set-hl! 0 :StatusLineNC {:bg "#161616" :fg "#161616"})
                  (set-hl! 0 :Folded {:bg "#161616"})
                  ;; (set-hl! 0 :Normal {:bg ""})
                  ;; (set-hl! 0 :NormalNC {:bg ""})
