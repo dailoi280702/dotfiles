@@ -8,7 +8,7 @@
                        :solarized :solarzied-dark
                        :embark :embark
                        :catppuccin-mocha :catppuccin-mocha
-                       :kanagawa :kanagawa-dragon})
+                       :kanagawa :kanagawa})
   (when (and (. kitty-themes name) (vim.fn.executable :kitty))
     (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
                     (. kitty-themes name) :.conf))))
@@ -42,7 +42,9 @@
 [(pack :nyoom-engineering/oxocarbon.nvim
        {:lazy false
         :priority 1000
-        :config (fn [] (vim.cmd.colorscheme :oxocarbon))})
+        :config (fn []
+                  ;(vim.cmd.colorscheme :oxocarbon)
+                  )})
  (pack :savq/melange-nvim {:lazy false
                            :priority 999
                            ;; :config (fn [] (vim.cmd.colorscheme :melange))
@@ -88,11 +90,15 @@
  (pack :folke/tokyonight.nvim {:lazy false} :config
        (fn []
          ((. (require :tokyonight) :setup) {:style :night})))
- (pack :rebelot/kanagawa.nvim {:lazy false})
+ (pack :rebelot/kanagawa.nvim
+       {:lazy false
+        :config (fn []
+                  ((. (require :kanagawa) :setup) {:transparent true
+                                                   :colors {:theme {:all {:ui {:bg_gutter :none}}}}})
+                  (vim.cmd.colorscheme :kanagawa))})
  (pack :rose-pine/neovim {:lazy false}
        (fn []
          ((. (require :rose-pine) :setup) {:disable_italics true})))
- (pack :nvimdev/paradox.vim {:lazy false})
  (pack :embark-theme/vim {:lazy false
                           :config (fn []
                                     ((. (require :kanagawa) :setup) {:colors {:theme {:all {:ui {:bg_gutter :none}}}}})

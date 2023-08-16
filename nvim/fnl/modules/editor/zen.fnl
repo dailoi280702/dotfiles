@@ -2,6 +2,8 @@
 
 (fn config []
   (local nnp (require :no-neck-pain))
-  (nnp.setup {:width 100 :buffers {:right {:enabled true}}}))
+  (nnp.setup {:width 100 :buffers {:right {:enabled true}}})
+  (nnp.toggle))
 
-(pack :shortcuts/no-neck-pain.nvim {:cmd :NoNeckPain : config})
+(pack :shortcuts/no-neck-pain.nvim
+      {:cmd :NoNeckPain : config :event [:VimEnter]})

@@ -87,3 +87,4 @@
       {:desc "Toogle color hilighter"})
 
 (map! [n] :<leader>tz :<cmd>NoNeckPain<CR> {:desc "Neck pain? press z"})
+
