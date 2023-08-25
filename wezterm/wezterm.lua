@@ -1,11 +1,11 @@
 local wezterm = require("wezterm")
 
-local font_name = "Input Mono"
+local font_name = "zelda dx tt brk"
 
 return {
 	default_cursor_style = "SteadyBar",
 
-	font = wezterm.font(font_name, { weight = "Regular" }),
+	font = wezterm.font(font_name, { weight = "Bold" }),
 	font_rules = {
 		{
 			intensity = "Bold",
@@ -22,8 +22,8 @@ return {
 			}),
 		},
 	},
-	-- cell_width = 0.85,
-	line_height = 1.1,
+	cell_width = 0.8,
+	line_height = 1.2,
 	adjust_window_size_when_changing_font_size = false,
 	font_size = 20,
 
@@ -36,10 +36,8 @@ return {
 	window_close_confirmation = "NeverPrompt",
 	color_scheme = "Oxocarbon Dark",
 	-- color_scheme = "Builtin Solarized Dark",
-	-- colors = {
-	-- 	background = "#001217",
-	-- },
-	-- window_decorations = "RESIZE",
+	-- colors = require("colors.kanagawa"),
+	window_decorations = "RESIZE",
 	window_padding = {
 		top = 0,
 		bottom = 0,

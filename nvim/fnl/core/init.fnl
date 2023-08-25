@@ -58,6 +58,7 @@
 
 ;; (set! cursorline)
 (set! nu)
+(set! rnu)
 (set! bri)
 (let! mapleader " ")
 

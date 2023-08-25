@@ -25,6 +25,8 @@
 ;; buffers
 (map! [n] :<leader>bd :<cmd>bw<CR> {:desc "Delete buffer"})
 (map! [n] :<leader>bD :<cmd>bw<CR> {:desc "Delete all buffers"})
+(map! [n] :<leader>bc "<cmd>e#|bw#<CR>"
+      {:desc "Switch to previous buffer and delete current"})
 (map! [n] :<leader>bs "<cmd>silent w<CR>" {:desc "Save buffer"})
 (map! [n] :<leader>bS "<cmd>silent wa<CR>" {:desc "Save all buffers"})
 (map! [n] :<leader>bb "<cmd>Telescope buffers<CR>" {:desc "Switch buffer"})
@@ -87,4 +89,5 @@
       {:desc "Toogle color hilighter"})
 
 (map! [n] :<leader>tz :<cmd>NoNeckPain<CR> {:desc "Neck pain? press z"})
+
 

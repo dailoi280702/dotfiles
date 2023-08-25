@@ -72,5 +72,3 @@
                                              :hrsh7th/cmp-nvim-lsp
                                              :williamboman/mason-lspconfig.nvim]
                               : config})
-
-

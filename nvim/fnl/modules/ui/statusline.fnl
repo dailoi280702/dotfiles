@@ -287,7 +287,8 @@
   (local Dashboard-statusline {:condition (fn []
                                             (= vim.bo.filetype :alpha))
                                1 Align
-                               2 {:provider "fuck you, keep going"
+                               ;; 2 {:provider "fuck you, keep going"
+                               2 {:provider "ơ_ơ stfk and keep coding ô_ô"
                                   :h {:fg :bright_fg}}
                                3 Align})
   (local Noneckpain-statusline
@@ -305,14 +306,14 @@
                                  :StatusLineNC))})
   ((. (require :heirline) :setup) {:enabled true :statusline Status-lines}))
 
-[(pack :rebelot/heirline.nvim {:event :VimEnter :enabled true : config})
+[(pack :rebelot/heirline.nvim {:event :VimEnter :enabled false : config})
  (pack :nvim-lualine/lualine.nvim
        {:event :VimEnter
-        :enabled false
+        :enabled true
         :config (fn []
                   ((. (require :lualine) :setup) {:options {:component_separators {:left ""
                                                                                    :right ""}
                                                             :section_separators {:left ""
                                                                                  :right ""}
-                                                            :disabled_filetypes [:alpha]}}))})]
-
+                                                            :disabled_filetypes [:alpha
+                                                                                 :no-neck-pain]}}))})]
