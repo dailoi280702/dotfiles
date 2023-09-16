@@ -24,4 +24,4 @@ cmd + shift - y : yabai -m space --mirror y-axis
 cmd + shift - r : yabai -m space --rotate 90
 
 # open kitty terminal
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd - return : nice -n -19 /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~

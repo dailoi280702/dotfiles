@@ -15,9 +15,9 @@
                                                             :preview_width 0.55}
                                                :vertical {:mirror false
                                                           :prompt_position :top}
-                                               :width 0.85
+                                               :width 0.9
                                                :height 0.8
-                                               :preview_cutoff 120}
+                                               :preview_cutoff 110}
                                :set_env {:COLORTERM :truecolor}
                                :dynamic_preview_title true}})
   (telescope.load_extension :file_browser)

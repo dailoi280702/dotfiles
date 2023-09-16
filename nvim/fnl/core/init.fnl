@@ -69,8 +69,7 @@
                               javascript
                               javascriptreact
                               typescript
+                              php
                               typescriptreact
                               yml]
                     "setlocal shiftwidth=2 tabstop=2 softtabstop=2"))
-
-

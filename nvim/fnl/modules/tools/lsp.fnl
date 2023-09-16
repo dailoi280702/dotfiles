@@ -12,9 +12,11 @@
                   :sqlls
                   ;; :ruff_lsp
                   :pyright
+                  :phpactor
                   :zls
                   :lua_ls
                   :bufls
+                  ;; :intelephense
                   :fennel_language_server
                   :golangci_lint_ls
                   :eslint

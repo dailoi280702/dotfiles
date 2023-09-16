@@ -48,7 +48,7 @@
                                 :popupmenu {:backend :cmp}
                                 :format {}}))
 
-(pack :folke/noice.nvim {:event :CmdlineEnter
+(pack :folke/noice.nvim {:event [:CmdlineEnter :VeryLazy]
                          :dependencies [:rcarriga/nvim-notify
                                         :MunifTanjim/nui.nvim]
                          : config})
