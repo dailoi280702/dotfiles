@@ -5,6 +5,9 @@
   (local cmp (require :cmp))
   (local kind (require :lspkind))
   (local luasnip (require :luasnip))
+  (luasnip.filetype_extend :php [:html])
+  (luasnip.filetype_extend :typescriptreact [:html])
+  ((. (require :luasnip.loaders.from_vscode) :lazy_load))
   (cmp.setup {:snippet {:expand (fn [args]
                                   (luasnip.lsp_expand args.body))}
               :window {:completion {:col_offset (- 3)
@@ -57,12 +60,8 @@
                          :dependencies [:hrsh7th/cmp-buffer
                                         :hrsh7th/cmp-path
                                         :hrsh7th/cmp-cmdline
-                                        (pack :L3MON4D3/LuaSnip
-                                              {:config (fn []
-                                                         (. (require :luasnip.loaders.from_vscode)
-                                                            :lazy_load))})
+                                        :L3MON4D3/LuaSnip
                                         :rafamadriz/friendly-snippets
                                         :saadparwaiz1/cmp_luasnip
                                         :onsails/lspkind.nvim]
                          : config})
-
