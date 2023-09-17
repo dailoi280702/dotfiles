@@ -34,5 +34,3 @@
        :dependencies [:nvim-treesitter/nvim-treesitter-context
                       :JoosepAlviste/nvim-ts-context-commentstring]
        : config})
-
-

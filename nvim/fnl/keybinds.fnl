@@ -4,6 +4,17 @@
 (map! [n] :<leader><space> "<cmd>Telescope find_files<CR>"
       {:desc "Find file in project"})
 
+(map! [n] :<leader>ff "<cmd>Telescope find_files<CR>"
+      {:desc "Find file in project"})
+
+(map! [n] :<leader>fF "<cmd>Telescope find_files hidden=true<CR>"
+      {:desc "Find all files in project"})
+
+(map! [n] :<leader>fb "<cmd>Telescope file_browser<CR>" {:desc "Browse files"})
+
+(map! [n] :<leader>fB "<cmd>Telescope file_browser hidden=true<CR>"
+      {:desc "Browse all files in project"})
+
 (map! [n] "<leader>'" "<cmd>Telescope resume<CR>" {:desc "Resume last search"})
 (map! [n] :<leader>. "<cmd>Telescope find_files<CR>" {:desc "Find file"})
 (map! [n] "<leader>," "<cmd>Telescope file_browser initial_mode=normal<CR>"
@@ -13,7 +24,7 @@
 (map! [n] :<leader>> "<cmd>Telescope marks initial_mode=normal<CR>"
       {:desc "Show marks"})
 
-(map! [n] "<leader>:" "<cmd>Telescope find_files<CR>" {:desc "Search commad"})
+(map! [n] "<leader>:" "<cmd>Telescope find_files<CR>" {:desc "Search command"})
 (map! [n] :<leader><tab> "<cmd>Telescope buffers initial_mode=normal<CR>"
       {:desc "Switch buffer"})
 
@@ -27,6 +38,7 @@
 (map! [n] :<leader>bD :<cmd>bw<CR> {:desc "Delete all buffers"})
 (map! [n] :<leader>bc "<cmd>e#|bw#<CR>"
       {:desc "Switch to previous buffer and delete current"})
+
 (map! [n] :<leader>bs "<cmd>silent w<CR>" {:desc "Save buffer"})
 (map! [n] :<leader>bS "<cmd>silent wa<CR>" {:desc "Save all buffers"})
 (map! [n] :<leader>bb "<cmd>Telescope buffers<CR>" {:desc "Switch buffer"})
@@ -89,5 +101,3 @@
       {:desc "Toogle color hilighter"})
 
 (map! [n] :<leader>tz :<cmd>NoNeckPain<CR> {:desc "Neck pain? press z"})
-
-

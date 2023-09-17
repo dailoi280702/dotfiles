@@ -12,7 +12,8 @@
                   :sqlls
                   ;; :ruff_lsp
                   :pyright
-                  :phpactor
+                  ;; :phpactor
+                  :intelephense
                   :zls
                   :lua_ls
                   :bufls
