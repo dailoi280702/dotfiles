@@ -16,7 +16,6 @@
                   :zls
                   :lua_ls
                   :bufls
-                  ;; :intelephense
                   :fennel_language_server
                   :golangci_lint_ls
                   :eslint
@@ -56,6 +55,10 @@
   (mason-lspconfig.setup_handlers {1 (fn [server_name]
                                        ((. (. (require :lspconfig) server_name)
                                            :setup) {: capabilities}))
+                                   :html (fn []
+                                           (lspconfig.html.setup {: capabilities
+                                                                  :filetypes [:html
+                                                                              :php]}))
                                    ;; setup fennel
                                    :fennel_language_server (fn []
                                                              (tset (require :lspconfig.configs)
