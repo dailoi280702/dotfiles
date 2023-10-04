@@ -1,11 +1,11 @@
 local wezterm = require("wezterm")
 
-local font_name = "zelda dx tt brk"
+local font_name = "iosevka term"
 
 return {
 	default_cursor_style = "SteadyBar",
 
-	font = wezterm.font(font_name, { weight = "Bold" }),
+	font = wezterm.font(font_name, { weight = "Regular" }),
 	font_rules = {
 		{
 			intensity = "Bold",
@@ -22,10 +22,10 @@ return {
 			}),
 		},
 	},
-	cell_width = 0.8,
-	line_height = 1.2,
+	cell_width = 1,
+	line_height = 1,
 	adjust_window_size_when_changing_font_size = false,
-	font_size = 20,
+	font_size = 17,
 
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = true,

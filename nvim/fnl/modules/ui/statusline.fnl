@@ -312,7 +312,9 @@
       {:event :VimEnter
        :enabled true
        :config (fn []
-                 ((. (require :lualine) :setup) {:options {:component_separators {:left ""
+                 ((. (require :lualine) :setup) {:sections {:lualine_c [{1 :filename
+                                                                         :path 4}]}
+                                                 :options {:component_separators {:left ""
                                                                                   :right ""}
                                                            :section_separators {:left ""
                                                                                 :right ""}

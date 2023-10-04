@@ -57,8 +57,8 @@
                  :msgsep "─"})
 
 ;; (set! cursorline)
-(set! nu)
-(set! rnu)
+;; (set! nu)
+;;(set! rnu)
 (set! bri)
 (let! mapleader " ")
 

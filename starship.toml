@@ -16,7 +16,9 @@ disabled = true
 [character]
 # Note the use of Catppuccin color 'maroon'
 success_symbol = "[](green) 󰄾"
-error_symbol = "[](red)"
+# error_symbol = "[](red)"
+error_symbol = "[ಥ_ಥ](red)"
+
 vicmd_symbol = "[ ](green)"
 
 [directory]

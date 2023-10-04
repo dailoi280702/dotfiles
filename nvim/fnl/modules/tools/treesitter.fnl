@@ -19,7 +19,7 @@
              ;                    "#ada8a8"
              ;                    "#878d96"]}
              })
-  ((. (require :treesitter-context) :setup) {}))
+  ((. (require :treesitter-context) :setup) {:max_lines 3}))
 
 (pack :nvim-treesitter/nvim-treesitter
       {:build ":TSUpdate"

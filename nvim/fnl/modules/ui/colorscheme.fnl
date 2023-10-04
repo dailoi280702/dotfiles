@@ -2,15 +2,17 @@
 
 (fn migrate-to-kitty [name]
   (local kitty-themes {:oxocarbon :oxocarbon
-                       :gruvbox-material :gruvbox-material-dark-hard
+                       :gruvbox-material :gruvbox-material-dark-medium
                        :tokyonight :tokyonight_night
                        :github_dark_dimmed :github-dark-dimmed
+                       :github_dark_tritanopia :github-dark-tritanopia
                        :rose-pine :rose-pine
+                       :monokai-pro :monokai-classic
                        :gruvbox :gruvbox
                        :solarized :solarzied-dark
                        :embark :embark
                        :catppuccin-mocha :catppuccin-mocha
-                       :kanagawa :kanagawa-dragon})
+                       :kanagawa :kanagawa})
   (when (and (. kitty-themes name) (vim.fn.executable :kitty))
     (os.execute (.. "kitty @ --to $KITTY_LISTEN_ON set-colors ~/.config/kitty/themes/"
                     (. kitty-themes name) :.conf))))
@@ -40,8 +42,11 @@
     ;;               (set-hl! 0 :Folded {:bg ""}))
     :gruvbox-material
     (do
-      (set-hl! 0 :StatusLine {:bg "#1f1f1f"})
-      (set-hl! 0 :StatusLineNC {:bg "#1f1f1f" :fg "#1f1f1f"})))
+      (set-hl! 0 "@punctuation.bracket" {:fg "#928174"})
+      (set-hl! 0 :StatusLine {:bg "#181616"})
+      (set-hl! 0 :NormalFloat {:bg "#181616"})
+      (set-hl! 0 :FloatBorder {:bg "#181616"})
+      (set-hl! 0 :StatusLineNC {:bg "#181816" :fg "#181616"})))
   ;; kitty colorshcheme migration
   (migrate-to-kitty name))
 
@@ -51,19 +56,19 @@
        {:lazy false
         :priority 1000
         :config (fn []
-                  ;(vim.cmd.colorscheme :oxocarbon)
-                  )})
- ; (pack :sainnhe/gruvbox-material
- ;       {:lazy false
- ;        :priority 999
- ;        :enabled false
- ;        :config (fn []
- ;                  (set vim.g.gruvbox_material_transparent_background 1)
- ;                  (set vim.g.better_performance 1)
- ;                  (vim.cmd.colorscheme :gruvbox-material))})
+                  (vim.cmd.colorscheme :oxocarbon))})
+ (pack :sainnhe/gruvbox-material
+       {:lazy false
+        :priority 999
+        :enabled false
+        :config (fn []
+                  (set vim.g.gruvbox_material_transparent_background 1)
+                  (set vim.g.better_performance 1)
+                  (vim.cmd.colorscheme :gruvbox-material))})
+ (pack :folke/tokyonight.nvim {:lazy false})
  (pack :rebelot/kanagawa.nvim
        {:lazy false
-        :enabled true
+        :enabled false
         :config (fn []
                   (fn overrides [colors]
                     (let [theme colors.theme]
@@ -93,72 +98,82 @@
                        :FloatTitle {:bg :none}}))
 
                   ((. (require :kanagawa) :setup) {:transparent false
-                                                   :functionStyle {:bold false}
-                                                   :keywordStyle {:italic false}
-                                                   :statementStyle {:italic false}
+                                                   ; :functionStyle {:bold false}
+                                                   ; :keywordStyle {:italic false}
+                                                   ; :statementStyle {:italic false}
                                                    : overrides
                                                    :colors {:theme {:all {:ui {:bg_gutter :none}}}}})
-                  (vim.cmd.colorscheme :kanagawa-dragon))})
- ; (pack :catppuccin/nvim {:lazy false
- ;                         :enabled false
- ;                         :config (fn []
- ;                                   (local color_overrides
- ;                                          {:macchiato {:base "#1b1b29"}
- ;                                           :mocha {:rosewater "#efc9c2"
- ;                                                   :flamingo "#ebb2b2"
- ;                                                   :pink "#F2A7DE"
- ;                                                   :mauve "#b889f4"
- ;                                                   :red "#EA7183"
- ;                                                   :maroon "#EA838C"
- ;                                                   :peach "#F39967"
- ;                                                   :yellow "#EACA89"
- ;                                                   :green "#96d382"
- ;                                                   :teal "#78cec1"
- ;                                                   :sky "#91d7e3"
- ;                                                   :sapphire "#68bae0"
- ;                                                   :blue "#739df2"
- ;                                                   :lavender "#a0a8f6"
- ;                                                   :text "#b5c1f1"
- ;                                                   :subtext1 "#a6b0d8"
- ;                                                   :subtext0 "#959ec2"
- ;                                                   :overlay2 "#848cad"
- ;                                                   :overlay1 "#717997"
- ;                                                   :overlay0 "#63677f"
- ;                                                   :surface2 "#505469"
- ;                                                   :surface1 "#3e4255"
- ;                                                   :surface0 "#2c2f40"
- ;                                                   :base "#1a1c2a"
- ;                                                   :mantle "#141620"
- ;                                                   :crust "#0e0f16"}})
- ;
- ;                                   (fn custom_highlights [C]
- ;                                     {:Folded {:bg C.base}
- ;                                      :FloatBorder {:fg C.mantle}
- ;                                      :TelescopePreviewBorder {:bg C.surface0
- ;                                                               :fg C.surface0}
- ;                                      :TelescopePreviewNormal {:bg C.surface0}
- ;                                      :TelescopePromptBorder {:bg C.surface2
- ;                                                              :fg C.surface2}
- ;                                      :TelescopePromptNormal {:bg C.surface2}
- ;                                      :TelescopeResultsBorder {:bg C.surface1
- ;                                                               :fg C.surface1}
- ;                                      :TelescopeResultsNormal {:bg C.surface1
- ;                                                               :fg ""}
- ;                                      :TelescopeTitle {:bold true :fg C.sky}
- ;                                      ;; :Normal {:bg C.base}
- ;                                      })
- ;
- ;                                   ((. (require :catppuccin) :setup) {:no_italic true
- ;                                                                      :integrations {:hop true
- ;                                                                                     :notify true
- ;                                                                                     :treesitter_context true
- ;                                                                                     :which_key true}
- ;                                                                      : custom_highlights
- ;                                                                      : color_overrides})
- ;                                   ;(vim.cmd.colorscheme :catppuccin-mocha)
- ;                                   )})
+                  (vim.cmd.colorscheme :kanagawa))})
+ (pack :catppuccin/nvim {:lazy false
+                         :enabled false
+                         :config (fn []
+                                   (local color_overrides
+                                          {:macchiato {:base "#1b1b29"}
+                                           :mocha {:rosewater "#efc9c2"
+                                                   :flamingo "#ebb2b2"
+                                                   :pink "#F2A7DE"
+                                                   :mauve "#b889f4"
+                                                   :red "#EA7183"
+                                                   :maroon "#EA838C"
+                                                   :peach "#F39967"
+                                                   :yellow "#EACA89"
+                                                   :green "#96d382"
+                                                   :teal "#78cec1"
+                                                   :sky "#91d7e3"
+                                                   :sapphire "#68bae0"
+                                                   :blue "#739df2"
+                                                   :lavender "#a0a8f6"
+                                                   :text "#b5c1f1"
+                                                   :subtext1 "#a6b0d8"
+                                                   :subtext0 "#959ec2"
+                                                   :overlay2 "#848cad"
+                                                   :overlay1 "#717997"
+                                                   :overlay0 "#63677f"
+                                                   :surface2 "#505469"
+                                                   :surface1 "#3e4255"
+                                                   :surface0 "#2c2f40"
+                                                   :base "#1a1c29"
+                                                   :mantle "#141620"
+                                                   :crust "#0e0f16"}})
+
+                                   (fn custom_highlights [C]
+                                     {:Folded {:bg C.base}
+                                      :FloatBorder {:fg C.mantle}
+                                      :TelescopePreviewBorder {:bg C.mantle
+                                                               :fg C.mantle}
+                                      :TelescopePreviewNormal {:bg C.mantle}
+                                      :TelescopePromptBorder {:bg C.surface0
+                                                              :fg C.surface0}
+                                      :TelescopePromptNormal {:bg C.surface0}
+                                      :TelescopeResultsBorder {:bg C.surface1
+                                                               :fg C.surface1}
+                                      :TelescopeResultsNormal {:bg C.surface1
+                                                               :fg ""}
+                                      :TelescopeTitle {:bold true :fg C.sky}
+                                      ;; :Normal {:bg C.base}
+                                      })
+
+                                   ((. (require :catppuccin) :setup) {:no_italic false
+                                                                      :integrations {:hop true
+                                                                                     :notify true
+                                                                                     :treesitter_context true
+                                                                                     :which_key true}
+                                                                      : custom_highlights
+                                                                      : color_overrides})
+                                   ;(vim.cmd.colorscheme :catppuccin-mocha)
+                                   )})
+ (pack :gmr458/dark_modern.nvim {:lazy false})
+ ;; (pack :folke/tokyonight.nvim {:lazy false})
+ ;; (pack :savq/melange-nvim {:lazy false})
+ ; (pack :loctvl842/monokai-pro.nvim
+ ;       {:lazy false
+ ;        :config (fn []
+ ;                  ((. (require :monokai-pro) :setup) {:transparent_background true})
+ ;                  (vim.cmd.colorscheme :monokai-pro-classic))})
+ (pack :craftzdog/solarized-osaka.nvim {:lazy false :branch :osaka})
  (pack :projekt0n/github-nvim-theme
        {:lazy false
+        :enabled false
         :priority 1000
         :config (fn []
                   (local specs {:all {:syntax {:bracket :gray.bright}}})
@@ -174,5 +189,5 @@
                   ;; (local options
                   ;;        {:styles {:comments :italic :functions "italic,bold"}})
                   (gh-theme.setup {: groups : specs})
-                  ;; (vim.cmd.colorscheme :github_dark_dimmed)
+                  ;(vim.cmd.colorscheme :github_dark_dimmed)
                   )})]

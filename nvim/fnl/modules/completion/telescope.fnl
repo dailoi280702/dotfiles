@@ -18,7 +18,7 @@
                                                           :prompt_position :top}
                                                :width 0.9
                                                :height 0.8
-                                               :preview_cutoff 110}
+                                               :preview_cutoff 100}
                                :set_env {:COLORTERM :truecolor}
                                :dynamic_preview_title true}})
   (telescope.load_extension :file_browser)
