@@ -48,7 +48,8 @@
       (set-hl! 0 :FloatBorder {:bg "#181616"})
       (set-hl! 0 :StatusLineNC {:bg "#181816" :fg "#181616"})))
   ;; kitty colorshcheme migration
-  (migrate-to-kitty name))
+  ;; (migrate-to-kitty name)
+  )
 
 (augroup! :SetupColorscheme (autocmd! ColorScheme * `(setup vim.g.colors_name)))
 
@@ -56,7 +57,8 @@
        {:lazy false
         :priority 1000
         :config (fn []
-                  (vim.cmd.colorscheme :oxocarbon))})
+                  ;; (vim.cmd.colorscheme :oxocarbon)
+                  )})
  (pack :sainnhe/gruvbox-material
        {:lazy false
         :priority 999
@@ -173,7 +175,7 @@
  (pack :craftzdog/solarized-osaka.nvim {:lazy false :branch :osaka})
  (pack :projekt0n/github-nvim-theme
        {:lazy false
-        :enabled false
+        :enabled true
         :priority 1000
         :config (fn []
                   (local specs {:all {:syntax {:bracket :gray.bright}}})
@@ -186,8 +188,8 @@
                                 :TelescopeResultsNormal {:bg :bg2 :fg ""}
                                 :TelescopeTitle {:bold true :fg :palette.cyan}}})
                   (local gh-theme (require :github-theme))
-                  ;; (local options
-                  ;;        {:styles {:comments :italic :functions "italic,bold"}})
-                  (gh-theme.setup {: groups : specs})
-                  ;(vim.cmd.colorscheme :github_dark_dimmed)
-                  )})]
+                  (local options
+                         {;;:styles {:comments :italic :functions "italic,bold"}
+                          :transparent true})
+                  (gh-theme.setup {: groups : specs : options})
+                  (vim.cmd.colorscheme :github_dark_dimmed))})]

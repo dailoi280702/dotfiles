@@ -6,8 +6,8 @@
 
 (fn config []
   (local telescope (require :telescope))
-  (telescope.setup {:defaults {; :prompt_prefix "   "
-                               :prompt_prefix "   "
+  (telescope.setup {:defaults {:prompt_prefix "   "
+                               ; :prompt_prefix "   "
                                :selection_caret "  "
                                :entry_prefix "  "
                                :sorting_strategy :ascending
