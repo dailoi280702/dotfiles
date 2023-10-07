@@ -40,13 +40,14 @@
       (set-hl! 0 :Normal {:bg ""}))
     ;; :catppuccin (do
     ;;               (set-hl! 0 :Folded {:bg ""}))
-    :gruvbox-material
-    (do
-      (set-hl! 0 "@punctuation.bracket" {:fg "#928174"})
-      (set-hl! 0 :StatusLine {:bg "#181616"})
-      (set-hl! 0 :NormalFloat {:bg "#181616"})
-      (set-hl! 0 :FloatBorder {:bg "#181616"})
-      (set-hl! 0 :StatusLineNC {:bg "#181816" :fg "#181616"})))
+    ;; :gruvbox-material
+    ;; (do
+    ;;   (set-hl! 0 "@punctuation.bracket" {:fg "#928174"})
+    ;;   (set-hl! 0 :StatusLine {:bg "#181616"})
+    ;;   (set-hl! 0 :NormalFloat {:bg "#181616"})
+    ;;   (set-hl! 0 :FloatBorder {:bg "#181616"})
+    ;;   (set-hl! 0 :StatusLineNC {:bg "#181816" :fg "#181616"}))
+    )
   ;; kitty colorshcheme migration
   ;; (migrate-to-kitty name)
   )
@@ -62,10 +63,14 @@
  (pack :sainnhe/gruvbox-material
        {:lazy false
         :priority 999
-        :enabled false
+        :enabled true
         :config (fn []
+                  (set vim.o.background :light)
                   (set vim.g.gruvbox_material_transparent_background 1)
-                  (set vim.g.better_performance 1)
+                  (set vim.g.gruvbox_material_enable_bold 0)
+                  (set vim.g.gruvbox_material_enable_italic 0)
+                  (set vim.g.gruvbox_material_better_performance 1)
+                  (set vim.g.gruvbox_material_foreground :material)
                   (vim.cmd.colorscheme :gruvbox-material))})
  (pack :folke/tokyonight.nvim {:lazy false})
  (pack :rebelot/kanagawa.nvim

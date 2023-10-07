@@ -19,7 +19,8 @@
              ;                    "#ada8a8"
              ;                    "#878d96"]}
              })
-  ((. (require :treesitter-context) :setup) {:max_lines 3}))
+  ;; ((. (require :treesitter-context) :setup) {:max_lines 3})
+  )
 
 (pack :nvim-treesitter/nvim-treesitter
       {:build ":TSUpdate"
@@ -31,6 +32,6 @@
              :TSEnable
              :TSDisable
              :TSModuleInfo]
-       :dependencies [:nvim-treesitter/nvim-treesitter-context
+       :dependencies [; :nvim-treesitter/nvim-treesitter-context
                       :JoosepAlviste/nvim-ts-context-commentstring]
        : config})
