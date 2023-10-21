@@ -56,19 +56,19 @@
                  :fold " "
                  :msgsep "─"})
 
-;; (set! cursorline)
-;; (set! nu)
+(set! cursorline)
+(set! nu)
 ;;(set! rnu)
 (set! bri)
 (let! mapleader " ")
 
 (map! [n] :<esc> :<esc><cmd>noh<cr>)
 
-(augroup! :IndentOnFileType
-          (autocmd! FileType [html
-                              javascript
-                              javascriptreact
-                              typescript
-                              typescriptreact
-                              yml]
-                    "setlocal shiftwidth=2 tabstop=2 softtabstop=2"))
+; (augroup! :IndentOnFileType
+;           (autocmd! FileType [html
+;                               javascript
+;                               javascriptreact
+;                               typescript
+;                               typescriptreact
+;                               yml]
+;                     "setlocal shiftwidth=2 tabstop=2 softtabstop=2"))

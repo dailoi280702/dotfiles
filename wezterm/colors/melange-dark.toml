@@ -1,0 +1,56 @@
+[colors]
+foreground    = "#ECE1D7"
+background    = "#12120f"
+# background    = "#292522"
+cursor_bg     = "#ECE1D7"
+cursor_border = "#ECE1D7"
+cursor_fg     = "#292522"
+selection_bg  = "#403A36"
+selection_fg  = "#ECE1D7"
+ansi = [
+  "#34302C",
+  "#BD8183",
+  "#78997A",
+  "#E49B5D",
+  "#7F91B2",
+  "#B380B0",
+  "#7B9695",
+  "#C1A78E"
+]
+brights = [
+  "#867462",
+  "#D47766",
+  "#85B695",
+  "#EBC06D",
+  "#A3A9CE",
+  "#CF9BC2",
+  "#89B3B6",
+  "#ECE1D7"
+]
+
+[colors.tab_bar]
+background = "#12120f"
+
+[colors.tab_bar.active_tab]
+bg_color = '#12120f'
+fg_color = '#ECE1D7'
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.inactive_tab]
+bg_color = '#12120f'
+fg_color = '#C1A78E'
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'
+
+[colors.tab_bar.new_tab]
+bg_color = '#12120f'
+fg_color = '#C1A78E'
+intensity = 'Normal'
+italic = false
+strikethrough = false
+underline = 'None'

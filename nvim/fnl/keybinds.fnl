@@ -17,7 +17,8 @@
 
 (map! [n] "<leader>'" "<cmd>Telescope resume<CR>" {:desc "Resume last search"})
 (map! [n] :<leader>. "<cmd>Telescope find_files<CR>" {:desc "Find file"})
-(map! [n] "<leader>," "<cmd>Telescope file_browser initial_mode=normal<CR>"
+(map! [n] "<leader>,"
+      "<cmd>Telescope file_browser hidden=true initial_mode=normal<CR>"
       {:desc "Browse file"})
 
 (map! [n] :<leader>/ "<cmd>Telescope live_grep<CR>" {:desc "Search in project"})
