@@ -13,8 +13,8 @@
                   :bashls
                   ;; :ruff_lsp
                   :pyright
-                  :phpactor
-                  ;; :intelephense
+                  ;; :phpactor
+                  :intelephense
                   :zls
                   :lua_ls
                   :bufls
@@ -51,8 +51,7 @@
   ;; automatic install servers
   (mason-lspconfig.setup {:ensure_installed servers})
   ;; setup lsp servers
-  (local capabilities ((. (require :cmp_nvim_lsp) :default_capabilities)))
-  (local util (require :lspconfig.util))
+  (local capabilities ((. (require :cmp_nvim_lsp) :default_capabilities))) ; (local util (require :lspconfig.util))
   (set capabilities.textDocument.foldingRange
        {:dynamicRegistration false :lineFoldingOnly true})
   (mason-lspconfig.setup_handlers {1 (fn [server_name]

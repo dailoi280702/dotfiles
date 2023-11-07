@@ -56,6 +56,9 @@
 (map! [n] :<leader>ct "<cmd>Telescope lsp_type_definitions<CR>"
       {:desc "LSP jump to type definition"})
 
+(map! [n] :<leader>ci "<cmd>Telescope lsp_implementations<CR>"
+      {:desc "LSP jump to implementations"})
+
 ; (map! [n] :<leader>cD `(vim.lsp.buf.references)
 ;       {:desc "LSP jump to references"})
 (map! [n] :<leader>cD "<cmd>Telescope lsp_references<CR>"

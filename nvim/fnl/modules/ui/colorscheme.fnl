@@ -50,29 +50,40 @@
 
 (augroup! :SetupColorscheme (autocmd! ColorScheme * `(setup vim.g.colors_name)))
 
-[(pack :nyoom-engineering/oxocarbon.nvim
-       {:lazy false
-        :priority 1000
-        :config (fn []
-                  (set vim.o.background :dark)
-                  ;; (vim.cmd.colorscheme :oxocarbon)
-                  )})
- ; (pack :Mofiqul/vscode.nvim {:lazy false})
- ; (pack :ellisonleao/gruvbox.nvim {:lazy false})
- ; (pack :sainnhe/gruvbox-material
+[; (pack :nyoom-engineering/oxocarbon.nvim
  ;       {:lazy false
- ;        :priority 999
- ;        :enabled false
+ ;        :priority 1001
  ;        :config (fn []
- ;                  (set vim.o.background :light)
- ;                  (set vim.g.gruvbox_material_transparent_background 1)
- ;                  (set vim.g.gruvbox_material_enable_bold 0)
- ;                  (set vim.g.gruvbox_material_enable_italic 0)
- ;                  (set vim.g.gruvbox_material_better_performance 1)
- ;                  (set vim.g.gruvbox_material_foreground :material)
- ;                  (set vim.g.gruvbox_material_background :hard)
- ;                  (vim.cmd.colorscheme :gruvbox-material))})
- ; (pack :folke/tokyonight.nvim {:lazy false})
+ ;                  ;; (set vim.o.background :dark)
+ ;                  (vim.cmd.colorscheme :oxocarbon))})
+ ; ; (pack :craftzdog/solarized-osaka.nvim {:lazy false})
+ ; (pack :nordtheme/vim {:lazy false})
+ ; (pack :ribru17/bamboo.nvim {:lazy false})
+ ; (pack :Mofiqul/dracula.nvim {:lazy false})
+ ; (pack :p00f/alabaster.nvim
+ ;       {:lazy false
+ ;        :priority 1000
+ ;        :config (fn [] (vim.cmd.colorscheme :alabaster))})
+ ; (pack :deparr/tairiki.nvim {:lazy false})
+ ; (pack :sainnhe/gruvbox-material {:lazy false
+ ;                                  :priority 999
+ ;                                  :enabled true
+ ;                                  :config (fn []
+ ;                                            (set vim.o.background :light)
+ ;                                            (set vim.g.gruvbox_material_transparent_background
+ ;                                                 1)
+ ;                                            (set vim.g.gruvbox_material_enable_bold
+ ;                                                 0)
+ ;                                            (set vim.g.gruvbox_material_enable_italic
+ ;                                                 0)
+ ;                                            (set vim.g.gruvbox_material_better_performance
+ ;                                                 1)
+ ;                                            (set vim.g.gruvbox_material_foreground
+ ;                                                 :original)
+ ;                                            (set vim.g.gruvbox_material_background
+ ;                                                 :medium)
+ ;                                            ; (vim.cmd.colorscheme :gruvbox-material)
+ ;                                            )})
  ; (pack :rebelot/kanagawa.nvim
  ;       {:lazy false
  ;        :enabled true
@@ -149,18 +160,14 @@
  ;                  (fn custom_highlights [C]
  ;                    {:Folded {:bg C.base}
  ;                     :FloatBorder {:fg C.mantle}
- ;                     ; :TelescopePreviewBorder {:bg C.mantle
- ;                     ;                          :fg C.mantle}
- ;                     ; :TelescopePreviewNormal {:bg C.mantle}
- ;                     ; :TelescopePromptBorder {:bg C.surface0
- ;                     ;                         :fg C.surface0}
- ;                     ; :TelescopePromptNormal {:bg C.surface0}
- ;                     ; :TelescopeResultsBorder {:bg C.surface1
- ;                     ;                          :fg C.surface1}
- ;                     ; :TelescopeResultsNormal {:bg C.surface1
- ;                     ;                          :fg ""}
- ;                     ; :TelescopeTitle {:bold true :fg C.sky}
- ;                     ;; :Normal {:bg C.base}
+ ;                     :TelescopePreviewBorder {:bg C.mantle :fg C.mantle}
+ ;                     :TelescopePreviewNormal {:bg C.mantle}
+ ;                     :TelescopePromptBorder {:bg C.surface0 :fg C.surface0}
+ ;                     :TelescopePromptNormal {:bg C.surface0}
+ ;                     :TelescopeResultsBorder {:bg C.surface1 :fg C.surface1}
+ ;                     :TelescopeResultsNormal {:bg C.surface1 :fg ""}
+ ;                     :TelescopeTitle {:bold true :fg C.sky}
+ ;                     ; :Normal {:bg C.base}
  ;                     })
  ;
  ;                  ((. (require :catppuccin) :setup) {:no_italic false
@@ -171,34 +178,57 @@
  ;                                                     : custom_highlights
  ;                                                     : color_overrides})
  ;                  (vim.cmd.colorscheme :catppuccin-mocha))})
- ; (pack :folke/tokyonight.nvim
- ;       {:lazy false
- ;        :config (fn []
- ;                  ((. (require :tokyonight) :setup) {:transparent false}))})
- (pack :ellisonleao/gruvbox.nvim
+ (pack :folke/tokyonight.nvim
        {:lazy false
         :config (fn []
-                  ((. (require :gruvbox) :setup) {:bold false
-                                                  :contrast ""
-                                                  :dim_inactive false
-                                                  :inverse true
-                                                  :invert_intend_guides false
-                                                  :invert_selection false
-                                                  :invert_signs false
-                                                  :invert_tabline false
-                                                  :italic {:comments false
-                                                           :emphasis false
-                                                           :folds false
-                                                           :operators false
-                                                           :strings false}
-                                                  :overrides {}
-                                                  :palette_overrides {}
-                                                  :strikethrough true
-                                                  :terminal_colors true
-                                                  :transparent_mode true
-                                                  :undercurl true
-                                                  :underline true})
-                  (vim.cmd "colorscheme gruvbox"))})
+                  ((. (require :tokyonight) :setup) {:on_highlights (fn [hl c]
+                                                                      (local prompt
+                                                                             "#2d3149")
+                                                                      (set hl.TelescopeNormal
+                                                                           {:bg c.bg_dark
+                                                                            :fg c.fg_dark})
+                                                                      (set hl.TelescopeBorder
+                                                                           {:bg c.bg_dark
+                                                                            :fg c.bg_dark})
+                                                                      (set hl.TelescopePromptNormal
+                                                                           {:bg prompt})
+                                                                      (set hl.TelescopePromptBorder
+                                                                           {:bg prompt
+                                                                            :fg prompt})
+                                                                      (set hl.TelescopePromptTitle
+                                                                           {:bg prompt
+                                                                            :fg prompt})
+                                                                      (set hl.TelescopePreviewTitle
+                                                                           {:bg c.bg_dark
+                                                                            :fg c.bg_dark})
+                                                                      (set hl.TelescopeResultsTitle
+                                                                           {:bg c.bg_dark
+                                                                            :fg c.bg_dark}))})
+                  (vim.cmd.colorscheme :tokyonight-moon))})
+ ; (pack :ellisonleao/gruvbox.nvim
+ ;       {:lazy false
+ ;        :config (fn []
+ ;                  ((. (require :gruvbox) :setup) {:bold false
+ ;                                                  :contrast ""
+ ;                                                  :dim_inactive false
+ ;                                                  :inverse true
+ ;                                                  :invert_intend_guides false
+ ;                                                  :invert_selection false
+ ;                                                  :invert_signs false
+ ;                                                  :invert_tabline false
+ ;                                                  :italic {:comments false
+ ;                                                           :emphasis true
+ ;                                                           :folds false
+ ;                                                           :operators false
+ ;                                                           :strings false}
+ ;                                                  :overrides {}
+ ;                                                  :palette_overrides {}
+ ;                                                  :strikethrough true
+ ;                                                  :terminal_colors true
+ ;                                                  :transparent_mode false
+ ;                                                  :undercurl true
+ ;                                                  :underline true})
+ ;                  (vim.cmd "colorscheme gruvbox"))})
  ; (pack :projekt0n/github-nvim-theme
  ;       {:lazy false
  ;        :enabled true
@@ -216,7 +246,7 @@
  ;                  (local gh-theme (require :github-theme))
  ;                  (local options
  ;                         {;;:styles {:comments :italic :functions "italic,bold"}
- ;                          :transparent true})
+ ;                          :transparent false})
  ;                  (gh-theme.setup {: groups : specs : options})
  ;                  (vim.cmd.colorscheme :github_dark_dimmed))})
  ]

@@ -57,7 +57,7 @@ table.insert(plugins, {
 -- load lazy
 require("lazy").setup(plugins, {
 	defaults = { lazy = true },
-	install = { colorscheme = { "oxocarbon", "habamax" }, missing = true },
+	install = { colorscheme = { "oxocarbon", "tokyonight-moon", "habamax" }, missing = true },
 	performance = {
 		rtp = {
 			disabled_plugins = {
