@@ -91,7 +91,6 @@ lsp.config = function(_, opts)
 	local lspconfig = require("lspconfig")
 	local servers = opts.servers
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
-	local lspconfig = require("lspconfig")
 	local ensure_installed = {}
 
 	setup_diagnostic_signs()
