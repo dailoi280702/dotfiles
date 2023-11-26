@@ -5,57 +5,53 @@ config.default_cursor_style = "SteadyBar"
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "jetbrains mono",
+		family = "hack",
 		weight = "Regular",
 		stretch = "Expanded",
-		-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+		-- harfbuzz_features = {
+		-- 	"calt=1",
+		-- 	"clig=1",
+		-- 	"liga=1",
+		-- },
 	},
 	{ family = "liga sfmono nerd font" },
 	{ family = "juliamono", weight = "Regular", stretch = "Normal" },
 	"symbols nerd font",
 	"nonicons",
 })
-config.cell_width = 1.0
-config.line_height = 1.0
+config.cell_width = 0.9
+config.line_height = 1
 config.adjust_window_size_when_changing_font_size = false
 config.font_size = 16
 config.dpi = 144
 
-config.macos_window_background_blur = 70
--- config.window_background_opacity = 0.93666
+config.macos_window_background_blur = 90
+config.window_background_opacity = 1
 -- config.colors = require("./colors/oxocarbon")
 -- config.color_scheme = "github-dark-dimmed"
--- config.color_scheme = "Gruvbox dark, medium (base16)"
-config.color_scheme = "tokyonight_moon"
--- config.color_scheme = "iceberg-light"
--- config.colors = {
--- 	background = "#F7F7F7",
--- }
+-- config.color_scheme = "Dracula (Official)"
+config.color_scheme = "rose-pine"
 
 -- local C = {
--- 	-- bg = "#282828",
--- 	-- fg = "#ebdbb2",
--- 	-- c3 = "#fe8019",
--- 	bg = "#FFF6E1",
--- 	-- bg = "#f9f5d7",
--- 	-- bg = "#EFF0DF",
--- 	fg = "#654735",
--- 	c0 = "#bdae93",
--- 	c1 = "#c14a4a",
--- 	c2 = "#6c782e",
--- 	c3 = "#c35e0a",
--- 	c4 = "#45707a",
--- 	c5 = "#945e80",
--- 	c6 = "#4c7a5d",
--- 	c7 = "#654735",
--- 	c8 = "#928374",
--- 	c9 = "#c14a4a",
--- 	c10 = "#6c782e",
--- 	c11 = "#b47109",
--- 	c12 = "#45707a",
--- 	c13 = "#945e80",
--- 	c14 = "#4c7a5d",
--- 	c15 = "#654735",
+-- 	-- bg = "#161616",
+-- 	bg = "#1f1f1f",
+-- 	fg = "#ECE1D7",
+-- 	c0 = "#34302C",
+-- 	c1 = "#BD8183",
+-- 	c2 = "#78997A",
+-- 	c3 = "#E49B5D",
+-- 	c4 = "#7F91B2",
+-- 	c5 = "#B380B0",
+-- 	c6 = "#7B9695",
+-- 	c7 = "#C1A78E",
+-- 	c8 = "#867462",
+-- 	c9 = "#D47766",
+-- 	c10 = "#85B695",
+-- 	c11 = "#EBC06D",
+-- 	c12 = "#A3A9CE",
+-- 	c13 = "#CF9BC2",
+-- 	c14 = "#89B3B6",
+-- 	c15 = "#ECE1D7",
 -- }
 --
 -- config.colors = {
@@ -123,8 +119,8 @@ config.window_decorations = "RESIZE"
 config.window_padding = {
 	top = 0,
 	bottom = 0,
-	left = 10,
-	right = 10,
+	left = 0,
+	right = 0,
 }
 config.initial_cols = 110
 config.initial_rows = 34

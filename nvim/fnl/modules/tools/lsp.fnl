@@ -60,6 +60,7 @@
                                    :html (fn []
                                            (lspconfig.html.setup {: capabilities
                                                                   :filetypes [:html
+                                                                              :rust
                                                                               :php]}))
                                    ; :sqlls (fn []
                                    ;          (lspconfig.sqlls.setup {: capabilities
@@ -82,3 +83,4 @@
                                              :hrsh7th/cmp-nvim-lsp
                                              :williamboman/mason-lspconfig.nvim]
                               : config})
+
