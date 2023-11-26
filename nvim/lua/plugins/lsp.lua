@@ -25,6 +25,7 @@ local lsp = {
 }
 
 lsp.keys = {
+	{ "<leader>e", vim.diagnostic.open_float, desc = "Show Diagnostic" },
 	{ "[d", vim.diagnostic.goto_prev, desc = "Goto Prev Diagnostic" },
 	{ "]d", vim.diagnostic.goto_next, desc = "Goto Next Diagnostic" },
 	{ "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
