@@ -5,25 +5,24 @@ local M = {
 	enabled = false,
 }
 
-M.config = function() 
+M.config = function()
 	local ufo = require("ufo")
 
-	vim.keymap.set('n', 'z,', "<cmd>%foldclose<CR>", {desc = "Close first level folds"})
-	vim.keymap.set('n', 'z.', "<cmd>sil! normal mzzM`zzO<CR>", {desc = "Magic fold  "})
-	vim.keymap.set('n', 'zM', ufo.closeAllFolds)
-	vim.keymap.set('n', 'zR', ufo.openAllFolds)
+	vim.keymap.set("n", "z,", "<cmd>%foldclose<CR>", { desc = "Close first level folds" })
+	vim.keymap.set("n", "z.", "<cmd>sil! normal mzzM`zzO<CR>", { desc = "Magic fold  " })
+	vim.keymap.set("n", "zM", ufo.closeAllFolds)
+	vim.keymap.set("n", "zR", ufo.openAllFolds)
 
 	local ok, _ = pcall(require, "tree-sitter")
 	if ok then
 		ufo.setup({
 			provider_selector = function(_, _, _)
-				return {'treesitter', 'indent'}
-			end
+				return { "treesitter", "indent" }
+			end,
 		})
-	else 
+	else
 		ufo.setup()
 	end
-
 end
 
 return M

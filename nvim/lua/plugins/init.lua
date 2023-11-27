@@ -9,11 +9,10 @@ vim.api.nvim_create_autocmd("User", {
 
 return {
 	{
-		"folke/lazy.nvim", 
+		"folke/lazy.nvim",
 		version = "*",
 		init = function()
 			require("config.options")
-		end
-	}
+		end,
+	},
 }
- 

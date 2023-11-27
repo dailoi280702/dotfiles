@@ -68,7 +68,7 @@ lsp.opts = {
 	servers = {
 		tsserver = {},
 		cssls = {},
-		html = {},
+		html = { filetypes = { "html", "php", "rust", "typesciptreact", "javascriptreact" } },
 		ltex = {},
 		tailwindcss = {},
 		gopls = {},
