@@ -6,6 +6,7 @@ local cmp = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"saadparwaiz1/cmp_luasnip",
+		"hrsh7th/cmp-cmdline",
 		"onsails/lspkind.nvim",
 		{ "Exafunction/codeium.nvim", opts = {} },
 	},
@@ -39,9 +40,12 @@ cmp.opts = function()
 			["<C-e>"] = cmp.mapping.abort(),
 			["<C-Space>"] = cmp.mapping.complete(),
 			["<CR>"] = cmp.mapping.confirm({
+				select = true,
+			}),
+			["<S-CR>"] = cmp.mapping.confirm({
 				behavior = cmp.ConfirmBehavior.Replace,
 				select = true,
-			}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+			}),
 			["<Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
@@ -100,10 +104,30 @@ cmp.opts = function()
 end
 
 cmp.config = function(_, opts)
-	for _, source in ipairs(opts.sources) do
-		source.group_index = source.group_index or 1
-	end
-	require("cmp").setup(opts)
+	-- for _, source in ipairs(opts.sources) do
+	-- 	source.group_index = source.group_index or 1
+	-- end
+
+	cmp = require("cmp")
+	cmp.setup(opts)
+
+	-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+	cmp.setup.cmdline({ "/", "?" }, {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = {
+			{ name = "buffer" },
+		},
+	})
+
+	-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+	cmp.setup.cmdline(":", {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = cmp.config.sources({
+			{ name = "path" },
+		}, {
+			{ name = "cmdline" },
+		}),
+	})
 end
 
 local ls = {

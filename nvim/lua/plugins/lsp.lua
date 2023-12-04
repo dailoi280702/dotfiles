@@ -53,6 +53,7 @@ lsp.keys = {
 		desc = "Goto T[y]pe Definition",
 	},
 	{ "K", vim.lsp.buf.hover, desc = "Hover" },
+	{ "<leader>D", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
 	{ "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
 	{ "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
 	{
@@ -60,7 +61,7 @@ lsp.keys = {
 		vim.lsp.buf.code_action,
 		desc = "Code Action",
 		mode = { "n", "v" },
-		{ "<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
+		{ "<leader>cr", vim.lsp.buf.rename, desc = "Rename" },
 	},
 }
 

@@ -4,10 +4,11 @@ local M = {
 }
 
 M.opts = {
-	sections = {
-		lualine_c = { { "filetype", path = 4 } },
-	},
+	-- sections = {
+	-- 	lualine_c = { { "filetype", path = 4 } },
+	-- },
 	options = {
+		theme = "gruvbox",
 		component_separators = { left = "", right = "" },
 		-- section_separators = { left = "▓▒░", right = "░▒▓" },
 		section_separators = { left = "", right = "" },

@@ -1,17 +1,35 @@
 local M = {
 	"kevinhwang91/nvim-ufo",
-	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+	-- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 	dependencies = { "kevinhwang91/promise-async" },
-	enabled = false,
+	cmd = {
+		"UfoEnable",
+		"UfoDisable",
+		"UfoInspect",
+		"UfoAttach",
+		"UfoDetach",
+		"UfoEnableFold",
+		"UfoDisableFold",
+	},
+	keys = function()
+		local ufo = require("ufo")
+
+		return {
+			{ "z,", "<cmd>%foldclose<CR>", desc = "Close first level folds" },
+			{ "z.", "<cmd>sil! normal mzzM`zzO<CR>", desc = "Magic fold  " },
+			{ "zM", ufo.closeAllFolds },
+			{ "zR", ufo.openAllFolds },
+		}
+	end,
 }
 
 M.config = function()
 	local ufo = require("ufo")
 
-	vim.keymap.set("n", "z,", "<cmd>%foldclose<CR>", { desc = "Close first level folds" })
-	vim.keymap.set("n", "z.", "<cmd>sil! normal mzzM`zzO<CR>", { desc = "Magic fold  " })
-	vim.keymap.set("n", "zM", ufo.closeAllFolds)
-	vim.keymap.set("n", "zR", ufo.openAllFolds)
+	vim.o.foldcolumn = "0"
+	vim.o.foldlevel = 99
+	vim.o.foldlevelstart = 99
+	vim.o.foldenable = true
 
 	local ok, _ = pcall(require, "tree-sitter")
 	if ok then
