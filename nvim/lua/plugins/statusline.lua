@@ -8,7 +8,7 @@ M.opts = {
 	-- 	lualine_c = { { "filetype", path = 4 } },
 	-- },
 	options = {
-		theme = "gruvbox",
+		theme = "oxocarbon",
 		component_separators = { left = "", right = "" },
 		-- section_separators = { left = "▓▒░", right = "░▒▓" },
 		section_separators = { left = "", right = "" },

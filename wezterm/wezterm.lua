@@ -5,7 +5,7 @@ config.default_cursor_style = "SteadyBar"
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "hack",
+		family = "jetbrains mono",
 		weight = "Regular",
 		stretch = "Expanded",
 		-- harfbuzz_features = {
@@ -19,7 +19,7 @@ config.font = wezterm.font_with_fallback({
 	"symbols nerd font",
 	"nonicons",
 })
-config.cell_width = 0.9
+config.cell_width = 1
 config.line_height = 1
 config.adjust_window_size_when_changing_font_size = false
 config.font_size = 16
@@ -27,10 +27,10 @@ config.dpi = 144
 
 config.macos_window_background_blur = 90
 config.window_background_opacity = 1
--- config.colors = require("./colors/oxocarbon")
+config.colors = require("./colors/oxocarbon")
 -- config.color_scheme = "github-dark-dimmed"
 -- config.color_scheme = "Dracula (Official)"
-config.color_scheme = "rose-pine"
+-- config.color_scheme = "rose-pine"
 
 -- local C = {
 -- 	-- bg = "#161616",
