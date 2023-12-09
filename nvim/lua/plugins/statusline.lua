@@ -4,9 +4,15 @@ local M = {
 }
 
 M.opts = {
-	-- sections = {
-	-- 	lualine_c = { { "filetype", path = 4 } },
-	-- },
+	sections = {
+		lualine_c = {
+			{
+				"filename",
+				file_status = true,
+				path = 4,
+			},
+		},
+	},
 	options = {
 		theme = "oxocarbon",
 		component_separators = { left = "", right = "" },

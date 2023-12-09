@@ -61,8 +61,8 @@ lsp.keys = {
 		vim.lsp.buf.code_action,
 		desc = "Code Action",
 		mode = { "n", "v" },
-		{ "<leader>cr", vim.lsp.buf.rename, desc = "Rename" },
 	},
+	{ "<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
 }
 
 lsp.opts = {

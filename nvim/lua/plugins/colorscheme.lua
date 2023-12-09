@@ -1,5 +1,4 @@
 local M = {
-	-- "rose-pine/neovim",
 	"nyoom-engineering/oxocarbon.nvim",
 	lazy = false,
 	priority = 1000,
@@ -14,7 +13,7 @@ M.init = function()
 
 	vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 		callback = function()
-			setup_colorscheme = {
+			local setup_colorscheme = {
 				oxocarbon = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 					vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
@@ -59,11 +58,22 @@ M.config = function()
 end
 
 local N = {
-	"folke/tokyonight.nvim",
+	"rose-pine/neovim",
 	lazy = false,
 }
 
-return M
+N.config = function()
+	local theme = require("rose-pine")
+	theme.setup({
+		disable_background = false,
+		disable_italics = true,
+	})
+
+	-- vim.cmd.colorscheme("rose-pine")
+	-- vim.cmd.colorscheme("retrobox")
+end
+
+return { M, N }
 
 -- " Color: neutralred              #cc241d        160            DarkRed
 -- " Color: neutralgreen            #98971a        100            DarkGreen

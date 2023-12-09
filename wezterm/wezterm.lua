@@ -5,9 +5,9 @@ config.default_cursor_style = "SteadyBar"
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "jetbrains mono",
-		weight = "Regular",
-		stretch = "Expanded",
+		family = "Geist Mono",
+		-- weight = "Medium",
+		-- stretch = "Expanded",
 		-- harfbuzz_features = {
 		-- 	"calt=1",
 		-- 	"clig=1",
@@ -25,8 +25,8 @@ config.adjust_window_size_when_changing_font_size = false
 config.font_size = 16
 config.dpi = 144
 
-config.macos_window_background_blur = 90
-config.window_background_opacity = 1
+config.macos_window_background_blur = 10
+config.window_background_opacity = 0.9
 config.colors = require("./colors/oxocarbon")
 -- config.color_scheme = "github-dark-dimmed"
 -- config.color_scheme = "Dracula (Official)"
