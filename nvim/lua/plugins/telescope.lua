@@ -22,10 +22,10 @@ M.keys = {
 M.opts = {
 	extensions = {
 		fzf = {
-			case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-			fuzzy = true,                    -- false will only do exact matching
-			override_file_sorter = true,     -- override the file sorter
-			override_generic_sorter = true,  -- override the generic sorter
+			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+			fuzzy = true, -- false will only do exact matching
+			override_file_sorter = true, -- override the file sorter
+			override_generic_sorter = true, -- override the generic sorter
 		},
 	},
 	defaults = {
@@ -48,12 +48,12 @@ M.opts = {
 	},
 }
 
-M.config = function( _, opts)
+M.config = function(_, opts)
 	local telescope = require("telescope")
 
 	telescope.setup(opts)
-	telescope.load_extension('fzf')
-	telescope.load_extension('file_browser')
+	telescope.load_extension("fzf")
+	telescope.load_extension("file_browser")
 end
 
 return M

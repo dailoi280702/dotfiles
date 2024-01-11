@@ -5,23 +5,23 @@ local M = {
 }
 
 M.init = function()
-	vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
-		callback = function()
-			vim.cmd([[hi clear]])
-		end,
-	})
+	-- vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
+	-- 	callback = function()
+	-- 		vim.cmd([[hi clear]])
+	-- 	end,
+	-- })
 
 	vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 		callback = function()
 			local setup_colorscheme = {
 				oxocarbon = function()
-					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 					vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#6f6f6f" })
 					vim.api.nvim_set_hl(0, "HopNextKey", { fg = "#be95ff", bold = true })
 					vim.api.nvim_set_hl(0, "HopNextKey1", { fg = "#ff7eb6" })
 					vim.api.nvim_set_hl(0, "HopNextKey2", { fg = "#ee5396", bold = true })
 					vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#6f6f6f" })
+					-- vim.cmd.highlight({ "def link @function @function.builtin", bang = true })
 				end,
 				retrobox = function()
 					vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#b8bb26" })
@@ -33,9 +33,21 @@ M.init = function()
 					vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#fe8019", bg = "#303030" })
 					vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#83a598" })
 				end,
+				wildcharm = function()
+					vim.api.nvim_set_hl(0, "Normal", { bg = "#121212" })
+				end,
+				["gruvbox-material"] = function()
+					vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+					vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
+					vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#383330" })
+				end,
+				flexoki = function()
+					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+				end,
 			}
-			local colorscheme = vim.g.colors_name
 
+			local colorscheme = vim.g.colors_name
 			if setup_colorscheme[colorscheme] then
 				setup_colorscheme[colorscheme]()
 			end
@@ -43,29 +55,22 @@ M.init = function()
 	})
 end
 
-M.config = function()
-	-- local theme = require("rose-pine")
-	-- theme.setup({
-	-- 	disable_background = true,
-	-- 	disable_italics = true,
-	-- })
-	--
-	-- vim.cmd.colorscheme("rose-pine")
-	-- vim.cmd.colorscheme("retrobox")
-	--
-
-	vim.cmd.colorscheme("oxocarbon")
-end
+-- M.config = function()
+-- 	vim.cmd.colorscheme("oxocarbon")
+-- 	-- vim.cmd.colorscheme("retrobox")
+-- end
 
 local N = {
 	"rose-pine/neovim",
 	lazy = false,
+	priority = 999,
+	enabled = true,
 }
 
 N.config = function()
 	local theme = require("rose-pine")
 	theme.setup({
-		disable_background = false,
+		disable_background = true,
 		disable_italics = true,
 	})
 
@@ -73,7 +78,119 @@ N.config = function()
 	-- vim.cmd.colorscheme("retrobox")
 end
 
-return { M, N }
+P = {
+	"rebelot/kanagawa.nvim",
+	lazy = false,
+	priority = 998,
+	enabled = false,
+}
+
+P.config = function()
+	require("kanagawa").setup({
+		compile = true,
+		transparent = false,
+		overrides = function(colors)
+			local theme = colors.theme
+
+			local overrides = {
+				TelescopeTitle = { fg = theme.ui.special, bold = true },
+				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+				TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+				NormalFloat = { bg = "none" },
+				FloatBorder = { bg = "none" },
+				FloatTitle = { bg = "none" },
+				NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+				LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+				MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+				Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+				PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+				PmenuSbar = { bg = theme.ui.bg_m1 },
+				PmenuThumb = { bg = theme.ui.bg_p2 },
+			}
+
+			return overrides
+		end,
+		colors = {
+			palette = {
+				-- change all usages of these colors
+				sumiInk0 = "#000000",
+				fujiWhite = "#FFFFFF",
+			},
+			theme = {
+				all = {
+					ui = {
+						bg_gutter = "none",
+					},
+				},
+			},
+		},
+	})
+
+	vim.cmd.colorscheme("kanagawa-dragon")
+end
+
+Q = {
+	"sainnhe/gruvbox-material",
+	priority = 990,
+	lazy = false,
+	enabled = false,
+}
+
+Q.config = function()
+	vim.g.gruvbox_material_background = "hard"
+	vim.g.gruvbox_material_transparent_background = 2
+	vim.g.gruvbox_material_diagnostic_line_highlight = 1
+	vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
+	vim.g.gruvbox_material_enable_bold = 1
+	vim.g.gruvbox_material_enable_italic = 1
+
+	vim.cmd.colorscheme("gruvbox-material")
+end
+
+return {
+	M,
+	N,
+	P,
+	Q,
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+	},
+	{
+		"catppuccin/nvim",
+		lazy = false,
+		name = "catppuccin",
+		opts = {
+			-- transparent_background = true
+			kitty = false
+		},
+		priority = 998,
+		config = function(_, opts)
+			require("catppuccin").setup(opts)
+			vim.cmd.colorscheme("catppuccin-macchiato")
+		end,
+	},
+	{
+		"Mofiqul/vscode.nvim",
+		lazy = false,
+		priority = 998,
+		enabled = false,
+		opts = {
+			transparent = true,
+			color_overrides = {
+				vscFront = "#C0C0C0",
+			},
+		},
+		config = function(_, opts)
+			require("vscode").setup(opts)
+			vim.cmd.colorscheme("vscode")
+		end,
+	},
+}
 
 -- " Color: neutralred              #cc241d        160            DarkRed
 -- " Color: neutralgreen            #98971a        100            DarkGreen

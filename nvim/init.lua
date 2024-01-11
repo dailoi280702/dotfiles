@@ -15,5 +15,5 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
-	install = { colorscheme = { "rose-pine" } },
+	install = { colorscheme = { "kanagawa-dragon", "rose-pine" } },
 })
