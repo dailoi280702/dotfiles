@@ -67,7 +67,17 @@ lsp.keys = {
 
 lsp.opts = {
 	servers = {
-		tsserver = {},
+		tsserver = {
+			-- filetypes = {
+			-- 	"html",
+			-- 	"javascript",
+			-- 	"javascriptreact",
+			-- 	"javascript.jsx",
+			-- 	"typescript",
+			-- 	"typescriptreact",
+			-- 	"typescript.tsx",
+			-- },
+		},
 		cssls = {},
 		html = { filetypes = { "html", "php", "rust", "typesciptreact", "javascriptreact" } },
 		ltex = {},

@@ -33,16 +33,16 @@ M.init = function()
 					vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#fe8019", bg = "#303030" })
 					vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#83a598" })
 				end,
-				wildcharm = function()
-					vim.api.nvim_set_hl(0, "Normal", { bg = "#121212" })
-				end,
 				["gruvbox-material"] = function()
 					vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
 					vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
 					vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#383330" })
 				end,
-				flexoki = function()
+				melange = function()
+					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+				end,
+				default = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 				end,
 			}
@@ -64,17 +64,16 @@ local N = {
 	"rose-pine/neovim",
 	lazy = false,
 	priority = 999,
-	enabled = true,
+	enabled = false,
 }
 
-N.config = function()
-	local theme = require("rose-pine")
-	theme.setup({
-		disable_background = true,
-		disable_italics = true,
-	})
+N.opts = { styles = { italic = true, transparency = true } }
 
-	-- vim.cmd.colorscheme("rose-pine")
+N.config = function(_, opts)
+	local theme = require("rose-pine")
+	theme.setup(opts)
+
+	vim.cmd.colorscheme("rose-pine-main")
 	-- vim.cmd.colorscheme("retrobox")
 end
 
@@ -82,7 +81,7 @@ P = {
 	"rebelot/kanagawa.nvim",
 	lazy = false,
 	priority = 998,
-	enabled = false,
+	enabled = true,
 }
 
 P.config = function()
@@ -133,90 +132,69 @@ P.config = function()
 	vim.cmd.colorscheme("kanagawa-dragon")
 end
 
-Q = {
-	"sainnhe/gruvbox-material",
-	priority = 990,
-	lazy = false,
-	enabled = false,
-}
-
-Q.config = function()
-	vim.g.gruvbox_material_background = "hard"
-	vim.g.gruvbox_material_transparent_background = 2
-	vim.g.gruvbox_material_diagnostic_line_highlight = 1
-	vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
-	vim.g.gruvbox_material_enable_bold = 1
-	vim.g.gruvbox_material_enable_italic = 1
-
-	vim.cmd.colorscheme("gruvbox-material")
-end
-
 return {
 	M,
 	N,
 	P,
-	Q,
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-	},
+	-- {
+	-- 	"Mofiqul/vscode.nvim",
+	-- 	lazy = false,
+	-- 	priority = 999,
+	-- 	config = function()
+	-- 		local c = require("vscode.colors").get_colors()
+	-- 		require("vscode").setup({
+	-- 			italic_comments = true,
+	-- 			underline_links = true,
+	-- 			group_overrides = {
+	-- 				["@punctuation.bracket"] = { fg = c.vscGray },
+	-- 				["@punctuation.delimiter"] = { fg = c.vscGray },
+	-- 				["@punctuation.special"] = { fg = c.vscGray },
+	-- 			},
+	-- 		})
+	-- 		-- require("vscode").load()
+	-- 		-- vim.cmd.colorscheme("vscode")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	priority = 998,
+	-- 	lazy = false,
+	-- 	opts = {
+	-- 		transparent_mode = true,
+	-- 		overrides = {
+	-- 			["Delimiter"] = { link = "Comment" },
+	-- 		},
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		require("gruvbox").setup(opts)
+	-- 		vim.cmd.colorscheme("gruvbox")
+	-- 	end,
+	-- },
 	{
 		"catppuccin/nvim",
 		lazy = false,
 		name = "catppuccin",
+		enabled = true,
 		opts = {
-			-- transparent_background = true
-			kitty = false
+			transparent_background = false,
+			kitty = false,
+			integrations = {
+				hop = true,
+				telescope = {
+					enabled = true,
+					style = "nvchad",
+				},
+				noice = true,
+				ufo = true,
+				notify = true,
+				which_key = true,
+			},
+			color_overrides = {},
 		},
 		priority = 998,
 		config = function(_, opts)
 			require("catppuccin").setup(opts)
-			vim.cmd.colorscheme("catppuccin-macchiato")
-		end,
-	},
-	{
-		"Mofiqul/vscode.nvim",
-		lazy = false,
-		priority = 998,
-		enabled = false,
-		opts = {
-			transparent = true,
-			color_overrides = {
-				vscFront = "#C0C0C0",
-			},
-		},
-		config = function(_, opts)
-			require("vscode").setup(opts)
-			vim.cmd.colorscheme("vscode")
+			-- vim.cmd.colorscheme("catppuccin-macchiato")
 		end,
 	},
 }
-
--- " Color: neutralred              #cc241d        160            DarkRed
--- " Color: neutralgreen            #98971a        100            DarkGreen
--- " Color: neutralyellow           #d79921        172            DarkYellow
--- " Color: neutralblue             #458588        66             DarkBlue
--- " Color: neutralpurple           #b16286        132            DarkMagenta
--- " Color: neutralaqua             #689d6a        71             DarkCyan
--- " Color: neutralorange           #d65d0e        166            LightRed
--- " Background: dark
--- " Color: bg0                     #1c1c1c        234            Black
--- " Color: bg1                     #3c3836        237            DarkGray
--- " Color: bg2                     #504945        239            DarkGray
--- " Color: bg3                     #303030        236
--- " Color: bg4                     #7c6f64        243
--- " Color: bg5                     #000000        16             DarkGray
--- " Color: bg6                     #121212        233            DarkGray
--- " Color: fg0                     #fbf1c7        230            White
--- " Color: fg1                     #ebdbb2        187            White
--- " Color: fg2                     #d5c4a1        187
--- " Color: fg3                     #bdae93        144
--- " Color: fg4                     #a89984        102            gray
--- " Color: grey                    #928374        102            DarkGray
--- " Color: red                     #fb4934        203            Red
--- " Color: green                   #b8bb26        142            Green
--- " Color: yellow                  #fabd2f        214            Yellow
--- " Color: blue                    #83a598        109            Blue
--- " Color: purple                  #d3869b        175            Magenta
--- " Color: aqua                    #8ec07c        107            Cyan
--- " Color: orange                  #fe8019        208            Magenta

@@ -5,13 +5,22 @@ config.default_cursor_style = "SteadyBar"
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "liga sfmono nerd font",
+		family = "iosevka comfy",
 		weight = "Regular",
-		-- stretch = "Expanded",
+		stretch = "Expanded",
 		-- harfbuzz_features = {
 		-- 	"calt=1",
 		-- 	"clig=1",
 		-- 	"liga=1",
+		-- 	"ss01=0",
+		-- 	"ss02=1",
+		-- 	"ss03=1",
+		-- 	"ss04=1",
+		-- 	"ss05=1",
+		-- 	"ss06=1",
+		-- 	"ss07=1",
+		-- 	"ss08=1",
+		-- 	"ss09=1",
 		-- },
 	},
 	{ family = "liga sfmono nerd font" },
@@ -19,18 +28,26 @@ config.font = wezterm.font_with_fallback({
 	"symbols nerd font",
 	"nonicons",
 })
-config.cell_width = 0.9
-config.line_height = 1
+-- config.cell_width = 0.95
+-- config.line_height = 1.2
 config.adjust_window_size_when_changing_font_size = false
-config.font_size = 16
+config.font_size = 14
 config.dpi = 144
 
-config.macos_window_background_blur = 10
-config.window_background_opacity = 0.98
+config.front_end = "WebGpu"
+
+-- config.colors = require("colors.rose-pine").colors()
+-- config.color_scheme = "Modus-Vivendi"
+config.color_scheme = "GruvboxDarkHard"
+config.colors = {
+	background = "#181616",
+}
+
+-- config.macos_window_background_blur = 50
+-- config.window_background_opacity = 0.9
 -- config.colors = require("./colors/oxocarbon")
 -- config.color_scheme = "github-dark-dimmed"
 -- config.color_scheme = "Dracula (Official)"
-config.color_scheme = "Catppuccin Macchiato"
 
 -- local C = {
 -- 	-- bg = "#161616",
@@ -122,8 +139,8 @@ config.window_decorations = "RESIZE"
 -- 	left = 0,
 -- 	right = 0,
 -- }
--- config.initial_cols = 9999
--- config.initial_rows = 9999
+config.initial_cols = 60
+config.initial_rows = 20
 -- config.tab_max_width = 30
 
 config.inactive_pane_hsb = {

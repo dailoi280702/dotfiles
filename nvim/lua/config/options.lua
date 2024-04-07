@@ -54,8 +54,8 @@ opt.fillchars = {
 	diff = "╱",
 	eob = " ",
 }
-opt.nu = true
-opt.rnu = true
+opt.nu = false
+opt.rnu = false
 
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true

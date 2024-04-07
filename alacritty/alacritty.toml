@@ -1,0 +1,40 @@
+import = [
+    "~/.config/alacritty/themes/kanagawa_dragon.toml"
+]
+
+[font]
+# ueoai this line is used for comparing line height
+# iaoeu this line is used for comparing line height
+size = 14
+normal = { family = "meslolgs nerd font", style = "Regular" }
+# normal = { family = "zedmono nerd font", style = "Extended" }
+# italic = { family = "zedmono nerd font", style = "Extended Italic" }
+# bold = { family = "zedmono nerd font", style = "Extended Bold" }
+# bold_italic = { family = "zedmono nerd font", style = "Extended Bold Italic" }
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
+builtin_box_drawing = true
+
+[window]
+dynamic_padding = true
+decorations = "Buttonless"
+opacity = 1
+blur = false
+padding = { x = 4, y = 4}
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+
+[mouse]
+hide_when_typing = true
+
+[env]
+TERM =  "xterm-256color"
+
+# [colors]
+# primary.background = '#000000'
+
+[keyboard]
+bindings = [
+  { key = "Key6", mods = "Control", chars = "\u001e" }
+]

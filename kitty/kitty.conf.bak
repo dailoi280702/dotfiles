@@ -43,6 +43,6 @@ hide_window_decorations titlebar-only
 # listen_on unix:/tmp/kitty
 
 # BEGIN_KITTY_THEME
-# Gruvbox Dark
+# Gruvbox Light
 include current-theme.conf
 # END_KITTY_THEME
