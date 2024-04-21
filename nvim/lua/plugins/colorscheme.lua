@@ -64,24 +64,23 @@ local N = {
 	"rose-pine/neovim",
 	lazy = false,
 	priority = 999,
-	enabled = false,
+	enabled = true,
 }
 
-N.opts = { styles = { italic = true, transparency = true } }
+N.opts = { styles = { italic = false, transparency = false, bold = false } }
 
 N.config = function(_, opts)
 	local theme = require("rose-pine")
 	theme.setup(opts)
 
-	vim.cmd.colorscheme("rose-pine-main")
-	-- vim.cmd.colorscheme("retrobox")
+	vim.cmd.colorscheme("rose-pine-dawn")
 end
 
 P = {
 	"rebelot/kanagawa.nvim",
 	lazy = false,
 	priority = 998,
-	enabled = true,
+	enabled = false,
 }
 
 P.config = function()
@@ -155,26 +154,34 @@ return {
 	-- 		-- vim.cmd.colorscheme("vscode")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"ellisonleao/gruvbox.nvim",
-	-- 	priority = 998,
-	-- 	lazy = false,
-	-- 	opts = {
-	-- 		transparent_mode = true,
-	-- 		overrides = {
-	-- 			["Delimiter"] = { link = "Comment" },
-	-- 		},
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		require("gruvbox").setup(opts)
-	-- 		vim.cmd.colorscheme("gruvbox")
-	-- 	end,
-	-- },
+	{
+		"ellisonleao/gruvbox.nvim",
+		priority = 998,
+		lazy = false,
+		opts = {
+			transparent_mode = true,
+			bold = false,
+			italic = {
+				strings = false,
+				emphasis = false,
+				comments = false,
+				operators = false,
+				folds = false,
+			},
+			overrides = {
+				["Delimiter"] = { link = "Comment" },
+			},
+		},
+		config = function(_, opts)
+			require("gruvbox").setup(opts)
+			-- vim.cmd.colorscheme("gruvbox")
+		end,
+	},
 	{
 		"catppuccin/nvim",
 		lazy = false,
 		name = "catppuccin",
-		enabled = true,
+		enabled = false,
 		opts = {
 			transparent_background = false,
 			kitty = false,
@@ -189,12 +196,22 @@ return {
 				notify = true,
 				which_key = true,
 			},
-			color_overrides = {},
+			color_overrides = {
+				macchiato = {
+					-- base = "#212334",
+					base = "#232634",
+				},
+			},
 		},
 		priority = 998,
 		config = function(_, opts)
 			require("catppuccin").setup(opts)
-			-- vim.cmd.colorscheme("catppuccin-macchiato")
+			vim.cmd.colorscheme("catppuccin-macchiato")
 		end,
+	},
+	{
+		"projekt0n/github-nvim-theme",
+		lazy = false,
+		priority = 998,
 	},
 }

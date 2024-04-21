@@ -52,7 +52,8 @@ lsp.keys = {
 		end,
 		desc = "Goto T[y]pe Definition",
 	},
-	{ "K", vim.lsp.buf.hover, desc = "Hover" },
+	-- { "K", vim.lsp.buf.hover, desc = "Hover" },
+	{ "<leader>K", vim.lsp.buf.hover, desc = "Hover" },
 	{ "<leader>D", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
 	{ "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
 	{ "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
@@ -86,11 +87,11 @@ lsp.opts = {
 		sqlls = {},
 		bashls = {},
 		pyright = {},
-		intelephense = {},
+		-- intelephense = {},
 		zls = {},
 		lua_ls = {},
 		bufls = {},
-		fennel_language_server = {},
+		-- fennel_language_server = {},
 		golangci_lint_ls = {},
 		eslint = {},
 		rust_analyzer = {},
@@ -135,6 +136,19 @@ lsp.config = function(_, opts)
 			end,
 		},
 	})
+
+	-- vim.api.nvim_create_autocmd("LspAttach", {
+	-- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	-- 	callback = function(ev)
+	-- 		-- Enable completion triggered by <c-x><c-o>
+	-- 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+	--
+	-- 		-- Buffer local mappings.
+	-- 		-- See `:help vim.lsp.*` for documentation on any of the below functions
+	-- 		local opts = { buffer = ev.buf }
+	-- 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	-- 	end,
+	-- })
 end
 
 local mason = {

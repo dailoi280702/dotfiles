@@ -3,9 +3,9 @@ add_newline = true
 [character]
 # success_symbol = "[⚆‿⚆](blue)"
 # vicmd_symbol   = "[ಠ_ಠ](green)"
-vimcmd_symbol  = "[ಠ‿ಠ](blue)"
-success_symbol = "[ಠ_ಠ](green)"
-error_symbol   = "[ಥ_ಥ](red)"
+# vimcmd_symbol  = "[ಠ‿ಠ](blue)"
+# success_symbol = "[ಠ_ಠ](green)"
+# error_symbol   = "[ಥ_ಥ](red)"
 
 # [directory]
 # truncation_length = 4

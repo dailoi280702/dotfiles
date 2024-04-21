@@ -5,15 +5,14 @@ import = [
 [font]
 # ueoai this line is used for comparing line height
 # iaoeu this line is used for comparing line height
-size = 17
+size = 15
 # normal = { family = "unifontexmono"}
 # normal = { family = "cousine nerd font"}
-normal = { family = "zedmono nerd font"}
-# normal = { family = "zedmono nerd font", style = "Extended" }
-# italic = { family = "zedmono nerd font", style = "Extended Italic" }
-# bold = { family = "zedmono nerd font", style = "Extended Bold" }
-# bold_italic = { family = "zedmono nerd font", style = "Extended Bold Italic" }
-offset = { x = 0, y = 0 }
+normal = { family = "zedmono nerd font", style = "Extended" }
+italic = { family = "zedmono nerd font", style = "Extended Italic" }
+bold = { family = "zedmono nerd font", style = "Extended Bold" }
+bold_italic = { family = "zedmono nerd font", style = "Extended Bold Italic" }
+offset = { x = -1, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 builtin_box_drawing = true
 

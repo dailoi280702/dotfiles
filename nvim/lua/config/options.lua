@@ -54,7 +54,7 @@ opt.fillchars = {
 	diff = "╱",
 	eob = " ",
 }
-opt.nu = false
+opt.nu = true
 opt.rnu = false
 
 if vim.fn.has("nvim-0.10") == 1 then

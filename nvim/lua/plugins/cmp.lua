@@ -8,7 +8,7 @@ local cmp = {
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-cmdline",
 		"onsails/lspkind.nvim",
-		{ "Exafunction/codeium.nvim", opts = {} },
+		-- { "Exafunction/codeium.nvim", opts = {} },
 	},
 }
 
@@ -72,7 +72,7 @@ cmp.opts = function()
 			{ name = "nvim_lsp" },
 			{ name = "luasnip" },
 			{ name = "path" },
-			{ name = "codeium" },
+			-- { name = "codeium" },
 			{ name = "buffer" },
 		}),
 		window = {
@@ -89,7 +89,7 @@ cmp.opts = function()
 					mode = "symbol",
 					maxwidth = 50,
 					ellipsis_char = "...",
-					symbol_map = { Codeium = "" },
+					-- symbol_map = { Codeium = "" },
 				})(entry, vim_item)
 				local strings = vim.split(kind.kind, "%s", { trimempty = true })
 				kind.kind = " " .. (strings[1] or "") .. " "
