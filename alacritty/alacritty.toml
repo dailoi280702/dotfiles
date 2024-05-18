@@ -1,31 +1,32 @@
 import = [
-    "~/.config/alacritty/themes/rosepine-dawn.toml"
+    "~/.config/alacritty/themes/melange-dark.toml"
 ]
+
+[shell]
+program = "/bin/zsh"
+args = [ "-l", "-c", "tmux a || tmux" ]
 
 [font]
 # ueoai this line is used for comparing line height
 # iaoeu this line is used for comparing line height
-size = 17
-# normal = { family = "unifontexmono"}
-# normal = { family = "cousine nerd font"}
-normal = { family = "zedmono nerd font"}
-# normal = { family = "zedmono nerd font", style = "Extended" }
-# italic = { family = "zedmono nerd font", style = "Extended Italic" }
-# bold = { family = "zedmono nerd font", style = "Extended Bold" }
-# bold_italic = { family = "zedmono nerd font", style = "Extended Bold Italic" }
+size = 19
+# normal = { family = "jetbrains mono", style = "Light" }
+normal = { family = "zedmono nerd font", style = "Extended" }
+bold = { family = "zedmono nerd font", style = "Extended Bold" }
+italic = { family = "zedmono nerd font", style = "Extended Italic" }
+bold_italic = { family = "zedmono nerd font", style = "Extended Bold Italic" }
 offset = { x = 0, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 builtin_box_drawing = true
 
 [window]
 dynamic_padding = true
-# decorations = "Buttonless"
-decorations = "Full"
-# opacity = 0.96
+decorations = "Buttonless"
+opacity = 1
 blur = true
 padding = { x = 4, y = 4}
 dimensions = { columns = 120, lines = 40 }
-
+startup_mode = "Maximized"
 
 [cursor]
 style = { shape = "Block", blinking = "On" }
@@ -34,11 +35,13 @@ style = { shape = "Block", blinking = "On" }
 hide_when_typing = true
 
 [env]
-TERM =  "xterm-256color"
+TERM = "xterm-256color"
 WAYLAND_DISPLAY= "alacritty"
 
-# [colors]
+[colors]
 # primary.background = '#232634'
+# primary.background = '#1D1D1D'
+# primary.background = "#252221"
 
 [keyboard]
 bindings = [

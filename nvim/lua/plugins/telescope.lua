@@ -46,6 +46,11 @@ M.opts = {
 		selection_caret = "  ",
 		sorting_strategy = "ascending",
 	},
+	pickers = {
+		colorscheme = {
+			enable_preview = true,
+		},
+	},
 }
 
 M.config = function(_, opts)

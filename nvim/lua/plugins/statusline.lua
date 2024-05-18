@@ -50,10 +50,10 @@ local M = {
 -- }
 
 M.opts = function()
-	local C = require("lualine.themes.auto")
-
-	C.normal.c.bg = nil
-	C.inactive.c.bg = nil
+	-- local C = require("lualine.themes.auto")
+	--
+	-- C.normal.c.bg = nil
+	-- C.inactive.c.bg = nil
 
 	local opts = {
 		sections = {
@@ -66,7 +66,7 @@ M.opts = function()
 			},
 		},
 		options = {
-			theme = C,
+			-- theme = C,
 			component_separators = { left = "", right = "" },
 			-- section_separators = { left = "▓▒░", right = "░▒▓" },
 			section_separators = { left = "", right = "" },

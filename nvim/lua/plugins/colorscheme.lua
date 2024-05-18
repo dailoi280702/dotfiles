@@ -24,6 +24,9 @@ M.init = function()
 					-- vim.cmd.highlight({ "def link @function @function.builtin", bang = true })
 				end,
 				retrobox = function()
+					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+					vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+					vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 					vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#b8bb26" })
 					vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#8ec07c" })
 					vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#fb4934" })
@@ -37,13 +40,19 @@ M.init = function()
 					vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
 					vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
 					vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
-					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#383330" })
+					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#928374" })
 				end,
 				melange = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 				end,
 				default = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+					vim.api.nvim_set_hl(0, "StatusLine", { link = "Normal" })
+					vim.api.nvim_set_hl(0, "StatusLineNC", { link = "Normal" })
+				end,
+				adwaita = function()
+					vim.api.nvim_set_hl(0, "TelescopeSelection", { link = "CursorLine" })
+					vim.api.nvim_set_hl(0, "TelescopeMatching", { link = "Identifier" })
 				end,
 			}
 
@@ -55,10 +64,11 @@ M.init = function()
 	})
 end
 
--- M.config = function()
--- 	vim.cmd.colorscheme("oxocarbon")
--- 	-- vim.cmd.colorscheme("retrobox")
--- end
+M.config = function()
+	-- vim.cmd.colorscheme("oxocarbon")
+	-- vim.cmd.colorscheme("retrobox")
+	-- vim.cmd.colorscheme("default")
+end
 
 local N = {
 	"rose-pine/neovim",
@@ -73,7 +83,7 @@ N.config = function(_, opts)
 	local theme = require("rose-pine")
 	theme.setup(opts)
 
-	vim.cmd.colorscheme("rose-pine-dawn")
+	-- vim.cmd.colorscheme("rose-pine-dawn")
 end
 
 P = {
@@ -113,11 +123,6 @@ P.config = function()
 			return overrides
 		end,
 		colors = {
-			palette = {
-				-- change all usages of these colors
-				sumiInk0 = "#000000",
-				fujiWhite = "#FFFFFF",
-			},
 			theme = {
 				all = {
 					ui = {
@@ -169,7 +174,8 @@ return {
 				folds = false,
 			},
 			overrides = {
-				["Delimiter"] = { link = "Comment" },
+				-- ["Delimiter"] = { link = "Comment" },
+				["Delimiter"] = { link = "GruvboxOrange" },
 			},
 		},
 		config = function(_, opts)
@@ -212,6 +218,44 @@ return {
 	{
 		"projekt0n/github-nvim-theme",
 		lazy = false,
-		priority = 998,
+		priority = 1000,
+		opts = {
+			options = {
+				transparent = false,
+				styles = {
+					comments = "italic",
+					functions = "NONE",
+					keywords = "bold",
+					variables = "NONE",
+					conditionals = "NONE",
+					constants = "NONE",
+					numbers = "NONE",
+					operators = "NONE",
+					strings = "italic",
+					types = "NONE",
+				},
+			},
+		},
+		config = function(_, opts)
+			require("github-theme").setup(opts)
+			-- vim.cmd.colorscheme("github_dark_dimmed")
+		end,
+	},
+	{
+		"Mofiqul/adwaita.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.g.adwaita_transparent = false
+			-- vim.cmd.colorscheme("adwaita")
+		end,
+	},
+	{
+		"savq/melange-nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("melange")
+		end,
 	},
 }
