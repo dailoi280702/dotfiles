@@ -1,5 +1,5 @@
 import = [
-    "~/.config/alacritty/themes/melange-dark.toml"
+    "~/.config/alacritty/themes/vscode.toml"
 ]
 
 [shell]
@@ -9,12 +9,15 @@ args = [ "-l", "-c", "tmux a || tmux" ]
 [font]
 # ueoai this line is used for comparing line height
 # iaoeu this line is used for comparing line height
-size = 19
-# normal = { family = "jetbrains mono", style = "Light" }
-normal = { family = "zedmono nerd font", style = "Extended" }
-bold = { family = "zedmono nerd font", style = "Extended Bold" }
-italic = { family = "zedmono nerd font", style = "Extended Italic" }
-bold_italic = { family = "zedmono nerd font", style = "Extended Bold Italic" }
+size = 18
+normal = { family = "roboto mono", style="Regular" }
+bold = {style ="Medium" }
+italic = {  style = "Italic" }
+bold_italic = {  style = "Medium Italic" }
+# normal = { family = "zedmono nerd font", style = "Extended Light" }
+# bold = { family = "zedmono nerd font", style = "Extended Medium" }
+# italic = { family = "zedmono nerd font", style = "Extended Light Italic" }
+# bold_italic = { family = "zedmono nerd font", style = "Extended Medium Italic" }
 offset = { x = 0, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 builtin_box_drawing = true

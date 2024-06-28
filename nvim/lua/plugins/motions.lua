@@ -26,44 +26,45 @@ table.insert(M, {
 	"echasnovski/mini.ai",
 	opts = {},
 	keys = {
-	  { "a", mode = { "x", "o" } },
-	  { "i", mode = { "x", "o" } },
+		{ "a", mode = { "x", "o" } },
+		{ "i", mode = { "x", "o" } },
 	},
 })
 
 table.insert(M, {
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    lazy = true,
-    opts = {
-      enable_autocmd = false,
-    },
-  },
-  {
-    "echasnovski/mini.comment",
-    event = "VeryLazy",
-    opts = {
-      options = {
-        custom_commentstring = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
-        end,
-      },
-    },
-  },
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		lazy = true,
+		opts = {
+			enable_autocmd = false,
+		},
+	},
+	{
+		"echasnovski/mini.comment",
+		event = "VeryLazy",
+		opts = {
+			options = {
+				custom_commentstring = function()
+					return require("ts_context_commentstring.internal").calculate_commentstring()
+						or vim.bo.commentstring
+				end,
+			},
+		},
+	},
 })
 
 local hop = {
 	"phaazon/hop.nvim",
 	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 	cmd = { "HopWord", "HopWordMW", "HopLine", "HopLineMW" },
-	opts = {}
+	opts = {},
 }
 
 hop.keys = {
-	{ "<leader>jj", "<cmd>HopWord<CR>", desc = "Jump to word"},
-	{ "<leader>jk", "<cmd>HopWordMW<CR>", desc = "Jump to word in all panes"},
-	{ "<leader>jl", "<cmd>HopLine<CR>", desc = "jump to line"},
-	{ "<leader>jk", "<cmd>HopLineMW<CR>", desc = "Jump to line in all panes"},
+	{ "<leader>jj", "<cmd>HopWord<CR>", desc = "Jump to word" },
+	{ "<leader>jk", "<cmd>HopWordMW<CR>", desc = "Jump to word in all panes" },
+	{ "<leader>jl", "<cmd>HopLine<CR>", desc = "jump to line" },
+	{ "<leader>jk", "<cmd>HopLineMW<CR>", desc = "Jump to line in all panes" },
 }
 
 table.insert(M, hop)

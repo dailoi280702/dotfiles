@@ -4,16 +4,15 @@ local config = {}
 config.default_cursor_style = "SteadyBar"
 
 config.font = wezterm.font_with_fallback({
-	-- {
-	-- 	family = "input mono",
-	-- 	weight = "Regular",
-	--  stretch = "Expanded"
-	-- },
 	{
-		family = "inconsolata",
-		-- harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
-		-- weight = "Light",
+		family = "lilex",
+		weight = "Regular",
+		-- stretch = "Expanded",
 	},
+	-- {
+	-- 	family = "meslolgl nerd font",
+	-- 	-- harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
+	-- },
 	{
 		family = "symbols nerd font",
 		scale = 1,
@@ -21,32 +20,40 @@ config.font = wezterm.font_with_fallback({
 	"nonicons",
 })
 
+config.use_resize_increments = true
+-- config.freetype_load_flags = "NO_HINTING"
+
 config.font_rules = {
-	-- { intensity = "Bold", font = config.font },
-	-- { intensity = "Half", font = config.font },
+	{ italic = true, font = config.font },
+	-- 	-- { intensity = "Bold", font = config.font },
+	-- 	-- { intensity = "Half", font = config.font },
+	-- 	{
+	-- 		intensity = "Normal",
+	-- 		italic = true,
+	-- 		font = wezterm.font_with_fallback({ { family = "blexmono nerd font", italic = true, weight = "Regular" } }),
+	-- 	},
+	-- 	{
+	-- 		intensity = "Bold",
+	-- 		italic = true,
+	-- 		font = wezterm.font_with_fallback({ { family = "blexmono nerd font", italic = true, weight = "Bold" } }),
+	-- 	},
 }
 
 config.cell_width = 1
 config.line_height = 1
 config.adjust_window_size_when_changing_font_size = false
-config.font_size = 19
+config.font_size = 16
 -- config.dpi = 144
 
-config.front_end = "WebGpu"
+-- config.front_end = "OpengGL"
 
-config.colors = {
-	background = "#181818",
-}
+-- config.color_scheme = "zenwritten_light"
+config.color_scheme = "Vs Code Dark+ (Gogh)"
 
--- config.background = {
--- 	{
--- 		source = { File = "/Users/lloyd/.config/kitty/background/paper.png" },
--- 		hsb = { brightness = 0.98, hue = 0.32, saturation = 0.05 },
--- 	},
+-- config.colors = {
+-- 	-- background = "#1A1816",
+-- 	-- background = "#141311",
 -- }
-
-config.color_scheme = "Gruvbox dark, medium (base16)"
--- config.colors = require("colors.rose-pine-dawn").colors()
 
 config.window_close_confirmation = "NeverPrompt"
 
@@ -64,11 +71,14 @@ config.initial_cols = 200
 config.initial_rows = 100
 -- config.tab_max_width = 30
 
-config.inactive_pane_hsb = {
-	saturation = 1,
-	brightness = 1,
-}
---
+-- config.inactive_pane_hsb = {
+-- 	saturation = 1,
+-- 	brightness = 1,
+-- }
+
+-- config.window_background_opacity = 0.9
+-- config.macos_window_background_blur = 10
+
 -- config.keys = {
 -- 	{
 -- 		key = "LeftArrow",

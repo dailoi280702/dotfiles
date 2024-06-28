@@ -2,6 +2,7 @@ local noice = {
 	"folke/noice.nvim",
 	event = { "CmdlineEnter", "VeryLazy" },
 	dependencies = { "nvim-notify", "MunifTanjim/nui.nvim" },
+	enabled = false,
 }
 
 noice.opts = {
@@ -41,6 +42,7 @@ noice.opts = {
 local notify = {
 	"rcarriga/nvim-notify",
 	event = { "CmdlineEnter", "VeryLazy" },
+	enabled = false,
 }
 
 notify.opts = function()

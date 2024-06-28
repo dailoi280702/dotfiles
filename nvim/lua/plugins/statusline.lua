@@ -42,12 +42,62 @@ local M = {
 -- 	b = { fg = colors.fg, bg = "none" },
 -- 	c = { fg = colors.fg, bg = "none" },
 -- }
---
 -- vscode.command = {
 -- 	a = { fg = colors.fg, bg = "none" },
 -- 	b = { fg = colors.fg, bg = "none" },
 -- 	c = { fg = colors.fg, bg = "none" },
 -- }
+
+local transparent = {
+	normal = {
+		a = { bg = "None", gui = "None" },
+		b = { bg = "None", gui = "None" },
+		c = { bg = "None", gui = "None" },
+		x = { bg = "None", gui = "None" },
+		y = { bg = "None", gui = "None" },
+		z = { bg = "None", gui = "None" },
+	},
+	insert = {
+		a = { bg = "None", gui = "None" },
+		b = { bg = "None", gui = "None" },
+		c = { bg = "None", gui = "None" },
+		x = { bg = "None", gui = "None" },
+		y = { bg = "None", gui = "None" },
+		z = { bg = "None", gui = "None" },
+	},
+	visual = {
+		a = { bg = "None", gui = "None" },
+		b = { bg = "None", gui = "None" },
+		c = { bg = "None", gui = "None" },
+		x = { bg = "None", gui = "None" },
+		y = { bg = "None", gui = "None" },
+		z = { bg = "None", gui = "None" },
+	},
+	replace = {
+		a = { bg = "None", gui = "None" },
+		b = { bg = "None", gui = "None" },
+		c = { bg = "None", gui = "None" },
+		x = { bg = "None", gui = "None" },
+		y = { bg = "None", gui = "None" },
+		z = { bg = "None", gui = "None" },
+	},
+	command = {
+		a = { bg = "None", gui = "None" },
+		b = { bg = "None", gui = "None" },
+		c = { bg = "None", gui = "None" },
+		x = { bg = "None", gui = "None" },
+		y = { bg = "None", gui = "None" },
+		z = { bg = "None", gui = "None" },
+	},
+	inactive = {
+		a = { bg = "None", gui = "None" },
+		b = { bg = "None", gui = "None" },
+		c = { bg = "None", gui = "None" },
+		x = { bg = "None", gui = "None" },
+		y = { bg = "None", gui = "None" },
+		z = { bg = "None", gui = "None" },
+	},
+}
 
 M.opts = function()
 	-- local C = require("lualine.themes.auto")
@@ -66,7 +116,7 @@ M.opts = function()
 			},
 		},
 		options = {
-			-- theme = C,
+			theme = transparent,
 			component_separators = { left = "", right = "" },
 			-- section_separators = { left = "▓▒░", right = "░▒▓" },
 			section_separators = { left = "", right = "" },
