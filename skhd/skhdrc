@@ -25,7 +25,8 @@ cmd + shift - r : yabai -m space --rotate 90
 
 # open kitty terminal
 # cmd - return : nice -n -19 /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-cmd - return : open -a kitty --single-instance -d ~
+# cmd - return : open -a kitty --single-instance -d ~
+cmd - return : open -a kitty -n
 
 # open wezterm
 # cmd - return : nice -n -19 wezterm

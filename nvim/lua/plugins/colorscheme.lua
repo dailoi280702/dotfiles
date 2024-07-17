@@ -198,7 +198,7 @@ return {
 		priority = 998,
 		lazy = false,
 		opts = {
-			transparent_mode = true,
+			transparent_mode = false,
 			bold = false,
 			italic = {
 				strings = false,
@@ -218,28 +218,12 @@ return {
 		end,
 	},
 	{
-		"folke/tokyonight.nvim",
+		"edeneast/nightfox.nvim",
 		lazy = false,
 		priority = 998,
-		opts = {
-			styles = {
-				-- Style to be applied to different syntax groups
-				-- Value is any valid attr-list value for `:help nvim_set_hl`
-				comments = { italic = false },
-				keywords = { italic = false },
-			},
-		},
-		-- config = function(_, opts)
-		-- 	require("tokyonight").setup(opts)
-		-- 	vim.cmd.colorscheme("tokyonight-moon")
-		-- end,
-		{
-			"cocopon/iceberg.vim",
-			lazy = false,
-			priority = 1000,
-			config = function()
-				vim.cmd.colorscheme("iceberg")
-			end,
-		},
+		opts = {},
+		config = function()
+			vim.cmd.colorscheme("dawnfox")
+		end,
 	},
 }
