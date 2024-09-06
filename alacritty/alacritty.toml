@@ -9,15 +9,15 @@ args = [ "-l", "-c", "tmux a || tmux" ]
 [font]
 # ueoai this line is used for comparing line height
 # iaoeu this line is used for comparing line height
-size = 16
-# normal = { family = "iosevka term", style="Regular" }
+size = 15
+normal = { family = "saucecodepro nerd font", style="Regular" }
 # bold = {style ="Medium" }
 # italic = {  style = "Italic" }
 # bold_italic = {  style = "Medium Italic" }
-normal = { family = "zedmono nerd font", style = "Extended" }
-bold = { family = "zedmono nerd font", style = "Extended Medium" }
-italic = { family = "zedmono nerd font", style = "Extended Italic" }
-bold_italic = { family = "zedmono nerd font", style = "Extended Medium Italic" }
+# normal = { family = "zedmono nerd font", style = "Extended" }
+# bold = { family = "zedmono nerd font", style = "Extended Medium" }
+# italic = { family = "zedmono nerd font", style = "Extended Italic" }
+# bold_italic = { family = "zedmono nerd font", style = "Extended Medium Italic" }
 offset = { x = -1, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 builtin_box_drawing = true
@@ -27,7 +27,7 @@ dynamic_padding = true
 decorations = "Buttonless"
 opacity = 1
 blur = true
-padding = { x = 4, y = 4}
+padding = { x = 0, y = 0}
 dimensions = { columns = 120, lines = 40 }
 startup_mode = "Maximized"
 

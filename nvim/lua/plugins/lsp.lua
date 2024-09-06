@@ -68,7 +68,7 @@ lsp.keys = {
 
 lsp.opts = {
 	servers = {
-		tsserver = {
+		ts_ls = {
 			-- filetypes = {
 			-- 	"html",
 			-- 	"javascript",
@@ -95,6 +95,9 @@ lsp.opts = {
 		golangci_lint_ls = {},
 		eslint = {},
 		rust_analyzer = {},
+		terraformls = {
+			-- filetypes = { "terraform", "terraform-vars", "tf" },
+		},
 	},
 	setup = {},
 }
@@ -149,6 +152,20 @@ lsp.config = function(_, opts)
 	-- 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	-- 	end,
 	-- })
+	local no_sematic_hilight_servers = {
+		"ts_ls",
+		"lua_ls",
+	}
+
+	vim.api.nvim_create_autocmd("LspAttach", {
+		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+		callback = function(ev)
+			local client = vim.lsp.get_client_by_id(ev.data.client_id)
+			if vim.fn.index(no_sematic_hilight_servers, client.name) ~= 0 then
+				client.server_capabilities.semanticTokensProvider = nil
+			end
+		end,
+	})
 end
 
 local mason = {

@@ -45,6 +45,9 @@ M.opts = {
 		prompt_prefix = "   ",
 		selection_caret = "  ",
 		sorting_strategy = "ascending",
+		preview = {
+			treesitter = false,
+		},
 	},
 	pickers = {
 		colorscheme = {

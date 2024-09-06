@@ -5,12 +5,13 @@ config.default_cursor_style = "SteadyBar"
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "lilex",
-		weight = "Regular",
+		-- family = "cozettevector",
+		family = "jetbrains mono",
+		harfbuzz_features = { "liga=0" },
+		weight = "Medium",
 		-- stretch = "Expanded",
 	},
-	-- {
-	-- 	family = "meslolgl nerd font",
+	-- { family = "meslolgl nerd font",
 	-- 	-- harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
 	-- },
 	{
@@ -20,55 +21,95 @@ config.font = wezterm.font_with_fallback({
 	"nonicons",
 })
 
-config.use_resize_increments = true
+-- config.use_resize_increments = true
 -- config.freetype_load_flags = "NO_HINTING"
 
-config.font_rules = {
-	{ italic = true, font = config.font },
-	-- 	-- { intensity = "Bold", font = config.font },
-	-- 	-- { intensity = "Half", font = config.font },
-	-- 	{
-	-- 		intensity = "Normal",
-	-- 		italic = true,
-	-- 		font = wezterm.font_with_fallback({ { family = "blexmono nerd font", italic = true, weight = "Regular" } }),
-	-- 	},
-	-- 	{
-	-- 		intensity = "Bold",
-	-- 		italic = true,
-	-- 		font = wezterm.font_with_fallback({ { family = "blexmono nerd font", italic = true, weight = "Bold" } }),
-	-- 	},
-}
+-- config.font_rules = {
+-- 	-- { italic = true, font = config.font },
+-- 	-- { intensity = "Bold", font = config.font },
+-- 	-- 	-- { intensity = "Half", font = config.font },
+-- 	-- 	{
+-- 	-- 		intensity = "Normal",
+-- 	-- 		italic = true,
+-- 	-- 		font = wezterm.font_with_fallback({ { family = "blexmono nerd font", italic = true, weight = "Regular" } }),
+-- 	-- 	},
+-- 	-- 	{
+-- 	-- 		intensity = "Bold",
+-- 	-- 		italic = true,
+-- 	-- 		font = wezterm.font_with_fallback({ { family = "blexmono nerd font", italic = true, weight = "Bold" } }),
+-- 	-- 	},
+-- }
 
-config.cell_width = 1
-config.line_height = 1
+-- config.cell_width = 1
+config.line_height = 0.9
 config.adjust_window_size_when_changing_font_size = false
-config.font_size = 16
+config.font_size = 14
 -- config.dpi = 144
 
--- config.front_end = "OpengGL"
+config.front_end = "WebGpu"
 
--- config.color_scheme = "zenwritten_light"
-config.color_scheme = "Vs Code Dark+ (Gogh)"
+-- config.color_scheme = "Oxocarbon Dark"
+-- config.color_scheme = "Gruvbox dark, medium (base16)"
+-- config.color_scheme = "Tomorrow (dark) (terminal.sexy)"
+-- config.color_scheme = "Solarized Dark (Gogh)"
+config.color_scheme = "Solarized Dark - Patched"
 
--- config.colors = {
--- 	-- background = "#1A1816",
--- 	-- background = "#141311",
--- }
+-- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").dawn
+-- config.colors = theme.colors()
+-- config.window_frame = theme.window_frame()
 
-config.window_close_confirmation = "NeverPrompt"
+-- local gruvbox_bg = "#1c1c1c"
+-- local gruvbox_bg = "#002B36"
+local gruvbox_bg = "#001E27"
+local gruvbox_fg = "#928374"
+local gruvbox_orange = "#FE801A"
+local gruvbox_cyan = "#83A598"
 
+config.colors = {
+	background = gruvbox_bg,
+	tab_bar = {
+		background = gruvbox_bg,
+		active_tab = {
+			bg_color = gruvbox_bg,
+			fg_color = gruvbox_orange,
+			-- bold = true,
+		},
+		inactive_tab = {
+			bg_color = gruvbox_bg,
+			fg_color = gruvbox_fg,
+		},
+		inactive_tab_hover = {
+			bg_color = gruvbox_bg,
+			fg_color = gruvbox_fg,
+			italic = true,
+		},
+		new_tab = {
+			bg_color = gruvbox_bg,
+			fg_color = gruvbox_cyan,
+		},
+		new_tab_hover = {
+			bg_color = gruvbox_bg,
+			fg_color = gruvbox_cyan,
+			-- bold = true,
+		},
+	},
+}
+
+-- config.window_close_confirmation = "NeverPrompt"
+
+config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
-config.enable_tab_bar = false
+config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
--- config.window_padding = {
--- 	top = 0,
--- 	bottom = 0,
--- 	left = 0,
--- 	right = 0,
--- }
-config.initial_cols = 200
-config.initial_rows = 100
+config.window_padding = {
+	top = 0,
+	bottom = 0,
+	left = 3,
+	right = 3,
+}
+config.initial_cols = 140
+config.initial_rows = 30
 -- config.tab_max_width = 30
 
 -- config.inactive_pane_hsb = {
@@ -76,8 +117,9 @@ config.initial_rows = 100
 -- 	brightness = 1,
 -- }
 
--- config.window_background_opacity = 0.9
--- config.macos_window_background_blur = 10
+-- config.text_background_opacity = 0.0
+-- config.window_background_opacity = 0.96
+-- config.macos_window_background_blur = 90
 
 -- config.keys = {
 -- 	{

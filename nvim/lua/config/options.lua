@@ -7,7 +7,7 @@ opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 2 -- Hide * markup for bold and italic
-opt.cursorline = true -- Enable highlighting of the current line
+opt.cursorline = false -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
 opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
@@ -56,7 +56,7 @@ opt.fillchars = {
 }
 opt.nu = true
 opt.rnu = false
--- opt.background = "light"
+opt.background = "dark"
 
 if vim.fn.has("nvim-0.10") == 1 then
 	opt.smoothscroll = true
@@ -105,3 +105,5 @@ local builtins = {
 for _, plugin in ipairs(builtins) do
 	vim.g["loaded_" .. plugin] = 1
 end
+
+vim.filetype.add({ extension = { tf = "terraform", tfstate = "terraform" } })

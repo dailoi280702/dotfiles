@@ -1,3 +1,7 @@
+echo "I have to be successful, \033[1mbecause I like expensive shit.\033[0m"
+echo "Never play gaccha games again, \033[1mgaccha is basically gambling.\033[0m"
+
+
 eval "$(starship init zsh)"
 export NVM_LAZY_LOAD=false
 export NVM_COMPLETION=false
@@ -19,8 +23,9 @@ autoload -Uz compinit
 compinit
 
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.yarn/bin:$OME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH=$HOME/.local/share/nvim/mason/packages:$PATH
 # export GOPATH=$HOME/go
 # export GOROOT=/usr/local/opt/go/libexec
 # export PATH=$PATH:$GOPATH/bin
@@ -30,9 +35,9 @@ export PATH="/Users/loi/Library/Python/3.9/bin:$PATH"
 export EDITOR=nvim
 
 alias -g g="git"
-alias -g vim="nvim"
+alias -g tf="terraform"
+alias -g vim="vi"
 alias -g vi="nvim"
-alias -g e="sudo nice -n -20 nvim"
 alias -g ll="eza -l -g --icons"
 alias -g lla="ll -a"
 
@@ -53,3 +58,6 @@ if [ -f '/Users/lloyd/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lloyd/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/lloyd/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lloyd/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform

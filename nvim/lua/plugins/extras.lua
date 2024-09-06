@@ -7,6 +7,7 @@ local M = {
 			require("colorizer").setup()
 		end,
 	},
+	-- { "HiPhish/rainbow-delimiters.nvim", event = { "VeryLazy" } },
 }
 
 return M

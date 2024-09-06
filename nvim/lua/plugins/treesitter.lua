@@ -11,7 +11,10 @@ table.insert(M, {
 	dependencies = {},
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	opts = {
-		highlight = { enable = true, additional_vim_regex_highlighting = false },
+		highlight = {
+			enable = false,
+			-- additional_vim_regex_highlighting = false,
+		},
 		indent = { enable = true },
 		ensure_installed = "all",
 	},

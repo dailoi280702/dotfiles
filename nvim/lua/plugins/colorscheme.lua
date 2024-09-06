@@ -5,9 +5,7 @@ local M = {
 }
 
 M.init = function()
-	-- vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
-	-- 	callback = function()
-	-- 		vim.cmd([[hi clear]])
+	-- vim.api.nvim_create_autocmd({ "ColorSchemePre" }, { callback = function() vim.cmd([[hi clear]])
 	-- 	end,
 	-- })
 
@@ -23,37 +21,29 @@ M.init = function()
 					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#6f6f6f" })
 					-- vim.cmd.highlight({ "def link @function @function.builtin", bang = true })
 				end,
-				retrobox = function()
+				-- retrobox = function()
+				-- 	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+				-- 	vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+				-- 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+				-- 	vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#b8bb26" })
+				-- 	vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#8ec07c" })
+				-- 	vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#fb4934" })
+				-- 	vim.api.nvim_set_hl(0, "HopNextKey", { fg = "#d3869b", bold = true })
+				-- 	vim.api.nvim_set_hl(0, "HopNextKey1", { fg = "#83a598", bold = true })
+				-- 	vim.api.nvim_set_hl(0, "HopNextKey2", { fg = "#8ec07c" })
+				-- 	vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#fe8019", bg = "#303030" })
+				-- 	vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#83a598" })
+				-- end,
+				-- gruvbox = function()
+				-- 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+				-- 	vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
+				-- end,
+				default = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-					vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
-					vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-					vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#b8bb26" })
-					vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#8ec07c" })
-					vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#fb4934" })
-					vim.api.nvim_set_hl(0, "HopNextKey", { fg = "#d3869b", bold = true })
-					vim.api.nvim_set_hl(0, "HopNextKey1", { fg = "#83a598", bold = true })
-					vim.api.nvim_set_hl(0, "HopNextKey2", { fg = "#8ec07c" })
-					vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#fe8019", bg = "#303030" })
-					vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#83a598" })
 				end,
-				iceberg = function()
-					-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-					-- vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
+				habamax = function()
+					vim.api.nvim_set_hl(0, "MatchParen", { fg = "#585858" })
 				end,
-				-- ["gruvbox-material"] = function()
-				-- 	vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
-				-- 	vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
-				-- 	vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
-				-- 	vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#928374" })
-				-- end,
-				-- melange = function()
-				-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-				-- end,
-				-- default = function()
-				-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-				-- 	vim.api.nvim_set_hl(0, "StatusLine", { link = "Normal" })
-				-- 	vim.api.nvim_set_hl(0, "StatusLineNC", { link = "Normal" })
-				-- end,
 			}
 
 			local colorscheme = vim.g.colors_name
@@ -67,79 +57,11 @@ end
 M.config = function()
 	-- vim.cmd.colorscheme("oxocarbon")
 	-- vim.cmd.colorscheme("retrobox")
-	-- vim.cmd.colorscheme("default")
-end
-
-local N = {
-	"rose-pine/neovim",
-	lazy = false,
-	priority = 999,
-	enabled = true,
-}
-
-N.opts = { styles = { italic = false, transparency = false, bold = false } }
-
-N.config = function(_, opts)
-	local theme = require("rose-pine")
-	theme.setup(opts)
-
-	-- vim.cmd.colorscheme("rose-pine-dawn")
-end
-
-P = {
-	"rebelot/kanagawa.nvim",
-	lazy = false,
-	priority = 998,
-	enabled = false,
-}
-
-P.config = function()
-	require("kanagawa").setup({
-		compile = true,
-		transparent = false,
-		overrides = function(colors)
-			local theme = colors.theme
-
-			local overrides = {
-				TelescopeTitle = { fg = theme.ui.special, bold = true },
-				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-				TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-				NormalFloat = { bg = "none" },
-				FloatBorder = { bg = "none" },
-				FloatTitle = { bg = "none" },
-				NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-				LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-				MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-				Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
-				PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-				PmenuSbar = { bg = theme.ui.bg_m1 },
-				PmenuThumb = { bg = theme.ui.bg_p2 },
-			}
-
-			return overrides
-		end,
-		colors = {
-			theme = {
-				all = {
-					ui = {
-						bg_gutter = "none",
-					},
-				},
-			},
-		},
-	})
-
-	vim.cmd.colorscheme("kanagawa-dragon")
+	-- vim.cmd.colorscheme("habamax")
 end
 
 return {
 	M,
-	N,
-	P,
 	{
 		"Mofiqul/vscode.nvim",
 		lazy = false,
@@ -160,70 +82,25 @@ return {
 		end,
 	},
 	{
-		"projekt0n/github-nvim-theme",
+		"maxmx03/solarized.nvim",
 		lazy = false,
-		priority = 1000,
 		opts = {
-			options = {
-				transparent = false,
-				styles = {
-					comments = "NONE",
-					functions = "NONE",
-					keywords = "NONE",
-					variables = "NONE",
-					conditionals = "NONE",
-					constants = "NONE",
-					numbers = "NONE",
-					operators = "NONE",
-					strings = "NONE",
-					types = "NONE",
-				},
+			transparent = {
+				enabled = true, -- Master switch to enable transparency
+				pmenu = true, -- Popup menu (e.g., autocomplete suggestions)
+				normal = true, -- Main editor window background
+				normalfloat = true, -- Floating windows
+				neotree = true, -- Neo-tree file explorer
+				nvimtree = true, -- Nvim-tree file explorer
+				whichkey = true, -- Which-key popup
+				telescope = true, -- Telescope fuzzy finder
+				lazy = true, -- Lazy plugin manager UI
+				mason = true, -- Mason manage external tooling
 			},
 		},
 		config = function(_, opts)
-			require("github-theme").setup(opts)
-			-- vim.cmd.colorscheme("github_dark_dimmed")
-		end,
-	},
-	{
-		"savq/melange-nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			-- vim.cmd.colorscheme("melange")
-		end,
-	},
-	{
-		"ellisonleao/gruvbox.nvim",
-		priority = 998,
-		lazy = false,
-		opts = {
-			transparent_mode = false,
-			bold = false,
-			italic = {
-				strings = false,
-				emphasis = false,
-				comments = false,
-				operators = false,
-				folds = false,
-			},
-			-- overrides = {
-			-- 	["Delimiter"] = { link = "Comment" },
-			-- 	["Delimiter"] = { link = "GruvboxOrange" },
-			-- },
-		},
-		config = function(_, opts)
-			require("gruvbox").setup(opts)
-			-- vim.cmd.colorscheme("gruvbox")
-		end,
-	},
-	{
-		"edeneast/nightfox.nvim",
-		lazy = false,
-		priority = 998,
-		opts = {},
-		config = function()
-			vim.cmd.colorscheme("dawnfox")
+			require("solarized").setup(opts)
+			vim.cmd.colorscheme("solarized")
 		end,
 	},
 }
