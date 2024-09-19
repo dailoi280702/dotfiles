@@ -41,6 +41,9 @@ M.init = function()
 				default = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 				end,
+				wildcharm = function()
+					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+				end,
 				habamax = function()
 					vim.api.nvim_set_hl(0, "MatchParen", { fg = "#585858" })
 				end,
@@ -58,6 +61,7 @@ M.config = function()
 	-- vim.cmd.colorscheme("oxocarbon")
 	-- vim.cmd.colorscheme("retrobox")
 	-- vim.cmd.colorscheme("habamax")
+	vim.cmd.colorscheme("wildcharm")
 end
 
 return {
@@ -100,7 +104,7 @@ return {
 		},
 		config = function(_, opts)
 			require("solarized").setup(opts)
-			vim.cmd.colorscheme("solarized")
+			-- vim.cmd.colorscheme("solarized")
 		end,
 	},
 }

@@ -5,9 +5,8 @@ config.default_cursor_style = "SteadyBar"
 
 config.font = wezterm.font_with_fallback({
 	{
-		-- family = "cozettevector",
 		family = "jetbrains mono",
-		harfbuzz_features = { "liga=0" },
+		harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 		weight = "Medium",
 		-- stretch = "Expanded",
 	},
@@ -40,8 +39,8 @@ config.font = wezterm.font_with_fallback({
 -- 	-- 	},
 -- }
 
--- config.cell_width = 1
-config.line_height = 0.9
+config.cell_width = 0.9
+config.line_height = 1.2
 config.adjust_window_size_when_changing_font_size = false
 config.font_size = 14
 -- config.dpi = 144
@@ -51,49 +50,56 @@ config.front_end = "WebGpu"
 -- config.color_scheme = "Oxocarbon Dark"
 -- config.color_scheme = "Gruvbox dark, medium (base16)"
 -- config.color_scheme = "Tomorrow (dark) (terminal.sexy)"
+config.color_scheme = "Quiet (Gogh)"
 -- config.color_scheme = "Solarized Dark (Gogh)"
-config.color_scheme = "Solarized Dark - Patched"
+-- config.color_scheme = "Solarized Dark - Patched"
 
 -- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").dawn
 -- config.colors = theme.colors()
 -- config.window_frame = theme.window_frame()
 
--- local gruvbox_bg = "#1c1c1c"
--- local gruvbox_bg = "#002B36"
-local gruvbox_bg = "#001E27"
-local gruvbox_fg = "#928374"
-local gruvbox_orange = "#FE801A"
-local gruvbox_cyan = "#83A598"
-
+local oxocarbon = require("colors/oxocarbon")
 config.colors = {
-	background = gruvbox_bg,
-	tab_bar = {
-		background = gruvbox_bg,
-		active_tab = {
-			bg_color = gruvbox_bg,
-			fg_color = gruvbox_orange,
-			-- bold = true,
-		},
-		inactive_tab = {
-			bg_color = gruvbox_bg,
-			fg_color = gruvbox_fg,
-		},
-		inactive_tab_hover = {
-			bg_color = gruvbox_bg,
-			fg_color = gruvbox_fg,
-			italic = true,
-		},
-		new_tab = {
-			bg_color = gruvbox_bg,
-			fg_color = gruvbox_cyan,
-		},
-		new_tab_hover = {
-			bg_color = gruvbox_bg,
-			fg_color = gruvbox_cyan,
-			-- bold = true,
-		},
-	},
+	background = oxocarbon.background,
+	tab_bar = oxocarbon.tab_bar,
 }
+
+-- local gruvbox_bg = "#1c1c1c"
+-- -- local gruvbox_bg = "#002B36"
+-- -- local gruvbox_bg = "#001E27"
+-- local gruvbox_fg = "#928374"
+-- local gruvbox_orange = "#FE801A"
+-- local gruvbox_cyan = "#83A598"
+--
+-- config.colors = {
+-- 	background = gruvbox_bg,
+-- 	tab_bar = {
+-- 		background = gruvbox_bg,
+-- 		active_tab = {
+-- 			bg_color = gruvbox_bg,
+-- 			fg_color = gruvbox_orange,
+-- 			-- bold = true,
+-- 		},
+-- 		inactive_tab = {
+-- 			bg_color = gruvbox_bg,
+-- 			fg_color = gruvbox_fg,
+-- 		},
+-- 		inactive_tab_hover = {
+-- 			bg_color = gruvbox_bg,
+-- 			fg_color = gruvbox_fg,
+-- 			italic = true,
+-- 		},
+-- 		new_tab = {
+-- 			bg_color = gruvbox_bg,
+-- 			fg_color = gruvbox_cyan,
+-- 		},
+-- 		new_tab_hover = {
+-- 			bg_color = gruvbox_bg,
+-- 			fg_color = gruvbox_cyan,
+-- 			-- bold = true,
+-- 		},
+-- 	},
+-- }
 
 -- config.window_close_confirmation = "NeverPrompt"
 
