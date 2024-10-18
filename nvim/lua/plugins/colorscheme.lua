@@ -121,7 +121,7 @@ return {
 			},
 			before_highlight = function(_, hl, _)
 				C = require("util.color")
-				hl.fg = C.modify_lightness(hl.fg, -0.05)
+				hl.fg = C.shift_hsl(hl.fg, { l = -0.1, s = -0.1 })
 			end,
 		},
 		config = function(_, opts)

@@ -125,34 +125,56 @@ local function isHexColor(c)
 	return true
 end
 
-M.modify_lightness = function(hex_color, lightness_delta)
-	if not hex_color or not lightness_delta then
-		return hex_color
-	end
-
-	-- Validate hex color
-	if not isHexColor(hex_color) then
+M.shift_hsl = function(hex_color, values)
+	if not hex_color or not values then
 		return hex_color
 	end
 
 	hex_color = hex_color:lower()
+	if not isHexColor(hex_color) then
+		return hex_color
+	end
 
-	-- Validate lightness delta
-	if lightness_delta < -1 or lightness_delta > 1 then
-		error("Lightness delta must be between -1 and 1")
+	local h_delta, s_delta, l_delta = values.h or 0, values.s or 0, values.l or 0
+
+	if s_delta < -1 or s_delta > 1 or l_delta < -1 or l_delta > 1 then
+		error("values out of range -1 ~ 1")
 	end
 
 	local r, g, b = M.hex_to_rgb(hex_color)
 	local h, s, l = M.rgb_to_hsl(r, g, b)
 
-	-- Ensure lightness remains within the valid range
-	if lightness_delta < 0 then
-		l = math.max(0, math.min(1, l + lightness_delta))
-	else
-		l = math.min(1, math.max(0, l + lightness_delta))
+	local adjust_s = function(v, d)
+		if d < 0 then
+			return math.max(0, math.min(1, v + d))
+		end
+
+		if d > 0 then
+			v = math.min(1, math.max(0, v + d))
+		end
+
+		return v
 	end
 
-	r, g, b = M.hsl_to_rgb(h, s, l)
+	function adjust_h(h, d)
+		if h % 360 == 0 or d == 0 then
+			return h
+		end
+
+		h = h + d
+
+		while h < -360 do
+			h = h + 360
+		end
+
+		while h > 360 do
+			h = h - 360
+		end
+
+		return h
+	end
+
+	r, g, b = M.hsl_to_rgb(adjust_h(h, h_delta), adjust_s(s, s_delta), adjust_s(l, l_delta))
 	return M.rgb_to_hex(r, g, b)
 end
 
