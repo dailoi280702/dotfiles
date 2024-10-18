@@ -15,10 +15,10 @@ M.config = function()
 	):fmt("prettier")
 	ft("rust"):fmt("rustfmt")
 
-	require("guard").setup({
+	vim.g.guard_config = {
 		fmt_on_save = true,
 		lsp_as_default_formatter = true,
-	})
+	}
 end
 
 return M

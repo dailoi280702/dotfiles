@@ -42,7 +42,7 @@ M.init = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 				end,
 				wildcharm = function()
-					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+					vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
 				end,
 				habamax = function()
 					vim.api.nvim_set_hl(0, "MatchParen", { fg = "#585858" })
@@ -61,7 +61,7 @@ M.config = function()
 	-- vim.cmd.colorscheme("oxocarbon")
 	-- vim.cmd.colorscheme("retrobox")
 	-- vim.cmd.colorscheme("habamax")
-	vim.cmd.colorscheme("wildcharm")
+	-- vim.cmd.colorscheme("wildcharm")
 end
 
 return {
@@ -69,7 +69,7 @@ return {
 	{
 		"Mofiqul/vscode.nvim",
 		lazy = false,
-		priority = 999,
+		priority = 1000,
 		config = function()
 			local c = require("vscode.colors").get_colors()
 			require("vscode").setup({
@@ -103,8 +103,42 @@ return {
 			},
 		},
 		config = function(_, opts)
+			-- vim.opt.background = "light"
 			require("solarized").setup(opts)
 			-- vim.cmd.colorscheme("solarized")
+		end,
+	},
+	{
+		"rose-pine/neovim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			dark_variant = "moon",
+			styles = {
+				bold = true,
+				italic = false,
+				transparency = true,
+			},
+			before_highlight = function(_, hl, _)
+				C = require("util.color")
+				hl.fg = C.modify_lightness(hl.fg, -0.05)
+			end,
+		},
+		config = function(_, opts)
+			require("rose-pine").setup(opts)
+			vim.cmd.colorscheme("rose-pine-moon")
+		end,
+	},
+	{
+		"catppuccin/nvim",
+		priority = 1000,
+		lazy = false,
+		opts = {
+			no_italic = true,
+		},
+		config = function(_, opts)
+			require("catppuccin").setup(opts)
+			-- vim.cmd.colorscheme("catppuccin-frappe")
 		end,
 	},
 }

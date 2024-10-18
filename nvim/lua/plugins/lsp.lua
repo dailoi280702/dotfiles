@@ -98,6 +98,7 @@ lsp.opts = {
 		terraformls = {
 			-- filetypes = { "terraform", "terraform-vars", "tf" },
 		},
+		yamlfix = {},
 	},
 	setup = {},
 }

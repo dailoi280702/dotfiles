@@ -6,7 +6,7 @@ config.default_cursor_style = "SteadyBar"
 config.font = wezterm.font_with_fallback({
 	{
 		family = "jetbrains mono",
-		harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+		-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 		weight = "Medium",
 		-- stretch = "Expanded",
 	},
@@ -40,7 +40,7 @@ config.font = wezterm.font_with_fallback({
 -- }
 
 config.cell_width = 0.9
-config.line_height = 1.2
+config.line_height = 1.1
 config.adjust_window_size_when_changing_font_size = false
 config.font_size = 14
 -- config.dpi = 144
@@ -49,20 +49,22 @@ config.front_end = "WebGpu"
 
 -- config.color_scheme = "Oxocarbon Dark"
 -- config.color_scheme = "Gruvbox dark, medium (base16)"
--- config.color_scheme = "Tomorrow (dark) (terminal.sexy)"
-config.color_scheme = "Quiet (Gogh)"
+-- config.color_scheme = "Quiet (Gogh)"
 -- config.color_scheme = "Solarized Dark (Gogh)"
 -- config.color_scheme = "Solarized Dark - Patched"
+-- config.color_scheme = "Tomorrow (dark) (terminal.sexy)"
+config.color_scheme = "Catppuccin Frappe"
 
 -- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").dawn
 -- config.colors = theme.colors()
 -- config.window_frame = theme.window_frame()
 
-local oxocarbon = require("colors/oxocarbon")
-config.colors = {
-	background = oxocarbon.background,
-	tab_bar = oxocarbon.tab_bar,
-}
+-- local oxocarbon = require("colors/oxocarbon")
+-- config.colors = {
+-- 	-- background = oxocarbon.background,
+-- 	background = "#1D1D1D",
+-- 	tab_bar = oxocarbon.tab_bar,
+-- }
 
 -- local gruvbox_bg = "#1c1c1c"
 -- -- local gruvbox_bg = "#002B36"

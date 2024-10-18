@@ -1,5 +1,7 @@
-echo "I have to be successful, \033[1mbecause I like expensive shit.\033[0m"
-echo "Never play gaccha games again, \033[1mgaccha is basically gambling.\033[0m"
+# echo "I have to be successful, \033[1mbecause I like expensive shit.\033[0m"
+# echo "Why where we born, when will we die? I guess we never know. \033[1mKeep coding.\033[0m"
+echo "Why where we born, when will we die?"
+echo "I guess we never know. \033[1mKeep coding.\033[0m"
 
 
 eval "$(starship init zsh)"
