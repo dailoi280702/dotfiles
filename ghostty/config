@@ -1,16 +1,22 @@
 title = "Ghostty 👻"
 # theme = catppuccin-frappe
-background = #111111
-font-family = jetbrains mono
-font-style = semibold
-font-style-bold = extrabold
-font-style-italic = text italic
-font-style-bold-italic = semibold italic
-font-family = symbols nerd font mono
-font-size = 13
+# background = #111111
+# theme = rose-pine-dawn
+theme = rose-pine-dawn
+# palette = 2=#286983
+# palette = 10=#286983
+# palette = 4=#56949f
+# palette = 12=#56949f
+font-family = serious sans
+# font-family = gohufont uni14 nerd font
+# font-style-bold = extrabold
+# font-style-italic = medium italic
+# font-style-bold-italic = extrabold italic
+# font-family = symbols nerd font mono
+font-size = 16
 adjust-cell-width = -5%
-adjust-cell-height = +20%
-# adjust-font-baseline = +10%
+ adjust-cell-height = +10%
+# adjust-font-baseline = +5%
 command = /bin/zsh -c 'tmux a || tmux'
 window-padding-balance = true
 macos-titlebar-style = hidden

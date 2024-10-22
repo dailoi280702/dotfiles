@@ -1,4 +1,5 @@
 local M = {}
+local hsluv = require("util.hsluv")
 
 M.rgb_to_hsl = function(r, g, b)
 	r = r / 255
@@ -79,11 +80,11 @@ M.hsl_to_rgb = function(h, s, l)
 		end
 	end
 
-	r = math.floor(r * 255)
-	g = math.floor(g * 255)
-	b = math.floor(b * 255)
+	-- r = math.floor(r * 255)
+	-- g = math.floor(g * 255)
+	-- b = math.floor(b * 255)
 
-	return r, g, b
+	return r * 255, g * 255, b * 255
 end
 
 M.rgb_to_hex = function(r, g, b)
@@ -102,7 +103,7 @@ M.hex_to_rgb = function(hex)
 	return r, g, b
 end
 
-local function isHexColor(c)
+local function is_hex_color(c)
 	if not c then
 		return false
 	end
@@ -131,51 +132,73 @@ M.shift_hsl = function(hex_color, values)
 	end
 
 	hex_color = hex_color:lower()
-	if not isHexColor(hex_color) then
+	if not is_hex_color(hex_color) then
 		return hex_color
 	end
 
 	local h_delta, s_delta, l_delta = values.h or 0, values.s or 0, values.l or 0
 
-	if s_delta < -1 or s_delta > 1 or l_delta < -1 or l_delta > 1 then
-		error("values out of range -1 ~ 1")
-	end
+	-- if s_delta < -1 or s_delta > 1 or l_delta < -1 or l_delta > 1 then
+	-- 	error("values out of range -1 ~ 1")
+	-- end
 
-	local r, g, b = M.hex_to_rgb(hex_color)
-	local h, s, l = M.rgb_to_hsl(r, g, b)
+	-- local r, g, b = M.hex_to_rgb(hex_color)
+	-- local h, s, l = M.rgb_to_hsl(r, g, b)
+	local hsl = hsluv.hex_to_hsluv(hex_color)
+	local h, s, l = hsl[1], hsl[2], hsl[3]
 
-	local adjust_s = function(v, d)
-		if d < 0 then
-			return math.max(0, math.min(1, v + d))
+	-- local adjust_s = function(v, d)
+	-- 	if d < 0 then
+	-- 		return math.max(0, math.min(1, v + d))
+	-- 	end
+	--
+	-- 	if d > 0 then
+	-- 		v = math.min(1, math.max(0, v + d))
+	-- 	end
+	--
+	-- 	return v
+	-- end
+	--
+	-- local adjust_h = function(v, d)
+	-- 	if v % 360 == 0 or d == 0 then
+	-- 		return v
+	-- 	end
+	--
+	-- 	v = v + d
+	--
+	-- 	while v < -360 do
+	-- 		v = v + 360
+	-- 	end
+	--
+	-- 	while v > 360 do
+	-- 		v = v - 360
+	-- 	end
+	--
+	-- 	return v
+	-- end
+
+	local adjust = function(v, d, m)
+		if v % m == 0 or d == 0 then
+			return v
 		end
 
-		if d > 0 then
-			v = math.min(1, math.max(0, v + d))
+		v = v + d
+
+		while v < -m do
+			v = v + m
+		end
+
+		while v > m do
+			v = v - m
 		end
 
 		return v
 	end
 
-	function adjust_h(h, d)
-		if h % 360 == 0 or d == 0 then
-			return h
-		end
-
-		h = h + d
-
-		while h < -360 do
-			h = h + 360
-		end
-
-		while h > 360 do
-			h = h - 360
-		end
-
-		return h
-	end
-
-	r, g, b = M.hsl_to_rgb(adjust_h(h, h_delta), adjust_s(s, s_delta), adjust_s(l, l_delta))
-	return M.rgb_to_hex(r, g, b)
+	-- r, g, b = M.hsl_to_rgb(adjust_h(h, h_delta), adjust_s(s, s_delta), adjust_s(l, l_delta))
+	-- return M.rgb_to_hex(r, g, b)
+	return hsluv.hsluv_to_hex({ adjust(h, h_delta, 360), adjust(s, s_delta, 100), adjust(l, s_delta, 100) })
+	-- return M.rgb_to_hex(rgb[1], rgb[2], rgb[3])
 end
 
 return M

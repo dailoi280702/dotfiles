@@ -117,28 +117,33 @@ return {
 			styles = {
 				bold = true,
 				italic = false,
-				transparency = true,
+				transparency = false,
 			},
 			before_highlight = function(_, hl, _)
 				C = require("util.color")
-				hl.fg = C.shift_hsl(hl.fg, { l = -0.1, s = -0.1 })
+				-- hl.fg = C.shift_hsl(hl.fg, { l = -0.1, s = -0.1, h = -15 })
+				hl.fg = C.shift_hsl(hl.fg, {
+					l = -10,
+					s = -10,
+					h = 0,
+				})
 			end,
 		},
 		config = function(_, opts)
 			require("rose-pine").setup(opts)
-			vim.cmd.colorscheme("rose-pine-moon")
+			vim.cmd.colorscheme("rose-pine-dawn")
 		end,
 	},
-	{
-		"catppuccin/nvim",
-		priority = 1000,
-		lazy = false,
-		opts = {
-			no_italic = true,
-		},
-		config = function(_, opts)
-			require("catppuccin").setup(opts)
-			-- vim.cmd.colorscheme("catppuccin-frappe")
-		end,
-	},
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	priority = 1000,
+	-- 	lazy = false,
+	-- 	opts = {
+	-- 		no_italic = true,
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		require("catppuccin").setup(opts)
+	-- 		-- vim.cmd.colorscheme("catppuccin-frappe")
+	-- 	end,
+	-- },
 }
