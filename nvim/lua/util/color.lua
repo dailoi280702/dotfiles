@@ -197,7 +197,7 @@ M.shift_hsl = function(hex_color, values)
 
 	-- r, g, b = M.hsl_to_rgb(adjust_h(h, h_delta), adjust_s(s, s_delta), adjust_s(l, l_delta))
 	-- return M.rgb_to_hex(r, g, b)
-	return hsluv.hsluv_to_hex({ adjust(h, h_delta, 360), adjust(s, s_delta, 100), adjust(l, s_delta, 100) })
+	return hsluv.hsluv_to_hex({ adjust(h, h_delta, 360), adjust(s, s_delta, 100), adjust(l, l_delta, 100) })
 	-- return M.rgb_to_hex(rgb[1], rgb[2], rgb[3])
 end
 

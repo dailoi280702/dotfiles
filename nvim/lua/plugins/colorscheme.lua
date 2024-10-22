@@ -5,9 +5,26 @@ local M = {
 }
 
 M.init = function()
-	-- vim.api.nvim_create_autocmd({ "ColorSchemePre" }, { callback = function() vim.cmd([[hi clear]])
-	-- 	end,
-	-- })
+	vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+		callback = function()
+			local C = require("util.color")
+			-- local hsluv = require("util.hsluv")
+			-- :TODO dim the foreground colors
+			local hl_groups = vim.api.nvim_get_hl(0, {})
+			for name, spec in pairs(hl_groups) do
+				if spec.fg then
+					local fg = "#" .. string.format("%06x", spec.fg)
+					spec.fg = C.shift_hsl(fg, {
+						h = 0,
+						s = -10,
+						l = -5,
+					})
+
+					vim.api.nvim_set_hl(0, name, spec)
+				end
+			end
+		end,
+	})
 
 	vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 		callback = function()
@@ -119,15 +136,14 @@ return {
 				italic = false,
 				transparency = false,
 			},
-			before_highlight = function(_, hl, _)
-				C = require("util.color")
-				-- hl.fg = C.shift_hsl(hl.fg, { l = -0.1, s = -0.1, h = -15 })
-				hl.fg = C.shift_hsl(hl.fg, {
-					l = -10,
-					s = -10,
-					h = 0,
-				})
-			end,
+			-- before_highlight = function(_, hl, _)
+			-- 	C = require("util.color")
+			-- 	hl.fg = C.shift_hsl(hl.fg, {
+			-- 		l = -10,
+			-- 		s = -10,
+			-- 		h = 0,
+			-- 	})
+			-- end,
 		},
 		config = function(_, opts)
 			require("rose-pine").setup(opts)
