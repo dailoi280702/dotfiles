@@ -137,54 +137,17 @@ M.shift_hsl = function(hex_color, values)
 	end
 
 	local h_delta, s_delta, l_delta = values.h or 0, values.s or 0, values.l or 0
-
-	-- if s_delta < -1 or s_delta > 1 or l_delta < -1 or l_delta > 1 then
-	-- 	error("values out of range -1 ~ 1")
-	-- end
-
-	-- local r, g, b = M.hex_to_rgb(hex_color)
-	-- local h, s, l = M.rgb_to_hsl(r, g, b)
 	local hsl = hsluv.hex_to_hsluv(hex_color)
 	local h, s, l = hsl[1], hsl[2], hsl[3]
 
-	-- local adjust_s = function(v, d)
-	-- 	if d < 0 then
-	-- 		return math.max(0, math.min(1, v + d))
-	-- 	end
-	--
-	-- 	if d > 0 then
-	-- 		v = math.min(1, math.max(0, v + d))
-	-- 	end
-	--
-	-- 	return v
-	-- end
-	--
-	-- local adjust_h = function(v, d)
-	-- 	if v % 360 == 0 or d == 0 then
-	-- 		return v
-	-- 	end
-	--
-	-- 	v = v + d
-	--
-	-- 	while v < -360 do
-	-- 		v = v + 360
-	-- 	end
-	--
-	-- 	while v > 360 do
-	-- 		v = v - 360
-	-- 	end
-	--
-	-- 	return v
-	-- end
-
-	local adjust = function(v, d, m)
-		if v % m == 0 or d == 0 then
+	local normalize = function(v, d, m)
+		if d == 0 or v + d < 0 or v + d > m then
 			return v
 		end
 
 		v = v + d
 
-		while v < -m do
+		while v < 0 do
 			v = v + m
 		end
 
@@ -195,10 +158,73 @@ M.shift_hsl = function(hex_color, values)
 		return v
 	end
 
-	-- r, g, b = M.hsl_to_rgb(adjust_h(h, h_delta), adjust_s(s, s_delta), adjust_s(l, l_delta))
-	-- return M.rgb_to_hex(r, g, b)
-	return hsluv.hsluv_to_hex({ adjust(h, h_delta, 360), adjust(s, s_delta, 100), adjust(l, l_delta, 100) })
-	-- return M.rgb_to_hex(rgb[1], rgb[2], rgb[3])
+	return hsluv.hsluv_to_hex({ normalize(h, h_delta, 360), normalize(s, s_delta, 100), normalize(l, l_delta, 100) })
+end
+
+M.shift_hsl_percentage = function(hex_color, values)
+	if not hex_color or not values then
+		return hex_color
+	end
+
+	hex_color = hex_color:lower()
+	if not is_hex_color(hex_color) then
+		return hex_color
+	end
+
+	local h_delta, s_delta, l_delta = values.h or 0, values.s or 0, values.l or 0
+	local hsl = hsluv.hex_to_hsluv(hex_color)
+	local h, s, l = hsl[1], hsl[2], hsl[3]
+
+	if s_delta < 0 or s_delta > 1 or l_delta < 0 or l_delta > 1 then
+		error("invalid lightness or saturation")
+	end
+
+	local normalize_value = function(v, d, m)
+		if d == 0 or v + d < 0 or v + d > m then
+			return v
+		end
+
+		v = v + d
+
+		while v < 0 do
+			v = v + m
+		end
+
+		while v > m do
+			v = v - m
+		end
+
+		return v
+	end
+
+	local normalize_percentage = function(v, d, m)
+		if d == 0 or v * d > m then
+			return v
+		end
+
+		return v * d
+	end
+
+	return hsluv.hsluv_to_hex({
+		normalize_value(h, h_delta, 360),
+		normalize_percentage(s, s_delta, 100),
+		normalize_percentage(l, l_delta, 100),
+	})
+end
+
+M.flatten = function(hex_color)
+	if not hex_color then
+		return hex_color
+	end
+
+	hex_color = hex_color:lower()
+	if not is_hex_color(hex_color) then
+		return hex_color
+	end
+
+	local hsl = hsluv.hex_to_hsluv(hex_color)
+
+	return hsluv.hsluv_to_hex({ hsl[1], 50, 50 })
 end
 
 return M

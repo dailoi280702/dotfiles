@@ -7,34 +7,13 @@ local M = {
 M.init = function()
 	vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 		callback = function()
-			local C = require("util.color")
-			-- local hsluv = require("util.hsluv")
-			-- :TODO dim the foreground colors
-			local hl_groups = vim.api.nvim_get_hl(0, {})
-			for name, spec in pairs(hl_groups) do
-				if spec.fg then
-					local fg = "#" .. string.format("%06x", spec.fg)
-					spec.fg = C.shift_hsl(fg, {
-						h = 0,
-						s = -10,
-						l = -5,
-					})
-
-					vim.api.nvim_set_hl(0, name, spec)
-				end
-			end
-		end,
-	})
-
-	vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-		callback = function()
 			local setup_colorscheme = {
 				oxocarbon = function()
-					vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+					-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 					vim.api.nvim_set_hl(0, "HopNextKey", { fg = "#be95ff", bold = true })
 					vim.api.nvim_set_hl(0, "HopNextKey1", { fg = "#ff7eb6" })
 					vim.api.nvim_set_hl(0, "HopNextKey2", { fg = "#ee5396", bold = true })
-					vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+					-- vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
 					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#6f6f6f" })
 					-- vim.cmd.highlight({ "def link @function @function.builtin", bang = true })
 				end,
@@ -69,6 +48,32 @@ M.init = function()
 			local colorscheme = vim.g.colors_name
 			if setup_colorscheme[colorscheme] then
 				setup_colorscheme[colorscheme]()
+			end
+		end,
+	})
+
+	vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
+		callback = function()
+			vim.cmd("hi clear")
+		end,
+	})
+
+	vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+		callback = function()
+			local C = require("util.color")
+			-- local hsluv = require("util.hsluv")
+			-- :TODO dim the foreground colors
+			local hl_groups = vim.api.nvim_get_hl(0, {})
+			for name, spec in pairs(hl_groups) do
+				if spec.fg then
+					local fg = "#" .. string.format("%06x", spec.fg)
+					spec.fg = C.shift_hsl_percentage(fg, {
+						h = 0,
+						s = 0.7,
+						l = 0.8,
+					})
+					vim.api.nvim_set_hl(0, name, spec)
+				end
 			end
 		end,
 	})
