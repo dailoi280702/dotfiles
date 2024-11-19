@@ -34,10 +34,13 @@ M.init = function()
 				-- 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 				-- 	vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
 				-- end,
-				default = function()
-					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-				end,
+				-- default = function()
+				-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+				-- end,
 				wildcharm = function()
+					vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
+				end,
+				["jellybeans-nvim"] = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
 				end,
 				habamax = function()
@@ -52,27 +55,37 @@ M.init = function()
 		end,
 	})
 
-	vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
-		callback = function()
-			vim.cmd("hi clear")
-		end,
-	})
+	-- vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
+	-- 	callback = function()
+	-- 		vim.cmd("hi clear")
+	-- 	end,
+	-- })
 
 	vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 		callback = function()
-			local C = require("util.color")
-			-- local hsluv = require("util.hsluv")
-			-- :TODO dim the foreground colors
-			local hl_groups = vim.api.nvim_get_hl(0, {})
-			for name, spec in pairs(hl_groups) do
-				if spec.fg then
-					local fg = "#" .. string.format("%06x", spec.fg)
-					spec.fg = C.shift_hsl_percentage(fg, {
-						h = 0,
-						s = 0.7,
-						l = 0.8,
-					})
-					vim.api.nvim_set_hl(0, name, spec)
+			local hsl = {
+				-- gruvbox = {
+				-- 	s = 0.9,
+				-- 	l = 0.9,
+				-- },
+				["rose-pine"] = {
+					-- s = 0.7,
+					-- l = 0.8,
+					s = 0.8,
+					l = 0.9,
+				},
+			}
+
+			local colorscheme = vim.g.colors_name
+			if hsl[colorscheme] then
+				local C = require("util.color")
+				local hl_groups = vim.api.nvim_get_hl(0, {})
+				for name, spec in pairs(hl_groups) do
+					if spec.fg then
+						local fg = "#" .. string.format("%06x", spec.fg)
+						spec.fg = C.shift_hsl_percentage(fg, hsl[colorscheme])
+						vim.api.nvim_set_hl(0, name, spec)
+					end
 				end
 			end
 		end,
@@ -123,6 +136,18 @@ return {
 				lazy = true, -- Lazy plugin manager UI
 				mason = true, -- Mason manage external tooling
 			},
+			-- styles = {
+			-- 	keywords = { bold = false },
+			-- },
+			on_highlights = function(colors, color)
+				local groups = {
+					KeyWord = { fg = "#859900" },
+					Delimiter = { fg = "#dc322f" },
+					Bracket = { fg = "#dc322f" },
+					Number = { fg = "#2aa198" },
+				}
+				return groups
+			end,
 		},
 		config = function(_, opts)
 			-- vim.opt.background = "light"
@@ -152,15 +177,86 @@ return {
 		},
 		config = function(_, opts)
 			require("rose-pine").setup(opts)
-			vim.cmd.colorscheme("rose-pine-dawn")
+			-- vim.cmd.colorscheme("rose-pine-dawn")
 		end,
 	},
+	{
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
+		lazy = false,
+		opts = {
+			italic = {
+				strings = false,
+				emphasis = false,
+				comments = false,
+				operators = false,
+				folds = false,
+			},
+			transparent_mode = false,
+		},
+		config = function(_, opts)
+			require("gruvbox").setup(opts)
+			-- vim.opt.background = "dark"
+			-- vim.cmd.colorscheme("gruvbox")
+		end,
+	},
+	{
+		"projekt0n/github-nvim-theme",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			options = {
+				transparent = false,
+			},
+		},
+		config = function(_, opts)
+			require("github-theme").setup(opts)
+			-- vim.cmd.colorscheme("github_dark_dimmed")
+		end,
+	},
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+		config = function(_, opts)
+			require("nightfox").setup(opts)
+			vim.opt.background = "light"
+			vim.cmd.colorscheme("dayfox")
+		end,
+	},
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {
+	-- 		transparent = true,
+	-- 		overrides = function(colors)
+	-- 			local theme = colors.theme
+	-- 			return {
+	-- 				TelescopeTitle = { fg = theme.ui.special, bold = true },
+	-- 				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+	-- 				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+	-- 				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+	-- 				TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+	-- 				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+	-- 				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+	-- 			}
+	-- 		end,
+	-- 	},
+	-- 	config = function(_, opts)
+	-- 		require("kanagawa").setup(opts)
+	-- 		-- vim.opt.background = "dark"
+	-- 		-- vim.cmd.colorscheme("kanagawa-dragon")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"catppuccin/nvim",
 	-- 	priority = 1000,
 	-- 	lazy = false,
 	-- 	opts = {
 	-- 		no_italic = true,
+	-- 		transparent_background = false,
 	-- 	},
 	-- 	config = function(_, opts)
 	-- 		require("catppuccin").setup(opts)

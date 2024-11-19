@@ -8,7 +8,7 @@ table.insert(M, {
 		require("lazy.core.loader").add_to_rtp(plugin)
 		require("nvim-treesitter.query_predicates")
 	end,
-	dependencies = {},
+	dependencies = { "nvim-treesitter/nvim-treesitter-context" },
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	opts = {
 		highlight = {
@@ -20,6 +20,11 @@ table.insert(M, {
 	},
 	config = function(_, opts)
 		require("nvim-treesitter.configs").setup(opts)
+		require("treesitter-context").setup({
+			max_lines = 3,
+			min_window_height = 20,
+			multiline_threshold = 1,
+		})
 	end,
 })
 

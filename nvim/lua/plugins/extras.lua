@@ -8,6 +8,23 @@ local M = {
 		end,
 	},
 	-- { "HiPhish/rainbow-delimiters.nvim", event = { "VeryLazy" } },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
+		lazy = false,
+		main = "ibl",
+		opts = {
+			indent = {
+				char = "▏",
+			},
+			scope = {
+				enabled = false,
+			},
+		},
+		config = function(_, opts)
+			require("ibl").setup(opts)
+		end,
+	},
 }
 
 return M

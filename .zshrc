@@ -1,7 +1,6 @@
-# echo "I have to be successful, \033[1mbecause I like expensive shit.\033[0m"
-# echo "Why where we born, when will we die? I guess we never know. \033[1mKeep coding.\033[0m"
-echo "Why where we born, when will we die?"
-echo "I guess we never know. \033[1mKeep coding.\033[0m"
+echo "I have to be successful, \033[1mbecause I like expensive shit.\033[0m"
+# echo "Why where we born, when will we die?"
+# echo "I guess we never know. \033[1mKeep coding.\033[0m"
 
 
 eval "$(starship init zsh)"
@@ -34,7 +33,9 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # export PATH=$PATH:$GOROOT/bin
 # export DOCKER_CONFIG=$HOME/newdir/.docker
 export PATH="/Users/loi/Library/Python/3.9/bin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 export EDITOR=nvim
+export GOPRIVATE=gitlab.com/husol*
 
 alias -g g="git"
 alias -g tf="terraform"

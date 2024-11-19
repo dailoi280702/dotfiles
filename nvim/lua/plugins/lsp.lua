@@ -90,7 +90,7 @@ lsp.opts = {
 		-- intelephense = {},
 		zls = {},
 		lua_ls = {},
-		bufls = {},
+		buf_ls = {},
 		-- fennel_language_server = {},
 		golangci_lint_ls = {},
 		eslint = {},
@@ -98,7 +98,7 @@ lsp.opts = {
 		terraformls = {
 			-- filetypes = { "terraform", "terraform-vars", "tf" },
 		},
-		yamlfix = {},
+		-- yamlfix = {},
 	},
 	setup = {},
 }

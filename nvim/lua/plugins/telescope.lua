@@ -17,6 +17,7 @@ M.keys = {
 	{ "<leader>,", "<cmd>Telescope file_browser hidden=true<cr>", desc = "Brow Files" },
 	{ "<leader>.", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
 	{ "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+	{ "<leader>'", "<cmd>Telescope resume<cr>", desc = "Resume search" },
 }
 
 M.opts = {
