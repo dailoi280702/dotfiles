@@ -3,50 +3,6 @@ local M = {
 	event = "VimEnter",
 	enabled = true,
 }
--- local vscode = {}
--- local colors = {
--- 	fg = "#5A5A5A",
--- }
---
--- vscode.normal = {
--- 	a = { fg = colors.fg, bg = "none" },
--- 	b = { fg = colors.fg, bg = "none" },
--- 	c = { fg = colors.fg, bg = "none" },
--- }
---
--- vscode.visual = {
--- 	a = { fg = colors.fg, bg = "none" },
--- 	b = { fg = colors.fg, bg = "none" },
--- }
---
--- vscode.inactive = {
--- 	a = { fg = colors.fg, bg = "none" },
--- 	b = { fg = colors.inactive, bg = "none" },
--- 	c = { fg = colors.inactive, bg = "none" },
--- }
---
--- vscode.replace = {
--- 	a = { fg = colors.fg, bg = "none" },
--- 	b = { fg = colors.fg, bg = "none" },
--- 	c = { fg = colors.fg, bg = "none" },
--- }
---
--- vscode.insert = {
--- 	a = { fg = colors.fg, bg = "none" },
--- 	b = { fg = colors.fg, bg = "none" },
--- 	c = { fg = colors.fg, bg = "none" },
--- }
---
--- vscode.terminal = {
--- 	a = { fg = colors.fg, bg = "none" },
--- 	b = { fg = colors.fg, bg = "none" },
--- 	c = { fg = colors.fg, bg = "none" },
--- }
--- vscode.command = {
--- 	a = { fg = colors.fg, bg = "none" },
--- 	b = { fg = colors.fg, bg = "none" },
--- 	c = { fg = colors.fg, bg = "none" },
--- }
 
 local transparent = {
 	normal = {

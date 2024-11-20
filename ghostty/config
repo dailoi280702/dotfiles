@@ -1,5 +1,6 @@
 title = "Ghostty 👻"
-theme = dayfox
+# theme = dayfox
+theme = flexoki-light
 # theme = rose-pine-dawn
 # palette = 2=#286983
 # palette = 10=#286983
@@ -9,18 +10,19 @@ theme = dayfox
 # background = #1c1c1c
 # theme = kanagawabones
 # theme = Builtin Solarized Light
-font-family = zed mono extended
+font-family = cascadia code
 # font-family = noto sans mono extracondensed
 # font-family = gohufont uni14 nerd font
-# font-style = semibold
+font-style = semibold
+font-style-italic = semibold italic
 # font-style-bold = extrabold
-# font-style-italic = semibold italic
 # font-style-bold-italic = extrabold italic
-font-size = 15
-adjust-cell-width = -2
-adjust-cell-height = +20%
+font-size = 14
+adjust-cell-width = -1
+# adjust-cell-height = +10%
 # adjust-font-baseline = +5%
 command = /bin/zsh -c 'tmux a || tmux'
 window-padding-balance = true
 macos-titlebar-style = hidden
 # window-colorspace = display-p3
+# custom-shader = "shaders/outline.glsl"

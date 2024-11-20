@@ -69,10 +69,10 @@ M.init = function()
 				-- 	l = 0.9,
 				-- },
 				["rose-pine"] = {
-					-- s = 0.7,
-					-- l = 0.8,
-					s = 0.8,
-					l = 0.9,
+					s = 0.7,
+					l = 0.8,
+					-- s = 0.8,
+					-- l = 0.9,
 				},
 			}
 
@@ -221,8 +221,8 @@ return {
 		opts = {},
 		config = function(_, opts)
 			require("nightfox").setup(opts)
-			vim.opt.background = "light"
-			vim.cmd.colorscheme("dayfox")
+			-- vim.opt.background = "light"
+			-- vim.cmd.colorscheme("dayfox")
 		end,
 	},
 	-- {
@@ -263,4 +263,39 @@ return {
 	-- 		-- vim.cmd.colorscheme("catppuccin-frappe")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"echasnovski/mini.base16",
+	-- 	lazy = false,
+	-- 	priority = 999,
+	-- 	config = function()
+	-- 		require("mini.base16").setup({
+	-- 			palette = {
+	-- 				base00 = "#FFFBF0",
+	-- 				base01 = "#F2F0E5",
+	-- 				base02 = "#E6E4D8",
+	-- 				base03 = "#DAD8CE",
+	-- 				base07 = "#CECDC3",
+	-- 				base06 = "#B7B6AC",
+	-- 				base05 = "#6F6E69",
+	-- 				base04 = "#171616",
+	-- 				base08 = "#D14D41",
+	-- 				base0D = "#DA702C",
+	-- 				base09 = "#4385BE",
+	-- 				base0A = "#D0A215",
+	-- 				base0C = "#879A39",
+	-- 				base0B = "#3AA99F",
+	-- 				base0E = "#8B7EC8",
+	-- 				base0F = "#CE5D97",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
+	{
+		"kepano/flexoki-neovim",
+		lazy = false,
+		priority = 999,
+		config = function()
+			vim.cmd.colorscheme("flexoki-light")
+		end,
+	},
 }
