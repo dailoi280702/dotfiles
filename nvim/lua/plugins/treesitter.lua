@@ -33,6 +33,7 @@ table.insert(M, {
 	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 	dependencies = "nvim-treesitter",
 	opts = {},
+	entabled = false,
 })
 
 return M

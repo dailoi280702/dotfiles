@@ -1,4 +1,7 @@
-echo "I have to be successful, \033[1mbecause I like expensive shit.\033[0m"
+tput cup 9999 0
+echo '        A B A B  '
+# echo "Only suckers put hope in the future."
+# echo "I have to be successful, \033[1mbecause I like expensive shit.\033[0m"
 # echo "Why where we born, when will we die?"
 # echo "I guess we never know. \033[1mKeep coding.\033[0m"
 
@@ -64,3 +67,13 @@ if [ -f '/Users/lloyd/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/llo
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+# preexec() {
+#     clear
+# }
+
+precmd () {
+    printf '\033[38;5;244m%*s\033[0m\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+    tput cup 9999 0
+    tput el
+}

@@ -20,6 +20,7 @@ table.insert(M, {
 	"echasnovski/mini.pairs",
 	event = "VeryLazy",
 	opts = {},
+	enabled = false,
 })
 
 table.insert(M, {
@@ -45,8 +46,7 @@ table.insert(M, {
 		opts = {
 			options = {
 				custom_commentstring = function()
-					return require("ts_context_commentstring.internal").calculate_commentstring()
-						or vim.bo.commentstring
+					return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
 				end,
 			},
 		},

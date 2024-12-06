@@ -1,16 +1,17 @@
+[general]
 import = [
-    "~/.config/alacritty/themes/catppuccin-frappe.toml"
+    "~/.config/alacritty/themes/gruvboxm.toml"
 ]
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = [ "-l", "-c", "tmux a || tmux" ]
 
 [font]
 # ueoai this line is used for comparing line height
 # iaoeu this line is used for comparing line height
-size = 14
-normal = { family = "jetbrainsmono nerd font", style="Regular" }
+size = 18
+normal = { family = "codenewroman nerd font", style="Regular" }
 # bold = {style ="Medium" }
 # italic = {  style = "Italic" }
 # bold_italic = {  style = "Medium Italic" }
@@ -42,9 +43,7 @@ TERM = "xterm-256color"
 WAYLAND_DISPLAY= "alacritty"
 
 [colors]
-# primary.background = '#232634'
-# primary.background = '#1D1D1D'
-# primary.background = "#252221"
+primary.background = '#1C1C1C'
 
 [keyboard]
 bindings = [
