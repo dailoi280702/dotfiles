@@ -10,16 +10,16 @@ args = [ "-l", "-c", "tmux a || tmux" ]
 [font]
 # ueoai this line is used for comparing line height
 # iaoeu this line is used for comparing line height
-size = 18
-normal = { family = "codenewroman nerd font", style="Regular" }
-# bold = {style ="Medium" }
-# italic = {  style = "Italic" }
+size = 20
+normal = { family = "iosevkaterm nerd font", style = "Regular" }
+italic = {  style = "Italic" }
+# bold = {style ="Bold" }
 # bold_italic = {  style = "Medium Italic" }
 # normal = { family = "zedmono nerd font", style = "Extended" }
 # bold = { family = "zedmono nerd font", style = "Extended Medium" }
 # italic = { family = "zedmono nerd font", style = "Extended Italic" }
 # bold_italic = { family = "zedmono nerd font", style = "Extended Medium Italic" }
-offset = { x = 0, y = 0 }
+# offset = { x = -1, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 builtin_box_drawing = true
 
@@ -42,8 +42,8 @@ hide_when_typing = true
 TERM = "xterm-256color"
 WAYLAND_DISPLAY= "alacritty"
 
-[colors]
-primary.background = '#1C1C1C'
+# [colors]
+# primary.background = '#1C1C1C'
 
 [keyboard]
 bindings = [

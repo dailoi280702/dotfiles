@@ -17,19 +17,19 @@ M.init = function()
 					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#6f6f6f" })
 					-- vim.cmd.highlight({ "def link @function @function.builtin", bang = true })
 				end,
-				-- retrobox = function()
-				-- 	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-				-- 	vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
-				-- 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-				-- 	vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#b8bb26" })
-				-- 	vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#8ec07c" })
-				-- 	vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#fb4934" })
-				-- 	vim.api.nvim_set_hl(0, "HopNextKey", { fg = "#d3869b", bold = true })
-				-- 	vim.api.nvim_set_hl(0, "HopNextKey1", { fg = "#83a598", bold = true })
-				-- 	vim.api.nvim_set_hl(0, "HopNextKey2", { fg = "#8ec07c" })
-				-- 	vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#fe8019", bg = "#303030" })
-				-- 	vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#83a598" })
-				-- end,
+				retrobox = function()
+					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+					vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+					vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+					vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#b8bb26" })
+					vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#8ec07c" })
+					vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#fb4934" })
+					vim.api.nvim_set_hl(0, "HopNextKey", { fg = "#d3869b", bold = true })
+					vim.api.nvim_set_hl(0, "HopNextKey1", { fg = "#83a598", bold = true })
+					vim.api.nvim_set_hl(0, "HopNextKey2", { fg = "#8ec07c" })
+					vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#fe8019", bg = "#303030" })
+					vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#83a598" })
+				end,
 				-- gruvbox = function()
 				-- 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 				-- 	vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
@@ -115,7 +115,7 @@ M.config = function()
 	-- vim.cmd.colorscheme("retrobox")
 	-- vim.cmd.colorscheme("habamax")
 	-- vim.cmd.colorscheme("wildcharm")
-	-- vim.cmd.colorscheme("default")
+	vim.cmd.colorscheme("default")
 end
 
 return {
@@ -137,9 +137,9 @@ return {
 				-- 	["@variable"] = { fg = c.vscFront },
 				-- },
 			})
-			vim.o.background = "dark"
-			require("vscode").load()
-			vim.cmd.colorscheme("vscode")
+			-- vim.o.background = "dark"
+			-- require("vscode").load()
+			-- vim.cmd.colorscheme("vscode")
 		end,
 	},
 	-- {
@@ -251,9 +251,40 @@ return {
 		"kepano/flexoki-neovim",
 		lazy = false,
 		priority = 999,
+		-- config = function()
+		-- 	vim.opt.background = "dark"
+		-- 	vim.cmd.colorscheme("flexoki-dark")
+		-- end,
+	},
+	{
+		"zenbones-theme/zenbones.nvim",
+		dependencies = "rktjmp/lush.nvim",
+		lazy = false,
+		priority = 999,
 		config = function()
-			vim.opt.background = "dark"
-			vim.cmd.colorscheme("flexoki-dark")
+			vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+				pattern = {"zenwritten", "zenbones"},
+				callback = function()
+					local disable_italic = function(hl)
+						vim.api.nvim_set_hl(
+							0,
+							hl,
+							vim.tbl_extend(
+								"keep",
+								{ bold = false, italic = false },
+								vim.api.nvim_get_hl(0, { name = hl, link = false })
+							)
+						)
+					end
+					disable_italic("Comment")
+					disable_italic("Number")
+					disable_italic("Constant")
+					disable_italic("Boolean")
+				end,
+			})
+
+			vim.opt.background = "light"
+			vim.cmd.colorscheme("zenbones")
 		end,
 	},
 }

@@ -1,22 +1,31 @@
 # title = Ghostty 👻
 title = ↑ ↑ ↓ ↓ ← → ← → A B A B
 window-title-font-family = shantell sans bold
-theme = flexoki-dark
-background = #100F0F
+theme = zenbones_light
+# background = #1a1b1f
+# palette = 1=#ff8a78
+# palette = 2=#7eda92
+# palette = 3=#e8c345
+# palette = 4=#48c4ff
+# palette = 5=#ff90ff
+# palette = 6=#76D6D6
+# palette = 7=#c8d5ea
+# background = #FFFCF0
+# background = #100F0F
 # foreground = c6c6c6
-font-family = iosevka term
+font-family = jetbrains mono
 # font-family = gohufont uni14 nerd font
-font-style = medium
-font-style-italic = medium italic
+# font-style = light
+# font-style-italic = light italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold italic
 font-size = 18
-# adjust-cell-width = -10%
-adjust-cell-height = +20%
+adjust-cell-width = -5%
+# adjust-cell-height = -10%
 # adjust-font-baseline = +5%
-font-thicken = true
+# font-thicken = true
 command = /bin/zsh -c 'tmux a || tmux'
 window-padding-balance = true
 # macos-titlebar-style = hidden
-# window-colorspace = display-p3
+window-colorspace = display-p3
 # custom-shader = "shaders/bloom.glsl"

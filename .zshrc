@@ -29,6 +29,7 @@ compinit
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:$(go env GOPATH)/bin
+export GOBIN=$(go env GOPATH)/bin
 # export PATH=$HOME/.local/share/nvim/mason/packages:$PATH
 # export GOPATH=$HOME/go
 # export GOROOT=/usr/local/opt/go/libexec
