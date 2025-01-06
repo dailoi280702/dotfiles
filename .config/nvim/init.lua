@@ -16,6 +16,7 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
 	install = { colorscheme = { "habamax" } },
+	change_detection = { enabled = false },
 })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
