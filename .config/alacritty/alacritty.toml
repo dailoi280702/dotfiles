@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/gruvboxm.toml"
+    "~/.config/alacritty/themes/vscode.toml"
 ]
 
 [terminal.shell]
@@ -10,8 +10,8 @@ args = [ "-l", "-c", "tmux a || tmux" ]
 [font]
 # ueoai this line is used for comparing line height
 # iaoeu this line is used for comparing line height
-size = 20
-normal = { family = "iosevkaterm nerd font", style = "Regular" }
+size = 18
+normal = { family = "codenewroman nerd font", style = "Regular" }
 italic = {  style = "Italic" }
 # bold = {style ="Bold" }
 # bold_italic = {  style = "Medium Italic" }
@@ -19,7 +19,7 @@ italic = {  style = "Italic" }
 # bold = { family = "zedmono nerd font", style = "Extended Medium" }
 # italic = { family = "zedmono nerd font", style = "Extended Italic" }
 # bold_italic = { family = "zedmono nerd font", style = "Extended Medium Italic" }
-# offset = { x = -1, y = 0 }
+offset = { x = -1, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 builtin_box_drawing = true
 

@@ -1,31 +1,58 @@
 # title = Ghostty 👻
 title = ↑ ↑ ↓ ↓ ← → ← → A B A B
 window-title-font-family = shantell sans bold
-theme = zenbones_light
-# background = #1a1b1f
-# palette = 1=#ff8a78
-# palette = 2=#7eda92
-# palette = 3=#e8c345
-# palette = 4=#48c4ff
-# palette = 5=#ff90ff
-# palette = 6=#76D6D6
-# palette = 7=#c8d5ea
-# background = #FFFCF0
-# background = #100F0F
-# foreground = c6c6c6
+window-padding-balance = true
+window-padding-x = 0
+window-padding-y = 0
+macos-titlebar-style = hidden
+# window-colorspace = display-p3
+# custom-shader = "shaders/bloom.glsl"
+# background-blur-radius = 6
+# background-opacity = 0.9
+
+theme = dayfox
+# theme = Oxocarbon
+# theme = zenbones_light
+# theme = flexoki-dark
+# theme = rose-pine-moon
+# palette = 2=#3e8fb0
+# palette = 10=#3e8fb0
+# palette = 4=#9ccfd8
+# palette = 12=#9ccfd8
+# selection-background = #44415a
+# background = #23222b
+# theme = builtin solarized light
+# theme = GruvboxDark
+# background=#282828
+# background=#111111
+
+# font-family = terminess nerd font propo
 font-family = jetbrains mono
-# font-family = gohufont uni14 nerd font
-# font-style = light
-# font-style-italic = light italic
+# font-family = cozettevector
+font-style = medium
+# font-style-italic = medium italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold italic
+font-feature = calt 
+font-feature = -liga
+font-feature = ss01
+# font-feature = ss02
+# test set = abcdefghijklmnopqrstuwvxyz
+font-feature = ss20
+font-feature = zero
+font-feature = cv01
+font-feature = cv06
+font-feature = cv07
+font-feature = cv16
+font-feature = cv14
+font-feature = cv18
+font-feature = cv20
+font-feature = cv99
+
 font-size = 18
-adjust-cell-width = -5%
-# adjust-cell-height = -10%
+adjust-cell-width = -10%
+adjust-cell-height = +10%
 # adjust-font-baseline = +5%
 # font-thicken = true
+
 command = /bin/zsh -c 'tmux a || tmux'
-window-padding-balance = true
-# macos-titlebar-style = hidden
-window-colorspace = display-p3
-# custom-shader = "shaders/bloom.glsl"

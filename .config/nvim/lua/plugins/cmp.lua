@@ -10,6 +10,7 @@ local cmp = {
 		"onsails/lspkind.nvim",
 		-- { "Exafunction/codeium.nvim", opts = {} },
 	},
+	enabled = false,
 }
 
 local has_words_before = function()

@@ -50,14 +50,26 @@ M.init = function()
 					if vim.o.background == "light" then
 						vim.api.nvim_set_hl(0, "@variable", { fg = "#100F0F" })
 					else
-						vim.api.nvim_set_hl(0, "@variable", { fg = "#CECDC3" })
+						local darkYellow = "#D0A215"
+						local darkFg = "#CECDC3"
+						local darkMagenta = "#CE5D97"
+						vim.api.nvim_set_hl(0, "@variable", { fg = darkFg })
+						vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = darkYellow })
+						vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = darkYellow })
 						vim.api.nvim_set_hl(0, "normal", { bg = "none" })
+						vim.api.nvim_set_hl(0, "@type.go", { fg = darkYellow })
+						vim.api.nvim_set_hl(0, "Special", { fg = darkMagenta })
 					end
+					vim.api.nvim_set_hl(
+						0,
+						"BlinkCmpGhostText",
+						vim.tbl_extend("keep", { italic = false }, vim.api.nvim_get_hl(0, { name = "Comment", link = false }))
+					)
 				end,
 				vscode = function()
 					if vim.o.background == "dark" then
 						vim.api.nvim_set_hl(0, "normal", { bg = "NONE" })
-						vim.api.nvim_set_hl(0, "normal", { bg = "#1C1C1C" })
+						-- vim.api.nvim_set_hl(0, "normal", { bg = "#1C1C1C" })
 						vim.api.nvim_set_hl(0, "@variable", { fg = "#D4D4D4" })
 						vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#808080" })
 						vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = "#808080" })
@@ -115,7 +127,7 @@ M.config = function()
 	-- vim.cmd.colorscheme("retrobox")
 	-- vim.cmd.colorscheme("habamax")
 	-- vim.cmd.colorscheme("wildcharm")
-	vim.cmd.colorscheme("default")
+	-- vim.cmd.colorscheme("default")
 end
 
 return {
@@ -142,6 +154,7 @@ return {
 			-- vim.cmd.colorscheme("vscode")
 		end,
 	},
+
 	-- {
 	-- 	"maxmx03/solarized.nvim",
 	-- 	lazy = false,
@@ -177,93 +190,119 @@ return {
 	-- 		-- vim.cmd.colorscheme("solarized")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rose-pine/neovim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	opts = {
-	-- 		dark_variant = "moon",
-	-- 		styles = {
-	-- 			bold = true,
-	-- 			italic = false,
-	-- 			transparency = true,
-	-- 		},
-	-- 		-- before_highlight = function(_, hl, _)
-	-- 		-- 	C = require("util.color")
-	-- 		-- 	hl.fg = C.shift_hsl(hl.fg, {
-	-- 		-- 		l = -10,
-	-- 		-- 		s = -10,
-	-- 		-- 		h = 0,
-	-- 		-- 	})
-	-- 		-- end,
-	-- 	},
-	-- 	-- config = function(_, opts)
-	-- 	-- 	require("rose-pine").setup(opts)
-	-- 	-- 	vim.cmd.colorscheme("rose-pine-moon")
-	-- 	-- end,
-	-- },
-	-- {
-	-- 	"ellisonleao/gruvbox.nvim",
-	-- 	priority = 1000,
-	-- 	lazy = false,
-	-- 	opts = {
-	-- 		italic = {
-	-- 			strings = false,
-	-- 			emphasis = false,
-	-- 			comments = false,
-	-- 			operators = false,
-	-- 			folds = false,
-	-- 		},
-	-- 		transparent_mode = false,
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		require("gruvbox").setup(opts)
-	-- 		-- vim.opt.background = "dark"
-	-- 		-- vim.cmd.colorscheme("gruvbox")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	opts = {
-	-- 		transparent = true,
-	-- 		overrides = function(colors)
-	-- 			local theme = colors.theme
-	-- 			return {
-	-- 				TelescopeTitle = { fg = theme.ui.special, bold = true },
-	-- 				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-	-- 				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-	-- 				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-	-- 				TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-	-- 				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-	-- 				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-	-- 			}
-	-- 		end,
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		require("kanagawa").setup(opts)
-	-- 		-- vim.opt.background = "dark"
-	-- 		-- vim.cmd.colorscheme("kanagawa-dragon")
-	-- 	end,
-	-- },
+
+	{
+		"rose-pine/neovim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			dark_variant = "moon",
+			styles = {
+				bold = true,
+				italic = false,
+				transparency = true,
+			},
+			-- before_highlight = function(_, hl, _)
+			-- 	C = require("util.color")
+			-- 	hl.fg = C.shift_hsl(hl.fg, {
+			-- 		l = -10,
+			-- 		s = -10,
+			-- 		h = 0,
+			-- 	})
+			-- end,
+		},
+		config = function(_, opts)
+			require("rose-pine").setup(opts)
+			-- vim.cmd.colorscheme("rose-pine-dawn")
+		end,
+	},
+
+	{
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
+		lazy = false,
+		opts = {
+			italic = {
+				strings = false,
+				emphasis = false,
+				comments = false,
+				operators = false,
+				folds = false,
+			},
+			transparent_mode = true,
+		},
+		config = function(_, opts)
+			require("gruvbox").setup(opts)
+			-- vim.cmd.colorscheme("gruvbox")
+		end,
+	},
+
+	{
+		"sainnhe/gruvbox-material",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.g.gruvbox_material_background = "hard"
+			vim.g.gruvbox_material_transparent_background = 2
+			vim.g.better_performance = 1
+			-- vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
+
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			transparent = true,
+			overrides = function(colors)
+				local theme = colors.theme
+				return {
+					TelescopeTitle = { fg = theme.ui.special, bold = true },
+					TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+					TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+					TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+					TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+					TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+					TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+				}
+			end,
+		},
+		config = function(_, opts)
+			require("kanagawa").setup(opts)
+			-- vim.cmd.colorscheme("kanagawa-dragon")
+		end,
+	},
+
+	{
+		"catppuccin/nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			transparent_background = true,
+		},
+		config = function(_, opts)
+			require("catppuccin").setup(opts)
+		end,
+	},
+
 	{
 		"kepano/flexoki-neovim",
 		lazy = false,
-		priority = 999,
-		-- config = function()
-		-- 	vim.opt.background = "dark"
-		-- 	vim.cmd.colorscheme("flexoki-dark")
-		-- end,
+		priority = 1000,
+		config = function()
+			-- vim.cmd.colorscheme("flexoki-light")
+		end,
 	},
+
 	{
 		"zenbones-theme/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
 		lazy = false,
-		priority = 999,
+		priority = 1000,
 		config = function()
 			vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-				pattern = {"zenwritten", "zenbones"},
+				pattern = { "zenwritten", "zenbones" },
 				callback = function()
 					local disable_italic = function(hl)
 						vim.api.nvim_set_hl(
@@ -283,8 +322,47 @@ return {
 				end,
 			})
 
-			vim.opt.background = "light"
-			vim.cmd.colorscheme("zenbones")
+			-- vim.opt.background = "light"
+			-- vim.cmd.colorscheme("zenwritten")
+		end,
+	},
+
+	{
+		"metalelf0/jellybeans-nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- vim.cmd.colorscheme("flexoki-light")
+			vim.opt.termguicolors = true
+		end,
+	},
+
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			options = {},
+			palettes = {
+				nightfox = {
+					-- bg1 = "#161c22",
+					bg1 = "#20272f",
+				},
+				terafox = {
+					-- bg1 = "#141b1b",
+					bg1 = "#1f2425",
+				},
+				duskfox = {
+					bg1 = "#23222b",
+				},
+				nordfox = {
+					bg1 = "#2a2d32",
+				},
+			},
+		},
+		config = function(_, opts)
+			require("nightfox").setup(opts)
+			vim.cmd.colorscheme("dayfox")
 		end,
 	},
 }

@@ -56,7 +56,7 @@ opt.fillchars = {
 }
 opt.nu = true
 opt.rnu = false
-opt.background = "dark"
+opt.background = "light"
 opt.smoothscroll = true
 
 -- if vim.fn.has("nvim-0.10") == 1 then

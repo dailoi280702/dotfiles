@@ -89,7 +89,15 @@ lsp.opts = {
 		pyright = {},
 		-- intelephense = {},
 		zls = {},
-		lua_ls = {},
+		lua_ls = {
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
+			},
+		},
 		-- bufls = {},
 		-- fennel_language_server = {},
 		golangci_lint_ls = {},
@@ -99,6 +107,16 @@ lsp.opts = {
 			-- filetypes = { "terraform", "terraform-vars", "tf" },
 		},
 		-- yamlfix = {},
+		nil_ls = {
+			settings = {
+				["nil"] = {
+					formatting = {
+						command = { "nixfmt" },
+					},
+				},
+			},
+		},
+		-- nilaway = {},
 	},
 	setup = {},
 }
@@ -106,17 +124,18 @@ lsp.opts = {
 lsp.config = function(_, opts)
 	local lspconfig = require("lspconfig")
 	local servers = opts.servers
-	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 	local ensure_installed = {}
 
 	setup_diagnostic_signs()
 
-	capabilities = vim.tbl_deep_extend(
-		"force",
-		{},
-		vim.lsp.protocol.make_client_capabilities(),
-		require("cmp_nvim_lsp").default_capabilities()
-	)
+	-- local capabilities = require("blink.cmp").get_lsp_capabilities()
+	-- capabilities = vim.tbl_deep_extend(
+	-- 	"force",
+	-- 	{},
+	-- 	vim.lsp.protocol.make_client_capabilities(),
+	-- 	-- require("cmp_nvim_lsp").default_capabilities()
+	-- 	capabilities
+	-- )
 
 	for server, _ in pairs(servers) do
 		ensure_installed[#ensure_installed + 1] = server
@@ -126,9 +145,19 @@ lsp.config = function(_, opts)
 		ensure_installed = ensure_installed,
 		handlers = {
 			function(server)
-				local server_opts = vim.tbl_deep_extend("force", {
-					capabilities = vim.deepcopy(capabilities),
-				}, servers[server] or {})
+				-- local server_opts = vim.tbl_deep_extend("force", {
+				-- 	capabilities = vim.deepcopy(capabilities),
+				-- }, servers[server] or {})
+
+				local handlers = {
+					["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+					["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+				}
+
+				local server_opts = servers[server] or {}
+				server_opts.handlers = handlers
+
+				server_opts.capabilities = require("blink.cmp").get_lsp_capabilities(server_opts.capabilities)
 
 				if opts.setup[server] then
 					if opts.setup[server](server, server_opts) then
