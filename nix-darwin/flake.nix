@@ -21,53 +21,10 @@
       configuration =
         { pkgs, ... }:
         {
+          environment.systemPackages = import ./packages.nix { inherit pkgs; };
+
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
-          environment.systemPackages = [
-            # Editors
-            pkgs.jetbrains-mono
-            pkgs.vim
-            pkgs.neovim
-            pkgs.alacritty
-            pkgs.tmux
-
-            # Utilities
-            pkgs.bat
-            pkgs.btop
-            pkgs.eza
-            pkgs.fd
-            pkgs.fish
-            pkgs.fzf
-            pkgs.htop
-            pkgs.httpie
-            pkgs.jq
-            pkgs.ripgrep
-            pkgs.starship
-            pkgs.stow
-            pkgs.xz
-            pkgs.zip
-
-            # Version Control
-            pkgs.git
-
-            # Development Tools
-            pkgs.awscli
-            pkgs.colima
-            pkgs.qemu
-            pkgs.terraform
-
-            # Programming Languages & Tools
-            pkgs.nixfmt-rfc-style
-            pkgs.cargo
-            pkgs.zig
-            pkgs.go
-            pkgs.gofumpt
-            pkgs.stylua
-
-            # Others
-            pkgs.scrcpy
-          ];
-
           nixpkgs.config = {
             allowBroken = true;
             allowUnfree = true;
