@@ -233,7 +233,7 @@ return {
 		},
 		config = function(_, opts)
 			require("gruvbox").setup(opts)
-			-- vim.cmd.colorscheme("gruvbox")
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 
@@ -328,13 +328,10 @@ return {
 	},
 
 	{
-		"metalelf0/jellybeans-nvim",
+		"maxmx03/solarized.nvim",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			-- vim.cmd.colorscheme("flexoki-light")
-			vim.opt.termguicolors = true
-		end,
+		config = function() end,
 	},
 
 	{
@@ -362,7 +359,7 @@ return {
 		},
 		config = function(_, opts)
 			require("nightfox").setup(opts)
-			vim.cmd.colorscheme("dayfox")
+			-- vim.cmd.colorscheme("dayfox")
 		end,
 	},
 }

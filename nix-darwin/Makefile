@@ -1,0 +1,2 @@
+rebuild:
+	./rebuild.sh

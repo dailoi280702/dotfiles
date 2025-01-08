@@ -21,7 +21,7 @@
       configuration =
         { pkgs, ... }:
         {
-          environment.systemPackages = import ./packages.nix { inherit pkgs; };
+          environment.systemPackages = import ./packages/legacy.nix { inherit pkgs; };
 
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
@@ -32,11 +32,8 @@
 
           homebrew = {
             enable = true;
-            brews = [
-              "minikube"
-              "kubectl"
-            ];
-            casks = [ "ghostty" ];
+            brews = import ./packages/brew-formulae.nix;
+            casks = import ./packages/brew-cask.nix;
           };
 
           # Necessary for using flakes on this system.
@@ -54,16 +51,25 @@
           system.stateVersion = 5;
 
           # The platform the configuration will be used on.
-          nixpkgs.hostPlatform = "x86_64-darwin";
+          # nixpkgs.hostPlatform = "x86_64-darwin";
         };
+
+      darwinSystems = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
     in
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#Lloyds-MacBook-Pro
-      darwinConfigurations = {
-        "Lloyds-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (
+        system:
+        nix-darwin.lib.darwinSystem {
           modules = [
             configuration
+            {
+              nixpkgs.hostPlatform = system;
+            }
             mac-app-util.darwinModules.default
             nix-homebrew.darwinModules.nix-homebrew
             {
@@ -74,7 +80,7 @@
               };
             }
           ];
-        };
-      };
+        }
+      );
     };
 }
