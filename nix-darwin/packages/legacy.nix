@@ -34,12 +34,12 @@ with pkgs;
   terraform
 
   # Programming Languages & Tools
-  pkgs.nixfmt-rfc-style
+  nixfmt-rfc-style
   cargo
   zig
   go
   gofumpt
-  pkgs.stylua
+  stylua
 
   # Others
   scrcpy
