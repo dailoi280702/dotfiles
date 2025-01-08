@@ -23,8 +23,6 @@
         {
           environment.systemPackages = import ./packages/legacy.nix { inherit pkgs; };
 
-          # List packages installed in system profile. To search by name, run:
-          # $ nix-env -qaP | grep wget
           nixpkgs.config = {
             allowBroken = true;
             allowUnfree = true;
@@ -49,9 +47,6 @@
           # Used for backwards compatibility, please read the changelog before changing.
           # $ darwin-rebuild changelog
           system.stateVersion = 5;
-
-          # The platform the configuration will be used on.
-          # nixpkgs.hostPlatform = "x86_64-darwin";
         };
 
       darwinSystems = [
