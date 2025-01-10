@@ -14,7 +14,7 @@ local blink = {
 		fuzzy = {
 			prebuilt_binaries = {
 				download = true,
-				force_version = "v0.9.2",
+				force_version = "v0.10.0",
 			},
 		},
 
@@ -24,9 +24,13 @@ local blink = {
 
 		completion = {
 			list = {
-				selection = function(ctx)
-					return ctx.mode == "cmdline" and "auto_insert" or "preselect"
-				end,
+				selection = {
+					auto_insert = true,
+
+					preselect = function(ctx)
+						return ctx.mode ~= "cmdline" and not require("blink.cmp").snippet_active({ direction = 1 })
+					end,
+				},
 			},
 
 			documentation = {

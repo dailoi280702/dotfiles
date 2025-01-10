@@ -1,4 +1,4 @@
-tput cup 9999 0
+# tput cup 9999 0
 echo '        A B A B  '
 # echo "Only suckers put hope in the future."
 # echo "I have to be successful, \033[1mbecause I like expensive shit.\033[0m"
