@@ -5,10 +5,12 @@ if command -q starship
 end
 
 # aliases
-alias g="git"
-alias v="nvim"
-alias vim="nvim"
-alias vi="nvim"
+abbr g "git"
+abbr v "nvim"
+abbr vim "nvim"
+abbr vi "nvim"
+abbr tf "terraform"
+abbr lg "lazygit"
 alias ll "eza -l -g --icons"
 alias lla "ll -a"
 
