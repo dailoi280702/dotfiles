@@ -23,6 +23,9 @@ with pkgs;
   stow
   xz
   zip
+  thefuck
+  zoxide
+  tre-command
 
   # Version Control
   git
@@ -40,6 +43,7 @@ with pkgs;
   go
   gofumpt
   stylua
+  protobuf
 
   # Others
   scrcpy

@@ -20,7 +20,6 @@ plug "wintermi/zsh-rust"
 plug "wintermi/zsh-brew"
 plug "zap-zsh/completions"
 plug "lukechilds/zsh-nvm"
-plug "agkozak/zsh-z"
 
 # Load and initialise completion system
 autoload -Uz compinit
@@ -73,8 +72,12 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 #     clear
 # }
 
-precmd () {
-    printf '\033[38;5;244m%*s\033[0m\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-    tput cup 9999 0
-    tput el
-}
+# precmd () {
+#     printf '\033[38;5;244m%*s\033[0m\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+#     tput cup 9999 0
+#     tput el
+# }
+
+if command -v zoxide; then
+    eval "$(zoxide init zsh)"
+fi

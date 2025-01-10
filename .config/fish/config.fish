@@ -1,45 +1,33 @@
-if status is-interactive
-  thefuck --alias | source
+fish_config theme choose 'fish default'
 
-	alias g="git"
-	alias v="nvim"
-	alias vim="nvim"
-	alias vi="nvim"
-	alias ls="ll"
-	# alias vide="neovide"
-	alias ll "exa -l -g --icons"
-	alias lla "ll -a"
-
-	set -gx PATH "$HOME/.cargo/bin" $PATH;
-	set -gx PATH "$HOME/.local/bin" $PATH;
-	set -gx PATH "$HOME/.bun/bin" $PATH;
-	set -gx PATH "$HOME/go/bin/" $PATH;
-
-	function tre
-		command tre $argv -e; and source /tmp/tre_aliases_$USER ^/dev/null
-	end
-
-	# set --universal ayu_variant dark && ayu_load_theme
-	starship init fish | source
-	#source ~/.config/fish/themes/moonfly.fish
-	#fish_config theme choose 'fish default'
+if command -q starship 
+    starship init fish | source
 end
 
-# bun
-set -Ux BUN_INSTALL "/home/lloyd/.bun"
-fish_add_path "/home/lloyd/.bun/bin"
+# aliases
+alias g="git"
+alias v="nvim"
+alias vim="nvim"
+alias vi="nvim"
+alias ll "eza -l -g --icons"
+alias lla "ll -a"
 
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+set -gx EDITOR nvim
 
-#function nvm
-#bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-#end
+set -gx PATH "$HOME/.cargo/bin" $PATH;
+set -gx PATH "$HOME/.local/bin" $PATH;
 
-function quickgit # This is the function name and command we call
- 	git --git-dir=$PWD/.git add . # Stage all unstaged files
-	git --git-dir=$PWD/.git commit -a -m $argv # Commit files with the given argument as the commit message
-	git --git-dir=$PWD/.git push # Push to remote
+# Go
+set -gx GOBIN "$(go env GOPATH)/bin"
+set -gx PATH $GOBIN $PATH;
+
+# if status is-interactive
+# end
+
+fish_vi_key_bindings
+
+if command -q zoxide
+    zoxide init fish | source
 end
-fish_add_path /home/lloyd/.spicetify
+
+thefuck --alias | source
