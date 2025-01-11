@@ -1,3 +1,4 @@
 [
   "ghostty"
+  "nikitabobko/tap/aerospace"
 ]

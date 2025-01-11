@@ -44,6 +44,7 @@ with pkgs;
   gofumpt
   stylua
   protobuf
+  nodejs
 
   # Others
   scrcpy
