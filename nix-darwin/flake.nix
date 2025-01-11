@@ -48,7 +48,10 @@
           # $ darwin-rebuild changelog
           system.stateVersion = 5;
 
+          # Ssystem settings
           system.defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
+          system.defaults.dock.autohide = true;
+          system.defaults.NSGlobalDomain._HIHideMenuBar = true;
         };
 
       darwinSystems = [

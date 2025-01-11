@@ -1,2 +1,2 @@
-rebuild:
+apply:
 	./rebuild.sh
