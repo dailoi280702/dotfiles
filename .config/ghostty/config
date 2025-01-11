@@ -9,6 +9,7 @@ macos-titlebar-style = hidden
 # custom-shader = "shaders/bloom.glsl"
 # background-blur-radius = 6
 # background-opacity = 0.9
+confirm-close-surface = false
 
 # theme = dayfox
 theme = GruvboxLight
