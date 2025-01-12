@@ -30,6 +30,7 @@
 
           homebrew = {
             enable = true;
+            global.autoUpdate = true;
             brews = import ./packages/brew-formulae.nix;
             casks = import ./packages/brew-cask.nix;
             taps = import ./packages/brew-tap.nix;
