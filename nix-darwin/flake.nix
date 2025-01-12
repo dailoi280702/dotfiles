@@ -32,6 +32,7 @@
             enable = true;
             brews = import ./packages/brew-formulae.nix;
             casks = import ./packages/brew-cask.nix;
+            taps = import ./packages/brew-tap.nix;
           };
 
           # Necessary for using flakes on this system.

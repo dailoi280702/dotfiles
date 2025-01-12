@@ -13,6 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
+vim.loader.enable()
+
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
 	install = { colorscheme = { "habamax" } },

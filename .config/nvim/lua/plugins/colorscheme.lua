@@ -124,73 +124,10 @@ end
 
 M.config = function()
 	-- vim.cmd.colorscheme("oxocarbon")
-	-- vim.cmd.colorscheme("retrobox")
-	-- vim.cmd.colorscheme("habamax")
-	-- vim.cmd.colorscheme("wildcharm")
-	-- vim.cmd.colorscheme("default")
 end
 
 return {
 	M,
-	{
-		"Mofiqul/vscode.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			-- local c = require("vscode.colors").get_colors()
-			require("vscode").setup({
-				transparent = true,
-				-- italic_comments = true,
-				-- underline_links = true,
-				-- group_overrides = {
-				-- 	["@punctuation.bracket"] = { fg = c.vscGray },
-				-- 	["@punctuation.delimiter"] = { fg = c.vscGray },
-				-- 	["@punctuation.special"] = { fg = c.vscGray },
-				-- 	["@variable"] = { fg = c.vscFront },
-				-- },
-			})
-			-- vim.o.background = "dark"
-			-- require("vscode").load()
-			-- vim.cmd.colorscheme("vscode")
-		end,
-	},
-
-	-- {
-	-- 	"maxmx03/solarized.nvim",
-	-- 	lazy = false,
-	-- 	opts = {
-	-- 		transparent = {
-	-- 			enabled = true, -- Master switch to enable transparency
-	-- 			pmenu = true, -- Popup menu (e.g., autocomplete suggestions)
-	-- 			normal = true, -- Main editor window background
-	-- 			normalfloat = true, -- Floating windows
-	-- 			neotree = true, -- Neo-tree file explorer
-	-- 			nvimtree = true, -- Nvim-tree file explorer
-	-- 			whichkey = true, -- Which-key popup
-	-- 			telescope = true, -- Telescope fuzzy finder
-	-- 			lazy = true, -- Lazy plugin manager UI
-	-- 			mason = true, -- Mason manage external tooling
-	-- 		},
-	-- 		-- styles = {
-	-- 		-- 	keywords = { bold = false },
-	-- 		-- },
-	-- 		on_highlights = function(colors, color)
-	-- 			local groups = {
-	-- 				KeyWord = { fg = "#859900" },
-	-- 				Delimiter = { fg = "#dc322f" },
-	-- 				Bracket = { fg = "#dc322f" },
-	-- 				Number = { fg = "#2aa198" },
-	-- 			}
-	-- 			return groups
-	-- 		end,
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		-- vim.opt.background = "light"
-	-- 		require("solarized").setup(opts)
-	-- 		-- vim.cmd.colorscheme("solarized")
-	-- 	end,
-	-- },
-
 	{
 		"rose-pine/neovim",
 		lazy = false,
@@ -213,7 +150,6 @@ return {
 		},
 		config = function(_, opts)
 			require("rose-pine").setup(opts)
-			-- vim.cmd.colorscheme("rose-pine-dawn")
 		end,
 	},
 
@@ -233,7 +169,6 @@ return {
 		},
 		config = function(_, opts)
 			require("gruvbox").setup(opts)
-			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 
@@ -245,55 +180,29 @@ return {
 			vim.g.gruvbox_material_background = "hard"
 			vim.g.gruvbox_material_transparent_background = 2
 			vim.g.better_performance = 1
-			-- vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},
 
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {
-			transparent = true,
-			overrides = function(colors)
-				local theme = colors.theme
-				return {
-					TelescopeTitle = { fg = theme.ui.special, bold = true },
-					TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-					TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-					TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-					TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-					TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-					TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-				}
-			end,
-		},
-		config = function(_, opts)
-			require("kanagawa").setup(opts)
-			-- vim.cmd.colorscheme("kanagawa-dragon")
-		end,
-	},
-
-	{
-		"catppuccin/nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {
-			transparent_background = true,
-		},
-		config = function(_, opts)
-			require("catppuccin").setup(opts)
-		end,
-	},
-
-	{
-		"kepano/flexoki-neovim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			-- vim.cmd.colorscheme("flexoki-light")
-		end,
-	},
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {
+	-- 		transparent = true,
+	-- 		overrides = function(colors)
+	-- 			local theme = colors.theme
+	-- 			return {
+	-- 				TelescopeTitle = { fg = theme.ui.special, bold = true },
+	-- 				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+	-- 				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+	-- 				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+	-- 				TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+	-- 				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+	-- 				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+	-- 			}
+	-- 		end,
+	-- 	},
+	-- },
 
 	{
 		"zenbones-theme/zenbones.nvim",
@@ -321,9 +230,6 @@ return {
 					disable_italic("Boolean")
 				end,
 			})
-
-			-- vim.opt.background = "light"
-			-- vim.cmd.colorscheme("zenwritten")
 		end,
 	},
 
@@ -331,7 +237,6 @@ return {
 		"maxmx03/solarized.nvim",
 		lazy = false,
 		priority = 1000,
-		config = function() end,
 	},
 
 	{
@@ -359,7 +264,7 @@ return {
 		},
 		config = function(_, opts)
 			require("nightfox").setup(opts)
-			-- vim.cmd.colorscheme("dayfox")
+			vim.cmd.colorscheme("dayfox")
 		end,
 	},
 }
