@@ -1,7 +1,6 @@
 # title = Ghostty 👻
 title = ↑ ↑ ↓ ↓ ← → ← → A B A B
-window-title-font-family = shantell sans bold
-window-padding-balance = true
+window-title-font-family = shantell sans bold window-padding-balance = true
 window-padding-x = 0
 window-padding-y = 0
 macos-titlebar-style = hidden
@@ -11,55 +10,59 @@ macos-titlebar-style = hidden
 # background-opacity = 0.9
 confirm-close-surface = false
 
-# theme = neir-automata
-theme = dayfox
-# background = #FCF3EC
-# theme = GruvboxLight
-# background = #FCF6E3
-# background = #EBE6D2
-# background = #fefcf5
-# theme = Oxocarbon
-# theme = zenbones_light
-# theme = flexoki-dark
-# theme = rose-pine-moon
-# palette = 2=#3e8fb0
-# palette = 10=#3e8fb0
-# palette = 4=#9ccfd8
-# palette = 12=#9ccfd8
-# selection-background = #44415a
-# background = #23222b
-# theme = builtin solarized light
 # theme = GruvboxDark
-# background=#282828
-# background=#111111
+theme = zenwritten_dark
+# theme = dayfox
+# theme = Raycast_Dark
+# theme = Rouge 2
+# theme = Relaxed
+# theme = Mellifluous
+# theme = NvimDark
+# theme = Galizur
+# theme = Glacier
+# theme = Guezwhoz
+# theme = MaterialDesignColors
+# theme = MaterialDesignColors
+# theme = Ubuntu
+# theme = Monokai Classic
+# theme = OneHalfDark
+# background = 0D0D0D
+# background = 171414
 
 # font-family = terminess nerd font propo
-font-family = jetbrains mono
+font-family = hurmit nerd font
+# font-family = cascadia code
 # font-family = cozettevector
-# font-style = semibold
-# font-style-italic = semibold italic
+# font-family = iosevka term
+# font-family = comic mono
+
+# font-style = medium
+# font-style-italic = medium italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold italic
-font-feature = calt 
-font-feature = -liga
-font-feature = ss01
 # font-feature = ss02
-# test set = abcdefghijklmnopqrstuwvxyz
-font-feature = ss20
-font-feature = zero
-font-feature = cv01
-font-feature = cv06
-font-feature = cv07
-font-feature = cv16
-font-feature = cv14
-font-feature = cv18
-font-feature = cv20
-font-feature = cv99
 
-font-size = 18
-adjust-cell-width = -10%
-adjust-cell-height = +10%
-# adjust-font-baseline = +5%
+# jetbrains mono ligatures set
+# font-feature = calt 
+# font-feature = -liga
+# font-feature = ss01
+# font-feature = ss20
+# font-feature = zero
+# font-feature = cv01
+# font-feature = cv06
+# font-feature = cv07
+# font-feature = cv16
+# font-feature = cv14
+# font-feature = cv18
+# font-feature = cv20
+# font-feature = cv99
+
+font-size = 16
+adjust-cell-width = -1
+# adjust-cell-height = +10%
+# adjust-font-baseline = -20%
 # font-thicken = true
 
 command = /bin/zsh -c 'tmux a || tmux'
+
+resize-overlay-position = bottom-left

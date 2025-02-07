@@ -5,9 +5,9 @@ config.default_cursor_style = "SteadyBar"
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "jetbrains mono",
+		family = "monaspace argon",
 		-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
-		weight = "Medium",
+		-- weight = "Medium",
 		-- stretch = "Expanded",
 	},
 	-- { family = "meslolgl nerd font",
@@ -39,21 +39,21 @@ config.font = wezterm.font_with_fallback({
 -- 	-- 	},
 -- }
 
-config.cell_width = 0.9
-config.line_height = 1.1
+-- config.cell_width = 0.9
+-- config.line_height = 1.1
 config.adjust_window_size_when_changing_font_size = false
-config.font_size = 14
+config.font_size = 18
 -- config.dpi = 144
 
 config.front_end = "WebGpu"
 
 -- config.color_scheme = "Oxocarbon Dark"
 -- config.color_scheme = "Gruvbox dark, medium (base16)"
--- config.color_scheme = "Quiet (Gogh)"
+config.color_scheme = "Quiet (Gogh)"
 -- config.color_scheme = "Solarized Dark (Gogh)"
 -- config.color_scheme = "Solarized Dark - Patched"
 -- config.color_scheme = "Tomorrow (dark) (terminal.sexy)"
-config.color_scheme = "Catppuccin Frappe"
+-- config.color_scheme = "Catppuccin Frappe"
 
 -- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").dawn
 -- config.colors = theme.colors()

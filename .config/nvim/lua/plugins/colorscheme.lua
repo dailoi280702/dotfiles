@@ -30,15 +30,14 @@ M.init = function()
 					vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#fe8019", bg = "#303030" })
 					vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#83a598" })
 				end,
-				-- gruvbox = function()
-				-- 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-				-- 	vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
-				-- end,
 				default = function()
-					vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+					-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 				end,
 				wildcharm = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
+				end,
+				lunaperche = function()
+					vim.api.nvim_set_hl(0, "Normal", { bg = "#0d0d0d" })
 				end,
 				["jellybeans-nvim"] = function()
 					vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
@@ -158,6 +157,7 @@ return {
 		priority = 1000,
 		lazy = false,
 		opts = {
+			bold = false,
 			italic = {
 				strings = false,
 				emphasis = false,
@@ -165,7 +165,17 @@ return {
 				operators = false,
 				folds = false,
 			},
-			transparent_mode = true,
+			transparent_mode = false,
+			palette_overrides = {
+				dark0 = "#171414",
+				dark1 = "#272525",
+				dark2 = "#3c3838",
+				dark3 = "#565151",
+				dark4 = "#726e6e",
+			},
+			overrides = {
+				SignColumn = { link = "LineNr" },
+			},
 		},
 		config = function(_, opts)
 			require("gruvbox").setup(opts)
@@ -173,14 +183,10 @@ return {
 	},
 
 	{
-		"sainnhe/gruvbox-material",
+		"projekt0n/github-nvim-theme",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			vim.g.gruvbox_material_background = "hard"
-			vim.g.gruvbox_material_transparent_background = 2
-			vim.g.better_performance = 1
-		end,
+		config = function() end,
 	},
 
 	-- {
@@ -203,6 +209,7 @@ return {
 	-- 		end,
 	-- 	},
 	-- },
+	--
 
 	{
 		"zenbones-theme/zenbones.nvim",
@@ -234,12 +241,6 @@ return {
 	},
 
 	{
-		"maxmx03/solarized.nvim",
-		lazy = false,
-		priority = 1000,
-	},
-
-	{
 		"EdenEast/nightfox.nvim",
 		lazy = false,
 		priority = 1000,
@@ -264,7 +265,44 @@ return {
 		},
 		config = function(_, opts)
 			require("nightfox").setup(opts)
-			vim.cmd.colorscheme("dayfox")
+		end,
+	},
+
+	{
+		"vague2k/vague.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+
+	{
+		"navarasu/onedark.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("onedark").setup({
+				style = "warmer",
+				transparent = true,
+
+				code_style = {
+					comments = "italic",
+					keywords = "none",
+					functions = "none",
+					strings = "none",
+					variables = "none",
+				},
+
+				lualine = {
+					transparent = false,
+				},
+
+				diagnostics = {
+					darker = false,
+					undercurl = true,
+					background = true,
+				},
+			})
+
+			vim.cmd.colorscheme("zenwritten")
 		end,
 	},
 }

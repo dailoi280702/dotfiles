@@ -27,6 +27,9 @@ with pkgs;
   zoxide
   tre-command
 
+  # Networking
+  nmap
+
   # Version Control
   git
 
@@ -34,6 +37,8 @@ with pkgs;
   awscli
   colima
   qemu
+  llvm
+  lld
   terraform
 
   # Programming Languages & Tools
