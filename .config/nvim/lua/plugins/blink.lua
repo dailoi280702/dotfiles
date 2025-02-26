@@ -1,6 +1,7 @@
 local blink = {
 	"saghen/blink.cmp",
 	dependencies = "rafamadriz/friendly-snippets",
+	version = "v0.10.0",
 	opts = {
 		appearance = {
 			use_nvim_cmp_as_default = true,

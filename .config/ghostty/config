@@ -6,14 +6,16 @@ window-padding-y = 0
 macos-titlebar-style = hidden
 # window-colorspace = display-p3
 # custom-shader = "shaders/noise.glsl"
-# background-blur-radius = 6
-# background-opacity = 0.9
+background-blur-radius = 10
+background-opacity = 0.9
 confirm-close-surface = false
 
 # theme = GruvboxDark
-theme = zenwritten_dark
-# theme = dayfox
+# background = 171414
+# theme = zenwritten_light
+# theme = Builtin Solarized Light
 # theme = Raycast_Dark
+# background = 000000
 # theme = Rouge 2
 # theme = Relaxed
 # theme = Mellifluous
@@ -22,27 +24,48 @@ theme = zenwritten_dark
 # theme = Glacier
 # theme = Guezwhoz
 # theme = MaterialDesignColors
-# theme = MaterialDesignColors
 # theme = Ubuntu
 # theme = Monokai Classic
 # theme = OneHalfDark
 # background = 0D0D0D
-# background = 171414
+# background = 23222B
+# theme = tokyonight_moon
+theme = catppuccin-macchiato
+background = 1b1b21
 
 # font-family = terminess nerd font propo
-font-family = hurmit nerd font
-# font-family = cascadia code
+# font-family = hurmit nerd font
 # font-family = cozettevector
-# font-family = iosevka term
 # font-family = comic mono
+# font-family = dejavu sans mono
+# font-family = fantasquesansm nerd font
+# font-family = maple mono
+# font-family = ubuntu mono
 
-# font-style = medium
-# font-style-italic = medium italic
+font-family = cascadia code
+font-feature = ss19
+font-feature = ss01
+
+# font-family = monaspace argon var
+# font-feature = cv10
+# font-feature = cv11
+# font-variation = wght=600
+# font-variation-bold = wght=900
+# font-variation-italic = wght=600
+# font-variation-bold-italic = wght=900
+
+# font-family = iosevka term
+# font-style = semibold extended
+# font-style-italic = semibold extended italic
+# font-style-bold = extrabold extended
+# font-style-bold-italic = extrabold extended italic
+# font-feature = ss07
+
+# font-family = jetbrains mono
+# font-style = semibold
+# font-style-italic = semibold italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold italic
-# font-feature = ss02
-
-# jetbrains mono ligatures set
 # font-feature = calt 
 # font-feature = -liga
 # font-feature = ss01
@@ -57,9 +80,10 @@ font-family = hurmit nerd font
 # font-feature = cv20
 # font-feature = cv99
 
-font-size = 16
+
+font-size = 15
 adjust-cell-width = -1
-# adjust-cell-height = +10%
+# adjust-cell-height = +20%
 # adjust-font-baseline = -20%
 # font-thicken = true
 

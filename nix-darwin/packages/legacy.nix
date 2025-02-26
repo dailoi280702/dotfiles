@@ -2,11 +2,14 @@
 with pkgs;
 [
   # Editors
-  jetbrains-mono
   vim
   neovim
   alacritty
   tmux
+
+  # Fonts
+  jetbrains-mono
+  nerd-fonts.zed-mono
 
   # Utilities
   bat
