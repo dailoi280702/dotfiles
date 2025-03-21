@@ -27,11 +27,14 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 				vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#fe8019", bg = "#303030" })
 				vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#83a598" })
 			end,
-			default = function()
-				if vim.o.background == "dark" then
-					vim.api.nvim_set_hl(0, "Normal", { bg = "#151619", fg = "#E0E2EA" })
-				end
-			end,
+			-- default = function()
+			-- 	if vim.o.background == "dark" then
+			-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "#151619", fg = "#E0E2EA" })
+			-- 	else
+			-- 		-- vim.api.nvim_set_hl(0, "Normal", { bg = "#EFF1F8", fg = "#13161C" })
+			-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "#fffefe", fg = "#13161C" })
+			-- 	end
+			-- end,
 			wildcharm = function()
 				vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
 			end,
@@ -44,11 +47,11 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 			habamax = function()
 				vim.api.nvim_set_hl(0, "MatchParen", { fg = "#585858" })
 			end,
-			gruvbox = function()
-				if vim.o.background == "dark" then
-					vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-				end
-			end,
+			-- gruvbox = function()
+			-- 	if vim.o.background == "dark" then
+			-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+			-- 	end
+			-- end,
 			flexoki = function()
 				if vim.o.background == "light" then
 					vim.api.nvim_set_hl(0, "@variable", { fg = "#100F0F" })
@@ -73,16 +76,16 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 					)
 				)
 			end,
-			vscode = function()
-				if vim.o.background == "dark" then
-					vim.api.nvim_set_hl(0, "normal", { bg = "NONE" })
-					-- vim.api.nvim_set_hl(0, "normal", { bg = "#1C1C1C" })
-					vim.api.nvim_set_hl(0, "@variable", { fg = "#D4D4D4" })
-					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#808080" })
-					vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = "#808080" })
-					vim.api.nvim_set_hl(0, "@punctuation.special", { fg = "#808080" })
-				end
-			end,
+			-- vscode = function()
+			-- 	if vim.o.background == "dark" then
+			-- 		vim.api.nvim_set_hl(0, "normal", { bg = "NONE" })
+			-- 		-- vim.api.nvim_set_hl(0, "normal", { bg = "#1C1C1C" })
+			-- 		vim.api.nvim_set_hl(0, "@variable", { fg = "#D4D4D4" })
+			-- 		vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#808080" })
+			-- 		vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = "#808080" })
+			-- 		vim.api.nvim_set_hl(0, "@punctuation.special", { fg = "#808080" })
+			-- 	end
+			-- end,
 		}
 
 		local colorscheme = vim.g.colors_name
@@ -193,13 +196,68 @@ local plugins = {
 				operators = false,
 				folds = false,
 			},
-			transparent_mode = false,
+			transparent_mode = true,
 			palette_overrides = {
-				dark0 = "#171414",
-				dark1 = "#272525",
-				dark2 = "#3c3838",
-				dark3 = "#565151",
-				dark4 = "#726e6e",
+				-- 	dark0 = "#171414",
+				-- 	dark1 = "#272525",
+				-- 	dark2 = "#3c3838",
+				-- 	dark3 = "#565151",
+				-- 	dark4 = "#726e6e",
+				-- material palette
+				-- dark0_hard = "#1C1C1C",
+				-- dark0 = "#262626",
+				-- dark0_soft = "#303030",
+				-- dark1 = "#3A3A3A",
+				-- dark2 = "#4E4E4E",
+				-- dark3 = "#5F5F5F",
+				-- dark4 = "#6C6C6C",
+				-- light0_hard = "#FFFFD7",
+				-- light0 = "#FFFFD7",
+				-- light0_soft = "#FFD7B0",
+				-- light1 = "#FFD7B0",
+				-- light2 = "#D7D7AF",
+				-- light3 = "#AFAF87",
+				-- light4 = "#AF8788",
+				-- bright_red = "#FF5F5F",
+				-- bright_green = "#AFAF00",
+				-- bright_yellow = "#FFAF01",
+				-- bright_blue = "#87AF87",
+				-- bright_purple = "#D686AF",
+				-- bright_aqua = "#87AF87",
+				-- bright_orange = "#FF8700",
+				-- neutral_red = "#D70001",
+				-- neutral_green = "#878700",
+				-- neutral_yellow = "#D78700",
+				-- neutral_blue = "#5F8787",
+				-- neutral_purple = "#AF5F86",
+				-- neutral_aqua = "#60AF5F",
+				-- neutral_orange = "#D75F00",
+				-- faded_red = "#AF0000",
+				-- faded_green = "#878700",
+				-- faded_yellow = "#AF8700",
+				-- faded_blue = "#006087",
+				-- faded_purple = "#875E5F",
+				-- faded_aqua = "#5F875F",
+				-- faded_orange = "#AF5F00",
+				-- dark_red_hard = "#870000",
+				-- dark_red = "#5F0000",
+				-- dark_red_soft = "#444444",
+				-- light_red_hard = "#FF8787",
+				-- light_red = "#FF8787",
+				-- light_red_soft = "#FF8787",
+				-- dark_green_hard = "#4E4E4E",
+				-- dark_green = "#585858",
+				-- dark_green_soft = "#5F5F5F",
+				-- light_green_hard = "#D7D7AF",
+				-- light_green = "#D7D7AF",
+				-- light_green_soft = "#D7D786",
+				-- dark_aqua_hard = "#3A3A3A",
+				-- dark_aqua = "#444444",
+				-- dark_aqua_soft = "#4E4E4E",
+				-- light_aqua_hard = "#D7D7AF",
+				-- light_aqua = "#D7D7AF",
+				-- light_aqua_soft = "#D7D7AF",
+				-- gray = "#808080",
 			},
 			overrides = {
 				SignColumn = { link = "LineNr" },
@@ -289,6 +347,10 @@ local plugins = {
 	},
 
 	{
+		"sainnhe/gruvbox-material",
+	},
+
+	{
 		"folke/tokyonight.nvim",
 		config = function()
 			require("tokyonight").setup({
@@ -301,7 +363,7 @@ local plugins = {
 		"catppuccin/nvim",
 		config = function()
 			require("catppuccin").setup({
-				transparent_background = true,
+				transparent_background = false,
 				-- color_overrides = {
 				-- 	frappe = {
 				-- 		rosewater = "#894f41",
@@ -420,16 +482,18 @@ local plugins = {
 		end,
 	},
 
+	{ "Mofiqul/vscode.nvim" },
+
 	{
 		"navarasu/onedark.nvim",
 		config = function()
 			require("onedark").setup({
-				style = "warmer",
-				transparent = true,
+				style = "darker",
+				transparent = false,
 
 				code_style = {
 					comments = "italic",
-					keywords = "none",
+					keywords = "bold",
 					functions = "none",
 					strings = "none",
 					variables = "none",
@@ -446,7 +510,8 @@ local plugins = {
 				},
 			})
 
-			vim.cmd.colorscheme("catppuccin")
+			-- vim.opt.background = "light"
+			vim.cmd.colorscheme("zenwritten")
 		end,
 	},
 }

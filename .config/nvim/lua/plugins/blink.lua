@@ -1,7 +1,9 @@
+local v = "v0.14.0"
+
 local blink = {
 	"saghen/blink.cmp",
 	dependencies = "rafamadriz/friendly-snippets",
-	version = "v0.10.0",
+	version = v,
 	opts = {
 		appearance = {
 			use_nvim_cmp_as_default = true,
@@ -15,7 +17,7 @@ local blink = {
 		fuzzy = {
 			prebuilt_binaries = {
 				download = true,
-				force_version = "v0.10.0",
+				force_version = v,
 			},
 		},
 
@@ -45,6 +47,9 @@ local blink = {
 		},
 	},
 	opts_extend = { "sources.default" },
+	config = function(_, opts)
+		require("blink.cmp").setup(opts)
+	end,
 }
 
 blink.opts.keymap = {
@@ -63,11 +68,11 @@ blink.opts.keymap = {
 	["<S-Tab>"] = { "select_prev", "fallback" },
 	["<Tab>"] = { "select_next", "fallback" },
 
-	cmdline = {
-		["<S-Tab>"] = { "select_prev", "fallback" },
-		["<Tab>"] = { "select_next", "fallback" },
-		["<CR>"] = { "accept", "fallback" },
-	},
+	-- cmdline = {
+	-- 	["<S-Tab>"] = { "select_prev", "fallback" },
+	-- 	["<Tab>"] = { "select_next", "fallback" },
+	-- 	["<CR>"] = { "accept", "fallback" },
+	-- },
 }
 
 return blink

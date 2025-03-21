@@ -54,7 +54,7 @@ opt.fillchars = {
 	diff = "╱",
 	eob = " ",
 }
-opt.nu = false
+opt.nu = true
 opt.rnu = false
 opt.background = "dark"
 opt.smoothscroll = true
