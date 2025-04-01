@@ -1,4 +1,4 @@
-local v = "v0.14.0"
+local v = "v1.0.0"
 
 local blink = {
 	"saghen/blink.cmp",

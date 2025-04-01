@@ -311,6 +311,8 @@ local plugins = {
 					disable_italic("Number")
 					disable_italic("Constant")
 					disable_italic("Boolean")
+
+					vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
 				end,
 			})
 		end,
@@ -363,7 +365,7 @@ local plugins = {
 		"catppuccin/nvim",
 		config = function()
 			require("catppuccin").setup({
-				transparent_background = false,
+				transparent_background = true,
 				-- color_overrides = {
 				-- 	frappe = {
 				-- 		rosewater = "#894f41",
@@ -511,7 +513,7 @@ local plugins = {
 			})
 
 			-- vim.opt.background = "light"
-			vim.cmd.colorscheme("zenwritten")
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 }

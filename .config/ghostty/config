@@ -6,15 +6,15 @@ window-padding-y = 0
 macos-titlebar-style = hidden
 # window-colorspace = display-p3
 # custom-shader = "shaders/noise.glsl"
-# background-blur-radius = 10
-# background-opacity = 0.9
 confirm-close-surface = false
+background-blur-radius = 10
+background-opacity = 0.8
 
 # theme = GruvboxDark
 # background=32302F
 # background = 32302F
 # background = 171414
-theme = zenbones_dark
+# theme = zenbones_dark
 # theme = Builtin Solarized Light
 # theme = Raycast_Dark
 # background = 000000
@@ -33,7 +33,7 @@ theme = zenbones_dark
 # background = 0D0D0D
 # background = 23222B
 # theme = tokyonight_moon
-# theme = catppuccin-macchiato
+theme = catppuccin-mocha
 # background = 1b1b21
 # theme = codedark
 # theme = detuned
@@ -60,7 +60,7 @@ font-style = medium
 font-style-italic = medium italic
 font-style-bold = extrabold
 font-style-bold-italic = extrabold
-#
+
 # font-family = monaspace argon var
 # font-feature = cv10
 # font-feature = cv11
@@ -69,14 +69,16 @@ font-style-bold-italic = extrabold
 # font-variation-italic = wght=600
 # font-variation-bold-italic = wght=900
 
-# font-family = iosevka term
+font-family = iosevka term
 # font-style = medium extended
 # font-style-italic = medium extended italic
 # font-style-bold = extrabold extended
 # font-style-bold-italic = extrabold extended italic
 # font-feature = ss07
 
-font-family = jetbrains mono
+# font-family = ubuntu mono
+
+# font-family = jetbrains mono
 # font-style = semibold
 # font-style-italic = semibold italic
 # font-style-bold = extrabold
@@ -97,7 +99,7 @@ font-family = jetbrains mono
 
 
 font-size = 18
-adjust-cell-width = -5%
+# adjust-cell-width = -5%
 adjust-cell-height = +10%
 # adjust-font-baseline = -20%
 # font-thicken = true

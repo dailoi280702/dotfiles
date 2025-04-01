@@ -29,6 +29,7 @@ with pkgs;
   thefuck
   zoxide
   tre-command
+  yazi
 
   # Networking
   nmap
