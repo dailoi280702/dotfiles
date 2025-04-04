@@ -2,10 +2,12 @@
 # VERSION: 3.0
 SETUVAR Z_DATA_DIR:/home/lloyd/\x2elocal/share/z
 SETUVAR __fish_initialized:3800
+SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_h_2D_matsuo_2F_fish_2D_color_2D_scheme_2D_switcher_files:\x7e/\x2econfig/fish/functions/__scheme_get_definition\x2efish\x1e\x7e/\x2econfig/fish/functions/__scheme_list\x2efish\x1e\x7e/\x2econfig/fish/functions/__scheme_preview\x2efish\x1e\x7e/\x2econfig/fish/functions/__scheme_set\x2efish\x1e\x7e/\x2econfig/fish/functions/scheme\x2efish\x1e\x7e/\x2econfig/fish/completions/scheme\x2efish
+SETUVAR _fisher_jgantunes_2F_fish_2D_gvm_files:\x7e/\x2econfig/fish/functions/gvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/gvm\x2efish
 SETUVAR _fisher_jomik_2F_fish_2D_gruvbox_files:\x7e/\x2econfig/fish/functions/theme_gruvbox\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eh\x2dmatsuo/fish\x2dcolor\x2dscheme\x2dswitcher\x1ejomik/fish\x2dgruvbox
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eh\x2dmatsuo/fish\x2dcolor\x2dscheme\x2dswitcher\x1ejomik/fish\x2dgruvbox\x1ejgantunes/fish\x2dgvm\x1eedc/bass
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR ayu_variant:dark
 SETUVAR fish_color_autosuggestion:brblack

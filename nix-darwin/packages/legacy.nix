@@ -48,12 +48,18 @@ with pkgs;
   # Programming Languages & Tools
   nixfmt-rfc-style
   cargo
+  rustfmt
   zig
   go
   gofumpt
+  lua
+  luajit
   stylua
   protobuf
   nodejs
+  python3
+  black
+  bison
 
   # Others
   scrcpy

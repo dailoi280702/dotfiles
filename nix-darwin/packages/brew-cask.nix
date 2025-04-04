@@ -1,5 +1,5 @@
 [
   "ghostty"
-  "nikitabobko/tap/aerospace"
+  # "nikitabobko/tap/aerospace"
   "font-jetbrains-mono-nerd-font"
 ]

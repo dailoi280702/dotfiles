@@ -81,3 +81,5 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 if command -v zoxide; then
     eval "$(zoxide init zsh)"
 fi
+
+[[ -s "/Users/lewis/.gvm/scripts/gvm" ]] && source "/Users/lewis/.gvm/scripts/gvm"
