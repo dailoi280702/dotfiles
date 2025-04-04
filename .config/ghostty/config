@@ -56,10 +56,10 @@ theme = catppuccin-mocha
 # font-style-italic = bold italic
 
 # font-family = maple mono
-font-style = medium
-font-style-italic = medium italic
-font-style-bold = extrabold
-font-style-bold-italic = extrabold
+# font-style = medium
+# font-style-italic = medium italic
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold
 
 # font-family = monaspace argon var
 # font-feature = cv10
@@ -69,7 +69,7 @@ font-style-bold-italic = extrabold
 # font-variation-italic = wght=600
 # font-variation-bold-italic = wght=900
 
-font-family = iosevka term
+# font-family = iosevka term
 # font-style = medium extended
 # font-style-italic = medium extended italic
 # font-style-bold = extrabold extended
@@ -97,9 +97,12 @@ font-family = iosevka term
 # font-feature = cv20
 # font-feature = cv99
 
+font-family = source code pro
+font-style = medium
+font-style-italic = medium italic
 
 font-size = 18
-# adjust-cell-width = -5%
+adjust-cell-width = -10%
 adjust-cell-height = +10%
 # adjust-font-baseline = -20%
 # font-thicken = true
