@@ -72,7 +72,7 @@ M.opts = function()
 			},
 		},
 		options = {
-			theme = transparent,
+			-- theme = transparent,
 			component_separators = { left = "", right = "" },
 			-- section_separators = { left = "▓▒░", right = "░▒▓" },
 			section_separators = { left = "", right = "" },

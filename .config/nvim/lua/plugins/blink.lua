@@ -3,6 +3,7 @@ local v = "v1.0.0"
 local blink = {
 	"saghen/blink.cmp",
 	dependencies = "rafamadriz/friendly-snippets",
+	event = "InsertEnter",
 	version = v,
 	opts = {
 		appearance = {

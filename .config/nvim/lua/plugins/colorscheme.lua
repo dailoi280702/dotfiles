@@ -27,16 +27,21 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 				vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#fe8019", bg = "#303030" })
 				vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#83a598" })
 			end,
-			-- default = function()
-			-- 	if vim.o.background == "dark" then
-			-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "#151619", fg = "#E0E2EA" })
-			-- 	else
-			-- 		-- vim.api.nvim_set_hl(0, "Normal", { bg = "#EFF1F8", fg = "#13161C" })
-			-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "#fffefe", fg = "#13161C" })
-			-- 	end
-			-- end,
+			default = function()
+				if vim.o.background == "dark" then
+					vim.api.nvim_set_hl(0, "Normal", { bg = "#151619", fg = "#E0E2EA" })
+				else
+					vim.api.nvim_set_hl(0, "Normal", { bg = "#EFF1F8", fg = "#13161C" })
+					vim.api.nvim_set_hl(0, "StatusLine", { bg = "#EFF1F8", fg = "#13161C" })
+					vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#EFF1F8", fg = "#13161C" })
+					-- vim.api.nvim_set_hl(0, "Normal", { bg = "#fffefe", fg = "#13161C" })
+				end
+			end,
 			wildcharm = function()
 				vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
+			end,
+			melange = function()
+				vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 			end,
 			-- lunaperche = function()
 			-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "#0d0d0d" })
@@ -144,33 +149,33 @@ local plugins = {
 			styles = {
 				bold = true,
 				italic = false,
-				transparency = false,
+				transparency = true,
 			},
-			palette = {
-				-- Override the builtin palette per variant
-				moon = {
-					base = "#23222B",
-				},
-				dawn = {
-					_nc = "#f8f0e7",
-					base = "#faf4ed",
-					surface = "#fffaf3",
-					overlay = "#f2e9e1",
-					muted = "#938ea2",
-					subtle = "#787393",
-					text = "#474360",
-					love = "#af5e75",
-					gold = "#927052",
-					rose = "#bc5953",
-					pine = "#587c8f",
-					foam = "#577d85",
-					iris = "#856d9f",
-					leaf = "#557f78",
-					highlight_low = "#f4ede8",
-					highlight_med = "#dfdad9",
-					highlight_high = "#cecacd",
-				},
-			},
+			-- palette = {
+			-- 	-- Override the builtin palette per variant
+			-- 	moon = {
+			-- 		base = "#23222B",
+			-- 	},
+			-- 	dawn = {
+			-- 		_nc = "#f8f0e7",
+			-- 		base = "#faf4ed",
+			-- 		surface = "#fffaf3",
+			-- 		overlay = "#f2e9e1",
+			-- 		muted = "#938ea2",
+			-- 		subtle = "#787393",
+			-- 		text = "#474360",
+			-- 		love = "#af5e75",
+			-- 		gold = "#927052",
+			-- 		rose = "#bc5953",
+			-- 		pine = "#587c8f",
+			-- 		foam = "#577d85",
+			-- 		iris = "#856d9f",
+			-- 		leaf = "#557f78",
+			-- 		highlight_low = "#f4ede8",
+			-- 		highlight_med = "#dfdad9",
+			-- 		highlight_high = "#cecacd",
+			-- 	},
+			-- },
 			-- before_highlight = function(_, hl, _)
 			-- 	C = require("util.color")
 			-- 	hl.fg = C.shift_hsl(hl.fg, {
@@ -344,13 +349,9 @@ local plugins = {
 		end,
 	},
 
-	{
-		"maxmx03/solarized.nvim",
-	},
+	{ "maxmx03/solarized.nvim" },
 
-	{
-		"sainnhe/gruvbox-material",
-	},
+	{ "sainnhe/gruvbox-material" },
 
 	{
 		"folke/tokyonight.nvim",
@@ -365,155 +366,52 @@ local plugins = {
 		"catppuccin/nvim",
 		config = function()
 			require("catppuccin").setup({
-				transparent_background = true,
-				-- color_overrides = {
-				-- 	frappe = {
-				-- 		rosewater = "#894f41",
-				-- 		flamingo = "#9c4141",
-				-- 		pink = "#8a4777",
-				-- 		mauve = "#513a7c",
-				-- 		red = "#9a424a",
-				-- 		maroon = "#9a424a",
-				-- 		peach = "#894f41",
-				-- 		yellow = "#755840",
-				-- 		green = "#446740",
-				-- 		teal = "#446466",
-				-- 		sky = "#466176",
-				-- 		sapphire = "#44636b",
-				-- 		blue = "#4c5b98",
-				-- 		lavender = "#4d59a0",
-				-- 		text = "#3b3b3b",
-				-- 		subtext1 = "#474747",
-				-- 		subtext0 = "#525252",
-				-- 		overlay2 = "#5e5e5e",
-				-- 		overlay1 = "#6a6a6a",
-				-- 		overlay0 = "#777777",
-				-- 		surface2 = "#ababab",
-				-- 		surface1 = "#b9b9b9",
-				-- 		surface0 = "#c6c6c6",
-				-- 		base = "#e2e2e2",
-				-- 		mantle = "#f1f1f1",
-				-- 		crust = "#000000",
-				-- 	},
-				-- 	latte = {
-				-- 		rosewater = "#ac6453",
-				-- 		flamingo = "#c35353",
-				-- 		pink = "#ad5a96",
-				-- 		mauve = "#8369b9",
-				-- 		red = "#c0545f",
-				-- 		maroon = "#c1545b",
-				-- 		peach = "#ac6453",
-				-- 		yellow = "#947052",
-				-- 		green = "#578152",
-				-- 		teal = "#577e81",
-				-- 		sky = "#597b95",
-				-- 		sapphire = "#577d87",
-				-- 		blue = "#6273ba",
-				-- 		lavender = "#6772ba",
-				-- 		text = "#3b3b3b",
-				-- 		subtext1 = "#474747",
-				-- 		subtext0 = "#525252",
-				-- 		overlay2 = "#5e5e5e",
-				-- 		overlay1 = "#6a6a6a",
-				-- 		overlay0 = "#777777",
-				-- 		surface2 = "#ababab",
-				-- 		surface1 = "#b9b9b9",
-				-- 		surface0 = "#c6c6c6",
-				-- 		base = "#e2e2e2",
-				-- 		mantle = "#f1f1f1",
-				-- 		crust = "#000000",
-				-- 	},
-				-- 	macchiato = {
-				-- 		rosewater = "#b78578",
-				-- 		flamingo = "#bd8282",
-				-- 		pink = "#b580a7",
-				-- 		mauve = "#9a89b3",
-				-- 		red = "#bb8189",
-				-- 		maroon = "#bc8186",
-				-- 		peach = "#ad8978",
-				-- 		yellow = "#9c8f78",
-				-- 		green = "#7f9878",
-				-- 		teal = "#7b9692",
-				-- 		sky = "#7c969a",
-				-- 		sapphire = "#7d94a1",
-				-- 		blue = "#8291b3",
-				-- 		lavender = "#8a8eb3",
-				-- 		text = "#c6c6c6",
-				-- 		subtext1 = "#b6b6b6",
-				-- 		subtext0 = "#ababab",
-				-- 		overlay2 = "#9e9e9e",
-				-- 		overlay1 = "#919191",
-				-- 		overlay0 = "#848484",
-				-- 		surface2 = "#777777",
-				-- 		surface1 = "#303030",
-				-- 		surface0 = "#262626",
-				-- 		base = "#1b1b1b",
-				-- 		mantle = "#111111",
-				-- 		crust = "#000000",
-				-- 	},
-				-- 	mocha = {
-				-- 		rosewater = "#cba298",
-				-- 		flamingo = "#c97c7c",
-				-- 		pink = "#c7a0bc",
-				-- 		mauve = "#b2a6c5",
-				-- 		red = "#c9a1a6",
-				-- 		maroon = "#caa1a4",
-				-- 		peach = "#cca290",
-				-- 		yellow = "#b8aa8e",
-				-- 		green = "#97b38e",
-				-- 		teal = "#91b2ac",
-				-- 		sky = "#93b0b6",
-				-- 		sapphire = "#94afbe",
-				-- 		blue = "#a0abc6",
-				-- 		lavender = "#a7a9c5",
-				-- 		text = "#c6c6c6",
-				-- 		subtext1 = "#b6b6b6",
-				-- 		subtext0 = "#ababab",
-				-- 		overlay2 = "#9e9e9e",
-				-- 		overlay1 = "#919191",
-				-- 		overlay0 = "#848484",
-				-- 		surface2 = "#777777",
-				-- 		surface1 = "#303030",
-				-- 		surface0 = "#262626",
-				-- 		base = "#1b1b1b",
-				-- 		mantle = "#111111",
-				-- 		crust = "#000000",
-				-- 	},
-				-- },
+				transparent_background = false,
 			})
 		end,
 	},
 
 	{ "Mofiqul/vscode.nvim" },
 
+	{ "savq/melange-nvim" },
+
+	{ "forest-nvim/sequoia.nvim" },
+
+	{ "WTFox/jellybeans.nvim" },
+
 	{
-		"navarasu/onedark.nvim",
-		config = function()
-			require("onedark").setup({
-				style = "darker",
-				transparent = false,
-
-				code_style = {
-					comments = "italic",
-					keywords = "bold",
-					functions = "none",
-					strings = "none",
-					variables = "none",
+		"everviolet/nvim",
+		name = "evergarden",
+		opts = {
+			theme = {
+				variant = "fall",
+				accent = "red",
+			},
+			editor = {
+				transparent_background = true,
+				sign = { color = "none" },
+				float = {
+					color = "mantle",
+					invert_border = false,
 				},
-
-				lualine = {
-					transparent = false,
+				completion = {
+					color = "surface0",
 				},
+			},
+			style = {
+				tabline = { "reverse" },
+				search = { "reverse" },
+				incsearch = { "reverse" },
+				types = {},
+				keyword = {},
+				comment = {},
+			},
+		},
+		config = function(_, opts)
+			require("evergarden").setup(opts)
 
-				diagnostics = {
-					darker = false,
-					undercurl = true,
-					background = true,
-				},
-			})
-
-			-- vim.opt.background = "light"
-			vim.cmd.colorscheme("catppuccin")
+			vim.opt.background = "light"
+			vim.cmd.colorscheme("default")
 		end,
 	},
 }

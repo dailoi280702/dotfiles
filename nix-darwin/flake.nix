@@ -34,6 +34,10 @@
             brews = import ./packages/brew-formulae.nix;
             casks = import ./packages/brew-cask.nix;
             taps = import ./packages/brew-tap.nix;
+            onActivation = {
+              cleanup = "zap";
+              upgrade = true;
+            };
           };
 
           # Necessary for using flakes on this system.

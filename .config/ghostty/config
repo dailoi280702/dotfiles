@@ -11,6 +11,7 @@ confirm-close-surface = false
 # background-opacity = 0.8
 
 # theme = GruvboxDark
+# theme = rose-pine-dawn
 # background=32302F
 # background = 32302F
 # background = 171414
@@ -21,8 +22,8 @@ confirm-close-surface = false
 # theme = Rouge 2
 # theme = Relaxed
 # theme = Mellifluous
-# theme = NvimLight
-# background = EFF1F8
+theme = NvimLight
+background = EFF1F8
 # theme = Galizur
 # theme = Glacier
 # theme = Guezwhoz
@@ -33,17 +34,19 @@ confirm-close-surface = false
 # background = 0D0D0D
 # background = 23222B
 # theme = tokyonight_moon
-theme = catppuccin-frappe
+# theme = catppuccin-frappe
 # background = 1b1b21
 # theme = codedark
 # theme = detuned
+# theme = melange_dark
+# theme = evergarden-winter-green
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
 # font-family = cozettevector
 # font-family = comic mono
 # font-family = fantasquesansm nerd font
-# font-family = ubuntu mono
+# font-family = hack
 
 # font-family = cascadia code
 # font-feature = ss19
@@ -78,11 +81,11 @@ theme = catppuccin-frappe
 
 # font-family = ubuntu mono
 
-# font-family = jetbrains mono
-# font-style = semibold
-# font-style-italic = semibold italic
-# font-style-bold = extrabold
-# font-style-bold-italic = extrabold italic
+font-family = jetbrains mono
+font-style = semibold
+font-style-italic = semibold italic
+font-style-bold = extrabold
+font-style-bold-italic = extrabold italic
 # font-feature = calt 
 # font-feature = -liga
 # font-feature = ss01
@@ -97,13 +100,13 @@ theme = catppuccin-frappe
 # font-feature = cv20
 # font-feature = cv99
 
-font-family = source code pro
-font-style = medium
-font-style-italic = medium italic
+# font-family = source code pro
+# font-style = medium
+# font-style-italic = medium italic
 
 font-size = 18
-adjust-cell-width = -10%
-adjust-cell-height = +10%
+adjust-cell-width = -5%
+adjust-cell-height = +20%
 # adjust-font-baseline = -20%
 # font-thicken = true
 

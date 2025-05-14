@@ -44,6 +44,7 @@ with pkgs;
   llvm
   lld
   terraform
+  valkey
 
   # Programming Languages & Tools
   nixfmt-rfc-style

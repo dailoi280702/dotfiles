@@ -1,3 +1,4 @@
 [
   "FelixKratz/formulae"
+  "hashicorp/tap"
 ]
