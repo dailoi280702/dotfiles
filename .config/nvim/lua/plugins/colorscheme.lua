@@ -410,8 +410,8 @@ local plugins = {
 		config = function(_, opts)
 			require("evergarden").setup(opts)
 
-			vim.opt.background = "light"
-			vim.cmd.colorscheme("default")
+			-- vim.opt.background = "light"
+			vim.cmd.colorscheme("evergarden")
 		end,
 	},
 }

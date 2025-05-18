@@ -22,8 +22,8 @@ confirm-close-surface = false
 # theme = Rouge 2
 # theme = Relaxed
 # theme = Mellifluous
-theme = NvimLight
-background = EFF1F8
+# theme = NvimLight
+# background = EFF1F8
 # theme = Galizur
 # theme = Glacier
 # theme = Guezwhoz
@@ -39,12 +39,12 @@ background = EFF1F8
 # theme = codedark
 # theme = detuned
 # theme = melange_dark
-# theme = evergarden-winter-green
+theme = evergarden-winter-green
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
 # font-family = cozettevector
-# font-family = comic mono
+font-family = comic mono
 # font-family = fantasquesansm nerd font
 # font-family = hack
 
@@ -81,11 +81,11 @@ background = EFF1F8
 
 # font-family = ubuntu mono
 
-font-family = jetbrains mono
-font-style = semibold
-font-style-italic = semibold italic
-font-style-bold = extrabold
-font-style-bold-italic = extrabold italic
+# font-family = jetbrains mono
+# font-style = semibold
+# font-style-italic = semibold italic
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold italic
 # font-feature = calt 
 # font-feature = -liga
 # font-feature = ss01
@@ -105,9 +105,9 @@ font-style-bold-italic = extrabold italic
 # font-style-italic = medium italic
 
 font-size = 18
-adjust-cell-width = -5%
+# adjust-cell-width = -5%
 adjust-cell-height = +20%
-# adjust-font-baseline = -20%
+adjust-font-baseline = -30%
 # font-thicken = true
 
 command = /bin/zsh -c 'tmux a || tmux'
