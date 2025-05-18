@@ -379,6 +379,8 @@ local plugins = {
 
 	{ "WTFox/jellybeans.nvim" },
 
+	{ "projekt0n/github-nvim-theme" },
+
 	{
 		"everviolet/nvim",
 		name = "evergarden",

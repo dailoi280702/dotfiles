@@ -8,7 +8,9 @@ local M = {
 			require("colorizer").setup()
 		end,
 	},
+
 	-- { "HiPhish/rainbow-delimiters.nvim", event = { "VeryLazy" } },
+
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
@@ -26,6 +28,7 @@ local M = {
 			require("ibl").setup(opts)
 		end,
 	},
+
 	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
@@ -36,7 +39,7 @@ local M = {
 			provider = "gemini",
 			gemini = {
 				endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-				model = "gemini-2.0-flash",
+				model = "gemini-2.5-pro-preview-05-06",
 				timeout = 30000, -- Timeout in milliseconds
 				temperature = 0,
 				max_tokens = 8192,
