@@ -4,6 +4,8 @@ local M = {
 }
 
 M.opts = {
+	current_line_blame = true,
+
 	on_attach = function(buffer)
 		local gs = package.loaded.gitsigns
 

@@ -28,16 +28,16 @@ local blink = {
 						-- options for blink-cmp-avante
 						--
 					},
-					command = {
-						get_kind_name = function(_)
-							return "AvanteCmd"
-						end,
-					},
-					mention = {
-						get_kind_name = function(_)
-							return "AvanteMention"
-						end,
-					},
+					-- command = {
+					-- 	get_kind_name = function(_)
+					-- 		return "AvanteCmd"
+					-- 	end,
+					-- },
+					-- mention = {
+					-- 	get_kind_name = function(_)
+					-- 		return "AvanteMention"
+					-- 	end,
+					-- },
 				},
 			},
 		},
