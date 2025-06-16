@@ -40,6 +40,9 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 			wildcharm = function()
 				vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
 			end,
+			evergarden = function()
+				vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+			end,
 			melange = function()
 				vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 			end,
@@ -273,26 +276,24 @@ local plugins = {
 		end,
 	},
 
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	opts = {
-	-- 		transparent = true,
-	-- 		overrides = function(colors)
-	-- 			local theme = colors.theme
-	-- 			return {
-	-- 				TelescopeTitle = { fg = theme.ui.special, bold = true },
-	-- 				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-	-- 				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-	-- 				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-	-- 				TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-	-- 				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-	-- 				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-	-- 			}
-	-- 		end,
-	-- 	},
-	-- },
+	{
+		"rebelot/kanagawa.nvim",
+		opts = {
+			transparent = true,
+			overrides = function(colors)
+				local theme = colors.theme
+				return {
+					TelescopeTitle = { fg = theme.ui.special, bold = true },
+					TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+					TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+					TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+					TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+					TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+					TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+				}
+			end,
+		},
+	},
 
 	{
 		"zenbones-theme/zenbones.nvim",
@@ -377,9 +378,17 @@ local plugins = {
 
 	{ "forest-nvim/sequoia.nvim" },
 
-	{ "WTFox/jellybeans.nvim" },
+	{
+		"WTFox/jellybeans.nvim",
+		opts = {
+			italics = false,
+		},
+		config = function(_, opts)
+			require("jellybeans").setup(opts)
+		end,
+	},
 
-	{ "projekt0n/github-nvim-theme" },
+	{ "bluz71/vim-moonfly-colors" },
 
 	{
 		"everviolet/nvim",
@@ -413,7 +422,8 @@ local plugins = {
 			require("evergarden").setup(opts)
 
 			-- vim.opt.background = "light"
-			vim.cmd.colorscheme("evergarden")
+			-- vim.cmd.colorscheme("jellybeans-default")
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 }

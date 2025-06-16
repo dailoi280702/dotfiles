@@ -67,7 +67,7 @@ M.opts = function()
 				{
 					"filename",
 					file_status = true,
-					path = 4,
+					path = 1,
 				},
 			},
 		},

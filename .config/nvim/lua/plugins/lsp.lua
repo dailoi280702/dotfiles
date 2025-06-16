@@ -100,7 +100,7 @@ lsp.opts = {
 		},
 		-- bufls = {},
 		-- fennel_language_server = {},
-		golangci_lint_ls = {},
+		-- golangci_lint_ls = {},
 		eslint = {},
 		rust_analyzer = {},
 		terraformls = {
@@ -151,7 +151,10 @@ lsp.config = function(_, opts)
 
 				local handlers = {
 					["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-					["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+					["textDocument/signatureHelp"] = vim.lsp.with(
+						vim.lsp.handlers.signature_help,
+						{ border = "rounded" }
+					),
 				}
 
 				local server_opts = servers[server] or {}

@@ -30,19 +30,35 @@ local M = {
 	},
 
 	{
+		"echasnovski/mini.misc",
+		lazy = false,
+		event = "VeryLazy",
+		opts = {
+			make_global = {
+				"put",
+				"put_text",
+				"setup_termbg_sync",
+				"zoom",
+			},
+		},
+	},
+
+	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
 		version = false, -- Never set this value to "*"! Never!
 		opts = {
 			-- add any opts here
 			-- for example
-			provider = "gemini",
-			gemini = {
-				endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-				model = "gemini-2.5-pro-preview-05-06",
-				timeout = 30000, -- Timeout in milliseconds
-				temperature = 0,
-				max_tokens = 8192,
+			-- provider = "gemini",
+			providers = {
+				gemini = {
+					endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+					model = "gemini-2.5-pro-preview-05-06",
+					timeout = 30000, -- Timeout in milliseconds
+					temperature = 0,
+					max_tokens = 8192,
+				},
 			},
 		},
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
