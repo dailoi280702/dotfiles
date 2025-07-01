@@ -61,6 +61,7 @@ with pkgs;
   python3
   black
   bison
+  codespell
 
   # Others
   scrcpy

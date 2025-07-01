@@ -39,7 +39,8 @@ confirm-close-surface = false
 # theme = codedark
 # theme = detuned
 # theme = melange_dark
-theme = evergarden-winter-green
+# theme = evergarden-winter-green
+theme = terafox
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
@@ -104,7 +105,7 @@ font-family = comic mono
 # font-style = medium
 # font-style-italic = medium italic
 
-font-size = 18
+font-size = 22
 # adjust-cell-width = -5%
 adjust-cell-height = +20%
 adjust-font-baseline = -30%
