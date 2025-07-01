@@ -45,7 +45,7 @@ theme = terafox
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
 # font-family = cozettevector
-font-family = comic mono
+# font-family = comic mono
 # font-family = fantasquesansm nerd font
 # font-family = hack
 
@@ -60,10 +60,10 @@ font-family = comic mono
 # font-style-italic = bold italic
 
 # font-family = maple mono
-# font-style = medium
-# font-style-italic = medium italic
-# font-style-bold = extrabold
-# font-style-bold-italic = extrabold
+font-style = medium
+font-style-italic = medium italic
+font-style-bold = extrabold
+font-style-bold-italic = extrabold
 
 # font-family = monaspace argon var
 # font-feature = cv10
@@ -82,7 +82,7 @@ font-family = comic mono
 
 # font-family = ubuntu mono
 
-# font-family = jetbrains mono
+font-family = jetbrains mono
 # font-style = semibold
 # font-style-italic = semibold italic
 # font-style-bold = extrabold
@@ -105,10 +105,10 @@ font-family = comic mono
 # font-style = medium
 # font-style-italic = medium italic
 
-font-size = 22
-# adjust-cell-width = -5%
-adjust-cell-height = +20%
-adjust-font-baseline = -30%
+font-size = 20
+adjust-cell-width = -10%
+adjust-cell-height = +10%
+# adjust-font-baseline = -30%
 # font-thicken = true
 
 command = /bin/zsh -c 'tmux a || tmux'
