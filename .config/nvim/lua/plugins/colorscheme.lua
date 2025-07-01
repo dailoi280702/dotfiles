@@ -55,11 +55,12 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 			habamax = function()
 				vim.api.nvim_set_hl(0, "MatchParen", { fg = "#585858" })
 			end,
-			-- gruvbox = function()
-			-- 	if vim.o.background == "dark" then
-			-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-			-- 	end
-			-- end,
+			gruvbox = function()
+				if vim.o.background == "dark" then
+					vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+					vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
+				end
+			end,
 			flexoki = function()
 				if vim.o.background == "light" then
 					vim.api.nvim_set_hl(0, "@variable", { fg = "#100F0F" })
@@ -335,7 +336,7 @@ local plugins = {
 				},
 				terafox = {
 					-- bg1 = "#141b1b",
-					bg1 = "#1f2425",
+					-- bg1 = "#1f2425",
 				},
 				duskfox = {
 					bg1 = "#23222b",
@@ -423,7 +424,7 @@ local plugins = {
 
 			-- vim.opt.background = "light"
 			-- vim.cmd.colorscheme("jellybeans-default")
-			vim.cmd.colorscheme("gruvbox")
+			vim.cmd.colorscheme("terafox")
 		end,
 	},
 }
