@@ -40,7 +40,7 @@ confirm-close-surface = false
 # theme = detuned
 # theme = melange_dark
 # theme = evergarden-winter-green
-theme = terafox
+theme = kanso-perl
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
@@ -59,7 +59,7 @@ theme = terafox
 # font-style = bold
 # font-style-italic = bold italic
 
-# font-family = maple mono
+font-family = maple mono
 font-style = medium
 font-style-italic = medium italic
 font-style-bold = extrabold
@@ -82,7 +82,7 @@ font-style-bold-italic = extrabold
 
 # font-family = ubuntu mono
 
-font-family = jetbrains mono
+# font-family = jetbrains mono
 # font-style = semibold
 # font-style-italic = semibold italic
 # font-style-bold = extrabold
@@ -107,7 +107,7 @@ font-family = jetbrains mono
 
 font-size = 20
 adjust-cell-width = -10%
-adjust-cell-height = +10%
+# adjust-cell-height = +10%
 # adjust-font-baseline = -30%
 # font-thicken = true
 

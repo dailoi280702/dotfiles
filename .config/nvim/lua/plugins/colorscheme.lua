@@ -389,7 +389,7 @@ local plugins = {
 		end,
 	},
 
-	{ "bluz71/vim-moonfly-colors" },
+	{ "webhooked/kanso.nvim" },
 
 	{
 		"everviolet/nvim",
@@ -422,9 +422,9 @@ local plugins = {
 		config = function(_, opts)
 			require("evergarden").setup(opts)
 
-			-- vim.opt.background = "light"
+			vim.opt.background = "light"
 			-- vim.cmd.colorscheme("jellybeans-default")
-			vim.cmd.colorscheme("terafox")
+			vim.cmd.colorscheme("kanso")
 		end,
 	},
 }
