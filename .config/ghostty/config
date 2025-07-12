@@ -36,11 +36,11 @@ confirm-close-surface = false
 # theme = tokyonight_moon
 # theme = catppuccin-frappe
 # background = 1b1b21
-# theme = codedark
+theme = codedark
 # theme = detuned
 # theme = melange_dark
 # theme = evergarden-winter-green
-theme = kanso-perl
+# theme = kanso-perl
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font

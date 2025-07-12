@@ -54,6 +54,8 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 			end,
 			habamax = function()
 				vim.api.nvim_set_hl(0, "MatchParen", { fg = "#585858" })
+				vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+				vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
 			end,
 			gruvbox = function()
 				if vim.o.background == "dark" then
@@ -422,9 +424,10 @@ local plugins = {
 		config = function(_, opts)
 			require("evergarden").setup(opts)
 
-			vim.opt.background = "light"
+			-- vim.opt.background = "light"
 			-- vim.cmd.colorscheme("jellybeans-default")
-			vim.cmd.colorscheme("kanso")
+			-- vim.cmd.colorscheme("kanso")
+			vim.cmd.colorscheme("habamax")
 		end,
 	},
 }
