@@ -12,7 +12,7 @@ table.insert(M, {
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	opts = {
 		highlight = {
-			enable = false,
+			enable = true,
 			-- additional_vim_regex_highlighting = false,
 		},
 		indent = { enable = true },
