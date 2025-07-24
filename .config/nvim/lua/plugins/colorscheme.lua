@@ -426,7 +426,10 @@ local plugins = {
 
 			-- vim.opt.background = "light"
 			-- vim.cmd.colorscheme("jellybeans-default")
+<<<<<<< Updated upstream
 			-- vim.cmd.colorscheme("kanso")
+=======
+>>>>>>> Stashed changes
 			vim.cmd.colorscheme("habamax")
 		end,
 	},
