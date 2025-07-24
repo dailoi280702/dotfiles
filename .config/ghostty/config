@@ -26,7 +26,7 @@ confirm-close-surface = false
 # background = EFF1F8
 # theme = Galizur
 # theme = Glacier
-# theme = Guezwhoz
+theme = Guezwhoz
 # theme = MaterialDesignColors
 # theme = Ubuntu
 # theme = Monokai Classic
@@ -36,11 +36,12 @@ confirm-close-surface = false
 # theme = tokyonight_moon
 # theme = catppuccin-frappe
 # background = 1b1b21
-theme = codedark
+# theme = codedark
 # theme = detuned
 # theme = melange_dark
 # theme = evergarden-winter-green
 # theme = kanso-perl
+background = 1c1c1c
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
@@ -59,11 +60,12 @@ theme = codedark
 # font-style = bold
 # font-style-italic = bold italic
 
-font-family = maple mono
-font-style = medium
-font-style-italic = medium italic
-font-style-bold = extrabold
-font-style-bold-italic = extrabold
+# font-family = md io trial
+# font-family = maple mono
+# font-style = medium
+# font-style-italic = medium italic
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold
 
 # font-family = monaspace argon var
 # font-feature = cv10
@@ -82,11 +84,11 @@ font-style-bold-italic = extrabold
 
 # font-family = ubuntu mono
 
-# font-family = jetbrains mono
-# font-style = semibold
-# font-style-italic = semibold italic
-# font-style-bold = extrabold
-# font-style-bold-italic = extrabold italic
+font-family = jetbrains mono
+font-style = semibold
+font-style-italic = semibold italic
+font-style-bold = extrabold
+font-style-bold-italic = extrabold italic
 # font-feature = calt 
 # font-feature = -liga
 # font-feature = ss01
@@ -105,12 +107,12 @@ font-style-bold-italic = extrabold
 # font-style = medium
 # font-style-italic = medium italic
 
-font-size = 20
+font-size = 18
 adjust-cell-width = -10%
-# adjust-cell-height = +10%
+adjust-cell-height = +10%
 # adjust-font-baseline = -30%
 # font-thicken = true
 
-command = /bin/zsh -c 'tmux a || tmux'
+# command = /bin/zsh -c 'tmux a || tmux'
 
 resize-overlay-position = bottom-left
