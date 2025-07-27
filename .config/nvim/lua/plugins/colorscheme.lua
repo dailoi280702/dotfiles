@@ -338,7 +338,7 @@ local plugins = {
 				},
 				terafox = {
 					-- bg1 = "#141b1b",
-					-- bg1 = "#1f2425",
+					bg1 = "#1f2425",
 				},
 				duskfox = {
 					bg1 = "#23222b",
@@ -427,7 +427,7 @@ local plugins = {
 			-- vim.opt.background = "light"
 			-- vim.cmd.colorscheme("jellybeans-default")
 			-- vim.cmd.colorscheme("kanso")
-			vim.cmd.colorscheme("catppuccin-mocha")
+			vim.cmd.colorscheme("terafox")
 		end,
 	},
 }

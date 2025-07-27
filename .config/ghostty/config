@@ -26,7 +26,7 @@ confirm-close-surface = false
 # background = EFF1F8
 # theme = Galizur
 # theme = Glacier
-theme = Guezwhoz
+# theme = Guezwhoz
 # theme = MaterialDesignColors
 # theme = Ubuntu
 # theme = Monokai Classic
@@ -35,13 +35,16 @@ theme = Guezwhoz
 # background = 23222B
 # theme = tokyonight_moon
 # theme = catppuccin-frappe
+# theme = catppuccin-mocha
 # background = 1b1b21
 # theme = codedark
 # theme = detuned
 # theme = melange_dark
 # theme = evergarden-winter-green
 # theme = kanso-perl
-background = 1c1c1c
+# background = 1c1c1c
+theme = terafox
+background = 1f2425
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
@@ -75,7 +78,7 @@ background = 1c1c1c
 # font-variation-italic = wght=600
 # font-variation-bold-italic = wght=900
 
-# font-family = iosevka term
+font-family = iosevka term
 # font-style = medium extended
 # font-style-italic = medium extended italic
 # font-style-bold = extrabold extended
@@ -84,11 +87,11 @@ background = 1c1c1c
 
 # font-family = ubuntu mono
 
-font-family = jetbrains mono
-font-style = semibold
-font-style-italic = semibold italic
-font-style-bold = extrabold
-font-style-bold-italic = extrabold italic
+# font-family = jetbrains mono
+# font-style = semibold
+# font-style-italic = semibold italic
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold italic
 # font-feature = calt 
 # font-feature = -liga
 # font-feature = ss01
@@ -107,9 +110,9 @@ font-style-bold-italic = extrabold italic
 # font-style = medium
 # font-style-italic = medium italic
 
-font-size = 18
-adjust-cell-width = -10%
-adjust-cell-height = +10%
+font-size = 19
+adjust-cell-width = -5%
+# adjust-cell-height = +10%
 # adjust-font-baseline = -30%
 # font-thicken = true
 
