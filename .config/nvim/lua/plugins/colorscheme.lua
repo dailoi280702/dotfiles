@@ -427,7 +427,7 @@ local plugins = {
 			-- vim.opt.background = "light"
 			-- vim.cmd.colorscheme("jellybeans-default")
 			-- vim.cmd.colorscheme("kanso")
-			vim.cmd.colorscheme("tokyonight-moon")
+			vim.cmd.colorscheme("catppuccin-mocha")
 		end,
 	},
 }
