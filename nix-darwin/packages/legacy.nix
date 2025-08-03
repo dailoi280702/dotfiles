@@ -2,8 +2,8 @@
 with pkgs;
 [
   # Editors
-  vim
   neovim
+  vim
   alacritty
   tmux
 

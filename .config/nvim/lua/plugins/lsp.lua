@@ -16,11 +16,11 @@ end
 
 local lsp = {
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-	lazy = true,
+	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
+	lazy = false,
 	dependencies = {
 		"mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 	},
 }
 
@@ -185,24 +185,25 @@ lsp.config = function(_, opts)
 	-- 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	-- 	end,
 	-- })
-	local no_sematic_hilight_servers = {
-		"ts_ls",
-		"lua_ls",
-	}
 
-	vim.api.nvim_create_autocmd("LspAttach", {
-		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-		callback = function(ev)
-			local client = vim.lsp.get_client_by_id(ev.data.client_id)
-			if vim.fn.index(no_sematic_hilight_servers, client.name) ~= 0 then
-				client.server_capabilities.semanticTokensProvider = nil
-			end
-		end,
-	})
+	-- local no_sematic_hilight_servers = {
+	-- 	"ts_ls",
+	-- 	"lua_ls",
+	-- }
+
+	-- vim.api.nvim_create_autocmd("LspAttach", {
+	-- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	-- 	callback = function(ev)
+	-- 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+	-- 		if vim.fn.index(no_sematic_hilight_servers, client.name) ~= 0 then
+	-- 			client.server_capabilities.semanticTokensProvider = nil
+	-- 		end
+	-- 	end,
+	-- })
 end
 
 local mason = {
-	"williamboman/mason.nvim",
+	"mason-org/mason.nvim",
 	cmd = "Mason",
 	keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
 	build = ":MasonUpdate",

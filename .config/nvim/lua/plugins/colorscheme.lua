@@ -40,18 +40,9 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 			wildcharm = function()
 				vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
 			end,
-			evergarden = function()
-				vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-			end,
-			melange = function()
-				vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-			end,
 			-- lunaperche = function()
 			-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "#0d0d0d" })
 			-- end,
-			["jellybeans-nvim"] = function()
-				vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#b2b2b2" })
-			end,
 			habamax = function()
 				vim.api.nvim_set_hl(0, "MatchParen", { fg = "#585858" })
 				vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
@@ -62,30 +53,6 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 					vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
 					vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
 				end
-			end,
-			flexoki = function()
-				if vim.o.background == "light" then
-					vim.api.nvim_set_hl(0, "@variable", { fg = "#100F0F" })
-				else
-					local darkYellow = "#D0A215"
-					local darkFg = "#CECDC3"
-					local darkMagenta = "#CE5D97"
-					vim.api.nvim_set_hl(0, "@variable", { fg = darkFg })
-					vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = darkYellow })
-					vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = darkYellow })
-					vim.api.nvim_set_hl(0, "normal", { bg = "none" })
-					vim.api.nvim_set_hl(0, "@type.go", { fg = darkYellow })
-					vim.api.nvim_set_hl(0, "Special", { fg = darkMagenta })
-				end
-				vim.api.nvim_set_hl(
-					0,
-					"BlinkCmpGhostText",
-					vim.tbl_extend(
-						"keep",
-						{ italic = false },
-						vim.api.nvim_get_hl(0, { name = "Comment", link = false })
-					)
-				)
 			end,
 			-- vscode = function()
 			-- 	if vim.o.background == "dark" then
@@ -106,41 +73,41 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 	end,
 })
 
- vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
- 	callback = function()
- 		vim.cmd("hi clear")
- 	end,
- })
-
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
 	callback = function()
-		local hsl = {
-			-- gruvbox = {
-			-- 	s = 0.9,
-			-- 	l = 0.9,
-			-- },
-			-- ["rose-pine"] = {
-			-- 	s = 0.7,
-			-- 	l = 0.8,
-			-- 	-- s = 0.8,
-			-- 	-- l = 0.9,
-			-- },
-		}
-
-		local colorscheme = vim.g.colors_name
-		if hsl[colorscheme] then
-			local C = require("util.color")
-			local hl_groups = vim.api.nvim_get_hl(0, {})
-			for name, spec in pairs(hl_groups) do
-				if spec.fg then
-					local fg = "#" .. string.format("%06x", spec.fg)
-					spec.fg = C.shift_hsl_percentage(fg, hsl[colorscheme])
-					vim.api.nvim_set_hl(0, name, spec)
-				end
-			end
-		end
+		vim.cmd("hi clear")
 	end,
 })
+
+-- vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+-- 	callback = function()
+-- 		local hsl = {
+-- 			-- gruvbox = {
+-- 			-- 	s = 0.9,
+-- 			-- 	l = 0.9,
+-- 			-- },
+-- 			-- ["rose-pine"] = {
+-- 			-- 	s = 0.7,
+-- 			-- 	l = 0.8,
+-- 			-- 	-- s = 0.8,
+-- 			-- 	-- l = 0.9,
+-- 			-- },
+-- 		}
+--
+-- 		local colorscheme = vim.g.colors_name
+-- 		if hsl[colorscheme] then
+-- 			local C = require("util.color")
+-- 			local hl_groups = vim.api.nvim_get_hl(0, {})
+-- 			for name, spec in pairs(hl_groups) do
+-- 				if spec.fg then
+-- 					local fg = "#" .. string.format("%06x", spec.fg)
+-- 					spec.fg = C.shift_hsl_percentage(fg, hsl[colorscheme])
+-- 					vim.api.nvim_set_hl(0, name, spec)
+-- 				end
+-- 			end
+-- 		end
+-- 	end,
+-- })
 
 M.config = function()
 	-- vim.cmd.colorscheme("oxocarbon")
@@ -148,54 +115,6 @@ end
 
 local plugins = {
 	M,
-	{
-		"rose-pine/neovim",
-		opts = {
-			dark_variant = "moon",
-			styles = {
-				bold = true,
-				italic = false,
-				transparency = true,
-			},
-			-- palette = {
-			-- 	-- Override the builtin palette per variant
-			-- 	moon = {
-			-- 		base = "#23222B",
-			-- 	},
-			-- 	dawn = {
-			-- 		_nc = "#f8f0e7",
-			-- 		base = "#faf4ed",
-			-- 		surface = "#fffaf3",
-			-- 		overlay = "#f2e9e1",
-			-- 		muted = "#938ea2",
-			-- 		subtle = "#787393",
-			-- 		text = "#474360",
-			-- 		love = "#af5e75",
-			-- 		gold = "#927052",
-			-- 		rose = "#bc5953",
-			-- 		pine = "#587c8f",
-			-- 		foam = "#577d85",
-			-- 		iris = "#856d9f",
-			-- 		leaf = "#557f78",
-			-- 		highlight_low = "#f4ede8",
-			-- 		highlight_med = "#dfdad9",
-			-- 		highlight_high = "#cecacd",
-			-- 	},
-			-- },
-			-- before_highlight = function(_, hl, _)
-			-- 	C = require("util.color")
-			-- 	hl.fg = C.shift_hsl(hl.fg, {
-			-- 		l = -10,
-			-- 		s = -10,
-			-- 		h = 0,
-			-- 	})
-			-- end,
-		},
-		config = function(_, opts)
-			require("rose-pine").setup(opts)
-		end,
-	},
-
 	{
 		"ellisonleao/gruvbox.nvim",
 		opts = {
@@ -280,25 +199,6 @@ local plugins = {
 	},
 
 	{
-		"rebelot/kanagawa.nvim",
-		opts = {
-			transparent = true,
-			overrides = function(colors)
-				local theme = colors.theme
-				return {
-					TelescopeTitle = { fg = theme.ui.special, bold = true },
-					TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-					TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-					TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-					TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-					TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-					TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-				}
-			end,
-		},
-	},
-
-	{
 		"zenbones-theme/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
 		config = function()
@@ -355,82 +255,12 @@ local plugins = {
 
 	{ "maxmx03/solarized.nvim" },
 
-	{ "sainnhe/gruvbox-material" },
-
-	{
-		"folke/tokyonight.nvim",
-		config = function()
-			require("tokyonight").setup({
-				transparent = true,
-			})
-		end,
-	},
-
 	{
 		"catppuccin/nvim",
 		config = function()
 			require("catppuccin").setup({
 				transparent_background = true,
 			})
-		end,
-	},
-
-	{ "Mofiqul/vscode.nvim" },
-
-	{ "savq/melange-nvim" },
-
-	{ "jacoborus/tender.vim" },
-
-	{ "AlexvZyl/nordic.nvim" },
-
-	{"rmehri01/onenord.nvim"},
-
-	{
-		"WTFox/jellybeans.nvim",
-		opts = {
-			italics = false,
-		},
-		config = function(_, opts)
-			require("jellybeans").setup(opts)
-		end,
-	},
-
-	{ "webhooked/kanso.nvim" },
-
-	{
-		"everviolet/nvim",
-		name = "evergarden",
-		opts = {
-			theme = {
-				variant = "fall",
-				accent = "red",
-			},
-			editor = {
-				transparent_background = true,
-				sign = { color = "none" },
-				float = {
-					color = "mantle",
-					invert_border = false,
-				},
-				completion = {
-					color = "surface0",
-				},
-			},
-			style = {
-				tabline = { "reverse" },
-				search = { "reverse" },
-				incsearch = { "reverse" },
-				types = {},
-				keyword = {},
-				comment = {},
-			},
-		},
-		config = function(_, opts)
-			require("evergarden").setup(opts)
-
-			-- vim.opt.background = "light"
-			-- vim.cmd.colorscheme("jellybeans-default")
-			-- vim.cmd.colorscheme("kanso")
 			vim.cmd.colorscheme("catppuccin-frappe")
 		end,
 	},
