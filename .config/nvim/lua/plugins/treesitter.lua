@@ -9,7 +9,7 @@ table.insert(M, {
 		require("nvim-treesitter.query_predicates")
 	end,
 	dependencies = { "nvim-treesitter/nvim-treesitter-context" },
-	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall"},
 	opts = {
 		highlight = {
 			enable = true,

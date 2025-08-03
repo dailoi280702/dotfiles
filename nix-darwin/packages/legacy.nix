@@ -26,7 +26,6 @@ with pkgs;
   stow
   xz
   zip
-  thefuck
   zoxide
   tre-command
   yazi
@@ -62,6 +61,7 @@ with pkgs;
   black
   bison
   codespell
+  warp-terminal
 
   # Others
   scrcpy

@@ -18,8 +18,10 @@
       nix-homebrew,
     }:
     let
+      username = builtins.getEnv "SUDO_USER";
+
       configuration =
-        { pkgs, ... }:
+        { pkgs, user, ... }:
         {
           environment.systemPackages = import ./packages/legacy.nix { inherit pkgs; };
 
@@ -29,7 +31,7 @@
           };
 
           homebrew = {
-            enable = true;
+            # enable = true;
             global.autoUpdate = true;
             brews = import ./packages/brew-formulae.nix;
             casks = import ./packages/brew-cask.nix;
@@ -38,6 +40,7 @@
               cleanup = "zap";
               upgrade = true;
             };
+            user = user;
           };
 
           # Necessary for using flakes on this system.
@@ -54,10 +57,11 @@
           # $ darwin-rebuild changelog
           system.stateVersion = 5;
 
-          # Ssystem settings
-          system.defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
-          system.defaults.dock.autohide = true;
-          system.defaults.NSGlobalDomain._HIHideMenuBar = true;
+          # System settings
+          # system.defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = false;
+          # system.defaults.dock.autohide = false;
+          # system.defaults.NSGlobalDomain._HIHideMenuBar = false;
+          system.primaryUser = username;
         };
 
       darwinSystems = [

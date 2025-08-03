@@ -106,11 +106,11 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 	end,
 })
 
--- vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
--- 	callback = function()
--- 		vim.cmd("hi clear")
--- 	end,
--- })
+ vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
+ 	callback = function()
+ 		vim.cmd("hi clear")
+ 	end,
+ })
 
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 	callback = function()
@@ -370,7 +370,7 @@ local plugins = {
 		"catppuccin/nvim",
 		config = function()
 			require("catppuccin").setup({
-				transparent_background = false,
+				transparent_background = true,
 			})
 		end,
 	},
@@ -379,7 +379,11 @@ local plugins = {
 
 	{ "savq/melange-nvim" },
 
-	{ "forest-nvim/sequoia.nvim" },
+	{ "jacoborus/tender.vim" },
+
+	{ "AlexvZyl/nordic.nvim" },
+
+	{"rmehri01/onenord.nvim"},
 
 	{
 		"WTFox/jellybeans.nvim",
@@ -427,7 +431,7 @@ local plugins = {
 			-- vim.opt.background = "light"
 			-- vim.cmd.colorscheme("jellybeans-default")
 			-- vim.cmd.colorscheme("kanso")
-			vim.cmd.colorscheme("catppuccin-mocha")
+			vim.cmd.colorscheme("catppuccin-frappe")
 		end,
 	},
 }
