@@ -54,16 +54,19 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 					vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
 				end
 			end,
-			-- vscode = function()
-			-- 	if vim.o.background == "dark" then
-			-- 		vim.api.nvim_set_hl(0, "normal", { bg = "NONE" })
-			-- 		-- vim.api.nvim_set_hl(0, "normal", { bg = "#1C1C1C" })
-			-- 		vim.api.nvim_set_hl(0, "@variable", { fg = "#D4D4D4" })
-			-- 		vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#808080" })
-			-- 		vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = "#808080" })
-			-- 		vim.api.nvim_set_hl(0, "@punctuation.special", { fg = "#808080" })
-			-- 	end
-			-- end,
+			vscode = function()
+				-- enforce transparency-friendly highlights
+				vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+				vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+				vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+				vim.api.nvim_set_hl(0, "Folded", { bg = "NONE" })
+				vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+				vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
+				vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = "#808080" })
+				vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = "#808080" })
+				vim.api.nvim_set_hl(0, "@punctuation.special", { fg = "#808080" })
+			end,
 		}
 
 		local colorscheme = vim.g.colors_name
@@ -115,6 +118,20 @@ end
 
 local plugins = {
 	M,
+    {
+        "Mofiqul/vscode.nvim",
+        opts = {
+            transparent = true,
+            italic_comments = false,
+            disable_nvimtree_bg = true,
+        },
+        config = function(_, opts)
+            local vscode = require("vscode")
+            vscode.setup(opts)
+            local style = vim.o.background == "light" and "light" or "dark"
+            vscode.load(style)
+        end,
+    },
 	{
 		"ellisonleao/gruvbox.nvim",
 		opts = {
@@ -255,15 +272,7 @@ local plugins = {
 
 	{ "maxmx03/solarized.nvim" },
 
-	{
-		"catppuccin/nvim",
-		config = function()
-			require("catppuccin").setup({
-				transparent_background = true,
-			})
-			vim.cmd.colorscheme("catppuccin-frappe")
-		end,
-	},
+	-- { "catppuccin/nvim", enabled = false },
 }
 
 for i, _ in ipairs(plugins) do

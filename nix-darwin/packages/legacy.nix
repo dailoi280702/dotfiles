@@ -61,7 +61,6 @@ with pkgs;
   black
   bison
   codespell
-  warp-terminal
 
   # Others
   scrcpy
