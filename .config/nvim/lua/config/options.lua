@@ -55,7 +55,7 @@ opt.fillchars = {
 	eob = " ",
 }
 opt.nu = true
-opt.rnu = false
+opt.rnu = true
 opt.background = "dark"
 opt.smoothscroll = true
 

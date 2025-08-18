@@ -118,20 +118,20 @@ end
 
 local plugins = {
 	M,
-    {
-        "Mofiqul/vscode.nvim",
-        opts = {
-            transparent = true,
-            italic_comments = false,
-            disable_nvimtree_bg = true,
-        },
-        config = function(_, opts)
-            local vscode = require("vscode")
-            vscode.setup(opts)
-            local style = vim.o.background == "light" and "light" or "dark"
-            vscode.load(style)
-        end,
-    },
+	{
+		"Mofiqul/vscode.nvim",
+		opts = {
+			transparent = true,
+			italic_comments = false,
+			disable_nvimtree_bg = true,
+		},
+		config = function(_, opts)
+			local vscode = require("vscode")
+			vscode.setup(opts)
+			local style = vim.o.background == "light" and "light" or "dark"
+			vscode.load(style)
+		end,
+	},
 	{
 		"ellisonleao/gruvbox.nvim",
 		opts = {
@@ -267,6 +267,7 @@ local plugins = {
 		},
 		config = function(_, opts)
 			require("nightfox").setup(opts)
+			vim.cmd.colorscheme("dawnfox")
 		end,
 	},
 
