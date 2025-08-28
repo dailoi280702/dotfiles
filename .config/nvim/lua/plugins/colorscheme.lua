@@ -113,7 +113,7 @@ vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
 -- })
 
 M.config = function()
-	-- vim.cmd.colorscheme("oxocarbon")
+	vim.cmd.colorscheme("oxocarbon")
 end
 
 local plugins = {
@@ -128,8 +128,8 @@ local plugins = {
 		config = function(_, opts)
 			local vscode = require("vscode")
 			vscode.setup(opts)
-			local style = vim.o.background == "light" and "light" or "dark"
-			vscode.load(style)
+			-- local style = vim.o.background == "light" and "light" or "dark"
+			-- vscode.load(style)
 		end,
 	},
 	{
@@ -267,7 +267,7 @@ local plugins = {
 		},
 		config = function(_, opts)
 			require("nightfox").setup(opts)
-			vim.cmd.colorscheme("dawnfox")
+			-- vim.cmd.colorscheme("dawnfox")
 		end,
 	},
 
