@@ -17,7 +17,7 @@ vim.loader.enable()
 
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
-	install = { colorscheme = { "habamax" } },
+	-- install = { colorscheme = { "habamax" } },
 	change_detection = { enabled = false },
 })
 

@@ -76,11 +76,11 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
-	callback = function()
-		vim.cmd("hi clear")
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
+-- 	callback = function()
+-- 		vim.cmd("hi clear")
+-- 	end,
+-- })
 
 -- vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 -- 	callback = function()
@@ -113,7 +113,7 @@ vim.api.nvim_create_autocmd({ "ColorSchemePre" }, {
 -- })
 
 M.config = function()
-	vim.cmd.colorscheme("oxocarbon")
+	-- vim.cmd.colorscheme("oxocarbon")
 end
 
 local plugins = {
@@ -132,10 +132,11 @@ local plugins = {
 			-- vscode.load(style)
 		end,
 	},
+
 	{
 		"ellisonleao/gruvbox.nvim",
 		opts = {
-			bold = false,
+			bold = true,
 			italic = {
 				strings = false,
 				emphasis = false,
@@ -143,75 +144,16 @@ local plugins = {
 				operators = false,
 				folds = false,
 			},
-			transparent_mode = true,
-			palette_overrides = {
-				-- 	dark0 = "#171414",
-				-- 	dark1 = "#272525",
-				-- 	dark2 = "#3c3838",
-				-- 	dark3 = "#565151",
-				-- 	dark4 = "#726e6e",
-				-- material palette
-				-- dark0_hard = "#1C1C1C",
-				-- dark0 = "#262626",
-				-- dark0_soft = "#303030",
-				-- dark1 = "#3A3A3A",
-				-- dark2 = "#4E4E4E",
-				-- dark3 = "#5F5F5F",
-				-- dark4 = "#6C6C6C",
-				-- light0_hard = "#FFFFD7",
-				-- light0 = "#FFFFD7",
-				-- light0_soft = "#FFD7B0",
-				-- light1 = "#FFD7B0",
-				-- light2 = "#D7D7AF",
-				-- light3 = "#AFAF87",
-				-- light4 = "#AF8788",
-				-- bright_red = "#FF5F5F",
-				-- bright_green = "#AFAF00",
-				-- bright_yellow = "#FFAF01",
-				-- bright_blue = "#87AF87",
-				-- bright_purple = "#D686AF",
-				-- bright_aqua = "#87AF87",
-				-- bright_orange = "#FF8700",
-				-- neutral_red = "#D70001",
-				-- neutral_green = "#878700",
-				-- neutral_yellow = "#D78700",
-				-- neutral_blue = "#5F8787",
-				-- neutral_purple = "#AF5F86",
-				-- neutral_aqua = "#60AF5F",
-				-- neutral_orange = "#D75F00",
-				-- faded_red = "#AF0000",
-				-- faded_green = "#878700",
-				-- faded_yellow = "#AF8700",
-				-- faded_blue = "#006087",
-				-- faded_purple = "#875E5F",
-				-- faded_aqua = "#5F875F",
-				-- faded_orange = "#AF5F00",
-				-- dark_red_hard = "#870000",
-				-- dark_red = "#5F0000",
-				-- dark_red_soft = "#444444",
-				-- light_red_hard = "#FF8787",
-				-- light_red = "#FF8787",
-				-- light_red_soft = "#FF8787",
-				-- dark_green_hard = "#4E4E4E",
-				-- dark_green = "#585858",
-				-- dark_green_soft = "#5F5F5F",
-				-- light_green_hard = "#D7D7AF",
-				-- light_green = "#D7D7AF",
-				-- light_green_soft = "#D7D786",
-				-- dark_aqua_hard = "#3A3A3A",
-				-- dark_aqua = "#444444",
-				-- dark_aqua_soft = "#4E4E4E",
-				-- light_aqua_hard = "#D7D7AF",
-				-- light_aqua = "#D7D7AF",
-				-- light_aqua_soft = "#D7D7AF",
-				-- gray = "#808080",
-			},
+			transparent_mode = false,
+			contrast = "hard",
 			overrides = {
 				SignColumn = { link = "LineNr" },
 			},
 		},
 		config = function(_, opts)
 			require("gruvbox").setup(opts)
+			vim.opt.background = "light"
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 
@@ -272,8 +214,6 @@ local plugins = {
 	},
 
 	{ "maxmx03/solarized.nvim" },
-
-	-- { "catppuccin/nvim", enabled = false },
 }
 
 for i, _ in ipairs(plugins) do

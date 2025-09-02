@@ -35,9 +35,9 @@ confirm-close-surface = false
 # background = 23222B
 # theme = tokyonight_moon
 # theme = catppuccin-frappe
-theme = catppuccin-mocha
+# theme = catppuccin-mocha
 # background = 1b1b21
-theme = codedark
+# theme = codedark
 # theme = detuned
 # theme = melange_dark
 # background = #000000
@@ -46,7 +46,10 @@ theme = codedark
 # background = 1c1c1c
 # theme = terafox
 # background = 1f2425
-background = 1B1C1D
+# background = 1B1C1D
+# theme = Oxocarbon
+# theme = FrontEndDelight
+theme = GruvboxLightHard
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
@@ -89,7 +92,8 @@ font-style-bold-italic = extrabold
 
 # font-family = ubuntu mono
 
-# font-family = jetbrains mono
+font-family = jetbrains mono
+# font-style = light
 # font-style = semibold
 # font-style-italic = semibold italic
 # font-style-bold = extrabold
@@ -108,11 +112,13 @@ font-style-bold-italic = extrabold
 # font-feature = cv20
 # font-feature = cv99
 
-font-family = google sans code
+# font-family = google sans code
 
+#D
+#D
 font-size = 16
-adjust-cell-width = -10%
-# adjust-cell-height = +20%
+adjust-cell-width = -5%
+# adjust-cell-height = -20%
 # adjust-font-baseline = -30%
 # font-thicken = true
 
