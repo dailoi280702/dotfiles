@@ -69,6 +69,9 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 			end,
 		}
 
+		vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
+
 		local colorscheme = vim.g.colors_name
 		if setup_colorscheme[colorscheme] then
 			setup_colorscheme[colorscheme]()
@@ -144,7 +147,7 @@ local plugins = {
 				operators = false,
 				folds = false,
 			},
-			transparent_mode = false,
+			transparent_mode = true,
 			contrast = "hard",
 			overrides = {
 				SignColumn = { link = "LineNr" },
@@ -152,8 +155,8 @@ local plugins = {
 		},
 		config = function(_, opts)
 			require("gruvbox").setup(opts)
-			vim.opt.background = "light"
-			vim.cmd.colorscheme("gruvbox")
+			-- vim.opt.background = "light"
+			-- vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 
@@ -209,11 +212,16 @@ local plugins = {
 		},
 		config = function(_, opts)
 			require("nightfox").setup(opts)
-			-- vim.cmd.colorscheme("dawnfox")
 		end,
 	},
 
-	{ "maxmx03/solarized.nvim" },
+	{
+		"sainnhe/gruvbox-material",
+		config = function()
+			vim.g.gruvbox_material_transparent_background = 1
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
 }
 
 for i, _ in ipairs(plugins) do

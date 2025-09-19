@@ -107,15 +107,15 @@ lsp.opts = {
 			-- filetypes = { "terraform", "terraform-vars", "tf" },
 		},
 		-- yamlfix = {},
-		nil_ls = {
-			settings = {
-				["nil"] = {
-					formatting = {
-						command = { "nixfmt" },
-					},
-				},
-			},
-		},
+		-- nil_ls = {
+		-- 	settings = {
+		-- 		["nil"] = {
+		-- 			formatting = {
+		-- 				command = { "nixfmt" },
+		-- 			},
+		-- 		},
+		-- 	},
+		-- },
 		-- nilaway = {},
 	},
 	setup = {},
