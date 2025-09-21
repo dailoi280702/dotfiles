@@ -10,46 +10,8 @@ confirm-close-surface = false
 # background-blur-radius = 10
 # background-opacity = 0.8
 
-# theme = GruvboxDark
-# theme = rose-pine-dawn
-# background=32302F
-# background = 32302F
-# background = 171414
-# theme = zenbones_dark
 # theme = Builtin Solarized Light
-# theme = Raycast_Dark
-# background = 000000
-# theme = Rouge 2
-# theme = Relaxed
-# theme = Mellifluous
-# theme = NvimLight
-# background = EFF1F8
-# theme = Galizur
-# theme = Glacier
-# theme = Guezwhoz
-# theme = MaterialDesignColors
-# theme = Ubuntu
-# theme = Monokai Classic
-# theme = OneHalfDark
-# background = 0D0D0D
-# background = 23222B
-# theme = tokyonight_moon
-# theme = catppuccin-frappe
-# theme = catppuccin-mocha
-# background = 1b1b21
-# theme = codedark
-# theme = detuned
-# theme = melange_dark
-# background = #000000
-# theme = evergarden-winter-green
-# theme = kanso-perl
-# background = 1c1c1c
-# theme = terafox
-# background = 1f2425
-# background = 1B1C1D
-# theme = Oxocarbon
-# theme = FrontEndDelight
-theme = GruvboxLightHard
+theme = Rose Pine Dawn
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
@@ -70,10 +32,10 @@ theme = GruvboxLightHard
 
 # font-family = md io trial
 # font-family = maple mono
-font-style = medium
-font-style-italic = medium italic
-font-style-bold = extrabold
-font-style-bold-italic = extrabold
+font-style = bold
+font-style-italic = bold italic
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold
 
 # font-family = monaspace argon var
 # font-feature = cv10
@@ -90,12 +52,10 @@ font-style-bold-italic = extrabold
 # font-style-bold = extrabold extended
 # font-style-bold-italic = extrabold extended italic
 
-# font-family = ubuntu mono
-
 font-family = jetbrains mono
 # font-style = light
-# font-style = semibold
-# font-style-italic = semibold italic
+# font-style = medium
+# font-style-italic = medium italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold italic
 # font-feature = calt 
@@ -112,13 +72,11 @@ font-family = jetbrains mono
 # font-feature = cv20
 # font-feature = cv99
 
-# font-family = google sans code
+# font-family = monofoki
 
-#D
-#D
-font-size = 16
+font-size = 14
 adjust-cell-width = -5%
-# adjust-cell-height = -20%
+adjust-cell-height = +20%
 # adjust-font-baseline = -30%
 # font-thicken = true
 
