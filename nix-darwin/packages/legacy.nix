@@ -20,6 +20,7 @@ with pkgs;
   fzf
   htop
   httpie
+  xh
   jq
   ripgrep
   starship

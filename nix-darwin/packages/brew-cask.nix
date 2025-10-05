@@ -2,5 +2,5 @@
   "ghostty"
   # "nikitabobko/tap/aerospace"
   "font-jetbrains-mono-nerd-font"
-  "tunnelblick"
+  "blackhole-16ch"
 ]

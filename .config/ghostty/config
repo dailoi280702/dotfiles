@@ -32,8 +32,8 @@ theme = Rose Pine Dawn
 
 # font-family = md io trial
 # font-family = maple mono
-font-style = bold
-font-style-italic = bold italic
+# font-style = bold
+# font-style-italic = bold italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold
 
@@ -52,12 +52,12 @@ font-style-italic = bold italic
 # font-style-bold = extrabold extended
 # font-style-bold-italic = extrabold extended italic
 
-font-family = jetbrains mono
+# font-family = jetbrains mono
 # font-style = light
-# font-style = medium
-# font-style-italic = medium italic
-# font-style-bold = extrabold
-# font-style-bold-italic = extrabold italic
+font-style = semibold
+font-style-italic = semibold italic
+font-style-bold = extrabold
+font-style-bold-italic = extrabold italic
 # font-feature = calt 
 # font-feature = -liga
 # font-feature = ss01
@@ -72,11 +72,11 @@ font-family = jetbrains mono
 # font-feature = cv20
 # font-feature = cv99
 
-# font-family = monofoki
+font-family = ioskeley mono
 
-font-size = 14
-adjust-cell-width = -5%
-adjust-cell-height = +20%
+font-size = 16
+adjust-cell-width = -10%
+# adjust-cell-height = +40%
 # adjust-font-baseline = -30%
 # font-thicken = true
 
