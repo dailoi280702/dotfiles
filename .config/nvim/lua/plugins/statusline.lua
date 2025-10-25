@@ -1,7 +1,6 @@
 local M = {
 	"nvim-lualine/lualine.nvim",
-	event = "VimEnter",
-	enabled = true,
+	event = "VimEnter"
 }
 
 M.opts = function()
@@ -16,7 +15,6 @@ M.opts = function()
 			},
 		},
 		options = {
-			theme = transparent,
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 		},

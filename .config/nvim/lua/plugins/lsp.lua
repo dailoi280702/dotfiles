@@ -8,11 +8,14 @@ local lsp = {
 	},
 }
 
+-- "gra" is mapped in Normal and Visual mode to vim.lsp.buf.code_action()
+-- "gri" is mapped in Normal mode to vim.lsp.buf.implementation()
+-- "grn" is mapped in Normal mode to vim.lsp.buf.rename()
+-- "grr" is mapped in Normal mode to vim.lsp.buf.references()
+-- "grt" is mapped in Normal mode to vim.lsp.buf.type_definition()
+-- "gO" is mapped in Normal mode to vim.lsp.buf.document_symbol()
+-- CTRL-S is mapped in Insert mode to vim.lsp.buf.signature_help()
 lsp.keys = {
-	{ "<leader>e", vim.diagnostic.open_float, desc = "Show Diagnostic" },
-	{ "[d", vim.diagnostic.jump({ count = -1 }), desc = "Goto Prev Diagnostic" },
-	{ "]d", vim.diagnostic.jump({ count = 1 }), desc = "Goto Next Diagnostic" },
-	{ "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
 	{
 		"gd",
 		function()
@@ -20,34 +23,15 @@ lsp.keys = {
 		end,
 		desc = "Goto Definition",
 	},
-	{ "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-	{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+	{ "grD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+	{ "grr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
 	{
-		"gI",
+		"gri",
 		function()
 			require("telescope.builtin").lsp_implementations({ reuse_win = true })
 		end,
 		desc = "Goto Implementation",
 	},
-	{
-		"gy",
-		function()
-			require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
-		end,
-		desc = "Goto T[y]pe Definition",
-	},
-	-- { "K", vim.lsp.buf.hover, desc = "Hover" },
-	{ "<leader>K", vim.lsp.buf.hover, desc = "Hover" },
-	{ "<leader>D", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
-	{ "gK", vim.lsp.buf.signature_help, desc = "Signature Help" },
-	{ "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help" },
-	{
-		"<leader>ca",
-		vim.lsp.buf.code_action,
-		desc = "Code Action",
-		mode = { "n", "v" },
-	},
-	{ "<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
 }
 
 lsp.opts = {
@@ -120,8 +104,19 @@ lsp.config = function(_, opts)
 		ensure_installed = ensure_installed,
 	})
 
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities = vim.tbl_deep_extend("force", capabilities, blink.get_lsp_capabilities({}, false))
+	capabilities = vim.tbl_deep_extend("force", capabilities, {
+		textDocument = {
+			foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			},
+		},
+	})
+
 	local default_config = {
-		capabilities = blink.get_lsp_capabilities(),
+		capabilities = capabilities,
 	}
 
 	vim.schedule(function()

@@ -1,11 +1,11 @@
-local v = "v1.3.1"
+local v = "v1.7.0"
 
 local blink = {
 	"saghen/blink.cmp",
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 	},
-	event = "InsertEnter",
+	event = { "InsertEnter" },
 	version = v,
 	opts = {
 		appearance = {
@@ -19,6 +19,7 @@ local blink = {
 		},
 
 		fuzzy = {
+			implementation = "prefer_rust",
 			prebuilt_binaries = {
 				download = true,
 				force_version = v,
