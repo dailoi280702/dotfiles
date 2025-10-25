@@ -60,7 +60,10 @@ lsp.opts = {
 						},
 					},
 					workspace = {
-						library = vim.api.nvim_get_runtime_file("", true),
+						-- library = vim.api.nvim_get_runtime_file("", true),
+						library = {
+							vim.fn.expand("~/.config/hammerspoon/Spoons/EmmyLua.spoon/annotations"),
+						},
 					},
 					telemetry = {
 						enable = false,
