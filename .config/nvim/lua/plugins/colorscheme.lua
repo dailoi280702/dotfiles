@@ -192,6 +192,8 @@ local plugins = {
 			vim.cmd.colorscheme("PaperColor")
 		end,
 	},
+
+	{"p00f/alabaster.nvim"}
 }
 
 for i, _ in ipairs(plugins) do
