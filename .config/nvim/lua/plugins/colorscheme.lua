@@ -56,9 +56,9 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 			end,
 			vscode = function()
 				-- enforce transparency-friendly highlights
-				vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-				vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
-				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+				-- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+				-- vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+				-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 				vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
 				vim.api.nvim_set_hl(0, "Folded", { bg = "NONE" })
 				vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
@@ -122,21 +122,6 @@ end
 local plugins = {
 	M,
 	{
-		"Mofiqul/vscode.nvim",
-		opts = {
-			transparent = true,
-			italic_comments = false,
-			disable_nvimtree_bg = true,
-		},
-		config = function(_, opts)
-			local vscode = require("vscode")
-			vscode.setup(opts)
-			-- local style = vim.o.background == "light" and "light" or "dark"
-			-- vscode.load(style)
-		end,
-	},
-
-	{
 		"ellisonleao/gruvbox.nvim",
 		opts = {
 			bold = true,
@@ -147,8 +132,8 @@ local plugins = {
 				operators = false,
 				folds = false,
 			},
-			transparent_mode = true,
-			contrast = "hard",
+			-- transparent_mode = true,
+			-- contrast = "hard",
 			overrides = {
 				SignColumn = { link = "LineNr" },
 			},
@@ -164,63 +149,47 @@ local plugins = {
 		"zenbones-theme/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
 		config = function()
-			vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-				pattern = { "zenwritten", "zenbones" },
-				callback = function()
-					local disable_italic = function(hl)
-						vim.api.nvim_set_hl(
-							0,
-							hl,
-							vim.tbl_extend(
-								"keep",
-								{ bold = false, italic = false },
-								vim.api.nvim_get_hl(0, { name = hl, link = false })
-							)
-						)
-					end
-					disable_italic("Comment")
-					disable_italic("Number")
-					disable_italic("Constant")
-					disable_italic("Boolean")
-
-					vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
-				end,
-			})
+			-- vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+			-- 	pattern = { "zenwritten", "zenbones" },
+			-- 	callback = function()
+			-- 		local disable_italic = function(hl)
+			-- 			vim.api.nvim_set_hl(
+			-- 				0,
+			-- 				hl,
+			-- 				vim.tbl_extend(
+			-- 					"keep",
+			-- 					{ bold = false, italic = false },
+			-- 					vim.api.nvim_get_hl(0, { name = hl, link = false })
+			-- 				)
+			-- 			)
+			-- 		end
+			-- 		disable_italic("Comment")
+			-- 		disable_italic("Number")
+			-- 		disable_italic("Constant")
+			-- 		disable_italic("Boolean")
+			--
+			-- 		vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+			-- 	end,
+			-- })
 		end,
 	},
 
 	{
-		"EdenEast/nightfox.nvim",
+		"projekt0n/github-nvim-theme",
 		opts = {
-			options = {},
-			palettes = {
-				nightfox = {
-					-- bg1 = "#161c22",
-					bg1 = "#20272f",
-				},
-				terafox = {
-					-- bg1 = "#141b1b",
-					bg1 = "#1f2425",
-				},
-				duskfox = {
-					bg1 = "#23222b",
-				},
-				nordfox = {
-					bg1 = "#2a2d32",
-				},
+			options = {
+				transparent = true,
 			},
 		},
 		config = function(_, opts)
-			require("nightfox").setup(opts)
-			vim.cmd.colorscheme("dawnfox")
+			require("github-theme").setup(opts)
 		end,
 	},
 
 	{
-		"sainnhe/gruvbox-material",
+		"NLKNguyen/papercolor-theme",
 		config = function()
-			vim.g.gruvbox_material_transparent_background = 1
-			-- vim.cmd.colorscheme("gruvbox-material")
+			vim.cmd.colorscheme("PaperColor")
 		end,
 	},
 }

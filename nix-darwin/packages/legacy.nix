@@ -37,9 +37,13 @@ with pkgs;
   # Version Control
   git
 
+  # Containerization/Virtualization
+  podman
+  podman-compose
+  colima
+
   # Development Tools
   awscli
-  colima
   qemu
   llvm
   lld

@@ -1,17 +1,20 @@
 # title = Ghostty 👻
-title = ↑ ↑ ↓ ↓ ← → ← → A B A B
-window-title-font-family = shantell sans bold window-padding-balance = true
-window-padding-x = 0
-window-padding-y = 0
-macos-titlebar-style = hidden
+title = Ghostty
+# window-title-font-family = shantell sans bold 
+window-padding-balance = true
+window-step-resize = true
+window-padding-x = 8
+window-padding-y = 8
+# macos-titlebar-style = hidden
 # window-colorspace = display-p3
 # custom-shader = "shaders/noise.glsl"
 confirm-close-surface = false
 # background-blur-radius = 10
 # background-opacity = 0.8
+shell-integration = fish
 
 # theme = Builtin Solarized Light
-theme = Rose Pine Dawn
+theme = zenwritten light
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
@@ -31,9 +34,9 @@ theme = Rose Pine Dawn
 # font-style-italic = bold italic
 
 # font-family = md io trial
-# font-family = maple mono
-# font-style = bold
-# font-style-italic = bold italic
+font-family = maple mono nf
+font-style = medium
+font-style-italic = medium italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold
 
@@ -54,8 +57,8 @@ theme = Rose Pine Dawn
 
 # font-family = jetbrains mono
 # font-style = light
-font-style = semibold
-font-style-italic = semibold italic
+# font-style = semibold
+# font-style-italic = semibold italic
 font-style-bold = extrabold
 font-style-bold-italic = extrabold italic
 # font-feature = calt 
@@ -81,5 +84,3 @@ adjust-cell-width = -10%
 # font-thicken = true
 
 # command = /bin/zsh -c 'tmux a || tmux'
-
-resize-overlay-position = bottom-left

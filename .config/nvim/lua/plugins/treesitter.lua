@@ -6,10 +6,10 @@ table.insert(M, {
 	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
 	init = function(plugin)
 		require("lazy.core.loader").add_to_rtp(plugin)
-		require("nvim-treesitter.query_predicates")
+		-- require("nvim-treesitter.query_predicates")
 	end,
 	dependencies = { "nvim-treesitter/nvim-treesitter-context" },
-	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall"},
+	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	opts = {
 		highlight = {
 			enable = true,
@@ -17,6 +17,7 @@ table.insert(M, {
 		},
 		indent = { enable = true },
 		ensure_installed = "all",
+		ignore_install = { "ipkg" },
 	},
 	config = function(_, opts)
 		require("nvim-treesitter.configs").setup(opts)

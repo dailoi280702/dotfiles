@@ -2,7 +2,7 @@ local noice = {
 	"folke/noice.nvim",
 	event = { "CmdlineEnter", "VeryLazy" },
 	dependencies = { "nvim-notify", "MunifTanjim/nui.nvim" },
-	enabled = tru,
+	enabled = true,
 }
 
 noice.opts = {
