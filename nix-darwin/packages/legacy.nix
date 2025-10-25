@@ -30,6 +30,7 @@ with pkgs;
   zoxide
   tre-command
   yazi
+  jnv
 
   # Networking
   nmap

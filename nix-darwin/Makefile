@@ -1,2 +1,2 @@
 apply:
-	./rebuild.sh
+	sudo ./rebuild.sh
