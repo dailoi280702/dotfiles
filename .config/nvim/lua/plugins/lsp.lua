@@ -1,11 +1,13 @@
 local lsp = {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
-	lazy = true,
+	-- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+	-- event = { "VeryLazy" },
 	dependencies = {
 		"mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
 	},
+	enabled = false
 }
 
 lsp.keys = {

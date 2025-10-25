@@ -17,13 +17,13 @@ vim.loader.enable()
 
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
-	-- install = { colorscheme = { "habamax" } },
+	install = { colorscheme = { "retrobox" } },
 	change_detection = { enabled = false },
 })
-
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-	pattern = "*.lua",
-	callback = function()
-		vim.treesitter.stop()
-	end,
-})
+--
+-- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+-- 	pattern = "*.lua",
+-- 	callback = function()
+-- 		vim.treesitter.stop()
+-- 	end,
+-- })
