@@ -1,23 +1,7 @@
-local function setup_diagnostic_signs()
-	local signs = {
-		Error = " ",
-		Warn = " ",
-		Hint = " ",
-		Info = " ",
-	}
-
-	for dtype, icon in pairs(signs) do
-		local hl = ("DiagnosticSign" .. dtype)
-		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-	end
-
-	vim.diagnostic.config({ underline = true, virtual_text = { spacing = 4, prefix = " " } })
-end
-
 local lsp = {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
-	lazy = false,
+	lazy = true,
 	dependencies = {
 		"mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
@@ -125,8 +109,6 @@ lsp.config = function(_, opts)
 	local lspconfig = require("lspconfig")
 	local servers = opts.servers
 	local ensure_installed = {}
-
-	setup_diagnostic_signs()
 
 	-- local capabilities = require("blink.cmp").get_lsp_capabilities()
 	-- capabilities = vim.tbl_deep_extend(
