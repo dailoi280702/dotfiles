@@ -93,12 +93,4 @@ table.insert(M, {
 	end,
 })
 
--- table.insert(M, {
--- 	"windwp/nvim-ts-autotag",
--- 	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
--- 	dependencies = "nvim-treesitter",
--- 	opts = {},
--- 	entabled = false,
--- })
-
 return M
