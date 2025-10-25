@@ -40,7 +40,7 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.cmdheight = 0 -- Cmd height
+opt.cmdheight = 1 -- Cmd height
 opt.swapfile = false -- No recovery
 opt.backup = false -- No recovery
 opt.writebackup = false -- No recovery
@@ -108,3 +108,12 @@ for _, plugin in ipairs(builtins) do
 end
 
 vim.filetype.add({ extension = { tf = "terraform", tfstate = "terraform" } })
+
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = " ● ",
+		virt_text_pos = "eol",
+	},
+	underline = true,
+	signs = true,
+})

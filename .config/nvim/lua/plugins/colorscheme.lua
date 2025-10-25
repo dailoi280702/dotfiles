@@ -1,33 +1,34 @@
-local plugins = {
-	{
-		"zenbones-theme/zenbones.nvim",
-		dependencies = "rktjmp/lush.nvim",
-	},
+local M = {}
 
-	{
-		"projekt0n/github-nvim-theme",
-		opts = {
-			options = {
-				transparent = true,
-			},
-		},
-		config = function(_, opts)
-			require("github-theme").setup(opts)
-		end,
-	},
+table.insert(M, {
+	"NLKNguyen/papercolor-theme",
+	config = function()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "PaperColor",
+			callback = function()
+				vim.api.nvim_set_hl(0, "Pmenu", { bg = "#e1e1e1" })
+				vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#cccccc" })
+				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#e1e1e1" })
+			end,
+		})
+		vim.cmd.colorscheme("PaperColor")
+	end,
+})
 
-	{
-		"NLKNguyen/papercolor-theme",
-		config = function()
-			vim.cmd.colorscheme("PaperColor")
-		end,
-	},
+table.insert(M, {
+	"zenbones-theme/zenbones.nvim",
+	dependencies = "rktjmp/lush.nvim",
+})
 
-	{ "Mofiqul/adwaita.nvim" },
-}
+table.insert(M, {
+	"Mofiqul/adwaita.nvim",
+	config = function()
+		vim.g.adwaita_transparent = true
+	end,
+})
 
-for i, _ in ipairs(plugins) do
-	plugins[i] = vim.tbl_extend("force", plugins[i], { lazy = false, priority = 1000 })
+for i, _ in ipairs(M) do
+	M[i] = vim.tbl_extend("force", M[i], { lazy = false, priority = 1000 })
 end
 
-return plugins
+return M

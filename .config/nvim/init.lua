@@ -20,10 +20,3 @@ require("lazy").setup("plugins", {
 	install = { colorscheme = { "retrobox" } },
 	change_detection = { enabled = false },
 })
---
--- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
--- 	pattern = "*.lua",
--- 	callback = function()
--- 		vim.treesitter.stop()
--- 	end,
--- })

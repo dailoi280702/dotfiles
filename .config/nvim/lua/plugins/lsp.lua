@@ -1,19 +1,17 @@
 local lsp = {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
-	-- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-	-- event = { "VeryLazy" },
 	dependencies = {
 		"mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
+		"saghen/blink.cmp",
 	},
-	enabled = false
 }
 
 lsp.keys = {
 	{ "<leader>e", vim.diagnostic.open_float, desc = "Show Diagnostic" },
-	{ "[d", vim.diagnostic.goto_prev, desc = "Goto Prev Diagnostic" },
-	{ "]d", vim.diagnostic.goto_next, desc = "Goto Next Diagnostic" },
+	{ "[d", vim.diagnostic.jump({ count = -1 }), desc = "Goto Prev Diagnostic" },
+	{ "]d", vim.diagnostic.jump({ count = 1 }), desc = "Goto Next Diagnostic" },
 	{ "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
 	{
 		"gd",
@@ -54,17 +52,7 @@ lsp.keys = {
 
 lsp.opts = {
 	servers = {
-		ts_ls = {
-			-- filetypes = {
-			-- 	"html",
-			-- 	"javascript",
-			-- 	"javascriptreact",
-			-- 	"javascript.jsx",
-			-- 	"typescript",
-			-- 	"typescriptreact",
-			-- 	"typescript.tsx",
-			-- },
-		},
+		ts_ls = {},
 		cssls = {},
 		html = { filetypes = { "html", "php", "rust", "typesciptreact", "javascriptreact" } },
 		ltex = {},
@@ -78,14 +66,25 @@ lsp.opts = {
 		lua_ls = {
 			settings = {
 				Lua = {
+					runtime = {
+						version = "LuaJIT",
+					},
 					diagnostics = {
-						globals = { "vim" },
+						globals = {
+							"vim",
+							"require",
+						},
+					},
+					workspace = {
+						library = vim.api.nvim_get_runtime_file("", true),
+					},
+					telemetry = {
+						enable = false,
 					},
 				},
 			},
 		},
 		-- bufls = {},
-		-- fennel_language_server = {},
 		-- golangci_lint_ls = {},
 		eslint = {},
 		rust_analyzer = {},
@@ -93,97 +92,43 @@ lsp.opts = {
 			-- filetypes = { "terraform", "terraform-vars", "tf" },
 		},
 		-- yamlfix = {},
-		-- nil_ls = {
-		-- 	settings = {
-		-- 		["nil"] = {
-		-- 			formatting = {
-		-- 				command = { "nixfmt" },
-		-- 			},
-		-- 		},
-		-- 	},
-		-- },
+		nil_ls = {
+			settings = {
+				["nil"] = {
+					formatting = {
+						command = { "nixfmt" },
+					},
+				},
+			},
+		},
 		-- nilaway = {},
 	},
 	setup = {},
 }
 
 lsp.config = function(_, opts)
-	local lspconfig = require("lspconfig")
+	local blink = require("blink.cmp")
+	local mason_lsp = require("mason-lspconfig")
 	local servers = opts.servers
+
 	local ensure_installed = {}
-
-	-- local capabilities = require("blink.cmp").get_lsp_capabilities()
-	-- capabilities = vim.tbl_deep_extend(
-	-- 	"force",
-	-- 	{},
-	-- 	vim.lsp.protocol.make_client_capabilities(),
-	-- 	-- require("cmp_nvim_lsp").default_capabilities()
-	-- 	capabilities
-	-- )
-
 	for server, _ in pairs(servers) do
 		ensure_installed[#ensure_installed + 1] = server
 	end
 
-	require("mason-lspconfig").setup({
+	mason_lsp.setup({
 		ensure_installed = ensure_installed,
-		handlers = {
-			function(server)
-				-- local server_opts = vim.tbl_deep_extend("force", {
-				-- 	capabilities = vim.deepcopy(capabilities),
-				-- }, servers[server] or {})
-
-				local handlers = {
-					["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-					["textDocument/signatureHelp"] = vim.lsp.with(
-						vim.lsp.handlers.signature_help,
-						{ border = "rounded" }
-					),
-				}
-
-				local server_opts = servers[server] or {}
-				server_opts.handlers = handlers
-
-				server_opts.capabilities = require("blink.cmp").get_lsp_capabilities(server_opts.capabilities)
-
-				if opts.setup[server] then
-					if opts.setup[server](server, server_opts) then
-						return
-					end
-				end
-
-				lspconfig[server].setup(server_opts)
-			end,
-		},
 	})
 
-	-- vim.api.nvim_create_autocmd("LspAttach", {
-	-- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-	-- 	callback = function(ev)
-	-- 		-- Enable completion triggered by <c-x><c-o>
-	-- 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-	--
-	-- 		-- Buffer local mappings.
-	-- 		-- See `:help vim.lsp.*` for documentation on any of the below functions
-	-- 		local opts = { buffer = ev.buf }
-	-- 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-	-- 	end,
-	-- })
+	local default_config = {
+		capabilities = blink.get_lsp_capabilities(),
+	}
 
-	-- local no_sematic_hilight_servers = {
-	-- 	"ts_ls",
-	-- 	"lua_ls",
-	-- }
-
-	-- vim.api.nvim_create_autocmd("LspAttach", {
-	-- 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-	-- 	callback = function(ev)
-	-- 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-	-- 		if vim.fn.index(no_sematic_hilight_servers, client.name) ~= 0 then
-	-- 			client.server_capabilities.semanticTokensProvider = nil
-	-- 		end
-	-- 	end,
-	-- })
+	vim.schedule(function()
+		for server_name, server_opts in pairs(opts.servers) do
+			vim.lsp.config(server_name, vim.tbl_deep_extend("force", default_config, server_opts or {}))
+		end
+	end)
 end
 
 local mason = {
