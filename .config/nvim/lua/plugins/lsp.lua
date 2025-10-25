@@ -68,8 +68,10 @@ lsp.opts = {
 				},
 			},
 		},
-		-- bufls = {},
-		-- golangci_lint_ls = {},
+		buf_ls = {},
+		golangci_lint_ls = {
+			command = { "golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false" },
+		},
 		eslint = {},
 		rust_analyzer = {},
 		terraformls = {
@@ -115,13 +117,13 @@ lsp.config = function(_, opts)
 		},
 	})
 
-	local default_config = {
+	local default_opts = {
 		capabilities = capabilities,
 	}
 
 	vim.schedule(function()
 		for server_name, server_opts in pairs(opts.servers) do
-			vim.lsp.config(server_name, vim.tbl_deep_extend("force", default_config, server_opts or {}))
+			vim.lsp.config(server_name, vim.tbl_deep_extend("force", default_opts, server_opts or {}))
 		end
 	end)
 end
