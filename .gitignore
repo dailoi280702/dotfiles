@@ -4,3 +4,4 @@
 *.DS_Store
 
 /nvim/plugin
+.config/hammerspoon/Spoons/EmmyLua.Spoon/annotations
