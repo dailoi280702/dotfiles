@@ -2,7 +2,7 @@
 title = Ghostty
 # window-title-font-family = shantell sans bold 
 window-padding-balance = true
-window-step-resize = true
+window-step-resize = false
 window-padding-x = 8
 window-padding-y = 8
 window-vsync = true
