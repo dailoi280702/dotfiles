@@ -4,6 +4,6 @@
 *.DS_Store
 
 /nvim/plugin
-.config/hammerspoon/Spoons/EmmyLua.Spoon/annotations
+.config/hammerspoon/Spoons/EmmyLua.spoon/annotations
 .config/containers
 .config/btop

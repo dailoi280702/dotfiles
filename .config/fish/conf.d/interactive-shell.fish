@@ -31,5 +31,9 @@ if status is-interactive
     if command -q zoxide
         zoxide init fish | source
     end
+
+    if command -q fzf
+        fzf --fish | source
+    end
 end
 
