@@ -20,33 +20,14 @@ table.insert(M, {
 })
 
 table.insert(M, {
-	"nvim-mini/mini.hues",
-	opts = {
-		foreground = "#dddddd",
-		background = "#222222",
-		saturation = "high",
-		n_hues = 8,
-	},
-	config = function(_, opts)
-		-- require("mini.hues").setup(opts)
-	end,
-})
-
-table.insert(M, {
-	"ellisonleao/gruvbox.nvim",
-	opts = {
-		transparent_mode = true,
-	},
-	config = function(_, opts)
-		require("gruvbox").setup(opts)
+	"cocopon/iceberg.vim",
+	config = function()
+		vim.cmd.colorscheme("iceberg")
 	end,
 })
 
 table.insert(M, {
 	"projekt0n/github-nvim-theme",
-	config = function()
-		vim.cmd.colorscheme("github_dark_dimmed")
-	end,
 })
 
 for i, _ in ipairs(M) do

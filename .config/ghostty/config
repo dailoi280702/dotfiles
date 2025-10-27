@@ -14,40 +14,18 @@ confirm-close-surface = false
 # background-opacity = 0.9
 shell-integration = fish
 
-# theme = Builtin Solarized Light
 theme = Github Dark Dimmed
-
-# font-family = terminess nerd font propo
-# font-family = hurmit nerd font
-# font-family = cozettevector
-# font-family = comic mono
-# font-family = fantasquesansm nerd font
-# font-family = hack
-
-# font-family = cascadia code
-# font-feature = ss19
-# font-feature = ss01
-
-# font-family = agave
+theme = IceBerg Dark
 
 # font-family = menlo
 # font-style = bold
 # font-style-italic = bold italic
 
-# font-family = md io trial
 # font-family = maple mono nf
 # font-style = medium
 # font-style-italic = medium italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold
-
-# font-family = monaspace argon var
-# font-feature = cv10
-# font-feature = cv11
-# font-variation = wght=600
-# font-variation-bold = wght=900
-# font-variation-italic = wght=600
-# font-variation-bold-italic = wght=900
 
 # font-family = iosevka term
 # font-feature = ss14
