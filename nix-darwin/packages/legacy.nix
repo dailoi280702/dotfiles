@@ -9,7 +9,7 @@ with pkgs;
 
   # Fonts
   jetbrains-mono
-  nerd-fonts.zed-mono
+  iosevka
 
   # Utilities
   bat
@@ -55,7 +55,6 @@ with pkgs;
   nixfmt-rfc-style
   cargo
   rustfmt
-  zig
   go
   gofumpt
   lua
