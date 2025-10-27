@@ -37,6 +37,7 @@ with pkgs;
 
   # Version Control
   git
+  jujutsu
 
   # Containerization/Virtualization
   podman

@@ -24,6 +24,9 @@ if status is-interactive
         starship init fish | source
     end
 
+    if command -q jj 
+      jj util completion fish | source
+    end
 
     if command -q zoxide
         zoxide init fish | source
