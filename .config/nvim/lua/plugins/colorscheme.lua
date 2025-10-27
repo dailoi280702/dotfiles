@@ -22,6 +22,24 @@ table.insert(M, {
 table.insert(M, {
 	"cocopon/iceberg.vim",
 	config = function()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "iceberg",
+			callback = function()
+				local second_bg = "#1F2132"
+
+				local hl_grs = {
+					"Pmenu",
+					"PmenuSel",
+					"NormalFloat",
+					"StatusLine",
+					"StatusLineNC",
+				}
+
+				for _, name in ipairs(hl_grs) do
+					vim.api.nvim_set_hl(0, name, { bg = second_bg })
+				end
+			end,
+		})
 		vim.cmd.colorscheme("iceberg")
 	end,
 })

@@ -1,9 +1,10 @@
-local M = {
+local lualine = {
 	"nvim-lualine/lualine.nvim",
-	event = "VimEnter"
+	event = "VimEnter",
+	enabled = false,
 }
 
-M.opts = function()
+lualine.opts = function()
 	local opts = {
 		sections = {
 			lualine_c = {
@@ -23,4 +24,12 @@ M.opts = function()
 	return opts
 end
 
-return M
+local mini = {
+	"nvim-mini/mini.statusline",
+	event = "VimEnter",
+	config = function()
+		require("mini.statusline").setup()
+	end,
+}
+
+return { lualine, mini }

@@ -17,29 +17,19 @@ shell-integration = fish
 theme = Github Dark Dimmed
 theme = IceBerg Dark
 
-# font-family = menlo
-# font-style = bold
-# font-style-italic = bold italic
-
 # font-family = maple mono nf
+# font-family = jetbrainsmono nerd font
+font-family = iosevka term
+font-feature = ss14
+
 # font-style = medium
 # font-style-italic = medium italic
-# font-style-bold = extrabold
-# font-style-bold-italic = extrabold
-
-# font-family = iosevka term
-# font-feature = ss14
-# font-style = medium extended
-# font-style-italic = medium extended italic
-# font-style-bold = extrabold extended
-# font-style-bold-italic = extrabold extended italic
-
-font-family = jetbrainsmono nerd font
-# font-style = light
 font-style = semibold
 font-style-italic = semibold italic
-font-style-bold = extrabold
-font-style-bold-italic = extrabold italic
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold italic
+font-style-bold = heavy
+font-style-bold-italic = heavy italic
 # font-feature = calt 
 # font-feature = -liga
 # font-feature = ss01
@@ -56,7 +46,7 @@ font-style-bold-italic = extrabold italic
 
 # font-family = ioskeley mono
 
-font-size = 14
+font-size = 16
 adjust-cell-width = -5%
 adjust-cell-height = +25%
 # adjust-font-baseline = -30%
