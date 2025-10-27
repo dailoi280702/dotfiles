@@ -11,7 +11,6 @@ table.insert(M, {
 				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#e1e1e1" })
 			end,
 		})
-		vim.cmd.colorscheme("PaperColor")
 	end,
 })
 
@@ -21,9 +20,32 @@ table.insert(M, {
 })
 
 table.insert(M, {
-	"Mofiqul/adwaita.nvim",
+	"nvim-mini/mini.hues",
+	opts = {
+		foreground = "#dddddd",
+		background = "#222222",
+		saturation = "high",
+		n_hues = 8,
+	},
+	config = function(_, opts)
+		-- require("mini.hues").setup(opts)
+	end,
+})
+
+table.insert(M, {
+	"ellisonleao/gruvbox.nvim",
+	opts = {
+		transparent_mode = true,
+	},
+	config = function(_, opts)
+		require("gruvbox").setup(opts)
+	end,
+})
+
+table.insert(M, {
+	"projekt0n/github-nvim-theme",
 	config = function()
-		vim.g.adwaita_transparent = true
+		vim.cmd.colorscheme("github_dark_dimmed")
 	end,
 })
 

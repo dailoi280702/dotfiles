@@ -10,12 +10,12 @@ window-vsync = true
 # window-colorspace = display-p3
 # custom-shader = "shaders/noise.glsl"
 confirm-close-surface = false
-# background-blur-radius = 10
-# background-opacity = 0.8
+# background-blur-radius = 50
+# background-opacity = 0.9
 shell-integration = fish
 
 # theme = Builtin Solarized Light
-theme = zenwritten light
+theme = Github Dark Dimmed
 
 # font-family = terminess nerd font propo
 # font-family = hurmit nerd font
@@ -36,8 +36,8 @@ theme = zenwritten light
 
 # font-family = md io trial
 # font-family = maple mono nf
-font-style = medium
-font-style-italic = medium italic
+# font-style = medium
+# font-style-italic = medium italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold
 
@@ -58,8 +58,8 @@ font-style-italic = medium italic
 
 font-family = jetbrainsmono nerd font
 # font-style = light
-# font-style = semibold
-# font-style-italic = semibold italic
+font-style = semibold
+font-style-italic = semibold italic
 font-style-bold = extrabold
 font-style-bold-italic = extrabold italic
 # font-feature = calt 
@@ -76,11 +76,11 @@ font-style-bold-italic = extrabold italic
 # font-feature = cv20
 # font-feature = cv99
 
-font-family = ioskeley mono
+# font-family = ioskeley mono
 
-font-size = 16
-adjust-cell-width = -10%
-# adjust-cell-height = +40%
+font-size = 14
+adjust-cell-width = -5%
+adjust-cell-height = +25%
 # adjust-font-baseline = -30%
 # font-thicken = true
 
