@@ -1,14 +1,17 @@
 local M = {}
 
 table.insert(M, {
-	"NLKNguyen/papercolor-theme",
+	"sainnhe/everforest",
 	config = function()
+		vim.g.everforest_background = "soft"
+		vim.g.everforest_better_performance = 1
 		vim.api.nvim_create_autocmd("ColorScheme", {
-			pattern = "PaperColor",
+			pattern = "everforest",
 			callback = function()
-				vim.api.nvim_set_hl(0, "Pmenu", { bg = "#e1e1e1" })
-				vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#cccccc" })
-				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#e1e1e1" })
+				local bg = "#2A2C33"
+				vim.api.nvim_set_hl(0, "Normal", { bg = bg })
+				vim.api.nvim_set_hl(0, "NormalNC", { bg = bg })
+				vim.api.nvim_set_hl(0, "NormalFloat", { bg = bg })
 			end,
 		})
 	end,
@@ -29,7 +32,6 @@ table.insert(M, {
 
 				local hl_grs = {
 					"Pmenu",
-					"PmenuSel",
 					"NormalFloat",
 					"StatusLine",
 					"StatusLineNC",
@@ -38,6 +40,8 @@ table.insert(M, {
 				for _, name in ipairs(hl_grs) do
 					vim.api.nvim_set_hl(0, name, { bg = second_bg })
 				end
+
+				vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#6B7089", fg = "#1F2132" })
 			end,
 		})
 		vim.cmd.colorscheme("iceberg")
