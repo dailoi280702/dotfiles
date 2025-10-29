@@ -44,12 +44,23 @@ table.insert(M, {
 				vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#6B7089", fg = "#1F2132" })
 			end,
 		})
-		vim.cmd.colorscheme("iceberg")
 	end,
 })
 
 table.insert(M, {
-	"projekt0n/github-nvim-theme",
+	"kepano/flexoki-neovim",
+	config = function()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "flexoki",
+			callback = function()
+				local palette = require("flexoki.palette").palette()
+
+				vim.api.nvim_set_hl(0, "Identifier", { fg = palette["tx"] })
+			end,
+		})
+
+		vim.cmd.colorscheme("flexoki")
+	end,
 })
 
 for i, _ in ipairs(M) do

@@ -1,8 +1,8 @@
 {
   "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
   "everforest": { "branch": "master", "commit": "0909c23a2b8cbc337cffe91fda36381747e88506" },
+  "flexoki-neovim": { "branch": "main", "commit": "c3e2251e813d29d885a7cbbe9808a7af234d845d" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
-  "github-nvim-theme": { "branch": "main", "commit": "c106c9472154d6b2c74b74565616b877ae8ed31d" },
   "gitsigns.nvim": { "branch": "main", "commit": "20ad4419564d6e22b189f6738116b38871082332" },
   "guard-collection": { "branch": "main", "commit": "6bd5ad7941fc4c182f29c29a743eabc31fdac2e8" },
   "guard.nvim": { "branch": "main", "commit": "5fd971c4a4d6112f14dc4024a6abf1db82b63c7b" },

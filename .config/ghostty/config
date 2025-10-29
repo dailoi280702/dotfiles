@@ -8,24 +8,23 @@ window-padding-y = 8
 window-vsync = true
 # macos-titlebar-style = hidden
 # window-colorspace = display-p3
-# custom-shader = "shaders/noise.glsl"
+# custom-shader = "shaders/dither.glsl"
 confirm-close-surface = false
 # background-blur-radius = 50
 # background-opacity = 0.9
 shell-integration = fish
 
-theme = Github Dark Dimmed
-theme = IceBerg Dark
+theme = Flexoki Light
 
 # font-family = maple mono nf
 # font-family = jetbrainsmono nerd font
 font-family = iosevka term
 font-feature = ss14
 
-# font-style = medium
-# font-style-italic = medium italic
-font-style = semibold
-font-style-italic = semibold italic
+font-style = medium
+font-style-italic = medium italic
+# font-style = semibold
+# font-style-italic = semibold italic
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold italic
 font-style-bold = heavy
