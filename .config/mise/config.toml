@@ -1,3 +1,10 @@
 [tools]
-go = "latest"
+go = "1.24.3"
+"go:github.com/air-verse/air" = "latest"
+"go:github.com/rubenv/sql-migrate/..." = "latest"
+"go:github.com/swaggo/swag/cmd/swag" = "latest"
+"go:github.com/daixiang0/gci" = "latest"
+"go:github.com/securego/gosec/v2/cmd/gosec" = "latest"
+"go:github.com/vektra/mockery/v3" = "v3.5.5"
+golangci-lint = "2.4.0"
 zig = "latest"

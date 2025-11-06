@@ -58,8 +58,19 @@ table.insert(M, {
 				vim.api.nvim_set_hl(0, "Identifier", { fg = palette["tx"] })
 			end,
 		})
+	end,
+})
 
-		vim.cmd.colorscheme("flexoki")
+table.insert(M, { "y9san9/y9nika.nvim" })
+
+table.insert(M, { "anttikivi/lucid.nvim" })
+
+table.insert(M, { "folksoftware/nvim" })
+
+table.insert(M, {
+	"p00f/alabaster.nvim",
+	config = function()
+		vim.cmd.colorscheme("lucid")
 	end,
 })
 
