@@ -62,10 +62,25 @@ table.insert(M, {
 })
 
 table.insert(M, { "y9san9/y9nika.nvim" })
-
 table.insert(M, { "anttikivi/lucid.nvim" })
-
 table.insert(M, { "folksoftware/nvim" })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "y9nika,lucid,alabaster,folk-mandragola,default",
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "#F1F0EC" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "#F1F0EC" })
+		vim.api.nvim_set_hl(0, "StatusLine", { bg = "#EAE7E5" })
+		vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#EAE7E5" })
+		vim.api.nvim_set_hl(0, "LineNR", { bg = "#EAE7E5" })
+		vim.api.nvim_set_hl(0, "cursorLineNr", { bg = "#EAE7E5" })
+		vim.api.nvim_set_hl(0, "SignColumn", { bg = "#EAE7E5" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#EAE7E5" })
+		vim.api.nvim_set_hl(0, "Pmenu", { bg = "#EAE7E5" })
+		-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#EAE7E5" })
+		-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#DDDBD4" })
+	end,
+})
 
 table.insert(M, {
 	"p00f/alabaster.nvim",
