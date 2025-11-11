@@ -1,29 +1,14 @@
 local M = {}
 
 table.insert(M, {
-	"sainnhe/everforest",
-	config = function()
-		vim.g.everforest_background = "soft"
-		vim.g.everforest_better_performance = 1
-		vim.api.nvim_create_autocmd("ColorScheme", {
-			pattern = "everforest",
-			callback = function()
-				local bg = "#2A2C33"
-				vim.api.nvim_set_hl(0, "Normal", { bg = bg })
-				vim.api.nvim_set_hl(0, "NormalNC", { bg = bg })
-				vim.api.nvim_set_hl(0, "NormalFloat", { bg = bg })
-			end,
-		})
-	end,
-})
-
-table.insert(M, {
 	"zenbones-theme/zenbones.nvim",
 	dependencies = "rktjmp/lush.nvim",
+	enabled = false,
 })
 
 table.insert(M, {
 	"cocopon/iceberg.vim",
+	enabled = false,
 	config = function()
 		vim.api.nvim_create_autocmd("ColorScheme", {
 			pattern = "iceberg",
@@ -49,6 +34,7 @@ table.insert(M, {
 
 table.insert(M, {
 	"kepano/flexoki-neovim",
+	enabled = false,
 	config = function()
 		vim.api.nvim_create_autocmd("ColorScheme", {
 			pattern = "flexoki",
@@ -61,9 +47,64 @@ table.insert(M, {
 	end,
 })
 
-table.insert(M, { "y9san9/y9nika.nvim" })
-table.insert(M, { "anttikivi/lucid.nvim" })
-table.insert(M, { "folksoftware/nvim" })
+table.insert(M, { "y9san9/y9nika.nvim", enabled = false })
+table.insert(M, { "anttikivi/lucid.nvim", enabled = false })
+table.insert(M, { "folksoftware/nvim", enabled = false })
+table.insert(M, { "p00f/alabaster.nvim", enabled = false })
+
+table.insert(M, {
+	"rebelot/kanagawa.nvim",
+	opts = {
+		transparent = true,
+		colors = {
+			theme = {
+				all = {
+					ui = {
+						bg_gutter = "none",
+					},
+				},
+			},
+		},
+		overrides = function(colors)
+			local theme = colors.theme
+			return {
+				NormalFloat = { bg = "none" },
+				FloatBorder = { bg = "none" },
+				FloatTitle = { bg = "none" },
+				TelescopeTitle = { fg = theme.ui.special, bold = true },
+				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+				TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+			}
+		end,
+	},
+	config = function(_, opts)
+		require("kanagawa").setup(opts)
+		-- vim.cmd.colorscheme("kanagawa")
+	end,
+})
+
+table.insert(M, {
+	"catppuccin/nvim",
+	name = "catppuccin",
+	opts = { transparent_background = true },
+	config = function(_, opts)
+		require("catppuccin").setup(opts)
+		-- vim.cmd.colorscheme("catppuccin-frappe")
+	end,
+})
+
+table.insert(M, {
+	"metalelf0/black-metal-theme-neovim",
+	opts = { transparent = true },
+	config = function(_, opts)
+		require("black-metal").setup(opts)
+		vim.cmd.colorscheme("emperor")
+	end,
+})
 
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "y9nika,lucid,alabaster,folk-mandragola,default",
@@ -79,13 +120,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		vim.api.nvim_set_hl(0, "Pmenu", { bg = "#EAE7E5" })
 		-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#EAE7E5" })
 		-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#DDDBD4" })
-	end,
-})
-
-table.insert(M, {
-	"p00f/alabaster.nvim",
-	config = function()
-		vim.cmd.colorscheme("lucid")
 	end,
 })
 

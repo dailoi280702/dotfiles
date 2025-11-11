@@ -10,19 +10,24 @@ macos-titlebar-style = hidden
 # window-colorspace = display-p3
 # custom-shader = "shaders/dither.glsl"
 confirm-close-surface = false
-# background-blur-radius = 50
-# background-opacity = 0.9
+background-blur-radius = 15
+background-opacity = 0.85
 shell-integration = fish
 
-theme = Alabaster
-background = F1F0EC
+# theme = catppuccin-frappe
+# theme = Kanagawa Wave
+theme = Black Metal (Immortal)
+# background = F1F0EC
 
+# font-family = monaspace xenon nf
+font-family = sarasa mono slab k
+# font-family = input mono condensed
 # font-family = menlo
 # font-family = maple mono nf
-font-family = jetbrainsmono nerd font
+# font-family = jetbrainsmono nerd font
 # font-family = iosevka term
 # font-feature = ss04
-font-feature = ss16
+# font-feature = ss16
 # font-family = cascadia code
 
 # font-style = semilight
@@ -31,8 +36,10 @@ font-feature = ss16
 # font-style-italic = medium italic
 font-style = semibold
 font-style-italic = semibold italic
-font-style-bold = extrabold
-font-style-bold-italic = extrabold italic
+# font-style-bold = medium
+# font-style-bold-italic = medium italic
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold italic
 # font-style-bold = heavy
 # font-style-bold-italic = heavy italic
 # font-feature = calt 
@@ -49,9 +56,9 @@ font-style-bold-italic = extrabold italic
 # font-feature = cv20
 # font-feature = cv99
 
-font-size = 14
+font-size = 18
 adjust-cell-width = -5%
-adjust-cell-height = +50%
+adjust-cell-height = -20%
 # adjust-font-baseline = -30%
 # font-thicken = true
 
