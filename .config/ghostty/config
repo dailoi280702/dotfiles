@@ -4,14 +4,14 @@ title = Ghostty
 window-padding-balance = true
 window-step-resize = false
 window-padding-x = 16
-window-padding-y = 16
+window-padding-y = 0
 window-vsync = true
 macos-titlebar-style = hidden
 # window-colorspace = display-p3
 # custom-shader = "shaders/dither.glsl"
 confirm-close-surface = false
-background-blur-radius = 15
-background-opacity = 0.85
+background-blur-radius = 10
+background-opacity = 0.9
 shell-integration = fish
 
 # theme = catppuccin-frappe
@@ -20,7 +20,7 @@ theme = Black Metal (Immortal)
 # background = F1F0EC
 
 # font-family = monaspace xenon nf
-font-family = sarasa mono slab k
+font-family = ubuntu sans mono
 # font-family = input mono condensed
 # font-family = menlo
 # font-family = maple mono nf
@@ -32,10 +32,10 @@ font-family = sarasa mono slab k
 
 # font-style = semilight
 # font-style-italic = semilight italic
-# font-style = medium
-# font-style-italic = medium italic
-font-style = semibold
-font-style-italic = semibold italic
+font-style = medium
+font-style-italic = medium italic
+# font-style = semibold
+# font-style-italic = semibold italic
 # font-style-bold = medium
 # font-style-bold-italic = medium italic
 # font-style-bold = extrabold
@@ -56,9 +56,9 @@ font-style-italic = semibold italic
 # font-feature = cv20
 # font-feature = cv99
 
-font-size = 18
+font-size = 16
 adjust-cell-width = -5%
-adjust-cell-height = -20%
+adjust-cell-height = -10%
 # adjust-font-baseline = -30%
 # font-thicken = true
 

@@ -68,8 +68,9 @@ with pkgs;
   black
   bison
   codespell
+  cmake
 
   # Others
   scrcpy
-  pfetch
+  fastfetch
 ]
