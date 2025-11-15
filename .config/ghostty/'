@@ -14,8 +14,7 @@ background-blur-radius = 4
 background-opacity = 0.96
 shell-integration = fish
 
-theme = Melange Dark
-# theme = Catppuccin Macchiato
+theme = Catppuccin Macchiato
 # theme = catppuccin-frappe
 # theme = Kanagawa Wave
 # theme = Black Metal (Immortal)
@@ -28,7 +27,7 @@ theme = Melange Dark
 # font-family = maple mono nf
 # font-family = jetbrainsmono nerd font
 font-family = iosevka term
-font-feature = ss14
+font-feature = ss12
 # font-family = cascadia code
 
 # font-style = semilight

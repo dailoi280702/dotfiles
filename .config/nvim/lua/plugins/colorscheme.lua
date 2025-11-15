@@ -53,19 +53,27 @@ table.insert(M, { "folksoftware/nvim", enabled = false })
 table.insert(M, { "p00f/alabaster.nvim", enabled = false })
 
 table.insert(M, {
+	"savq/melange-nvim",
+	config = function()
+		vim.cmd.colorscheme("melange")
+	end,
+})
+
+table.insert(M, {
 	"catppuccin/nvim",
 	name = "catppuccin",
 	opts = {
-		transparent_background = true
+		transparent_background = true,
 	},
 	config = function(_, opts)
 		require("catppuccin").setup(opts)
-		vim.cmd.colorscheme("catppuccin-macchiato")
+		-- vim.cmd.colorscheme("catppuccin-macchiato")
 	end,
 })
 
 table.insert(M, {
 	"metalelf0/black-metal-theme-neovim",
+	enabled = false,
 	opts = { transparent = true },
 	config = function(_, opts)
 		require("black-metal").setup(opts)
@@ -76,17 +84,19 @@ table.insert(M, {
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "y9nika,lucid,alabaster,folk-mandragola,default",
 	callback = function()
-		vim.api.nvim_set_hl(0, "Normal", { bg = "#F1F0EC" })
-		vim.api.nvim_set_hl(0, "NormalNC", { bg = "#F1F0EC" })
-		vim.api.nvim_set_hl(0, "StatusLine", { bg = "#EAE7E5" })
-		vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#EAE7E5" })
-		vim.api.nvim_set_hl(0, "LineNR", { bg = "#EAE7E5" })
-		vim.api.nvim_set_hl(0, "cursorLineNr", { bg = "#EAE7E5" })
-		vim.api.nvim_set_hl(0, "SignColumn", { bg = "#EAE7E5" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#EAE7E5" })
-		vim.api.nvim_set_hl(0, "Pmenu", { bg = "#EAE7E5" })
-		-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#EAE7E5" })
-		-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#DDDBD4" })
+		if vim.o.background == "light" then
+			vim.api.nvim_set_hl(0, "Normal", { bg = "#F1F0EC" })
+			vim.api.nvim_set_hl(0, "NormalNC", { bg = "#F1F0EC" })
+			vim.api.nvim_set_hl(0, "StatusLine", { bg = "#EAE7E5" })
+			vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#EAE7E5" })
+			vim.api.nvim_set_hl(0, "LineNR", { bg = "#EAE7E5" })
+			vim.api.nvim_set_hl(0, "cursorLineNr", { bg = "#EAE7E5" })
+			vim.api.nvim_set_hl(0, "SignColumn", { bg = "#EAE7E5" })
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#EAE7E5" })
+			vim.api.nvim_set_hl(0, "Pmenu", { bg = "#EAE7E5" })
+			-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#EAE7E5" })
+			-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#DDDBD4" })
+		end
 	end,
 })
 
