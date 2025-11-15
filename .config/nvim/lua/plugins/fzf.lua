@@ -10,6 +10,14 @@ M.opts = {
 			enabled = false,
 		},
 	},
+
+	previewers = {
+		builtin = {
+			treesitter = {
+				enabled = false,
+			},
+		},
+	},
 }
 
 M.keys = {

@@ -53,47 +53,14 @@ table.insert(M, { "folksoftware/nvim", enabled = false })
 table.insert(M, { "p00f/alabaster.nvim", enabled = false })
 
 table.insert(M, {
-	"rebelot/kanagawa.nvim",
-	opts = {
-		transparent = true,
-		colors = {
-			theme = {
-				all = {
-					ui = {
-						bg_gutter = "none",
-					},
-				},
-			},
-		},
-		overrides = function(colors)
-			local theme = colors.theme
-			return {
-				NormalFloat = { bg = "none" },
-				FloatBorder = { bg = "none" },
-				FloatTitle = { bg = "none" },
-				TelescopeTitle = { fg = theme.ui.special, bold = true },
-				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-				TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-				TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-				TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-				TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-			}
-		end,
-	},
-	config = function(_, opts)
-		require("kanagawa").setup(opts)
-		-- vim.cmd.colorscheme("kanagawa")
-	end,
-})
-
-table.insert(M, {
 	"catppuccin/nvim",
 	name = "catppuccin",
-	opts = { transparent_background = true },
+	opts = {
+		transparent_background = true
+	},
 	config = function(_, opts)
 		require("catppuccin").setup(opts)
-		-- vim.cmd.colorscheme("catppuccin-frappe")
+		vim.cmd.colorscheme("catppuccin-macchiato")
 	end,
 })
 
@@ -102,7 +69,7 @@ table.insert(M, {
 	opts = { transparent = true },
 	config = function(_, opts)
 		require("black-metal").setup(opts)
-		vim.cmd.colorscheme("emperor")
+		-- vim.cmd.colorscheme("emperor")
 	end,
 })
 

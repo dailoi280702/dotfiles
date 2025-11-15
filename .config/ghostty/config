@@ -10,24 +10,24 @@ macos-titlebar-style = hidden
 # window-colorspace = display-p3
 # custom-shader = "shaders/dither.glsl"
 confirm-close-surface = false
-background-blur-radius = 10
-background-opacity = 0.9
+background-blur-radius = 4
+background-opacity = 0.96
 shell-integration = fish
 
+theme = Catppuccin Macchiato
 # theme = catppuccin-frappe
 # theme = Kanagawa Wave
-theme = Black Metal (Immortal)
+# theme = Black Metal (Immortal)
 # background = F1F0EC
 
 # font-family = monaspace xenon nf
-font-family = ubuntu sans mono
+# font-family = ubuntu sans mono
 # font-family = input mono condensed
 # font-family = menlo
 # font-family = maple mono nf
 # font-family = jetbrainsmono nerd font
-# font-family = iosevka term
-# font-feature = ss04
-# font-feature = ss16
+font-family = iosevka term
+font-feature = ss12
 # font-family = cascadia code
 
 # font-style = semilight
@@ -56,7 +56,7 @@ font-style-italic = medium italic
 # font-feature = cv20
 # font-feature = cv99
 
-font-size = 16
+font-size = 17
 adjust-cell-width = -5%
 adjust-cell-height = -10%
 # adjust-font-baseline = -30%
