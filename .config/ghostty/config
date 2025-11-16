@@ -3,21 +3,25 @@ title = Ghostty
 # window-title-font-family = shantell sans bold 
 window-padding-balance = true
 window-step-resize = false
-window-padding-x = 16
-window-padding-y = 0
+window-padding-x = 24
+window-padding-y = 16
 window-vsync = true
 macos-titlebar-style = hidden
 # window-colorspace = display-p3
 # custom-shader = "shaders/dither.glsl"
 confirm-close-surface = false
-background-blur-radius = 4
-background-opacity = 0.96
+# background-blur-radius = 4
+# background-opacity = 0.96
 shell-integration = fish
 
-theme = Melange Dark
+# theme = Everforest Dark Hard
+# background = #272e33
+# palette = 0=#2E383c
+# palette = 8=#4f5b58
+# theme = Melange Dark
 # theme = Catppuccin Macchiato
-# theme = catppuccin-frappe
-# theme = Kanagawa Wave
+theme = Catppuccin Frappe
+palette = 0=#313446
 # theme = Black Metal (Immortal)
 # background = F1F0EC
 
@@ -28,33 +32,25 @@ theme = Melange Dark
 # font-family = maple mono nf
 # font-family = jetbrainsmono nerd font
 font-family = iosevka term
-font-feature = ss14
-# font-family = cascadia code
+font-feature = ss15
+# font-family = cascadia code nf
 
-# font-style = semilight
-# font-style-italic = semilight italic
 font-style = medium
-font-style-italic = medium italic
-# font-style = semibold
-# font-style-italic = semibold italic
-# font-style-bold = medium
-# font-style-bold-italic = medium italic
-# font-style-bold = extrabold
-# font-style-bold-italic = extrabold italic
-# font-style-bold = heavy
-# font-style-bold-italic = heavy italic
+font-style-italic = medium 
+font-style-bold = extrabold
+font-style-bold-italic = extrabold
+
 # font-feature = calt 
 # font-feature = -liga
 # font-feature = ss01
 # font-feature = ss20
 # font-feature = zero
-# font-feature = cv01
+# font-feature = cv03
 # font-feature = cv06
 # font-feature = cv07
 # font-feature = cv16
 # font-feature = cv14
 # font-feature = cv18
-# font-feature = cv20
 # font-feature = cv99
 
 font-size = 16

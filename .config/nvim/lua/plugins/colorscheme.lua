@@ -55,7 +55,7 @@ table.insert(M, { "p00f/alabaster.nvim", enabled = false })
 table.insert(M, {
 	"savq/melange-nvim",
 	config = function()
-		vim.cmd.colorscheme("melange")
+		-- vim.cmd.colorscheme("melange")
 	end,
 })
 
@@ -63,11 +63,22 @@ table.insert(M, {
 	"catppuccin/nvim",
 	name = "catppuccin",
 	opts = {
-		transparent_background = true,
+		-- transparent_background = true,
+		highlight_overrides = {
+			frappe = function(frappe)
+				return {
+					StatusLine = { bg = frappe.base },
+					StatusLineNC = { bg = frappe.base },
+					MiniStatuslineFilename = { bg = frappe.sky, fg = frappe.base },
+					MiniStatuslineFileinfo = { bg = frappe.sapphire, fg = frappe.base },
+					MiniStatuslineDevinfo = { bg = frappe.teal, fg = frappe.base },
+				}
+			end,
+		},
 	},
 	config = function(_, opts)
 		require("catppuccin").setup(opts)
-		-- vim.cmd.colorscheme("catppuccin-macchiato")
+		vim.cmd.colorscheme("catppuccin-frappe")
 	end,
 })
 
@@ -78,6 +89,14 @@ table.insert(M, {
 	config = function(_, opts)
 		require("black-metal").setup(opts)
 		-- vim.cmd.colorscheme("emperor")
+	end,
+})
+
+table.insert(M, {
+	"sainnhe/everforest",
+	config = function()
+		vim.g.everforest_background = "hard"
+		-- vim.cmd.colorscheme("everforest")
 	end,
 })
 
