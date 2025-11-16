@@ -5,6 +5,7 @@ local lsp = {
 		"mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
 		"saghen/blink.cmp",
+		"nvimdev/lspsaga.nvim",
 	},
 }
 
@@ -16,22 +17,10 @@ local lsp = {
 -- "gO" is mapped in Normal mode to vim.lsp.buf.document_symbol()
 -- CTRL-S is mapped in Insert mode to vim.lsp.buf.signature_help()
 lsp.keys = {
-	{
-		"gd",
-		function()
-			require("telescope.builtin").lsp_definitions({ reuse_win = true })
-		end,
-		desc = "Goto Definition",
-	},
-	{ "grD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-	{ "grr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-	{
-		"gri",
-		function()
-			require("telescope.builtin").lsp_implementations({ reuse_win = true })
-		end,
-		desc = "Goto Implementation",
-	},
+	{ "gd", "<cmd>FzfLua lsp_definitions<cr>", desc = "Goto Definition" },
+	{ "grD", "<cmd>FzfLua lsp_declarations<cr>", desc = "Goto Declaration" },
+	{ "grr", "<cmd>FzfLua lsp_references<cr>", desc = "References" },
+	{ "gri", "<cmd>FzfLua lsp_implementations<cr>", desc = "Goto Implementation" },
 }
 
 lsp.opts = {

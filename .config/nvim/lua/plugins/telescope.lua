@@ -1,5 +1,6 @@
 local M = {
 	"nvim-telescope/telescope.nvim",
+	enabled = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- "nvim-telescope/telescope-file-browser.nvim",
