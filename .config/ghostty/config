@@ -19,9 +19,12 @@ shell-integration = fish
 # palette = 0=#2E383c
 # palette = 8=#4f5b58
 # theme = Melange Dark
-# theme = Catppuccin Macchiato
 theme = Catppuccin Frappe
-palette = 0=#313446
+background = #272727
+palette = 0=#272727
+palette = 7=#aeaeae
+palette = 8=#696969
+palette = 15=#c0c0c0
 # theme = Black Metal (Immortal)
 # background = F1F0EC
 
