@@ -35,6 +35,7 @@
   "oil.nvim": { "branch": "master", "commit": "7e1cd7703ff2924d7038476dcbc04b950203b902" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "telescope.nvim": { "branch": "master", "commit": "3a12a853ebf21ec1cce9a92290e3013f8ae75f02" },
+  "vim-nightfly-colors": { "branch": "master", "commit": "40b22a93dcc6f53cb9cc2ab296e95f55a4cd48dd" },
   "y9nika.nvim": { "branch": "main", "commit": "e25b94488f2ca98c533a70ceea34e33b0c959dc5" },
   "zenbones.nvim": { "branch": "main", "commit": "a934bc07d2ed4a98b74526c172d7f043736d8935" }
 }

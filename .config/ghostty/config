@@ -30,13 +30,13 @@ palette = 0=#313446
 # font-family = input mono condensed
 # font-family = menlo
 # font-family = maple mono nf
-# font-family = jetbrainsmono nerd font
-font-family = iosevka term
-font-feature = ss15
+font-family = jetbrainsmono nerd font
+# font-family = iosevka term
+# font-feature = ss14
 # font-family = cascadia code nf
 
-font-style = medium
-font-style-italic = medium 
+font-style = semibold
+font-style-italic = semibold 
 font-style-bold = extrabold
 font-style-bold-italic = extrabold
 
@@ -54,7 +54,7 @@ font-style-bold-italic = extrabold
 # font-feature = cv99
 
 font-size = 16
-adjust-cell-width = -5%
+adjust-cell-width = -10%
 adjust-cell-height = -10%
 # adjust-font-baseline = -30%
 # font-thicken = true

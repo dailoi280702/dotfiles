@@ -5,7 +5,6 @@ local lsp = {
 		"mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
 		"saghen/blink.cmp",
-		"nvimdev/lspsaga.nvim",
 	},
 }
 

@@ -44,6 +44,17 @@ local M = {
 			},
 		},
 	},
+
+	{
+		"nvimdev/lspsaga.nvim",
+		opts = {
+			ui = {},
+
+			lightbulb = {
+				enable = false,
+			},
+		},
+	},
 }
 
 for i, _ in ipairs(M) do
