@@ -7,7 +7,10 @@ table.insert(M, {
 	dependencies = { "nvim-treesitter/nvim-treesitter-context" },
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	opts = {
-		highlight = { enable = true },
+		highlight = {
+			enable = true,
+			disable = { "go", "lua" },
+		},
 		indent = { enable = true },
 		ensure_installed = {
 			"asm",

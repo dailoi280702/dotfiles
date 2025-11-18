@@ -2,37 +2,7 @@ local hsluv = require("util.hsluv")
 
 local M = {}
 
-table.insert(M, {
-	"zenbones-theme/zenbones.nvim",
-	dependencies = "rktjmp/lush.nvim",
-	enabled = false,
-})
-
-table.insert(M, {
-	"cocopon/iceberg.vim",
-	enabled = false,
-	config = function()
-		vim.api.nvim_create_autocmd("ColorScheme", {
-			pattern = "iceberg",
-			callback = function()
-				local second_bg = "#1F2132"
-
-				local hl_grs = {
-					"Pmenu",
-					"NormalFloat",
-					"StatusLine",
-					"StatusLineNC",
-				}
-
-				for _, name in ipairs(hl_grs) do
-					vim.api.nvim_set_hl(0, name, { bg = second_bg })
-				end
-
-				vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#6B7089", fg = "#1F2132" })
-			end,
-		})
-	end,
-})
+table.insert(M, { "nyoom-engineering/oxocarbon.nvim" })
 
 table.insert(M, {
 	"kepano/flexoki-neovim",
@@ -46,18 +16,6 @@ table.insert(M, {
 				vim.api.nvim_set_hl(0, "Identifier", { fg = palette["tx"] })
 			end,
 		})
-	end,
-})
-
-table.insert(M, { "y9san9/y9nika.nvim", enabled = false })
-table.insert(M, { "anttikivi/lucid.nvim", enabled = false })
-table.insert(M, { "folksoftware/nvim", enabled = false })
-table.insert(M, { "p00f/alabaster.nvim", enabled = false })
-
-table.insert(M, {
-	"savq/melange-nvim",
-	config = function()
-		-- vim.cmd.colorscheme("melange")
 	end,
 })
 
@@ -85,8 +43,8 @@ table.insert(M, {
 		},
 		custom_highlights = function(colors)
 			return {
-				Normal = { bg = colors.crust },
-				NormalNC = { bg = colors.crust },
+				-- Normal = { bg = colors.crust },
+				-- NormalNC = { bg = colors.crust },
 				StatusLine = { bg = colors.base },
 				StatusLineNC = { bg = colors.base },
 				MiniStatuslineFilename = { bg = colors.sky, fg = colors.base },
@@ -146,36 +104,60 @@ table.insert(M, {
 		end
 
 		local frappe = require("catppuccin.palettes").get_palette("frappe")
+		local macchiato = require("catppuccin.palettes").get_palette("macchiato")
 		opts.color_overrides = {
 			frappe = fix_palette(frappe),
+			macchiato = fix_palette(macchiato),
 		}
 
 		require("catppuccin").setup(opts)
 
-		vim.cmd.colorscheme("catppuccin-frappe")
+		-- vim.cmd.colorscheme("catppuccin-frappe")
 	end,
 })
 
 table.insert(M, {
-	"metalelf0/black-metal-theme-neovim",
-	enabled = false,
-	opts = { transparent = true },
-	config = function(_, opts)
-		require("black-metal").setup(opts)
-		-- vim.cmd.colorscheme("emperor")
-	end,
-})
-
-table.insert(M, {
-	"sainnhe/everforest",
+	"ellisonleao/gruvbox.nvim",
 	config = function()
-		vim.g.everforest_background = "hard"
-		-- vim.cmd.colorscheme("everforest")
+		require("gruvbox").setup({
+			terminal_colors = true, -- add neovim terminal colors
+			undercurl = true,
+			underline = true,
+			bold = true,
+			italic = {
+				strings = false,
+				emphasis = false,
+				comments = false,
+				operators = false,
+				folds = false,
+			},
+			strikethrough = true,
+			invert_selection = false,
+			invert_signs = false,
+			invert_tabline = false,
+			inverse = true, -- invert background for search, diffs, statuslines and errors
+			contrast = "", -- can be "hard", "soft" or empty string
+			palette_overrides = {
+				-- bright_red = "#d64834",
+			},
+			overrides = {
+				SignColumn = { bg = "#282828" },
+			},
+			dim_inactive = false,
+			transparent_mode = false,
+		})
+	end,
+})
+
+table.insert(M, {
+	"sainnhe/gruvbox-material",
+	config = function()
+		vim.cmd.colorscheme("gruvbox-material")
 	end,
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "y9nika,lucid,alabaster,folk-mandragola,default",
+	pattern = "default",
 	callback = function()
 		if vim.o.background == "light" then
 			vim.api.nvim_set_hl(0, "Normal", { bg = "#F1F0EC" })

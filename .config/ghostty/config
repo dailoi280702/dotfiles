@@ -14,52 +14,26 @@ confirm-close-surface = false
 # background-opacity = 0.96
 shell-integration = fish
 
-# theme = Everforest Dark Hard
-# background = #272e33
-# palette = 0=#2E383c
-# palette = 8=#4f5b58
-# theme = Melange Dark
-theme = Catppuccin Frappe
-background = #272727
-palette = 0=#272727
-palette = 7=#aeaeae
-palette = 8=#696969
-palette = 15=#c0c0c0
-# theme = Black Metal (Immortal)
-# background = F1F0EC
+# theme = Catppuccin Frappe
+# background = #353535
+# palette = 0=#353535
+# palette = 7=#aeaeae
+# palette = 8=#696969
+# palette = 15=#c0c0c0
 
-# font-family = monaspace xenon nf
-# font-family = ubuntu sans mono
-# font-family = input mono condensed
-# font-family = menlo
-# font-family = maple mono nf
-font-family = jetbrainsmono nerd font
-# font-family = iosevka term
-# font-feature = ss14
-# font-family = cascadia code nf
+theme = Gruvbox Material Dark
+
+font-family = jetbrains mono
 
 font-style = semibold
-font-style-italic = semibold 
+font-style-italic = semibold italic
 font-style-bold = extrabold
-font-style-bold-italic = extrabold
+font-style-bold-italic = extrabold italic
 
-# font-feature = calt 
-# font-feature = -liga
-# font-feature = ss01
-# font-feature = ss20
-# font-feature = zero
-# font-feature = cv03
-# font-feature = cv06
-# font-feature = cv07
-# font-feature = cv16
-# font-feature = cv14
-# font-feature = cv18
-# font-feature = cv99
-
-font-size = 16
-adjust-cell-width = -10%
+font-size = 14
+adjust-cell-width = -5%
 adjust-cell-height = -10%
 # adjust-font-baseline = -30%
-# font-thicken = true
+font-thicken = true
 
 # command = /bin/zsh -c 'tmux a || tmux'
