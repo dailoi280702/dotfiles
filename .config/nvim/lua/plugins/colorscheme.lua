@@ -24,7 +24,7 @@ table.insert(M, {
 	name = "catppuccin",
 	opts = {
 		-- transparent_background = true,
-		--
+		no_italic = true,
 		color_overrides = {
 			-- frappe = {
 			-- 	text = "#d1d1d1",
@@ -112,47 +112,14 @@ table.insert(M, {
 
 		require("catppuccin").setup(opts)
 
-		-- vim.cmd.colorscheme("catppuccin-frappe")
-	end,
-})
-
-table.insert(M, {
-	"ellisonleao/gruvbox.nvim",
-	config = function()
-		require("gruvbox").setup({
-			terminal_colors = true, -- add neovim terminal colors
-			undercurl = true,
-			underline = true,
-			bold = true,
-			italic = {
-				strings = false,
-				emphasis = false,
-				comments = false,
-				operators = false,
-				folds = false,
-			},
-			strikethrough = true,
-			invert_selection = false,
-			invert_signs = false,
-			invert_tabline = false,
-			inverse = true, -- invert background for search, diffs, statuslines and errors
-			contrast = "", -- can be "hard", "soft" or empty string
-			palette_overrides = {
-				-- bright_red = "#d64834",
-			},
-			overrides = {
-				SignColumn = { bg = "#282828" },
-			},
-			dim_inactive = false,
-			transparent_mode = false,
-		})
+		vim.cmd.colorscheme("catppuccin-macchiato")
 	end,
 })
 
 table.insert(M, {
 	"sainnhe/gruvbox-material",
 	config = function()
-		vim.cmd.colorscheme("gruvbox-material")
+		-- vim.cmd.colorscheme("gruvbox-material")
 	end,
 })
 

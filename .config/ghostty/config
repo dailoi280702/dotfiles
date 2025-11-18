@@ -14,25 +14,25 @@ confirm-close-surface = false
 # background-opacity = 0.96
 shell-integration = fish
 
-# theme = Catppuccin Frappe
-# background = #353535
-# palette = 0=#353535
-# palette = 7=#aeaeae
-# palette = 8=#696969
-# palette = 15=#c0c0c0
+theme = Catppuccin Macchiato
+background = #282828
+palette = 0=#282828
+palette = 7=#aeaeae
+palette = 8=#696969
+palette = 15=#c0c0c0
 
-theme = Gruvbox Material Dark
+# theme = Gruvbox Material Dark
 
 font-family = jetbrains mono
 
-font-style = semibold
-font-style-italic = semibold italic
-font-style-bold = extrabold
-font-style-bold-italic = extrabold italic
+# font-style = medium
+# font-style-italic = medium italic
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold italic
 
 font-size = 14
 adjust-cell-width = -5%
-adjust-cell-height = -10%
+adjust-cell-height = +20%
 # adjust-font-baseline = -30%
 font-thicken = true
 
