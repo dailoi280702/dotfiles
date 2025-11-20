@@ -6,7 +6,7 @@ table.insert(M, { "nyoom-engineering/oxocarbon.nvim" })
 
 table.insert(M, {
 	"kepano/flexoki-neovim",
-	enabled = false,
+	enabled = true,
 	config = function()
 		vim.api.nvim_create_autocmd("ColorScheme", {
 			pattern = "flexoki",
@@ -14,6 +14,8 @@ table.insert(M, {
 				local palette = require("flexoki.palette").palette()
 
 				vim.api.nvim_set_hl(0, "Identifier", { fg = palette["tx"] })
+				vim.api.nvim_set_hl(0, "Normal", { bg = palette["bg-2"] })
+				vim.api.nvim_set_hl(0, "NormalNC", { bg = palette["bg-2"] })
 			end,
 		})
 	end,
@@ -105,14 +107,17 @@ table.insert(M, {
 
 		local frappe = require("catppuccin.palettes").get_palette("frappe")
 		local macchiato = require("catppuccin.palettes").get_palette("macchiato")
+		local mocha = require("catppuccin.palettes").get_palette("mocha")
+
 		opts.color_overrides = {
 			frappe = fix_palette(frappe),
 			macchiato = fix_palette(macchiato),
+			mocha = fix_palette(mocha),
 		}
 
 		require("catppuccin").setup(opts)
 
-		vim.cmd.colorscheme("catppuccin-macchiato")
+		-- vim.cmd.colorscheme("catppuccin-mocha")
 	end,
 })
 
@@ -123,24 +128,41 @@ table.insert(M, {
 	end,
 })
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "default",
-	callback = function()
-		if vim.o.background == "light" then
-			vim.api.nvim_set_hl(0, "Normal", { bg = "#F1F0EC" })
-			vim.api.nvim_set_hl(0, "NormalNC", { bg = "#F1F0EC" })
-			vim.api.nvim_set_hl(0, "StatusLine", { bg = "#EAE7E5" })
-			vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#EAE7E5" })
-			vim.api.nvim_set_hl(0, "LineNR", { bg = "#EAE7E5" })
-			vim.api.nvim_set_hl(0, "cursorLineNr", { bg = "#EAE7E5" })
-			vim.api.nvim_set_hl(0, "SignColumn", { bg = "#EAE7E5" })
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#EAE7E5" })
-			vim.api.nvim_set_hl(0, "Pmenu", { bg = "#EAE7E5" })
-			-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#EAE7E5" })
-			-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#DDDBD4" })
-		end
+table.insert(M, {
+	"p00f/alabaster.nvim",
+	config = function()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "alabaster",
+			callback = function()
+				if vim.o.background == "light" then
+					vim.api.nvim_set_hl(0, "StatusLine", { bg = "#F7F7F7", fg = "#777777" })
+					vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#F7F7F7", fg = "#777777" })
+				end
+			end,
+		})
+
+		vim.cmd.colorscheme("alabaster")
 	end,
 })
+
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "default",
+-- 	callback = function()
+-- 		if vim.o.background == "light" then
+-- 			vim.api.nvim_set_hl(0, "Normal", { bg = "#F1F0EC" })
+-- 			vim.api.nvim_set_hl(0, "NormalNC", { bg = "#F1F0EC" })
+-- 			vim.api.nvim_set_hl(0, "StatusLine", { bg = "#EAE7E5" })
+-- 			vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#EAE7E5" })
+-- 			vim.api.nvim_set_hl(0, "LineNR", { bg = "#EAE7E5" })
+-- 			vim.api.nvim_set_hl(0, "cursorLineNr", { bg = "#EAE7E5" })
+-- 			vim.api.nvim_set_hl(0, "SignColumn", { bg = "#EAE7E5" })
+-- 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#EAE7E5" })
+-- 			vim.api.nvim_set_hl(0, "Pmenu", { bg = "#EAE7E5" })
+-- 			-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#EAE7E5" })
+-- 			-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#DDDBD4" })
+-- 		end
+-- 	end,
+-- })
 
 for i, _ in ipairs(M) do
 	M[i] = vim.tbl_extend("force", M[i], { lazy = false, priority = 1000 })

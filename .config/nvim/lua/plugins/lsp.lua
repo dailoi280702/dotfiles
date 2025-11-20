@@ -61,7 +61,7 @@ lsp.opts = {
 		},
 		buf_ls = {},
 		golangci_lint_ls = {
-			command = { "golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false" },
+			-- command = { "golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false" },
 		},
 		eslint = {},
 		rust_analyzer = {},

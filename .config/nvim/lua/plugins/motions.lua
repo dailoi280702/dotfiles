@@ -1,7 +1,7 @@
 local M = {}
 
 table.insert(M, {
-	"echasnovski/mini.surround",
+	"nvim-mini/mini.surround",
 	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 	opts = {
 		mappings = {
@@ -17,14 +17,14 @@ table.insert(M, {
 })
 
 table.insert(M, {
-	"echasnovski/mini.pairs",
+	"nvim-mini/mini.pairs",
 	event = "VeryLazy",
 	opts = {},
 	enabled = false,
 })
 
 table.insert(M, {
-	"echasnovski/mini.ai",
+	"nvim-mini/mini.ai",
 	opts = {},
 	keys = {
 		{ "a", mode = { "x", "o" } },
@@ -41,12 +41,13 @@ table.insert(M, {
 		},
 	},
 	{
-		"echasnovski/mini.comment",
+		"nvim-mini/mini.comment",
 		event = "VeryLazy",
 		opts = {
 			options = {
 				custom_commentstring = function()
-					return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+					return require("ts_context_commentstring.internal").calculate_commentstring()
+						or vim.bo.commentstring
 				end,
 			},
 		},

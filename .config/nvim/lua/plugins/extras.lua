@@ -1,6 +1,6 @@
 local M = {
 	{
-		"echasnovski/mini.icons",
+		"nvim-mini/mini.icons",
 		config = function()
 			require("mini.icons").setup()
 			MiniIcons.mock_nvim_web_devicons()
@@ -15,26 +15,8 @@ local M = {
 		end,
 	},
 
-	-- {
-	-- 	"lukas-reineke/indent-blankline.nvim",
-	-- 	event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
-	-- 	lazy = false,
-	-- 	main = "ibl",
-	-- 	opts = {
-	-- 		indent = {
-	-- 			char = "▏",
-	-- 		},
-	-- 		scope = {
-	-- 			enabled = false,
-	-- 		},
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		require("ibl").setup(opts)
-	-- 	end,
-	-- },
-
 	{
-		"echasnovski/mini.misc",
+		"nvim-mini/mini.misc",
 		opts = {
 			make_global = {
 				"put",
@@ -43,6 +25,13 @@ local M = {
 				"zoom",
 			},
 		},
+	},
+
+	{
+		"nvim-mini/mini.cursorword",
+		config = function()
+			require("mini.cursorword").setup({})
+		end,
 	},
 
 	{

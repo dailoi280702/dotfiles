@@ -9,7 +9,7 @@ table.insert(M, {
 	opts = {
 		highlight = {
 			enable = true,
-			disable = { "go", "lua", "sql" },
+			-- disable = { "go", "lua", "sql" },
 		},
 		indent = { enable = true },
 		ensure_installed = {
