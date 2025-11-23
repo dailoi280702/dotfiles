@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
+vim.cmd.colorscheme("habamax")
 vim.opt.cmdheight = 0 -- prevent UI flickering
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
@@ -19,6 +19,6 @@ vim.loader.enable()
 
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
-	install = { colorscheme = { "deafult" } },
+	install = { colorscheme = { "retrobox" } },
 	change_detection = { enabled = false },
 })
