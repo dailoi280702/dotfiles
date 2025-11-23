@@ -122,13 +122,6 @@ table.insert(M, {
 })
 
 table.insert(M, {
-	"sainnhe/gruvbox-material",
-	config = function()
-		-- vim.cmd.colorscheme("gruvbox-material")
-	end,
-})
-
-table.insert(M, {
 	"p00f/alabaster.nvim",
 	config = function()
 		vim.api.nvim_create_autocmd("ColorScheme", {
@@ -141,28 +134,33 @@ table.insert(M, {
 			end,
 		})
 
-		vim.cmd.colorscheme("alabaster")
+		-- vim.cmd.colorscheme("alabaster")
+		vim.cmd.colorscheme("default")
 	end,
 })
 
--- vim.api.nvim_create_autocmd("ColorScheme", {
--- 	pattern = "default",
--- 	callback = function()
--- 		if vim.o.background == "light" then
--- 			vim.api.nvim_set_hl(0, "Normal", { bg = "#F1F0EC" })
--- 			vim.api.nvim_set_hl(0, "NormalNC", { bg = "#F1F0EC" })
--- 			vim.api.nvim_set_hl(0, "StatusLine", { bg = "#EAE7E5" })
--- 			vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#EAE7E5" })
--- 			vim.api.nvim_set_hl(0, "LineNR", { bg = "#EAE7E5" })
--- 			vim.api.nvim_set_hl(0, "cursorLineNr", { bg = "#EAE7E5" })
--- 			vim.api.nvim_set_hl(0, "SignColumn", { bg = "#EAE7E5" })
--- 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#EAE7E5" })
--- 			vim.api.nvim_set_hl(0, "Pmenu", { bg = "#EAE7E5" })
--- 			-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#EAE7E5" })
--- 			-- vim.api.nvim_set_hl(0, "MiniStatuslineInactive", { bg = "#DDDBD4" })
--- 		end
--- 	end,
--- })
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "default",
+	callback = function()
+		if vim.o.background == "light" then
+			local symbol_color = "#9C9EA4"
+			-- symbol_color = "#505258"
+
+			vim.api.nvim_set_hl(0, "Normal", { bg = "#eff1f8" })
+			vim.api.nvim_set_hl(0, "NormalNC", { bg = "#eff1f8" })
+
+			vim.api.nvim_set_hl(0, "Punctuation", { fg = symbol_color })
+			vim.api.nvim_set_hl(0, "Delimiter", { fg = symbol_color })
+			vim.api.nvim_set_hl(0, "Operator", { fg = symbol_color })
+			vim.api.nvim_set_hl(0, "@punctuation", { fg = symbol_color })
+			vim.api.nvim_set_hl(0, "@punctuation.bracket", { fg = symbol_color })
+			vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = symbol_color })
+			vim.api.nvim_set_hl(0, "@punctuation.special", { fg = symbol_color })
+			vim.api.nvim_set_hl(0, "@operator", { fg = symbol_color })
+			vim.api.nvim_set_hl(0, "@keyword.operator", { fg = symbol_color })
+		end
+	end,
+})
 
 for i, _ in ipairs(M) do
 	M[i] = vim.tbl_extend("force", M[i], { lazy = false, priority = 1000 })
