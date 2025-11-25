@@ -14,25 +14,22 @@ confirm-close-surface = false
 # background-opacity = 0.96
 shell-integration = fish
 
-# theme = Builtin Solarized Dark
-background = 1c1c1c
-palette = 0=1c1c1c
+theme = Rose Pine Dawn
+# background = 1c1c1c
+# palette = 0=1c1c1c
 
-font-family = monaspace argon
-font-feature = calt
-font-feature = cv10
-font-feature = cv11
-# font-feature = ss12
+font-family = annotation mono
+# font-feature = ss03
 
-font-style = medium
-font-style-italic = medium italic
-font-style-bold = extrabold
-font-style-bold-italic = extrabold italic
+# font-style = semibold
+# font-style-italic = semibold italic
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold italic
 
-font-size = 16
+font-size = 14
 adjust-cell-width = -1
-# adjust-cell-height = +20%
+adjust-cell-height = -10%
 # adjust-font-baseline = -30%
-# font-thicken = true
+font-thicken = true
 
 # command = /bin/zsh -c 'tmux a || tmux'

@@ -22,7 +22,7 @@ dynamic_padding = true
 decorations = "Buttonless"
 opacity = 1
 blur = true
-padding = { x = 16, y = 0}
+padding = { x = 16, y = 16 }
 dimensions = { columns = 120, lines = 40 }
 startup_mode = "Maximized"
 
