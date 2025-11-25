@@ -5,6 +5,8 @@ table.insert(M, { "nyoom-engineering/oxocarbon.nvim" })
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "retrobox,habamax",
 	callback = function()
+		vim.cmd("hi Normal guibg=none")
+		vim.cmd("hi clear Identifier")
 		vim.cmd("hi clear Identifier")
 		vim.cmd("hi! link TreesitterContext Normal")
 		vim.cmd("hi! link StatusLine Comment")

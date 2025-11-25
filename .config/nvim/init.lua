@@ -19,6 +19,22 @@ vim.loader.enable()
 
 require("lazy").setup("plugins", {
 	defaults = { lazy = true },
-	install = { colorscheme = { "retrobox" } },
+	install = { colorscheme = { "habamax" } },
 	change_detection = { enabled = false },
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = vim.schedule_wrap(function(data)
+		if data.file == "" or vim.fn.isdirectory(data.file) ~= 0 then
+			local current_dir = vim.loop.cwd()
+			local home_dir = vim.env.HOME
+
+			-- Open FzfLua in standard locations, otherwise use FzfLua
+			if current_dir == home_dir or current_dir == "/" then
+				vim.cmd("Oil")
+			else
+				vim.cmd("FzfLua files")
+			end
+		end
+	end),
 })
