@@ -29,11 +29,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			local current_dir = vim.loop.cwd()
 			local home_dir = vim.env.HOME
 
-			-- Open FzfLua in standard locations, otherwise use FzfLua
-			if current_dir == home_dir or current_dir == "/" then
-				vim.cmd("Oil")
-			else
+			-- Open FzfLua in standard locations, otherwise use Oil
+			if home_dir ~= current_dir and current_dir:find(home_dir, 1, true) == 1 then
 				vim.cmd("FzfLua files")
+			else
+				vim.cmd("Oil")
 			end
 		end
 	end),
