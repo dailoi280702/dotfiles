@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/vscode.toml"
+    # "~/.config/alacritty/themes/vscode.toml"
 ]
 
 [terminal.shell]
@@ -10,15 +10,9 @@ args = [ "-l", "-c", "tmux a || tmux" ]
 [font]
 # ueoai this line is used for comparing line height
 # iaoeu this line is used for comparing line height
-size = 18
-normal = { family = "codenewroman nerd font", style = "Regular" }
-italic = {  style = "Italic" }
-# bold = {style ="Bold" }
-# bold_italic = {  style = "Medium Italic" }
-# normal = { family = "zedmono nerd font", style = "Extended" }
-# bold = { family = "zedmono nerd font", style = "Extended Medium" }
-# italic = { family = "zedmono nerd font", style = "Extended Italic" }
-# bold_italic = { family = "zedmono nerd font", style = "Extended Medium Italic" }
+size = 16
+normal = { family = "Monaspace Argon NF", style = "Regular" }
+bold = { family = "Monaspace Argon NF", style = "Bold" }
 offset = { x = -1, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 builtin_box_drawing = true
@@ -28,7 +22,7 @@ dynamic_padding = true
 decorations = "Buttonless"
 opacity = 1
 blur = true
-padding = { x = 0, y = 0}
+padding = { x = 16, y = 0}
 dimensions = { columns = 120, lines = 40 }
 startup_mode = "Maximized"
 
@@ -39,11 +33,12 @@ style = { shape = "Block", blinking = "On" }
 hide_when_typing = true
 
 [env]
-TERM = "xterm-256color"
+# TERM = "xterm-256color"
 WAYLAND_DISPLAY= "alacritty"
 
-# [colors]
-# primary.background = '#1C1C1C'
+[colors]
+primary.background = '#1C1C1C'
+normal.black = '#1C1C1C'
 
 [keyboard]
 bindings = [
