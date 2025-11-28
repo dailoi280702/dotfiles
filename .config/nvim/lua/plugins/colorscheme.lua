@@ -1,6 +1,7 @@
 local M = {}
 
 table.insert(M, { "nyoom-engineering/oxocarbon.nvim" })
+table.insert(M, { "navarasu/onedark.nvim" })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "retrobox,habamax",
