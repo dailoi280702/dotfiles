@@ -1,8 +1,5 @@
 local M = {}
 
-table.insert(M, { "nyoom-engineering/oxocarbon.nvim" })
-table.insert(M, { "navarasu/onedark.nvim" })
-
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "retrobox,habamax",
 	callback = function()
@@ -15,18 +12,36 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-table.insert(M, {
-	"rose-pine/neovim",
-	config = function()
-		require("rose-pine").setup({
-			styles = {
-				bold = true,
-				italic = false,
-				transparency = false,
-			},
-		})
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "default",
+	callback = function()
+		if vim.o.background == "light" then
+			vim.cmd("hi Normal guibg=none")
+			vim.cmd("hi NormalNC guibg=none")
+			vim.cmd("hi! link TreesitterContext Normal")
+			-- vim.cmd("hi! link StatusLine Comment")
+			-- vim.cmd("hi! link StatusLineNC Comment")
+			vim.cmd("hi! link Foled Comment")
+		end
+	end,
+})
 
-		vim.cmd.colorscheme("rose-pine-dawn")
+table.insert(M, {
+	"ellisonleao/gruvbox.nvim",
+	config = function()
+		require("gruvbox").setup({
+			bold = true,
+			italic = {
+				strings = false,
+				emphasis = false,
+				comments = false,
+				operators = false,
+				folds = true,
+			},
+			transparent_mode = true,
+		})
+		vim.cmd("colorscheme gruvbox")
+		vim.cmd.colorscheme("gruvbox")
 	end,
 })
 
