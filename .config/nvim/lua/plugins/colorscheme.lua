@@ -27,6 +27,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 table.insert(M, {
+	"sainnhe/gruvbox-material",
+	config = function()
+	end,
+})
+
+table.insert(M, {
 	"ellisonleao/gruvbox.nvim",
 	config = function()
 		require("gruvbox").setup({
