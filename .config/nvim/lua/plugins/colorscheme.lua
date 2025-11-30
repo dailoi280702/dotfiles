@@ -26,9 +26,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
+
 table.insert(M, {
-	"sainnhe/gruvbox-material",
+	"zenbones-theme/zenbones.nvim",
+	dependencies = "rktjmp/lush.nvim",
 	config = function()
+vim.cmd.colorscheme("zenwritten")
 	end,
 })
 
@@ -46,8 +49,8 @@ table.insert(M, {
 			},
 			transparent_mode = true,
 		})
-		vim.cmd("colorscheme gruvbox")
-		vim.cmd.colorscheme("gruvbox")
+
+		-- vim.cmd.colorscheme("gruvbox")
 	end,
 })
 

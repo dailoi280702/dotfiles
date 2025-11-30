@@ -22,20 +22,18 @@ require("lazy").setup("plugins", {
 	change_detection = { enabled = false },
 })
 
+vim.api.nvim_create_autocmd("StdinReadPost", {
+	callback = function()
+		vim.b.loaded_from_stdin = true
+	end,
+})
+
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = vim.schedule_wrap(function(data)
 		if data.file == "" or vim.fn.isdirectory(data.file) ~= 0 then
-			-- local current_dir = vim.loop.cwd()
-			-- local home_dir = vim.env.HOME
-			--
-			-- -- Open FzfLua in standard locations, otherwise use Oil
-			-- if home_dir ~= current_dir and current_dir:find(home_dir, 1, true) == 1 then
-			-- 	vim.cmd("FzfLua files")
-			-- else
-			-- 	vim.cmd("Oil")
-			-- end
-
-			vim.cmd("Oil")
+			if vim.b.loaded_from_stdin == nil then
+				vim.cmd("Oil")
+			end
 		end
 	end),
 })
