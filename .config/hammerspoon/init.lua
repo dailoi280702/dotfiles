@@ -11,4 +11,8 @@ require("cleaner").init({
 	path = "~/Downloads/",
 })
 
+hs.hotkey.bind({ "cmd" }, "escape", function()
+	hs.eventtap.keyStroke({ "cmd" }, "`")
+end)
+
 hs.notify.new({ title = "Hammerspoon", informativeText = "Hammerspoon reloaded!" }):send()
