@@ -16,6 +16,7 @@ with pkgs;
   btop
   eza
   fd
+  sd
   fish
   fzf
   htop

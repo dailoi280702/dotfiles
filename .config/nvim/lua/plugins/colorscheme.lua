@@ -12,6 +12,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
+vim.cmd.colorscheme("habamax")
+
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "default",
 	callback = function()
@@ -26,12 +28,21 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
+table.insert(M, {
+	"sainnhe/everforest",
+	config = function()
+		vim.g.everforest_background = "hard"
+		vim.cmd.colorscheme("everforest")
+	end,
+})
 
 table.insert(M, {
-	"zenbones-theme/zenbones.nvim",
+	"navarasu/onedark.nvim",
 	dependencies = "rktjmp/lush.nvim",
 	config = function()
-vim.cmd.colorscheme("zenwritten")
+		require("onedark").setup({
+			transparent = true,
+		})
 	end,
 })
 
@@ -47,10 +58,8 @@ table.insert(M, {
 				operators = false,
 				folds = true,
 			},
-			transparent_mode = true,
+			transparent_mode = false,
 		})
-
-		-- vim.cmd.colorscheme("gruvbox")
 	end,
 })
 
