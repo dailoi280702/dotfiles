@@ -1,5 +1,12 @@
 local M = {}
 
+vim.api.nvim_create_autocmd("ColorSchemePre", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("hi clear")
+	end,
+})
+
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "retrobox,habamax",
 	callback = function()
@@ -21,45 +28,29 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 			vim.cmd("hi Normal guibg=none")
 			vim.cmd("hi NormalNC guibg=none")
 			vim.cmd("hi! link TreesitterContext Normal")
-			-- vim.cmd("hi! link StatusLine Comment")
-			-- vim.cmd("hi! link StatusLineNC Comment")
 			vim.cmd("hi! link Foled Comment")
 		end
 	end,
 })
 
 table.insert(M, {
-	"sainnhe/everforest",
+	"catppuccin/nvim",
 	config = function()
-		vim.g.everforest_background = "hard"
-		vim.cmd.colorscheme("everforest")
-	end,
-})
-
-table.insert(M, {
-	"navarasu/onedark.nvim",
-	dependencies = "rktjmp/lush.nvim",
-	config = function()
-		require("onedark").setup({
-			transparent = true,
-		})
-	end,
-})
-
-table.insert(M, {
-	"ellisonleao/gruvbox.nvim",
-	config = function()
-		require("gruvbox").setup({
-			bold = true,
-			italic = {
-				strings = false,
-				emphasis = false,
-				comments = false,
-				operators = false,
-				folds = true,
+		require("catppuccin").setup({
+			flavour = "auto",
+			background = {
+				light = "latte",
+				dark = "macchiato",
 			},
-			transparent_mode = false,
+			float = {
+				solid = true,
+			},
+			no_italic = true,
+			default_integrations = true,
+			auto_integrations = true,
 		})
+
+		vim.cmd.colorscheme("catppuccin")
 	end,
 })
 

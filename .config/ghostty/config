@@ -1,41 +1,22 @@
-# title = Ghostty 👻
-title = Ghostty
-# window-title-font-family = shantell sans bold 
 window-padding-balance = true
-window-step-resize = false
 window-padding-x = 0
 window-padding-y = 0
 window-vsync = true
-macos-titlebar-style = hidden
-# window-colorspace = display-p3
-# custom-shader = "shaders/dither.glsl"
+macos-titlebar-style = tabs
 confirm-close-surface = false
-# background-blur-radius = 4
-# background-opacity = 0.96
 shell-integration = fish
 
-theme = Nvim Light
-background = f0f0f5
-# palette = 0=f0f0f5
-palette = 9=#930014
-palette = 10=#006d30
-palette = 11=#846700
-palette = 12=#006496
-palette = 13=#6e006b
-palette = 14=#039392
+theme = Catppuccin Macchiato
 
-font-family = iosevka term
-font-feature = ss03
+font-family = jetbrains mono
 
-# font-style = medium
-# font-style-italic = medium
-# font-style-bold = extrabold
-# font-style-bold-italic = extrabold
+font-style = semibold
+font-style-italic = semibold
+font-style-bold = extrabold
+font-style-bold-italic = extrabold
 
-font-size = 16
+font-size = 13
 adjust-cell-width = -7%
 # adjust-cell-height = +20%
 # adjust-font-baseline = -30%
 # font-thicken = true
-
-# command = /bin/zsh -c 'tmux a || tmux'
