@@ -53,6 +53,7 @@ with pkgs;
   lld
   terraform
   valkey
+  etcd
 
   # Programming Languages & Tools
   nixfmt-rfc-style

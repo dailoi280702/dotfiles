@@ -34,23 +34,14 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 table.insert(M, {
-	"catppuccin/nvim",
-	config = function()
-		require("catppuccin").setup({
-			flavour = "auto",
-			background = {
-				light = "latte",
-				dark = "macchiato",
-			},
-			float = {
-				solid = true,
-			},
-			no_italic = true,
-			default_integrations = true,
-			auto_integrations = true,
-		})
+	"nickkadutskyi/jb.nvim",
+})
 
-		vim.cmd.colorscheme("catppuccin")
+table.insert(M, {
+	"edeneast/nightfox.nvim",
+	config = function()
+		require("nightfox").setup({})
+		vim.cmd.colorscheme("dawnfox")
 	end,
 })
 
