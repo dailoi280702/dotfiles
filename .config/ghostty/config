@@ -5,19 +5,20 @@ window-vsync = true
 macos-titlebar-style = tabs
 confirm-close-surface = false
 shell-integration = fish
-custom-shader = shaders/paper.glsl
+custom-shader = shaders/paper2.glsl
 
-theme = Rose Pine Dawn
+theme = Dayfox
 
-font-family = iosevka term
+font-family = source code pro
+font-feature = ss16
 
 font-style = medium
 font-style-italic = medium
 font-style-bold = extrabold
 font-style-bold-italic = extrabold
 
-font-size = 13
-# adjust-cell-width = -7%
-adjust-cell-height = -15%
+font-size = 20
+adjust-cell-width = -7%
+# adjust-cell-height = -15%
 # adjust-font-baseline = -30%
 # font-thicken = true

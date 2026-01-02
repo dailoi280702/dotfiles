@@ -19,8 +19,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-vim.cmd.colorscheme("habamax")
-
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "default",
 	callback = function()
@@ -34,6 +32,15 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 table.insert(M, {
+	"ellisonleao/gruvbox.nvim",
+	config = function()
+		require("gruvbox").setup({
+			contrast = "hard"
+		})
+	end,
+})
+
+table.insert(M, {
 	"nickkadutskyi/jb.nvim",
 })
 
@@ -41,7 +48,7 @@ table.insert(M, {
 	"edeneast/nightfox.nvim",
 	config = function()
 		require("nightfox").setup({})
-		vim.cmd.colorscheme("dawnfox")
+		vim.cmd.colorscheme("dayfox")
 	end,
 })
 
