@@ -7,18 +7,18 @@ confirm-close-surface = false
 shell-integration = fish
 custom-shader = shaders/paper2.glsl
 
-theme = Dayfox
+theme = Builtin Solarized Light
 
-font-family = source code pro
-font-feature = ss16
+font-family = jebtrains mono
+# font-feature = ss16
 
 font-style = medium
 font-style-italic = medium
 font-style-bold = extrabold
 font-style-bold-italic = extrabold
 
-font-size = 20
+font-size = 18
 adjust-cell-width = -7%
-# adjust-cell-height = -15%
+adjust-cell-height = +20%
 # adjust-font-baseline = -30%
 # font-thicken = true

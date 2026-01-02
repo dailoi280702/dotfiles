@@ -32,10 +32,25 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 table.insert(M, {
+	"maxmx03/solarized.nvim",
+	config = function()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "solarized",
+			callback = function()
+				vim.cmd("hi! link Identifier Text")
+			end,
+		})
+
+		vim.opt.bg = "light"
+		vim.cmd.colorscheme("solarized")
+	end,
+})
+
+table.insert(M, {
 	"ellisonleao/gruvbox.nvim",
 	config = function()
 		require("gruvbox").setup({
-			contrast = "hard"
+			contrast = "hard",
 		})
 	end,
 })
@@ -46,10 +61,6 @@ table.insert(M, {
 
 table.insert(M, {
 	"edeneast/nightfox.nvim",
-	config = function()
-		require("nightfox").setup({})
-		vim.cmd.colorscheme("dayfox")
-	end,
 })
 
 for i, _ in ipairs(M) do
