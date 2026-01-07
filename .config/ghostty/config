@@ -5,20 +5,19 @@ window-vsync = true
 macos-titlebar-style = tabs
 confirm-close-surface = false
 shell-integration = fish
-custom-shader = shaders/paper2.glsl
+# custom-shader = shaders/paper2.glsl
 
-theme = Builtin Solarized Light
+theme = Builtin Solarized Dark
 
-font-family = jebtrains mono
-# font-feature = ss16
+font-family = ubuntu sans mono
 
 font-style = medium
 font-style-italic = medium
-font-style-bold = extrabold
-font-style-bold-italic = extrabold
+font-style-bold = bold
+font-style-bold-italic = bold
 
-font-size = 18
+font-size = 17
 adjust-cell-width = -7%
-adjust-cell-height = +20%
+# adjust-cell-height = +20%
 # adjust-font-baseline = -30%
 # font-thicken = true

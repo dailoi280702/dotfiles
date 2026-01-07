@@ -31,19 +31,43 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "solarized,flexoki",
+	callback = function()
+		vim.cmd("hi! link Identifier Text")
+	end,
+})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "flexoki*",
+	callback = function()
+		if vim.o.background == "light" then
+			vim.api.nvim_set_hl(0, "LineNr", { link = "CursorLine" })
+			vim.api.nvim_set_hl(0, "CursorLineNr", { link = "LineNr" })
+			vim.api.nvim_set_hl(0, "SignColumn", { link = "LineNr" })
+			vim.api.nvim_set_hl(0, "TreesitterContext", { link = "LineNr" })
+		end
+	end,
+})
+
+table.insert(M, {
+	"sainnhe/everforest",
+	config = function()
+		vim.g.everforest_background = "hard"
+		vim.g.everforest_transparent_background = 1
+		vim.g.everforest_better_performance = 1
+	end,
+})
+
+table.insert(M, {
+	"kepano/flexoki-neovim",
+})
+
 table.insert(M, {
 	"maxmx03/solarized.nvim",
-	config = function()
-		vim.api.nvim_create_autocmd("ColorScheme", {
-			pattern = "solarized",
-			callback = function()
-				vim.cmd("hi! link Identifier Text")
-			end,
-		})
-
-		vim.opt.bg = "light"
+	config = function ()
 		vim.cmd.colorscheme("solarized")
-	end,
+	end
 })
 
 table.insert(M, {

@@ -34,16 +34,16 @@ local M = {
 		end,
 	},
 
-	{
-		"nvimdev/lspsaga.nvim",
-		opts = {
-			ui = {},
-
-			lightbulb = {
-				enable = false,
-			},
-		},
-	},
+	-- {
+	-- 	"nvimdev/lspsaga.nvim",
+	-- 	opts = {
+	-- 		ui = {},
+	--
+	-- 		lightbulb = {
+	-- 			enable = false,
+	-- 		},
+	-- 	},
+	-- },
 
 	-- {
 	-- 	"lukas-reineke/indent-blankline.nvim",
