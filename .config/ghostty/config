@@ -14,8 +14,8 @@ font-family = Cascadia Code
 
 font-style = semibold
 font-style-italic = semibold
-font-style-bold = extrabold
-font-style-bold-italic = extrabold
+font-style-bold = bold
+font-style-bold-italic = bold
 
 font-size = 20
 adjust-cell-width = -7%
