@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("ColorSchemePre", {
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "retrobox,habamax",
+	pattern = "retrobox,habamax,wildcharm",
 	callback = function()
 		vim.cmd("hi Normal guibg=none")
 		vim.cmd("hi clear Identifier")
