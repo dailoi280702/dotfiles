@@ -10,15 +10,15 @@ shell-integration = fish
 # theme = Gruvbox Material Dark
 background=#000000
 
-font-family = Cascadia Code
+font-family = iosevka term
 
-font-style = semibold
-font-style-italic = semibold
-font-style-bold = bold
-font-style-bold-italic = bold
+font-style = medium
+font-style-italic = medium
+font-style-bold = extrabold
+font-style-bold-italic = extrabold
 
-font-size = 20
+font-size = 21
 adjust-cell-width = -7%
-adjust-cell-height = +20%
+# adjust-cell-height = +20%
 # adjust-font-baseline = -30%
 # font-thicken = true
