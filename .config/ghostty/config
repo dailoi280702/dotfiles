@@ -11,13 +11,14 @@ shell-integration = fish
 background=#000000
 
 font-family = iosevka term
+font-feature = ss14
 
 font-style = medium
 font-style-italic = medium
 font-style-bold = extrabold
 font-style-bold-italic = extrabold
 
-font-size = 21
+font-size = 19
 adjust-cell-width = -7%
 # adjust-cell-height = +20%
 # adjust-font-baseline = -30%
