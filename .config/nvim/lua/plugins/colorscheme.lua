@@ -19,6 +19,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
+vim.cmd.colorscheme("wildcharm")
+
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "default",
 	callback = function()
@@ -27,25 +29,11 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 			vim.cmd("hi NormalNC guibg=none")
 			vim.cmd("hi! link TreesitterContext Normal")
 			vim.cmd("hi! link Foled Comment")
-		end
-	end,
-})
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "solarized,flexoki",
-	callback = function()
-		vim.cmd("hi! link Identifier Text")
-	end,
-})
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "flexoki*",
-	callback = function()
-		if vim.o.background == "light" then
-			vim.api.nvim_set_hl(0, "LineNr", { link = "CursorLine" })
-			vim.api.nvim_set_hl(0, "CursorLineNr", { link = "LineNr" })
-			vim.api.nvim_set_hl(0, "SignColumn", { link = "LineNr" })
-			vim.api.nvim_set_hl(0, "TreesitterContext", { link = "LineNr" })
+			-- vim.api.nvim_set_hl(0, "LineNr", { link = "CursorLine" })
+			-- vim.api.nvim_set_hl(0, "CursorLineNr", { link = "LineNr" })
+			-- vim.api.nvim_set_hl(0, "SignColumn", { link = "LineNr" })
+			-- vim.api.nvim_set_hl(0, "TreesitterContext", { link = "LineNr" })
 		end
 	end,
 })
@@ -60,23 +48,15 @@ table.insert(M, {
 })
 
 table.insert(M, {
-	"kepano/flexoki-neovim",
-})
-
-table.insert(M, {
-	"maxmx03/solarized.nvim",
-	config = function ()
-		vim.cmd.colorscheme("solarized")
-	end
-})
-
-table.insert(M, {
-	"ellisonleao/gruvbox.nvim",
+	"sainnhe/gruvbox-material",
 	config = function()
-		require("gruvbox").setup({
-			contrast = "hard",
-		})
+		vim.g.gruvbox_material_better_performance = 1
+		-- vim.cmd.colorscheme("gruvbox-material")
 	end,
+})
+
+table.insert(M, {
+	"kepano/flexoki-neovim",
 })
 
 table.insert(M, {
