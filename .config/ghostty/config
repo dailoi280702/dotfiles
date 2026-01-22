@@ -7,17 +7,17 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-# theme = Gruvbox Material Dark
-background=#121212
+theme = Zenburn
+# background=#121212
 
-font-family = jetbrains mono
+font-family = ioskeley mono
 
-font-style = semibold
-font-style-italic = semibold
+font-style = medium
+font-style-italic = medium
 font-style-bold = extrabold
 font-style-bold-italic = extrabold
 
-font-size = 17
+font-size = 19
 adjust-cell-width = -7%
 # adjust-cell-height = +20%
 # adjust-font-baseline = -30%

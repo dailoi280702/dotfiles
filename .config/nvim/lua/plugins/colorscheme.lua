@@ -56,7 +56,9 @@ table.insert(M, {
 })
 
 table.insert(M, {
-	"kepano/flexoki-neovim",
+	"zenbones-theme/zenbones.nvim",
+	dependencies = "rktjmp/lush.nvim",
+	config = function() end,
 })
 
 table.insert(M, {
@@ -64,7 +66,18 @@ table.insert(M, {
 })
 
 table.insert(M, {
-	"edeneast/nightfox.nvim",
+	"phha/zenburn.nvim",
+	config = function()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "zenburn",
+			callback = function()
+				vim.api.nvim_set_hl(0, "SignColumn", { link = "LineNr", force = true })
+				vim.api.nvim_set_hl(0, "@variable", { link = "Text", force = true })
+			end,
+		})
+
+		vim.cmd.colorscheme("zenburn")
+	end,
 })
 
 for i, _ in ipairs(M) do
