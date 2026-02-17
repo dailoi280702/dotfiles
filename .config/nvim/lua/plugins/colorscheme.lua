@@ -39,33 +39,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 table.insert(M, {
-	"sainnhe/everforest",
-	config = function()
-		vim.g.everforest_background = "hard"
-		vim.g.everforest_transparent_background = 1
-		vim.g.everforest_better_performance = 1
-	end,
-})
-
-table.insert(M, {
-	"sainnhe/gruvbox-material",
-	config = function()
-		vim.g.gruvbox_material_better_performance = 1
-		-- vim.cmd.colorscheme("gruvbox-material")
-	end,
-})
-
-table.insert(M, {
-	"zenbones-theme/zenbones.nvim",
-	dependencies = "rktjmp/lush.nvim",
-	config = function() end,
-})
-
-table.insert(M, {
-	"nickkadutskyi/jb.nvim",
-})
-
-table.insert(M, {
 	"phha/zenburn.nvim",
 	config = function()
 		vim.api.nvim_create_autocmd("ColorScheme", {
@@ -76,7 +49,21 @@ table.insert(M, {
 			end,
 		})
 
-		vim.cmd.colorscheme("zenburn")
+		-- vim.cmd.colorscheme("zenburn")
+	end,
+})
+
+table.insert(M, {
+	"kepano/flexoki-neovim",
+	config = function()
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "flexoki",
+			callback = function()
+				vim.api.nvim_set_hl(0, "Identifier", { link = "Text", force = true })
+			end,
+		})
+
+		vim.cmd.colorscheme("flexoki")
 	end,
 })
 

@@ -11,4 +11,4 @@ SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eh\x2dmatsuo/fish\x2dcolor\x2dscheme\x2dswitcher\x1ejomik/fish\x2dgruvbox\x1ejgantunes/fish\x2dgvm\x1eedc/bass\x1ejorgebucaran/nvm\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR ayu_variant:dark
-SETUVAR fish_user_paths:/run/current\x2dsystem/sw/bin\x1e/Users/lloyd/\x2eantigravity/antigravity/bin
+SETUVAR fish_user_paths:/Users/lloyd/\x2enpm\x2dglobal/bin\x1e/Users/lloyd/\x2eopencode/bin\x1e/run/current\x2dsystem/sw/bin\x1e/Users/lloyd/\x2eantigravity/antigravity/bin
