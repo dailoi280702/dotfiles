@@ -7,12 +7,12 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = Flexoki light
+theme = Zenbones Light
 # background=#121212
 
 font-family = monaspace neon
 
-# font-style = medium
+# font-style = light
 # font-style-italic = medium
 # font-style-bold = extrabold
 # font-style-bold-italic = extrabold
@@ -21,4 +21,4 @@ font-size = 19
 adjust-cell-width = -7%
 adjust-cell-height = +20%
 # adjust-font-baseline = -30%
-# font-thicken = true
+font-thicken = true

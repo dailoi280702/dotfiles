@@ -62,8 +62,16 @@ table.insert(M, {
 				vim.api.nvim_set_hl(0, "Identifier", { link = "Text", force = true })
 			end,
 		})
+	end,
+})
 
-		vim.cmd.colorscheme("flexoki")
+table.insert(M, {
+	"zenbones-theme/zenbones.nvim",
+	dependencies = "rktjmp/lush.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd.colorscheme("zenbones")
 	end,
 })
 
