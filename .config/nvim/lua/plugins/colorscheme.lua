@@ -70,8 +70,19 @@ table.insert(M, {
 	dependencies = "rktjmp/lush.nvim",
 	lazy = false,
 	priority = 1000,
+	-- config = function()
+	-- 	vim.cmd.colorscheme("zenbones")
+	-- end,
+})
+
+table.insert(M, {
+	"oskarnurm/koda.nvim",
+})
+
+table.insert(M, {
+	"p00f/alabaster.nvim",
 	config = function()
-		vim.cmd.colorscheme("zenbones")
+		vim.cmd.colorscheme("alabaster")
 	end,
 })
 

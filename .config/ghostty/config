@@ -7,7 +7,7 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = Zenbones Light
+theme = Alabaster
 # background=#121212
 
 font-family = monaspace neon
