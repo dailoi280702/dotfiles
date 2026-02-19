@@ -69,19 +69,23 @@ lsp.opts = {
 			-- filetypes = { "terraform", "terraform-vars", "tf" },
 		},
 		-- yamlfix = {},
-		nil_ls = {
-			settings = {
-				["nil"] = {
-					formatting = {
-						command = { "nixfmt" },
-					},
-				},
-			},
-		},
 		-- nilaway = {},
 	},
 	setup = {},
 }
+
+-- only enable nil_ls in nix managed environments
+if vim.fn.executable("nix") == 1 then
+	lsp.opts.servers.nil_ls = {
+		settings = {
+			["nil"] = {
+				formatting = {
+					command = { "nixfmt" },
+				},
+			},
+		},
+	}
+end
 
 lsp.config = function(_, opts)
 	local blink = require("blink.cmp")
