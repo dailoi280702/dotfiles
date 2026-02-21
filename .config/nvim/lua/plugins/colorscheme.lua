@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-vim.cmd.colorscheme("wildcharm")
+vim.cmd.colorscheme("retrobox")
 
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "default",
@@ -82,7 +82,7 @@ table.insert(M, {
 table.insert(M, {
 	"p00f/alabaster.nvim",
 	config = function()
-		vim.cmd.colorscheme("alabaster")
+		-- vim.cmd.colorscheme("alabaster")
 	end,
 })
 

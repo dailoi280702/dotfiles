@@ -32,6 +32,7 @@ with pkgs;
   tre-command
   yazi
   jnv
+  difftastic
 
   # Networking
   nmap
