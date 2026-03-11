@@ -76,14 +76,10 @@ table.insert(M, {
 })
 
 table.insert(M, {
-	"vague-theme/vague.nvim",
-	config = function()
-		vim.cmd.colorscheme("vague")
-	end,
-})
-
-table.insert(M, {
 	"p00f/alabaster.nvim",
+	config = function()
+		vim.cmd.colorscheme("alabaster")
+	end,
 })
 
 for i, _ in ipairs(M) do

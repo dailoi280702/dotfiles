@@ -7,7 +7,7 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = Vague
+theme = Alabaster
 # background=#121212
 
 font-family = jetbrains mono
