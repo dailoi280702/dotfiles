@@ -4,23 +4,31 @@ table.insert(M, {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	lazy = false,
-	-- dependencies = { "nvim-treesitter/nvim-treesitter-context" },
-	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-	opts = {
-		highlight = {
-			enable = true,
-			-- disable = { "go", "lua", "sql" },
-		},
-		indent = { enable = true },
-		auto_install = true,
-	},
-	config = function(_, opts)
-		require("nvim-treesitter").setup(opts)
-		-- require("treesitter-context").setup({
-		-- 	max_lines = 1,
-		-- 	min_window_height = 20,
-		-- 	multiline_threshold = 1,
-		-- })
+	config = function()
+		local ts = require("nvim-treesitter")
+
+		ts.setup({
+			install_dir = vim.fn.stdpath("data") .. "/site",
+		})
+
+		local supported_languages = {}
+		for _, lang in ipairs(ts.get_available()) do
+			supported_languages[lang] = true
+		end
+
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(args)
+				local ft = vim.bo[args.buf].filetype
+
+				if not supported_languages[ft] then
+					return
+				end
+
+				if not pcall(vim.treesitter.start) then
+					ts.install(ft)
+				end
+			end,
+		})
 	end,
 })
 

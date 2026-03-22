@@ -7,15 +7,15 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = Alabaster
+theme = Flexoki Light
 # background=#121212
 
-font-family = jetbrains mono
+font-family = source code pro
 
-font-style = extrabold
-font-style-italic = extrabold
-# font-style-bold = extrabold
-# font-style-bold-italic = extrabold
+font-style = medium
+font-style-italic = medium
+font-style-bold = extrabold
+font-style-bold-italic = extrabold
 
 font-size = 16
 adjust-cell-width = -7%

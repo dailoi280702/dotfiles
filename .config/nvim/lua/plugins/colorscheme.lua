@@ -62,6 +62,8 @@ table.insert(M, {
 				vim.api.nvim_set_hl(0, "Identifier", { link = "Text", force = true })
 			end,
 		})
+
+		vim.cmd.colorscheme("flexoki")
 	end,
 })
 
@@ -70,20 +72,10 @@ table.insert(M, {
 	dependencies = "rktjmp/lush.nvim",
 	lazy = false,
 	priority = 1000,
-	-- config = function()
-	-- 	vim.cmd.colorscheme("zenbones")
-	-- end,
-})
-
-table.insert(M, {
-	"catppuccin/nvim",
 })
 
 table.insert(M, {
 	"p00f/alabaster.nvim",
-	config = function()
-		vim.cmd.colorscheme("alabaster")
-	end,
 })
 
 for i, _ in ipairs(M) do

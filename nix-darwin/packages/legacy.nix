@@ -55,6 +55,7 @@ with pkgs;
   terraform
   valkey
   etcd
+  tree-sitter
 
   # Programming Languages & Tools
   nixfmt-rfc-style
