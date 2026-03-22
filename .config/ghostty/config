@@ -22,3 +22,5 @@ adjust-cell-width = -7%
 # adjust-cell-height = +10%
 # adjust-font-baseline = -30%
 # font-thicken = true
+
+background-opacity = 1.00

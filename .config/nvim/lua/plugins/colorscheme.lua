@@ -76,6 +76,10 @@ table.insert(M, {
 })
 
 table.insert(M, {
+	"catppuccin/nvim",
+})
+
+table.insert(M, {
 	"p00f/alabaster.nvim",
 	config = function()
 		vim.cmd.colorscheme("alabaster")

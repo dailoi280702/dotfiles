@@ -15,7 +15,7 @@ table.insert(M, {
 		auto_install = true,
 	},
 	config = function(_, opts)
-		require("nvim-treesitter.configs").setup(opts)
+		require("nvim-treesitter").setup(opts)
 		-- require("treesitter-context").setup({
 		-- 	max_lines = 1,
 		-- 	min_window_height = 20,

@@ -5,4 +5,5 @@
   "hammerspoon"
   "aerospace"
   "podman-desktop"
+  "omniwm"
 ]
