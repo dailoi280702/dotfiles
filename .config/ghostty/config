@@ -7,7 +7,7 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = Flexoki Light
+theme = Nvim Light
 # background=#121212
 
 font-family = source code pro
