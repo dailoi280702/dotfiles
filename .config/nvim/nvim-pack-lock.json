@@ -4,6 +4,10 @@
       "rev": "8a2060dff4e68ac17f1c92aed526c76fb0c1ac2f",
       "src": "https://github.com/saghen/blink.cmp"
     },
+    "friendly-snippets": {
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
     "fzf-lua": {
       "rev": "c9e7b7bfbd01f949164988ee1684035468e1995c",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -27,6 +31,10 @@
     "indent-blankline.nvim": {
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
+    "lumon.nvim": {
+      "rev": "f8ce95213e57b379089da23abc36a1fc39936b63",
+      "src": "https://github.com/omacom-io/lumon.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "037398b9ce4a53ba48d5f94765c641a1fd16d906",
@@ -63,6 +71,10 @@
     "mini.surround": {
       "rev": "d205d1741d1fcc1f3117b4e839bf00f74ad72fa2",
       "src": "https://github.com/nvim-mini/mini.surround"
+    },
+    "neovim": {
+      "rev": "cf2a288696b03d0934da713d66c6d71557b5c997",
+      "src": "https://github.com/rose-pine/neovim"
     },
     "nvim-colorizer.lua": {
       "rev": "c8c2c19436d33165ec34fa90c975bc0a739fe3fb",

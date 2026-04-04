@@ -7,10 +7,10 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = Nvim Light
+theme = Rose Pine Dawn
 # background=#121212
 
-font-family = source code pro
+font-family = jetbrains mono
 
 font-style = medium
 font-style-italic = medium

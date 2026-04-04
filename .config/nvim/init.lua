@@ -1,5 +1,6 @@
 --: Opptions
 vim.g.mapleader = " "
+vim.cmd.colorscheme("default")
 vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 vim.opt.autowrite = true
 vim.opt.clipboard = "unnamedplus"
@@ -18,7 +19,7 @@ vim.opt.writebackup = false
 vim.opt.wrap = false
 vim.opt.nu = true
 vim.opt.rnu = true
-vim.opt.background = "light"
+vim.opt.background = "dark"
 
 vim.filetype.add({ extension = { tf = "terraform", tfstate = "terraform" } })
 
@@ -44,6 +45,10 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<cr>", { desc = "Toggle Colorizer" })
+--:
+
+--: colorscheme
+vim.pack.add({ "https://github.com/rose-pine/neovim" })
 --:
 
 --: Tree-sitter
@@ -90,58 +95,53 @@ vim.api.nvim_create_autocmd("FileType", {
 --:
 
 --: Oil
-vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
+vim.schedule(function()
+	vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
 
-require("oil").setup({
-	view_options = {
-		show_hidden = true,
-	},
-	default_file_explorer = true,
-})
+	require("oil").setup({
+		view_options = {
+			show_hidden = true,
+		},
+		default_file_explorer = true,
+	})
 
-vim.keymap.set("n", "<leader>,", "<cmd>Oil<cr>", { desc = "Brow files" })
+	vim.keymap.set("n", "<leader>,", "<cmd>Oil<cr>", { desc = "Brow files" })
+end)
 --
 
 --: FzfLua
-vim.schedule(function()
-	vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
+vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
 
-	require("fzf-lua").setup({
-		winopts = {
+require("fzf-lua").setup({
+	winopts = {
+		treesitter = {
+			enabled = false,
+		},
+	},
+	previewers = {
+		builtin = {
 			treesitter = {
 				enabled = false,
 			},
 		},
-		previewers = {
-			builtin = {
-				treesitter = {
-					enabled = false,
-				},
-			},
-		},
-	})
+	},
+})
 
-	vim.keymap.set("n", "<leader>.", "<cmd>FzfLua files<cr>", { desc = "Find Files" })
-	vim.keymap.set("n", "<leader><tab>", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
-	vim.keymap.set("n", "<leader>/", "<cmd>FzfLua live_grep<cr>", { desc = "Grep" })
-	vim.keymap.set("n", "<leader>'", "<cmd>FzfLua resume<cr>", { desc = "Resume search" })
-end)
+vim.keymap.set("n", "<leader>.", "<cmd>FzfLua files<cr>", { desc = "Find Files" })
+vim.keymap.set("n", "<leader><tab>", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
+vim.keymap.set("n", "<leader>/", "<cmd>FzfLua live_grep<cr>", { desc = "Grep" })
+vim.keymap.set("n", "<leader>'", "<cmd>FzfLua resume<cr>", { desc = "Resume search" })
 --:
 
 --: Status line
-vim.api.nvim_create_autocmd("VimEnter", {
-	once = true,
-	callback = function()
-		vim.pack.add({ "https://github.com/nvim-mini/mini.statusline" })
+vim.pack.add({ "https://github.com/nvim-mini/mini.statusline" })
 
-		require("mini.statusline").setup()
-	end,
-})
+require("mini.statusline").setup()
 --:
 
 --: Blink
 -- TODO: auto build fuzzy search
-vim.api.nvim_create_autocmd("InsertEnter", {
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 	once = true,
 	callback = function()
 		vim.pack.add({
@@ -208,7 +208,14 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 })
 --:
 
---: utilities
+-- : utilities
+vim.pack.add({
+	"https://github.com/nvim-mini/mini.icons",
+})
+
+require("mini.icons").setup()
+MiniIcons.mock_nvim_web_devicons()
+
 vim.schedule(function()
 	vim.pack.add({
 		"https://github.com/nvim-mini/mini.icons",
@@ -217,9 +224,6 @@ vim.schedule(function()
 		"https://github.com/nvim-mini/mini.cursorword",
 		"https://github.com/lukas-reineke/indent-blankline.nvim",
 	})
-
-	require("mini.icons").setup()
-	MiniIcons.mock_nvim_web_devicons()
 
 	require("colorizer").setup()
 	require("mini.misc").setup({
@@ -239,7 +243,7 @@ end)
 --:
 
 --: Fold
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
 	callback = function()
 		vim.pack.add({
@@ -274,12 +278,12 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 --:
 
 --: Gitsigns
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
 	callback = function()
 		vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
 
-		gs = require("gitsigns")
+		local gs = require("gitsigns")
 
 		gs.setup({
 			current_line_blame = true,
@@ -292,7 +296,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 --:
 
 --: Guard
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
 	callback = function()
 		vim.pack.add({
@@ -323,159 +327,155 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 --:
 
 --: Mason
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({ "https://github.com/mason-org/mason.nvim" })
+-- vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile"}, {
+-- 	once = true,
+-- 	callback = function()
+vim.pack.add({ "https://github.com/mason-org/mason.nvim" })
 
-		local tools = {
-			"stylua",
-			"shfmt",
-			"prettierd",
-			"stylua",
-			"golangci-lint",
-			"gofumpt",
-			"eslint_d",
-			"fixjson",
-			"black",
-			"rust-analyzer",
-		}
+local tools = {
+	"stylua",
+	"shfmt",
+	"prettierd",
+	"stylua",
+	"golangci-lint",
+	"gofumpt",
+	"eslint_d",
+	"fixjson",
+	"black",
+	"rust-analyzer",
+}
 
-		require("mason").setup({
-			ensure_installed = tools,
-		})
-
-		local mr = require("mason-registry")
-
-		local function ensure_installed()
-			for _, tool in ipairs(tools) do
-				local p = mr.get_package(tool)
-				if not p:is_installed() then
-					p:install()
-				end
-			end
-		end
-
-		if mr.refresh then
-			mr.refresh(ensure_installed)
-		else
-			ensure_installed()
-		end
-	end,
+require("mason").setup({
+	ensure_installed = tools,
 })
+
+local mr = require("mason-registry")
+
+local function mason_install()
+	for _, tool in ipairs(tools) do
+		local p = mr.get_package(tool)
+		if not p:is_installed() then
+			p:install()
+		end
+	end
+end
+
+if mr.refresh then
+	mr.refresh(mason_install)
+else
+	mason_install()
+end
+-- 	end,
+-- })
 --:
 
 --: Lsp
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({
-			"https://github.com/neovim/nvim-lspconfig",
-			"https://github.com/mason-org/mason.nvim",
-			"https://github.com/mason-org/mason-lspconfig.nvim",
-			"https://github.com/saghen/blink.cmp",
-		})
-
-		vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { desc = "Goto Definition" })
-		vim.keymap.set("n", "grD", "<cmd>FzfLua lsp_declarations<cr>", { desc = "Goto Declaration" })
-		vim.keymap.set("n", "grr", "<cmd>FzfLua lsp_references<cr>", { desc = "References" })
-		vim.keymap.set("n", "gri", "<cmd>FzfLua lsp_implementations<cr>", { desc = "Goto Implementation" })
-
-		local server_opts = {
-			ts_ls = {},
-			cssls = {},
-			html = { filetypes = { "html", "php", "rust", "typesciptreact", "javascriptreact" } },
-			ltex = {},
-			tailwindcss = {},
-			gopls = {},
-			sqlls = {},
-			bashls = {},
-			pyright = {},
-			-- intelephense = {},
-			zls = {},
-			lua_ls = {
-				settings = {
-					Lua = {
-						runtime = {
-							version = "LuaJIT",
-						},
-						diagnostics = {
-							globals = {
-								"vim",
-								"require",
-							},
-						},
-						workspace = {
-							-- library = vim.api.nvim_get_runtime_file("", true),
-							library = {
-								vim.fn.expand("~/.config/hammerspoon/Spoons/EmmyLua.spoon/annotations"),
-							},
-						},
-						telemetry = {
-							enable = false,
-						},
-					},
-				},
-			},
-			buf_ls = {},
-			golangci_lint_ls = {
-				-- command = { "golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false" },
-			},
-			eslint = {},
-			rust_analyzer = {},
-			terraformls = {
-				-- filetypes = { "terraform", "terraform-vars", "tf" },
-			},
-			-- yamlfix = {},
-			-- nilaway = {},
-		}
-
-		if vim.fn.executable("nix") == 1 then
-			server_opts.nil_ls = {
-				settings = {
-					["nil"] = {
-						formatting = {
-							command = { "nixfmt" },
-						},
-					},
-				},
-			}
-		end
-
-		local ensure_installed = {}
-		for server, _ in pairs(server_opts) do
-			ensure_installed[#ensure_installed + 1] = server
-		end
-
-		local mason_lsp = require("mason-lspconfig")
-		mason_lsp.setup({
-			ensure_installed = ensure_installed,
-		})
-
-		local blink = require("blink.cmp")
-		local capabilities = vim.tbl_deep_extend(
-			"force",
-			vim.lsp.protocol.make_client_capabilities(),
-			blink.get_lsp_capabilities({}, false),
-			{
-				textDocument = {
-					foldingRange = {
-						dynamicRegistration = false,
-						lineFoldingOnly = true,
-					},
-				},
-			}
-		)
-
-		for server_name, opts in pairs(server_opts) do
-			vim.lsp.config(server_name, vim.tbl_deep_extend("force", { capabilities = capabilities }, opts or {}))
-		end
-	end,
+-- vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
+-- 	once = true,
+-- 	callback = function()
+vim.pack.add({
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/mason-org/mason-lspconfig.nvim",
+	"https://github.com/saghen/blink.cmp",
 })
+
+vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { desc = "Goto Definition" })
+vim.keymap.set("n", "grD", "<cmd>FzfLua lsp_declarations<cr>", { desc = "Goto Declaration" })
+vim.keymap.set("n", "grr", "<cmd>FzfLua lsp_references<cr>", { desc = "References" })
+vim.keymap.set("n", "gri", "<cmd>FzfLua lsp_implementations<cr>", { desc = "Goto Implementation" })
+
+local server_opts = {
+	ts_ls = {},
+	cssls = {},
+	html = { filetypes = { "html", "php", "rust", "typesciptreact", "javascriptreact" } },
+	ltex = {},
+	tailwindcss = {},
+	gopls = {},
+	sqlls = {},
+	bashls = {},
+	pyright = {},
+	-- intelephense = {},
+	zls = {},
+	lua_ls = {
+		settings = {
+			Lua = {
+				runtime = {
+					version = "LuaJIT",
+				},
+				diagnostics = {
+					globals = {
+						"vim",
+						"require",
+					},
+				},
+				workspace = {
+					-- library = vim.api.nvim_get_runtime_file("", true),
+					library = {
+						vim.fn.expand("~/.config/hammerspoon/Spoons/EmmyLua.spoon/annotations"),
+					},
+				},
+				telemetry = {
+					enable = false,
+				},
+			},
+		},
+	},
+	buf_ls = {},
+	golangci_lint_ls = {
+		-- command = { "golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false" },
+	},
+	eslint = {},
+	rust_analyzer = {},
+	terraformls = {
+		-- filetypes = { "terraform", "terraform-vars", "tf" },
+	},
+	-- yamlfix = {},
+	-- nilaway = {},
+}
+
+if vim.fn.executable("nix") == 1 then
+	server_opts.nil_ls = {
+		settings = {
+			["nil"] = {
+				formatting = {
+					command = { "nixfmt" },
+				},
+			},
+		},
+	}
+end
+
+local ensure_installed = {}
+for server, _ in pairs(server_opts) do
+	ensure_installed[#ensure_installed + 1] = server
+end
+
+local mason_lsp = require("mason-lspconfig")
+mason_lsp.setup({
+	ensure_installed = ensure_installed,
+})
+
+local blink = require("blink.cmp")
+local capabilities =
+	vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), blink.get_lsp_capabilities({}, false), {
+		textDocument = {
+			foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			},
+		},
+	})
+
+for server_name, opts in pairs(server_opts) do
+	vim.lsp.config(server_name, vim.tbl_deep_extend("force", { capabilities = capabilities }, opts or {}))
+end
+-- 	end,
+-- })
 --:
 
 --: Mini
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
 	callback = function()
 		vim.pack.add({
@@ -518,7 +518,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 --:
 
 --: Hop
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
 	callback = function()
 		vim.pack.add({
