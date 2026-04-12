@@ -7,17 +7,17 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = Rose Pine Dawn
+theme = embers dark
 # background=#121212
 
-font-family = jetbrains mono
+font-family = maple mono
 
-font-style = medium
-font-style-italic = medium
-font-style-bold = extrabold
-font-style-bold-italic = extrabold
+# font-style = medium
+# font-style-italic = medium
+# font-style-bold = extrabold
+# font-style-bold-italic = extrabold
 
-font-size = 16
+font-size = 14
 adjust-cell-width = -7%
 # adjust-cell-height = +10%
 # adjust-font-baseline = -30%

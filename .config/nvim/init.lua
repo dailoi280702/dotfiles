@@ -25,18 +25,9 @@ vim.filetype.add({ extension = { tf = "terraform", tfstate = "terraform" } })
 
 vim.diagnostic.config({
 	virtual_text = {
-		prefix = " ● ",
 		virt_text_pos = "eol",
 	},
 	underline = true,
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN] = " ",
-			[vim.diagnostic.severity.INFO] = " ",
-			[vim.diagnostic.severity.HINT] = "󰌵 ",
-		},
-	},
 })
 --:
 
@@ -48,7 +39,19 @@ vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<cr>", { desc = "Toggle C
 --:
 
 --: colorscheme
-vim.pack.add({ "https://github.com/rose-pine/neovim" })
+vim.pack.add({
+	"https://github.com/rebelot/kanagawa.nvim",
+	"https://github.com/ember-theme/nvim",
+})
+--
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "catppuccin*,retrobox",
+	callback = function()
+		vim.api.nvim_set_hl(0, "Identifier", { link = "Text", force = true })
+	end,
+})
+
+vim.cmd.colorscheme("ember")
 --:
 
 --: Tree-sitter
@@ -518,19 +521,19 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 --:
 
 --: Hop
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({
-			"https://github.com/phaazon/hop.nvim",
-		})
-
-		require("hop").setup({})
-
-		vim.keymap.set("n", "<leader>jj", "<cmd>HopWord<CR>", { desc = "Jump to word" })
-		vim.keymap.set("n", "<leader>jk", "<cmd>HopWordMW<CR>", { desc = "Jump to word in all panes" })
-		vim.keymap.set("n", "<leader>jl", "<cmd>HopLine<CR>", { desc = "jump to line" })
-		vim.keymap.set("n", "<leader>jL", "<cmd>HopLineMW<CR>", { desc = "Jump to line in all panes" })
-	end,
-})
---:
+-- vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+-- 	once = true,
+-- 	callback = function()
+-- 		vim.pack.add({
+-- 			"https://github.com/phaazon/hop.nvim",
+-- 		})
+--
+-- 		require("hop").setup({})
+--
+-- 		vim.keymap.set("n", "<leader>jj", "<cmd>HopWord<CR>", { desc = "Jump to word" })
+-- 		vim.keymap.set("n", "<leader>jk", "<cmd>HopWordMW<CR>", { desc = "Jump to word in all panes" })
+-- 		vim.keymap.set("n", "<leader>jl", "<cmd>HopLine<CR>", { desc = "jump to line" })
+-- 		vim.keymap.set("n", "<leader>jL", "<cmd>HopLineMW<CR>", { desc = "Jump to line in all panes" })
+-- 	end,
+-- })
+-- --:
