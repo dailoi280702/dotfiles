@@ -4,4 +4,5 @@
   "mockery"
   "go-task"
   "dezoomify-rs"
+  "argyll-cms"
 ]

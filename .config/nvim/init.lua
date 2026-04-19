@@ -42,6 +42,7 @@ vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<cr>", { desc = "Toggle C
 vim.pack.add({
 	"https://github.com/rebelot/kanagawa.nvim",
 	"https://github.com/ember-theme/nvim",
+	"https://github.com/maxmx03/solarized.nvim",
 })
 --
 vim.api.nvim_create_autocmd("ColorScheme", {
@@ -51,51 +52,51 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-vim.cmd.colorscheme("ember")
+vim.cmd.colorscheme("solarized")
 --:
 
---: Tree-sitter
-vim.pack.add({
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-})
-
-vim.api.nvim_create_autocmd("PackChanged", {
-	callback = function(ev)
-		local name, kind = ev.data.spec.name, ev.data.kind
-		if name == "nvim-treesitter" and kind == "update" then
-			if not ev.data.active then
-				vim.cmd.packadd("nvim-treesitter")
-			end
-			vim.cmd("TSUpdate")
-		end
-	end,
-})
-
-local ts = require("nvim-treesitter")
-
-ts.setup({
-	install_dir = vim.fn.stdpath("data") .. "/site",
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	callback = function(args)
-		local supported_languages = {}
-		for _, lang in ipairs(ts.get_available()) do
-			supported_languages[lang] = true
-		end
-
-		local ft = vim.bo[args.buf].filetype
-
-		if not supported_languages[ft] then
-			return
-		end
-
-		if not pcall(vim.treesitter.start) then
-			ts.install(ft)
-		end
-	end,
-})
---:
+-- --: Tree-sitter
+-- vim.pack.add({
+-- 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+-- })
+--
+-- vim.api.nvim_create_autocmd("PackChanged", {
+-- 	callback = function(ev)
+-- 		local name, kind = ev.data.spec.name, ev.data.kind
+-- 		if name == "nvim-treesitter" and kind == "update" then
+-- 			if not ev.data.active then
+-- 				vim.cmd.packadd("nvim-treesitter")
+-- 			end
+-- 			vim.cmd("TSUpdate")
+-- 		end
+-- 	end,
+-- })
+--
+-- local ts = require("nvim-treesitter")
+--
+-- ts.setup({
+-- 	install_dir = vim.fn.stdpath("data") .. "/site",
+-- })
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	callback = function(args)
+-- 		local supported_languages = {}
+-- 		for _, lang in ipairs(ts.get_available()) do
+-- 			supported_languages[lang] = true
+-- 		end
+--
+-- 		local ft = vim.bo[args.buf].filetype
+--
+-- 		if not supported_languages[ft] then
+-- 			return
+-- 		end
+--
+-- 		if not pcall(vim.treesitter.start) then
+-- 			ts.install(ft)
+-- 		end
+-- 	end,
+-- })
+-- --:
 
 --: Oil
 vim.schedule(function()
@@ -192,7 +193,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 				},
 			},
 			keymap = {
-				["<CR>"] = {
+				["<Tab>"] = {
 					function(cmp)
 						if cmp.snippet_active() then
 							return cmp.accept()
@@ -203,8 +204,8 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 					"snippet_forward",
 					"fallback",
 				},
-				["<S-Tab>"] = { "select_prev", "fallback" },
-				["<Tab>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
 			},
 		})
 	end,

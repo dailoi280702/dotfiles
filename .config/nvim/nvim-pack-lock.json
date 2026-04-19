@@ -2,7 +2,8 @@
   "plugins": {
     "blink.cmp": {
       "rev": "8a2060dff4e68ac17f1c92aed526c76fb0c1ac2f",
-      "src": "https://github.com/saghen/blink.cmp"
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "1.0.0 - 2.0.0"
     },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
@@ -92,10 +93,6 @@
       "rev": "16812abf0e8d8175155f26143a8504e8253e92b0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
-    "nvim-treesitter": {
-      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
-    },
     "nvim-ts-context-commentstring": {
       "rev": "1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f",
       "src": "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
@@ -111,6 +108,10 @@
     "promise-async": {
       "rev": "119e8961014c9bfaf1487bf3c2a393d254f337e2",
       "src": "https://github.com/kevinhwang91/promise-async"
+    },
+    "solarized.nvim": {
+      "rev": "a8085e29883ddcfb39bd46197eb32ef00df05368",
+      "src": "https://github.com/maxmx03/solarized.nvim"
     }
   }
 }
