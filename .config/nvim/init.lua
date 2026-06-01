@@ -40,9 +40,8 @@ vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<cr>", { desc = "Toggle C
 
 --: colorscheme
 vim.pack.add({
-	"https://github.com/rebelot/kanagawa.nvim",
+	"https://github.com/nickkadutskyi/jb.nvim",
 	"https://github.com/ember-theme/nvim",
-	"https://github.com/maxmx03/solarized.nvim",
 })
 --
 vim.api.nvim_create_autocmd("ColorScheme", {
@@ -52,7 +51,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-vim.cmd.colorscheme("solarized")
+vim.cmd.colorscheme("ember")
 --:
 
 -- --: Tree-sitter
@@ -97,6 +96,11 @@ vim.cmd.colorscheme("solarized")
 -- 	end,
 -- })
 -- --:
+
+--: Arborist (Tree-sitter replacement)
+vim.pack.add({ "https://github.com/arborist-ts/arborist.nvim" })
+require("arborist").setup({})
+--
 
 --: Oil
 vim.schedule(function()
@@ -150,10 +154,8 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 	callback = function()
 		vim.pack.add({
 			"https://github.com/rafamadriz/friendly-snippets",
-			{
-				src = "https://github.com/saghen/blink.cmp",
-				version = vim.version.range("^1"),
-			},
+			{ src = "https://github.com/saghen/blink.lib" },
+			{ src = "https://github.com/saghen/blink.cmp" },
 		})
 
 		require("blink.cmp").setup({
@@ -166,11 +168,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 				providers = {},
 			},
 			fuzzy = {
-				implementation = "prefer_rust",
-				prebuilt_binaries = {
-					download = true,
-					force_version = "v1.10.1",
-				},
+				implementation = "prefer_rust_with_warning",
 			},
 			signature = {
 				enabled = true,
@@ -381,6 +379,7 @@ vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
+	"https://github.com/saghen/blink.lib",
 	"https://github.com/saghen/blink.cmp",
 })
 
@@ -436,6 +435,7 @@ local server_opts = {
 	},
 	-- yamlfix = {},
 	-- nilaway = {},
+	typos_lsp = {},
 }
 
 if vim.fn.executable("nix") == 1 then
@@ -483,23 +483,10 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
 	callback = function()
 		vim.pack.add({
-			"https://github.com/nvim-mini/mini.surround",
 			-- "https://github.com/nvim-mini/mini.pairs",
 			"https://github.com/nvim-mini/mini.ai",
 			"https://github.com/nvim-mini/mini.comment",
 			"https://github.com/JoosepAlviste/nvim-ts-context-commentstring",
-		})
-
-		require("mini.surround").setup({
-			mappings = {
-				add = "gza", -- Add surrounding in Normal and Visual modes
-				delete = "gzd", -- Delete surrounding
-				find = "gzf", -- Find surrounding (to the right)
-				find_left = "gzF", -- Find surrounding (to the left)
-				highlight = "gzh", -- Highlight surrounding
-				replace = "gzr", -- Replace surrounding
-				update_n_lines = "gzn", -- Update `n_lines`
-			},
 		})
 
 		-- require("mini.pairs").setup({})
@@ -520,21 +507,3 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	end,
 })
 --:
-
---: Hop
--- vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
--- 	once = true,
--- 	callback = function()
--- 		vim.pack.add({
--- 			"https://github.com/phaazon/hop.nvim",
--- 		})
---
--- 		require("hop").setup({})
---
--- 		vim.keymap.set("n", "<leader>jj", "<cmd>HopWord<CR>", { desc = "Jump to word" })
--- 		vim.keymap.set("n", "<leader>jk", "<cmd>HopWordMW<CR>", { desc = "Jump to word in all panes" })
--- 		vim.keymap.set("n", "<leader>jl", "<cmd>HopLine<CR>", { desc = "jump to line" })
--- 		vim.keymap.set("n", "<leader>jL", "<cmd>HopLineMW<CR>", { desc = "Jump to line in all panes" })
--- 	end,
--- })
--- --:

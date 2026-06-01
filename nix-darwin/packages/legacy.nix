@@ -7,10 +7,6 @@ with pkgs;
   alacritty
   tmux
 
-  # Fonts
-  jetbrains-mono
-  iosevka
-
   # Utilities
   bat
   btop
