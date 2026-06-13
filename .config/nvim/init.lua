@@ -102,21 +102,6 @@ vim.pack.add({ "https://github.com/arborist-ts/arborist.nvim" })
 require("arborist").setup({})
 --
 
---: Oil
-vim.schedule(function()
-	vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
-
-	require("oil").setup({
-		view_options = {
-			show_hidden = true,
-		},
-		default_file_explorer = true,
-	})
-
-	vim.keymap.set("n", "<leader>,", "<cmd>Oil<cr>", { desc = "Brow files" })
-end)
---
-
 --: FzfLua
 vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
 
@@ -145,69 +130,6 @@ vim.keymap.set("n", "<leader>'", "<cmd>FzfLua resume<cr>", { desc = "Resume sear
 vim.pack.add({ "https://github.com/nvim-mini/mini.statusline" })
 
 require("mini.statusline").setup()
---:
-
---: Blink
--- TODO: auto build fuzzy search
-vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({
-			"https://github.com/rafamadriz/friendly-snippets",
-			{ src = "https://github.com/saghen/blink.lib" },
-			{ src = "https://github.com/saghen/blink.cmp" },
-		})
-
-		require("blink.cmp").setup({
-			appearance = {
-				use_nvim_cmp_as_default = true,
-				nerd_font_variant = "mono",
-			},
-			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
-				providers = {},
-			},
-			fuzzy = {
-				implementation = "prefer_rust_with_warning",
-			},
-			signature = {
-				enabled = true,
-			},
-			completion = {
-				list = {
-					selection = {
-						auto_insert = true,
-						preselect = function(ctx)
-							return ctx.mode ~= "cmdline" and not require("blink.cmp").snippet_active({ direction = 1 })
-						end,
-					},
-				},
-				documentation = {
-					auto_show = true,
-					auto_show_delay_ms = 100,
-				},
-				ghost_text = {
-					enabled = true,
-				},
-			},
-			keymap = {
-				["<Tab>"] = {
-					function(cmp)
-						if cmp.snippet_active() then
-							return cmp.accept()
-						else
-							return cmp.select_and_accept()
-						end
-					end,
-					"snippet_forward",
-					"fallback",
-				},
-				["<C-k>"] = { "select_prev", "fallback" },
-				["<C-j>"] = { "select_next", "fallback" },
-			},
-		})
-	end,
-})
 --:
 
 -- : utilities
@@ -242,90 +164,6 @@ vim.schedule(function()
 		scope = { enabled = false },
 	})
 end)
---:
-
---: Fold
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({
-			"https://github.com/kevinhwang91/promise-async",
-			"https://github.com/kevinhwang91/nvim-ufo",
-		})
-
-		local ufo = require("ufo")
-
-		vim.o.foldcolumn = "0"
-		vim.o.foldlevel = 99
-		vim.o.foldlevelstart = 99
-		vim.o.foldenable = true
-
-		local ok, _ = pcall(require, "tree-sitter")
-		if ok then
-			ufo.setup({
-				provider_selector = function(_, _, _)
-					return { "treesitter", "indent" }
-				end,
-			})
-		else
-			ufo.setup()
-		end
-
-		vim.keymap.set("n", "z,", "<cmd>%foldclose<CR>", { desc = "Close first level folds" })
-		vim.keymap.set("n", "z.", "<cmd>sil! normal mzzM`zzO<CR>", { desc = "Magic fold  " })
-		vim.keymap.set("n", "zM", ufo.closeAllFolds)
-		vim.keymap.set("n", "zR", ufo.openAllFolds)
-	end,
-})
---:
-
---: Gitsigns
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
-
-		local gs = require("gitsigns")
-
-		gs.setup({
-			current_line_blame = true,
-		})
-
-		vim.keymap.set("n", "]h", gs.next_hunk, { desc = "Next hunk" })
-		vim.keymap.set("n", "[h", gs.prev_hunk, { desc = "Prev hunk" })
-	end,
-})
---:
-
---: Guard
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({
-			"https://github.com/nvimdev/guard-collection",
-			"https://github.com/nvimdev/guard.nvim",
-		})
-
-		local ft = require("guard.filetype")
-
-		ft("python"):fmt("black")
-		ft("lua"):fmt("stylua")
-		ft("go"):fmt({ cmd = "gofumpt", stdin = true, args = {} })
-		ft(
-			"javascript,javascriptreact,typescript,typescriptreact,vue,css,scss,less,html,json,jsonc,yaml,markdown,markdown.mdx,graphql,handlebars"
-		):fmt("prettier")
-		ft("rust"):fmt("rustfmt")
-		ft("*"):lint("codespell")
-
-		vim.g.guard_config = {
-			fmt_on_save = true,
-			lsp_as_default_formatter = true,
-			auto_lint = true,
-			lint_interval = 300,
-			refresh_diagnostic = true,
-		}
-	end,
-})
 --:
 
 --: Mason
@@ -476,6 +314,167 @@ for server_name, opts in pairs(server_opts) do
 end
 -- 	end,
 -- })
+--:
+
+--: Oil
+vim.schedule(function()
+	vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
+
+	require("oil").setup({
+		view_options = {
+			show_hidden = true,
+		},
+		default_file_explorer = true,
+	})
+
+	vim.keymap.set("n", "<leader>,", "<cmd>Oil<cr>", { desc = "Brow files" })
+end)
+--
+
+--: Blink
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+	once = true,
+	callback = function()
+		vim.pack.add({
+			"https://github.com/rafamadriz/friendly-snippets",
+			{ src = "https://github.com/saghen/blink.lib" },
+			{ src = "https://github.com/saghen/blink.cmp" },
+		})
+
+		require("blink.cmp").setup({
+			appearance = {
+				use_nvim_cmp_as_default = true,
+				nerd_font_variant = "mono",
+			},
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer" },
+				providers = {},
+			},
+			fuzzy = {
+				implementation = "prefer_rust_with_warning",
+			},
+			signature = {
+				enabled = true,
+			},
+			completion = {
+				list = {
+					selection = {
+						auto_insert = true,
+						preselect = function(ctx)
+							return ctx.mode ~= "cmdline" and not require("blink.cmp").snippet_active({ direction = 1 })
+						end,
+					},
+				},
+				documentation = {
+					auto_show = true,
+					auto_show_delay_ms = 100,
+				},
+				ghost_text = {
+					enabled = true,
+				},
+			},
+			keymap = {
+				["<Tab>"] = {
+					function(cmp)
+						if cmp.snippet_active() then
+							return cmp.accept()
+						else
+							return cmp.select_and_accept()
+						end
+					end,
+					"snippet_forward",
+					"fallback",
+				},
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+			},
+		})
+	end,
+})
+--:
+
+--: Fold
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	once = true,
+	callback = function()
+		vim.pack.add({
+			"https://github.com/kevinhwang91/promise-async",
+			"https://github.com/kevinhwang91/nvim-ufo",
+		})
+
+		local ufo = require("ufo")
+
+		vim.o.foldcolumn = "0"
+		vim.o.foldlevel = 99
+		vim.o.foldlevelstart = 99
+		vim.o.foldenable = true
+
+		local ok, _ = pcall(require, "tree-sitter")
+		if ok then
+			ufo.setup({
+				provider_selector = function(_, _, _)
+					return { "treesitter", "indent" }
+				end,
+			})
+		else
+			ufo.setup()
+		end
+
+		vim.keymap.set("n", "z,", "<cmd>%foldclose<CR>", { desc = "Close first level folds" })
+		vim.keymap.set("n", "z.", "<cmd>sil! normal mzzM`zzO<CR>", { desc = "Magic fold  " })
+		vim.keymap.set("n", "zM", ufo.closeAllFolds)
+		vim.keymap.set("n", "zR", ufo.openAllFolds)
+	end,
+})
+--:
+
+--: Gitsigns
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	once = true,
+	callback = function()
+		vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
+
+		local gs = require("gitsigns")
+
+		gs.setup({
+			current_line_blame = true,
+		})
+
+		vim.keymap.set("n", "]h", gs.next_hunk, { desc = "Next hunk" })
+		vim.keymap.set("n", "[h", gs.prev_hunk, { desc = "Prev hunk" })
+	end,
+})
+--:
+
+--: Guard
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	once = true,
+	callback = function()
+		vim.pack.add({
+			"https://github.com/nvimdev/guard-collection",
+			"https://github.com/nvimdev/guard.nvim",
+		})
+
+		local ft = require("guard.filetype")
+
+		ft("python"):fmt("black")
+		ft("lua"):fmt("stylua")
+		ft("go"):fmt({ cmd = "gofumpt", stdin = true, args = {} })
+		ft(
+			"javascript,javascriptreact,typescript,typescriptreact,vue,css,scss,less,html,json,jsonc,yaml,markdown,markdown.mdx,graphql,handlebars"
+		):fmt("prettier")
+		ft("rust"):fmt("rustfmt")
+		ft("*"):lint("codespell")
+
+		vim.g.guard_config = {
+			fmt_on_save = true,
+			lsp_as_default_formatter = true,
+			auto_lint = true,
+			lint_interval = 300,
+			refresh_diagnostic = true,
+		}
+	end,
+})
 --:
 
 --: Mini
