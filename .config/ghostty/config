@@ -7,8 +7,8 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = ember
-# background=#121212
+theme = Catppuccin Mocha
+background=#1e1e27
 
 font-family = ioskeley mono
 

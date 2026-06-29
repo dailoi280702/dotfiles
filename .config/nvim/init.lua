@@ -1,4 +1,5 @@
 --: Opptions
+--
 vim.g.mapleader = " "
 vim.cmd.colorscheme("default")
 vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
@@ -42,8 +43,10 @@ vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<cr>", { desc = "Toggle C
 vim.pack.add({
 	"https://github.com/nickkadutskyi/jb.nvim",
 	"https://github.com/ember-theme/nvim",
+	"https://github.com/vague-theme/vague.nvim",
+	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
---
+
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "catppuccin*,retrobox",
 	callback = function()
@@ -51,7 +54,31 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-vim.cmd.colorscheme("ember")
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "catppuccin*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "#1e1e27" })
+		vim.api.nvim_set_hl(0, "MiniStatuslineFilename", { bg = "#1e1e27" })
+	end,
+})
+
+require("catppuccin").setup({
+	flavour = "auto",
+	background = {
+		light = "latte",
+		dark = "mocha",
+	},
+	transparent_background = true,
+	float = {
+		transparent = true,
+		solid = true,
+	},
+	no_italic = true,
+	default_integrations = true,
+	auto_integrations = true,
+})
+
+vim.cmd.colorscheme("catppuccin-nvim")
 --:
 
 -- --: Tree-sitter
@@ -210,9 +237,6 @@ end
 --:
 
 --: Lsp
--- vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
--- 	once = true,
--- 	callback = function()
 vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/mason-org/mason.nvim",
@@ -312,8 +336,6 @@ local capabilities =
 for server_name, opts in pairs(server_opts) do
 	vim.lsp.config(server_name, vim.tbl_deep_extend("force", { capabilities = capabilities }, opts or {}))
 end
--- 	end,
--- })
 --:
 
 --: Oil
@@ -341,7 +363,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 			{ src = "https://github.com/saghen/blink.cmp" },
 		})
 
-		require("blink.cmp").setup({
+		blink.setup({
 			appearance = {
 				use_nvim_cmp_as_default = true,
 				nerd_font_variant = "mono",
@@ -389,6 +411,8 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 				["<C-j>"] = { "select_next", "fallback" },
 			},
 		})
+
+		-- blink.build().pwait()
 	end,
 })
 --:
