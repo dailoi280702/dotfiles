@@ -1,5 +1,42 @@
+[settings]
+node.concurrency = 5
+
 [tools]
-go = "1.26"
+go = "1.27"
+python = "3.14"
+rust = "stable"
+zig = "latest"
+pipx = "latest"
+tree-sitter = "latest"
+node = "latest"
+
+# LSPs
+"go:golang.org/x/tools/gopls" = "latest"
+rust-analyzer = "latest"
+zls = "latest"
+golangci-lint = "latest"
+"npm:pyright" = "latest"
+"npm:typescript-language-server" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
+"npm:bash-language-server" = "latest"
+"npm:eslint" = "latest"
+"npm:@bufbuild/buf" = "latest"
+"cargo:typos-lsp" = "latest"
+terraform-ls = "latest"
+"github:valentjn/ltex-ls" = "latest"
+"npm:sql-language-server" = "latest"
+lua-language-server = "latest"
+
+# Formatters & Linters
+gofumpt = "latest"
+stylua = "latest"
+shfmt = "latest"
+"npm:prettier" = "latest"
+"npm:@fsouza/prettierd" = "latest"
+"pipx:black" = "latest"
+"pipx:codespell" = "latest"
+
+# Dev Tools
 "go:github.com/air-verse/air" = "latest"
 "go:github.com/rubenv/sql-migrate/..." = "latest"
 "go:github.com/swaggo/swag/cmd/swag" = "latest"
@@ -7,11 +44,6 @@ go = "1.26"
 "go:github.com/securego/gosec/v2/cmd/gosec" = "latest"
 "go:github.com/vektra/mockery/v3" = "latest"
 "go:github.com/fullstorydev/grpcurl/cmd/grpcurl" = "latest"
-"go:github.com/husol/revel_cmd/revel" = "latest"
-golangci-lint = "latest"
-zig = "latest"
-rust = "stable"
 "go:github.com/karol-broda/snitch" = "latest"
-python = "3.12"
-tree-sitter = "latest"
 "npm:hunkdiff" = "latest"
+

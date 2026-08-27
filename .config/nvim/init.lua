@@ -1,26 +1,27 @@
---: Opptions
---
+--: Options
 vim.g.mapleader = " "
 vim.cmd.colorscheme("default")
 vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
-vim.opt.autowrite = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.ignorecase = true
-vim.opt.scrolloff = 10
-vim.opt.sidescrolloff = 8
-vim.opt.signcolumn = "yes:1" -- Always show the signcolumn, otherwise it would shift the text each time
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.termguicolors = true
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.writebackup = false
-vim.opt.wrap = false
-vim.opt.nu = true
-vim.opt.rnu = true
-vim.opt.background = "dark"
+
+local opt = vim.opt
+opt.autowrite = true
+opt.clipboard = "unnamedplus"
+opt.ignorecase = true
+opt.scrolloff = 10
+opt.sidescrolloff = 8
+opt.signcolumn = "yes:1"
+opt.smartcase = true
+opt.smartindent = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.termguicolors = true
+opt.swapfile = false
+opt.backup = false
+opt.writebackup = false
+opt.wrap = false
+opt.nu = true
+opt.rnu = true
+opt.background = "dark"
 
 vim.filetype.add({ extension = { tf = "terraform", tfstate = "terraform" } })
 
@@ -39,7 +40,7 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<cr>", { desc = "Toggle Colorizer" })
 --:
 
---: colorscheme
+--: Colorscheme
 vim.pack.add({
 	"https://github.com/nickkadutskyi/jb.nvim",
 	"https://github.com/ember-theme/nvim",
@@ -81,68 +82,21 @@ require("catppuccin").setup({
 vim.cmd.colorscheme("catppuccin-nvim")
 --:
 
--- --: Tree-sitter
--- vim.pack.add({
--- 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
--- })
---
--- vim.api.nvim_create_autocmd("PackChanged", {
--- 	callback = function(ev)
--- 		local name, kind = ev.data.spec.name, ev.data.kind
--- 		if name == "nvim-treesitter" and kind == "update" then
--- 			if not ev.data.active then
--- 				vim.cmd.packadd("nvim-treesitter")
--- 			end
--- 			vim.cmd("TSUpdate")
--- 		end
--- 	end,
--- })
---
--- local ts = require("nvim-treesitter")
---
--- ts.setup({
--- 	install_dir = vim.fn.stdpath("data") .. "/site",
--- })
---
--- vim.api.nvim_create_autocmd("FileType", {
--- 	callback = function(args)
--- 		local supported_languages = {}
--- 		for _, lang in ipairs(ts.get_available()) do
--- 			supported_languages[lang] = true
--- 		end
---
--- 		local ft = vim.bo[args.buf].filetype
---
--- 		if not supported_languages[ft] then
--- 			return
--- 		end
---
--- 		if not pcall(vim.treesitter.start) then
--- 			ts.install(ft)
--- 		end
--- 	end,
--- })
--- --:
-
---: Arborist (Tree-sitter replacement)
+--: Arborist
 vim.pack.add({ "https://github.com/arborist-ts/arborist.nvim" })
 require("arborist").setup({})
---
+--:
 
 --: FzfLua
 vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
 
 require("fzf-lua").setup({
 	winopts = {
-		treesitter = {
-			enabled = false,
-		},
+		treesitter = { enabled = false },
 	},
 	previewers = {
 		builtin = {
-			treesitter = {
-				enabled = false,
-			},
+			treesitter = { enabled = false },
 		},
 	},
 })
@@ -153,94 +107,62 @@ vim.keymap.set("n", "<leader>/", "<cmd>FzfLua live_grep<cr>", { desc = "Grep" })
 vim.keymap.set("n", "<leader>'", "<cmd>FzfLua resume<cr>", { desc = "Resume search" })
 --:
 
---: Status line
-vim.pack.add({ "https://github.com/nvim-mini/mini.statusline" })
-
-require("mini.statusline").setup()
---:
-
--- : utilities
+--: Statusline & Mini Icons
 vim.pack.add({
+	"https://github.com/nvim-mini/mini.statusline",
 	"https://github.com/nvim-mini/mini.icons",
 })
 
+require("mini.statusline").setup()
 require("mini.icons").setup()
 MiniIcons.mock_nvim_web_devicons()
-
-vim.schedule(function()
-	vim.pack.add({
-		"https://github.com/nvim-mini/mini.icons",
-		"https://github.com/NvChad/nvim-colorizer.lua",
-		"https://github.com/nvim-mini/mini.misc",
-		"https://github.com/nvim-mini/mini.cursorword",
-		"https://github.com/lukas-reineke/indent-blankline.nvim",
-	})
-
-	require("colorizer").setup()
-	require("mini.misc").setup({
-		make_global = {
-			"put",
-			"put_text",
-			"setup_termbg_sync",
-			"zoom",
-		},
-	})
-	require("mini.cursorword").setup({})
-	require("ibl").setup({
-		indent = { char = "│" },
-		scope = { enabled = false },
-	})
-end)
 --:
 
---: Mason
--- vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile"}, {
--- 	once = true,
--- 	callback = function()
-vim.pack.add({ "https://github.com/mason-org/mason.nvim" })
+--: Oil
+vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
 
-local tools = {
-	"stylua",
-	"shfmt",
-	"prettierd",
-	"stylua",
-	"golangci-lint",
-	"gofumpt",
-	"eslint_d",
-	"fixjson",
-	"black",
-	"rust-analyzer",
-}
-
-require("mason").setup({
-	ensure_installed = tools,
+require("oil").setup({
+	view_options = { show_hidden = true },
+	default_file_explorer = true,
 })
 
-local mr = require("mason-registry")
-
-local function mason_install()
-	for _, tool in ipairs(tools) do
-		local p = mr.get_package(tool)
-		if not p:is_installed() then
-			p:install()
-		end
-	end
-end
-
-if mr.refresh then
-	mr.refresh(mason_install)
-else
-	mason_install()
-end
--- 	end,
--- })
+vim.keymap.set("n", "<leader>,", "<cmd>Oil<cr>", { desc = "Browse files" })
 --:
 
---: Lsp
+--: Gitsigns & Guard
+vim.pack.add({
+	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/nvimdev/guard-collection",
+	"https://github.com/nvimdev/guard.nvim",
+})
+
+local gs = require("gitsigns")
+gs.setup({ current_line_blame = true })
+vim.keymap.set("n", "]h", gs.next_hunk, { desc = "Next hunk" })
+vim.keymap.set("n", "[h", gs.prev_hunk, { desc = "Prev hunk" })
+
+local ft = require("guard.filetype")
+ft("python"):fmt("black")
+ft("lua"):fmt("stylua")
+ft("go"):fmt({ cmd = "gofumpt", stdin = true, args = {} })
+ft(
+	"javascript,javascriptreact,typescript,typescriptreact,vue,css,scss,less,html,json,jsonc,yaml,markdown,markdown.mdx,graphql,handlebars"
+):fmt("prettier")
+ft("rust"):fmt("rustfmt")
+ft("*"):lint("codespell")
+
+vim.g.guard_config = {
+	fmt_on_save = true,
+	lsp_as_default_formatter = true,
+	auto_lint = true,
+	lint_interval = 300,
+	refresh_diagnostic = true,
+}
+--:
+
+--: LSP Config (Top-level setup; native PATH lookup)
 vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
-	"https://github.com/mason-org/mason.nvim",
-	"https://github.com/mason-org/mason-lspconfig.nvim",
 	"https://github.com/saghen/blink.lib",
 	"https://github.com/saghen/blink.cmp",
 })
@@ -253,107 +175,90 @@ vim.keymap.set("n", "gri", "<cmd>FzfLua lsp_implementations<cr>", { desc = "Goto
 local server_opts = {
 	ts_ls = {},
 	cssls = {},
-	html = { filetypes = { "html", "php", "rust", "typesciptreact", "javascriptreact" } },
+	html = { filetypes = { "html", "php", "rust", "typescriptreact", "javascriptreact" } },
 	ltex = {},
-	tailwindcss = {},
 	gopls = {},
 	sqlls = {},
 	bashls = {},
 	pyright = {},
-	-- intelephense = {},
 	zls = {},
 	lua_ls = {
 		settings = {
 			Lua = {
-				runtime = {
-					version = "LuaJIT",
-				},
-				diagnostics = {
-					globals = {
-						"vim",
-						"require",
-					},
-				},
+				runtime = { version = "LuaJIT" },
+				diagnostics = { globals = { "vim", "require" } },
 				workspace = {
-					-- library = vim.api.nvim_get_runtime_file("", true),
 					library = {
 						vim.fn.expand("~/.config/hammerspoon/Spoons/EmmyLua.spoon/annotations"),
 					},
 				},
-				telemetry = {
-					enable = false,
-				},
+				telemetry = { enable = false },
 			},
 		},
 	},
 	buf_ls = {},
-	golangci_lint_ls = {
-		-- command = { "golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false" },
-	},
+	golangci_lint_ls = {},
 	eslint = {},
 	rust_analyzer = {},
-	terraformls = {
-		-- filetypes = { "terraform", "terraform-vars", "tf" },
-	},
-	-- yamlfix = {},
-	-- nilaway = {},
+	terraformls = {},
 	typos_lsp = {},
 }
 
 if vim.fn.executable("nix") == 1 then
 	server_opts.nil_ls = {
 		settings = {
-			["nil"] = {
-				formatting = {
-					command = { "nixfmt" },
-				},
-			},
+			["nil"] = { formatting = { command = { "nixfmt" } } },
 		},
 	}
 end
 
-local ensure_installed = {}
-for server, _ in pairs(server_opts) do
-	ensure_installed[#ensure_installed + 1] = server
-end
+local blink_ok, blink = pcall(require, "blink.cmp")
+local blink_caps = blink_ok and blink.get_lsp_capabilities({}, false) or {}
 
-local mason_lsp = require("mason-lspconfig")
-mason_lsp.setup({
-	ensure_installed = ensure_installed,
-})
-
-local blink = require("blink.cmp")
-local capabilities =
-	vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), blink.get_lsp_capabilities({}, false), {
-		textDocument = {
-			foldingRange = {
-				dynamicRegistration = false,
-				lineFoldingOnly = true,
-			},
+local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), blink_caps, {
+	textDocument = {
+		foldingRange = {
+			dynamicRegistration = false,
+			lineFoldingOnly = true,
 		},
-	})
+	},
+})
 
 for server_name, opts in pairs(server_opts) do
 	vim.lsp.config(server_name, vim.tbl_deep_extend("force", { capabilities = capabilities }, opts or {}))
 end
 --:
 
---: Oil
+--: Idle / Non-critical Utilities (Deferred via vim.schedule)
 vim.schedule(function()
-	vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
-
-	require("oil").setup({
-		view_options = {
-			show_hidden = true,
-		},
-		default_file_explorer = true,
+	vim.pack.add({
+		"https://github.com/NvChad/nvim-colorizer.lua",
+		"https://github.com/nvim-mini/mini.misc",
+		"https://github.com/nvim-mini/mini.cursorword",
+		"https://github.com/lukas-reineke/indent-blankline.nvim",
+		"https://github.com/nvim-mini/mini.ai",
+		"https://github.com/nvim-mini/mini.comment",
+		"https://github.com/JoosepAlviste/nvim-ts-context-commentstring",
 	})
 
-	vim.keymap.set("n", "<leader>,", "<cmd>Oil<cr>", { desc = "Brow files" })
-end)
---
+	require("colorizer").setup()
+	require("mini.misc").setup({ make_global = { "put", "put_text", "setup_termbg_sync", "zoom" } })
+	require("mini.cursorword").setup({})
+	require("ibl").setup({ indent = { char = "│" }, scope = { enabled = false } })
 
---: Blink
+	require("mini.ai").setup({})
+	require("ts_context_commentstring").setup({ enable_autocmd = false })
+	require("mini.comment").setup({
+		options = {
+			custom_commentstring = function()
+				return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+			end,
+		},
+	})
+end)
+--:
+
+--: Blink Completion (Deferred to Insert mode typing)
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 	once = true,
 	callback = function()
@@ -363,7 +268,11 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 			{ src = "https://github.com/saghen/blink.cmp" },
 		})
 
-		blink.setup({
+
+		local blink_cmp = require("blink.cmp")
+
+		blink_cmp.build():pwait()
+		blink_cmp.setup({
 			appearance = {
 				use_nvim_cmp_as_default = true,
 				nerd_font_variant = "mono",
@@ -372,28 +281,19 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 				default = { "lsp", "path", "snippets", "buffer" },
 				providers = {},
 			},
-			fuzzy = {
-				implementation = "prefer_rust_with_warning",
-			},
-			signature = {
-				enabled = true,
-			},
+			fuzzy = { implementation = "prefer_rust_with_warning" },
+			signature = { enabled = true },
 			completion = {
 				list = {
 					selection = {
 						auto_insert = true,
 						preselect = function(ctx)
-							return ctx.mode ~= "cmdline" and not require("blink.cmp").snippet_active({ direction = 1 })
+							return ctx.mode ~= "cmdline" and not blink_cmp.snippet_active({ direction = 1 })
 						end,
 					},
 				},
-				documentation = {
-					auto_show = true,
-					auto_show_delay_ms = 100,
-				},
-				ghost_text = {
-					enabled = true,
-				},
+				documentation = { auto_show = true, auto_show_delay_ms = 100 },
+				ghost_text = { enabled = true },
 			},
 			keymap = {
 				["<Tab>"] = {
@@ -411,13 +311,11 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 				["<C-j>"] = { "select_next", "fallback" },
 			},
 		})
-
-		-- blink.build().pwait()
 	end,
 })
 --:
 
---: Fold
+--: UFO Folding
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 	once = true,
 	callback = function()
@@ -445,88 +343,9 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 		end
 
 		vim.keymap.set("n", "z,", "<cmd>%foldclose<CR>", { desc = "Close first level folds" })
-		vim.keymap.set("n", "z.", "<cmd>sil! normal mzzM`zzO<CR>", { desc = "Magic fold  " })
+		vim.keymap.set("n", "z.", "<cmd>sil! normal mzzM`zzO<CR>", { desc = "Magic fold" })
 		vim.keymap.set("n", "zM", ufo.closeAllFolds)
 		vim.keymap.set("n", "zR", ufo.openAllFolds)
-	end,
-})
---:
-
---: Gitsigns
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
-
-		local gs = require("gitsigns")
-
-		gs.setup({
-			current_line_blame = true,
-		})
-
-		vim.keymap.set("n", "]h", gs.next_hunk, { desc = "Next hunk" })
-		vim.keymap.set("n", "[h", gs.prev_hunk, { desc = "Prev hunk" })
-	end,
-})
---:
-
---: Guard
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({
-			"https://github.com/nvimdev/guard-collection",
-			"https://github.com/nvimdev/guard.nvim",
-		})
-
-		local ft = require("guard.filetype")
-
-		ft("python"):fmt("black")
-		ft("lua"):fmt("stylua")
-		ft("go"):fmt({ cmd = "gofumpt", stdin = true, args = {} })
-		ft(
-			"javascript,javascriptreact,typescript,typescriptreact,vue,css,scss,less,html,json,jsonc,yaml,markdown,markdown.mdx,graphql,handlebars"
-		):fmt("prettier")
-		ft("rust"):fmt("rustfmt")
-		ft("*"):lint("codespell")
-
-		vim.g.guard_config = {
-			fmt_on_save = true,
-			lsp_as_default_formatter = true,
-			auto_lint = true,
-			lint_interval = 300,
-			refresh_diagnostic = true,
-		}
-	end,
-})
---:
-
---: Mini
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-	once = true,
-	callback = function()
-		vim.pack.add({
-			-- "https://github.com/nvim-mini/mini.pairs",
-			"https://github.com/nvim-mini/mini.ai",
-			"https://github.com/nvim-mini/mini.comment",
-			"https://github.com/JoosepAlviste/nvim-ts-context-commentstring",
-		})
-
-		-- require("mini.pairs").setup({})
-		require("mini.ai").setup({})
-
-		require("ts_context_commentstring").setup({
-			enable_autocmd = false,
-		})
-
-		require("mini.comment").setup({
-			options = {
-				custom_commentstring = function()
-					return require("ts_context_commentstring.internal").calculate_commentstring()
-						or vim.bo.commentstring
-				end,
-			},
-		})
 	end,
 })
 --:
