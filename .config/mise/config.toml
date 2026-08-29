@@ -12,6 +12,7 @@ node = "latest"
 
 # LSPs
 "go:golang.org/x/tools/gopls" = "latest"
+"go:github.com/nametake/golangci-lint-langserver" = "latest"
 rust-analyzer = "latest"
 zls = "latest"
 golangci-lint = "latest"

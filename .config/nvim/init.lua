@@ -24,6 +24,12 @@ opt.rnu = true
 opt.background = "dark"
 
 vim.filetype.add({ extension = { tf = "terraform", tfstate = "terraform" } })
+vim.filetype.add({
+	filename = {
+		["buf.yaml"] = "buf-config",
+		["buf.gen.yaml"] = "buf-config",
+	},
+})
 
 vim.diagnostic.config({
 	virtual_text = {
@@ -160,7 +166,7 @@ vim.g.guard_config = {
 }
 --:
 
---: LSP Config (Top-level setup; native PATH lookup)
+--: LSP Config
 vim.pack.add({
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/saghen/blink.lib",
@@ -172,45 +178,24 @@ vim.keymap.set("n", "grD", "<cmd>FzfLua lsp_declarations<cr>", { desc = "Goto De
 vim.keymap.set("n", "grr", "<cmd>FzfLua lsp_references<cr>", { desc = "References" })
 vim.keymap.set("n", "gri", "<cmd>FzfLua lsp_implementations<cr>", { desc = "Goto Implementation" })
 
-local server_opts = {
-	ts_ls = {},
-	cssls = {},
-	html = { filetypes = { "html", "php", "rust", "typescriptreact", "javascriptreact" } },
-	ltex = {},
-	gopls = {},
-	sqlls = {},
-	bashls = {},
-	pyright = {},
-	zls = {},
-	lua_ls = {
-		settings = {
-			Lua = {
-				runtime = { version = "LuaJIT" },
-				diagnostics = { globals = { "vim", "require" } },
-				workspace = {
-					library = {
-						vim.fn.expand("~/.config/hammerspoon/Spoons/EmmyLua.spoon/annotations"),
-					},
-				},
-				telemetry = { enable = false },
-			},
-		},
-	},
-	buf_ls = {},
-	golangci_lint_ls = {},
-	eslint = {},
-	rust_analyzer = {},
-	terraformls = {},
-	typos_lsp = {},
+local servers = {
+	"ts_ls",
+	"cssls",
+	"html",
+	"ltex",
+	"gopls",
+	"sqlls",
+	"bashls",
+	"pyright",
+	"zls",
+	"lua_ls",
+	"buf_ls",
+	"golangci_lint_ls",
+	"eslint",
+	"rust_analyzer",
+	"terraformls",
+	"typos_lsp",
 }
-
-if vim.fn.executable("nix") == 1 then
-	server_opts.nil_ls = {
-		settings = {
-			["nil"] = { formatting = { command = { "nixfmt" } } },
-		},
-	}
-end
 
 local blink_ok, blink = pcall(require, "blink.cmp")
 local blink_caps = blink_ok and blink.get_lsp_capabilities({}, false) or {}
@@ -224,8 +209,36 @@ local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_c
 	},
 })
 
-for server_name, opts in pairs(server_opts) do
-	vim.lsp.config(server_name, vim.tbl_deep_extend("force", { capabilities = capabilities }, opts or {}))
+-- Configure custom options first using new vim.lsp.config API
+vim.lsp.config("html", { filetypes = { "html", "php", "rust", "typescriptreact", "javascriptreact" } })
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			runtime = { version = "LuaJIT" },
+			diagnostics = { globals = { "vim", "require", "MiniIcons" } },
+			workspace = {
+				library = {
+					vim.fn.expand("~/.config/hammerspoon/Spoons/EmmyLua.spoon/annotations"),
+				},
+			},
+			telemetry = { enable = false },
+		},
+	},
+})
+
+if vim.fn.executable("nix") == 1 then
+	table.insert(servers, "nil_ls")
+	vim.lsp.config("nil_ls", {
+		settings = {
+			["nil"] = { formatting = { command = { "nixfmt" } } },
+		},
+	})
+end
+
+-- Pass global capabilities and enable servers natively
+for _, server in ipairs(servers) do
+	vim.lsp.config(server, { capabilities = capabilities })
+	vim.lsp.enable(server)
 end
 --:
 
@@ -267,7 +280,6 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 			{ src = "https://github.com/saghen/blink.lib" },
 			{ src = "https://github.com/saghen/blink.cmp" },
 		})
-
 
 		local blink_cmp = require("blink.cmp")
 
