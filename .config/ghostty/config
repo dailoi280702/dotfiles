@@ -7,13 +7,10 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = Catppuccin Mocha
-background=#1e1e27
+theme = token-meridian-dark
+# background=#1b1b1b
 
-# theme = Gruvbox Dark
-# background=#1c1c1c
-
-font-family = nordwand mono
+font-family = abc areal mono
 # font-family = ioskeley mono
 
 # font-style = medium
@@ -22,7 +19,7 @@ font-family = nordwand mono
 # font-style-bold-italic = extrabold
 
 font-size = 14
-# adjust-cell-width = -7%
+adjust-cell-width = -7%
 adjust-cell-height = +20%
 # adjust-font-baseline = -30%
 font-thicken = true

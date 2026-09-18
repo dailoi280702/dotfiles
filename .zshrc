@@ -23,7 +23,8 @@ fi
 
 (( $+commands[mise]   )) && eval "$(mise activate zsh)"
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
-(( $+commands[fzf]    )) && eval "$(fzf --zsh)"
+# (( $+commands[fzf]    )) && eval "$(fzf --zsh)"
+(( $+commands[atuin]    )) && eval "$(atuin init zsh)"
 (( $+commands[starship] )) && {
     [[ -z $__starship_initialized ]] && export __starship_initialized=1
     eval "$(starship init zsh)"

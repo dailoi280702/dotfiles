@@ -48,10 +48,7 @@ vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<cr>", { desc = "Toggle C
 
 --: Colorscheme
 vim.pack.add({
-	"https://github.com/nickkadutskyi/jb.nvim",
-	"https://github.com/ember-theme/nvim",
-	"https://github.com/vague-theme/vague.nvim",
-	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+	"https://github.com/ThorstenRhau/token"
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
@@ -61,31 +58,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "catppuccin*",
-	callback = function()
-		vim.api.nvim_set_hl(0, "Normal", { bg = "#1e1e27" })
-		vim.api.nvim_set_hl(0, "MiniStatuslineFilename", { bg = "#1e1e27" })
-	end,
-})
-
-require("catppuccin").setup({
-	flavour = "auto",
-	background = {
-		light = "latte",
-		dark = "mocha",
-	},
-	transparent_background = true,
-	float = {
-		transparent = true,
-		solid = true,
-	},
-	no_italic = true,
-	default_integrations = true,
-	auto_integrations = true,
-})
-
-vim.cmd.colorscheme("catppuccin-nvim")
+vim.cmd.colorscheme("token-meridian")
 --:
 
 --: Arborist
