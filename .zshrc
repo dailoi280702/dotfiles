@@ -1,5 +1,6 @@
 set -o vi
 export GOPRIVATE="gitlab.com/husol*"
+export PATH=/Users/lloyd/.opencode/bin:$PATH
 
 (( $+commands[nvim] )) && { alias vi="nvim"; export EDITOR=nvim; }
 (( $+commands[eza] ))  && { alias ll="eza -l -g --icons=always"; alias tree="eza --tree --icons=always"; alias lla="ll -a"; }

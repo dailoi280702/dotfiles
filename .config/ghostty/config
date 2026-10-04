@@ -7,10 +7,12 @@ confirm-close-surface = false
 shell-integration = fish
 # custom-shader = shaders/paper2.glsl
 
-theme = token-meridian-dark
-# background=#1b1b1b
+# theme = token-dark
+theme = Gruvbox Light Hard
+background = #fcfbf0
 
-font-family = abc areal mono
+font-family = jetbrains mono
+# font-family = AnnotationM NF
 # font-family = ioskeley mono
 
 # font-style = medium
@@ -20,7 +22,7 @@ font-family = abc areal mono
 
 font-size = 14
 adjust-cell-width = -7%
-adjust-cell-height = +20%
+# adjust-cell-height = +20%
 # adjust-font-baseline = -30%
 font-thicken = true
 

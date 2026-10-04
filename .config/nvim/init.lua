@@ -12,7 +12,7 @@ opt.sidescrolloff = 8
 opt.signcolumn = "yes:1"
 opt.smartcase = true
 opt.smartindent = true
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.tabstop = 2
 opt.termguicolors = true
 opt.swapfile = false
@@ -21,7 +21,7 @@ opt.writebackup = false
 opt.wrap = false
 opt.nu = true
 opt.rnu = true
-opt.background = "dark"
+opt.background = "light"
 
 vim.filetype.add({ extension = { tf = "terraform", tfstate = "terraform" } })
 vim.filetype.add({
@@ -48,7 +48,11 @@ vim.keymap.set("n", "<leader>tc", "<cmd>ColorizerToggle<cr>", { desc = "Toggle C
 
 --: Colorscheme
 vim.pack.add({
-	"https://github.com/ThorstenRhau/token"
+	-- "https://github.com/ThorstenRhau/token",
+	-- "https://github.com/vague-theme/vague.nvim",
+	"https://github.com/ellisonleao/gruvbox.nvim",
+	"https://github.com/sainnhe/everforest",
+	"https://github.com/sainnhe/gruvbox-material",
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
@@ -58,7 +62,22 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
-vim.cmd.colorscheme("token-meridian")
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "retrobox,gruvbox,everforest,gruvbox-material",
+	callback = function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "#FCFBF0" })
+	end,
+})
+
+-- require("vague").setup({
+-- 	transparent = false, -- If true, background is not set
+-- 	bold = false, -- Disable bold globally
+-- 	italic = false, -- Disable italic globally
+-- })
+
+require("gruvbox").setup({ contrast = "hard" })
+
+vim.cmd.colorscheme("everforest")
 --:
 
 --: Arborist
